@@ -49,10 +49,10 @@ $(document).ready(function(){
     $('.nav-item.dropdown').on('click touchstart', function(e) {
         e.stopPropagation(); // Ngăn chặn sự kiện click hoặc touch tự lan ra ngoài để không tắt menu ngay lập tức
         if (!isMenuOpen) { // Nếu menu đang đóng
-            $(this).find('.dropdown-menu').stop(true, true).fadeIn(0); // Mở menu
+            $(this).find('.dropdown-menu').stop(true, true).fadeIn(500); // Mở menu
             isMenuOpen = true; // Cập nhật trạng thái là đã mở
         } else { // Nếu menu đang mở
-            $(this).find('.dropdown-menu').stop(true, true).fadeOut(0); // Đóng menu
+            $(this).find('.dropdown-menu').stop(true, true).fadeOut(500); // Đóng menu
             isMenuOpen = false; // Cập nhật trạng thái là đã đóng
         }
     });
@@ -61,12 +61,21 @@ $(document).ready(function(){
     $(document).on('click touchstart', function(e) {
         if (!$(e.target).closest('.nav-item.dropdown').length) { // Nếu click ra khỏi mục menu
             if (isMenuOpen) { // Nếu menu đang mở
-                $('.dropdown-menu').stop(true, true).fadeOut(0); // Đóng menu
+                $('.dropdown-menu').stop(true, true).fadeOut(500); // Đóng menu
                 isMenuOpen = false; // Cập nhật trạng thái là đã đóng
             }
         }
     });
+
+    // Sự kiện khi click hoặc touch vào menu khi menu đã mở
+    $('.nav-item.dropdown').on('click touchstart', function(e) {
+        if (isMenuOpen) { // Nếu menu đang mở
+            $(this).find('.dropdown-menu').stop(true, true).fadeOut(500); // Đóng menu
+            isMenuOpen = false; // Cập nhật trạng thái là đã đóng
+        }
+    });
 });
+
 
 
 
