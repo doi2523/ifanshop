@@ -93,23 +93,24 @@
                   </button>
                   <form class="form form-signup">
                     <fieldset>
-                      <legend>Please, enter your email, password and password confirmation for sign up.</legend>
-                      <div class="input-block">
-                        <label for="signup-username">Username</label>
-                        <input id="signup-email" type="text" required>
-                      </div>
-                      <div class="input-block">
-                        <label for="signup-email">E-mail</label>
-                        <input id="signup-email" type="email" required>
-                      </div>
-                      <div class="input-block">
-                        <label for="signup-password">Password</label>
-                        <input id="signup-password" type="password" required>
-                      </div>
-                      <a href="" id="have-account">Bạn đã có tài khoản?</a>
+                        <legend>Please, enter your email, password and password confirmation for sign up.</legend>
+                        <div class="input-block">
+                            <label for="signup-username">Username</label>
+                            <input id="signup-username" type="text" required>
+                        </div>
+                        <div class="input-block">
+                            <label for="signup-email">E-mail</label>
+                            <input id="signup-email" type="email" required>
+                        </div>
+                        <div class="input-block">
+                            <label for="signup-password">Password</label>
+                            <input id="signup-password" type="password" required>
+                        </div>
+                        <a id="have-account">Bạn đã có tài khoản?</a>
                     </fieldset>
                     <button type="submit" class="btn-signup">Đăng ký</button>
-                  </form>
+                </form>
+                
                 </div>
               </div>
             </section>
@@ -168,24 +169,5 @@
 <script src="js/scrollIt.min.js"></script> 
 <script src="js/wow.min.js"></script> 
 <script src="js/script.js"></script>
-<script>
-  const loginText = document.querySelector(".title-text .login");
-const loginForm = document.querySelector("form.login");
-const loginBtn = document.querySelector("label.login");
-const signupBtn = document.querySelector("label.signup");
-const signupLink = document.querySelector("form .signup-link a");
-signupBtn.onclick = () => {
-  loginForm.style.marginLeft = "-50%";
-  loginText.style.marginLeft = "-50%";
-};
-loginBtn.onclick = () => {
-  loginForm.style.marginLeft = "0%";
-  loginText.style.marginLeft = "0%";
-};
-signupLink.onclick = () => {
-  signupBtn.click();
-  return false;
-};
-</script>
 </body>
 </html>
