@@ -2,13 +2,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Applight Template By W3 Template</title>
+<title>iFanShop</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <link rel="stylesheet" href="css/animate.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="style.css"/>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -16,18 +17,35 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg">
   <div class="container"> 
-    <a class="navbar-brand navbar-logo" href=""><img src="images/ifa1.png" alt=""></a>
+    <a class="navbar-brand navbar-logo" href="index.html"><img style="height: 50px;" src="images/ifa1.png" alt=""></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="fas fa-bars"></span> </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item"> <a class="nav-link" href="index.html" data-scroll-nav="0">Trang chủ</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="index.html">Trang chủ</a> </li>
         <li class="nav-item"> <a class="nav-link" href="about.html">Giới thiệu</a> </li>
         <li class="nav-item"> <a class="nav-link" href="sanpham.html">Sản phẩm</a> </li>
         <li class="nav-item"> <a class="nav-link" href="services.html">Dịch vụ</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="people.html">Đội ngũ</a> </li>
         <li class="nav-item"> <a class="nav-link" href="faq.html">Faq</a> </li>
         <li class="nav-item"> <a class="nav-link" href="contact.html">Liên hệ</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="login.html">Đăng nhập</a> </li>
+        <li class="nav-item dropdown"> 
+          <a class="nav-link dropdown-toggle" href="#" id="login" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Đăng nhập<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 8 2" fill="currentColor" id="icon" class="rotate-icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.646 3.708L0.645996 0.708L1.354 0L4 2.647L6.646 0L7.354 0.708L4.354 3.708L4 4.061L3.646 3.708Z" fill="currentColor"></path></svg>
+          </a>        
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#" style="color: #5f0099;">Đăng nhập</a>
+              <a class="dropdown-item" href="#" style="color: #5f0099;">Đăng kí</a>
+          </div>
+        </li>
+    </ul>
+    
+    
+        <!-- <li class="nav-item">
+          <form class="form-inline search-form">
+              <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm" aria-label="Tìm kiếm">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+          </form>
+      </li>           -->
+    
       </ul>
     </div>
   </div>
@@ -41,7 +59,7 @@
         <div class="col-md-8 col-sm-12">
           <div class="banner-text">
             <h2 class="white">Chào mừng đến với iFanShop</h2>
-            <h6 class="white">Cam kết, Đảm bảo, Uy tín <a href="http://w3Template.com" target="_blank" rel="dofollow" class="weblink">iFanShop</a>.</h6>
+            <h6 class="white">Cam kết, Đảm bảo, Uy tín <a href="index.html" target="_blank" rel="dofollow" class="weblink">iFanShop</a>.</h6>
             <p class="banner-text white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur hendrerit neque massa, sit amet tristique ante porta ut. In sodales et justo vel vulputate. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
             <ul>
               <li><a href="#"><img src="" class="wow fadeInUp" data-wow-delay="0.4s"/>Xem thêm</a></li>
