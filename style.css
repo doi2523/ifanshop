@@ -63,7 +63,7 @@ h6 {
 .navbar .nav-item a::after{
 	content: '';
     position: absolute;
-    width: 100%;
+    width: 80%;
     height: 3px;
     background-color: #fff;
     border-radius: 5px;
@@ -78,6 +78,31 @@ h6 {
 .navbar .nav-item a:hover::after {
 	transform: scaleX(1);
 }
+.dropdown-menu a{
+	text-align: center;
+}
+#icon{
+	margin-top: 0px;
+	margin-left: 5px;
+}
+
+.rotate-icon {
+    transition: transform 0.3s ease;
+}
+
+.rotate-icon.hovered {
+    transform: rotate(180deg);
+}
+
+
+@media (max-width: 768px) {
+    .navbar .nav-item a::after {
+        width: 100%; /* Định dạng lại chiều rộng cho chế độ di động */
+		background-color: #7a60ff;
+    }
+}
+
+
 .navbar .nav-link {
 	position: relative;
 	padding: 0;
@@ -118,6 +143,9 @@ h6 {
 	position: relative;
 }
 
+.nav-item {
+    position: relative; /* Đảm bảo phần tử là relative để các phần tử con có thể được định vị tuyệt đối hoặc tương đối với nó */
+}
 
 
 .banner {
@@ -181,7 +209,7 @@ h6 {
 }
 
 .ip15prm{
-	height: 500px;
+	height: 450px;
 }
 .download {
 	background: #7a60ff;
