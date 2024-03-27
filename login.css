@@ -121,7 +121,7 @@
 
 .form {
 	overflow: hidden;
-	/* min-width: 350px; */
+	min-width: 350px;
 	margin-top: 50px;
 	padding: 30px 25px;
   border-radius: 5px;
@@ -129,7 +129,7 @@
 }
 @media all and (max-width:768px) {
   .form{
-    width: 200px;
+    width: 250px;
   }
 }
 
