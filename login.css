@@ -129,7 +129,7 @@
 }
 @media all and (max-width:768px) {
   .form {
-    width: 120%; /* hoặc bất kỳ giá trị nào phù hợp với thiết kế của bạn */
+    width: 240px; /* hoặc bất kỳ giá trị nào phù hợp với thiết kế của bạn */
     min-width: auto; /* hoặc bất kỳ giá trị nào phù hợp với thiết kế của bạn */
     margin-top: 50px; /* hoặc bất kỳ giá trị nào phù hợp với thiết kế của bạn */
     padding: 20px; /* hoặc bất kỳ giá trị nào phù hợp với thiết kế của bạn */
@@ -139,7 +139,7 @@
 }
 @media all and (max-width:991px) {
   .form {
-    width: 120%; /* hoặc bất kỳ giá trị nào phù hợp với thiết kế của bạn */
+    width: 240px; /* hoặc bất kỳ giá trị nào phù hợp với thiết kế của bạn */
     min-width: auto; /* hoặc bất kỳ giá trị nào phù hợp với thiết kế của bạn */
     margin-top: 50px; /* hoặc bất kỳ giá trị nào phù hợp với thiết kế của bạn */
     padding: 20px; /* hoặc bất kỳ giá trị nào phù hợp với thiết kế của bạn */
