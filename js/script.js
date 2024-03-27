@@ -68,6 +68,57 @@ $(document).ready(function(){
     });
 });
 
+document.querySelector('.img__btn').addEventListener('click', function() {
+	document.querySelector('.cont').classList.toggle('s--signup');
+  });
+
+
+  document.getElementById('dangky').addEventListener('click', function() {
+	document.querySelector('.form.sign-up').classList.toggle('slide-in');
+  });
+  
+  
+
+
+  
+//   document.getElementById("dangky").addEventListener("click", function() {
+// 	document.querySelector(".form.sign-in").style.display = "none";
+// 	document.querySelector(".form.sign-up").style.display = "block";
+//   });
+  
+//   document.getElementById("dangnhap").addEventListener("click", function() {
+// 	document.querySelector(".form.sign-up").style.display = "none";
+// 	document.querySelector(".form.sign-in").style.display = "block";
+//   });
+  
+document.getElementById("dangky").addEventListener("click", function() {
+    document.querySelector(".form.sign-in").classList.add("slide-left");
+    document.querySelector(".form.sign-up").classList.add("active");
+	document.querySelector(".form.sign-in").style.display = "none";
+	document.querySelector(".form.sign-up").style.display = "block";
+    setTimeout(function() {
+        document.querySelector(".form.sign-in").classList.remove("active");
+        document.querySelector(".form.sign-in").classList.remove("slide-left");
+    }, 500); // Thời gian phải lớn hơn thời gian transition CSS
+});
+
+document.getElementById("dangnhap").addEventListener("click", function() {
+    document.querySelector(".form.sign-up").classList.add("slide-right");
+    document.querySelector(".form.sign-in").classList.add("active");
+	document.querySelector(".form.sign-up").style.display = "none";
+	document.querySelector(".form.sign-in").style.display = "block";
+    setTimeout(function() {
+        document.querySelector(".form.sign-up").classList.remove("active");
+        document.querySelector(".form.sign-up").classList.remove("slide-right");
+    }, 500); // Thời gian phải lớn hơn thời gian transition CSS
+});
+
+
+
+
+
+
+
 
 
 

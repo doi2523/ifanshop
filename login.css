@@ -292,50 +292,207 @@ input {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 }
+
+
+#dangky{
+    display: flex;
+    float: right;
+    margin-top: 30px;
+    color: blueviolet;
+    margin-right: 30px;
+    text-decoration: underline;
+}
+#dangnhap{
+    display: flex;
+    float: right;
+    margin-top: 30px;
+    color: blueviolet;
+    margin-right: 30px;
+    text-decoration: underline;
+}
+
+
+
 @media screen and (max-width: 768px) {
-  .cont {
+    .cont {
+      width: 100%;
+      border-radius: 10px;
+      padding: 20px;
+    }
+  
+    .form {
+      width: 100%;
+      padding: 0;
+    }
+    .form {
+        transition: transform 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+      }
+      
+      .slide-in {
+        transform: translateX(-100%);
+      }      
+      .slide-in {
+        transform: translateX(-100%);
+        animation: slideIn 0.5s forwards;
+      }
+      
+      @keyframes slideIn {
+        0% {
+          transform: translateX(100%);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+      @keyframes slideleft {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(100%);
+        }
+      }
+      .slide-left{
+        transform: translateX(0%);
+      }
+      .slide-left{
+        transform: translateX(0%);
+        animation: slideleft 0.5s forwards;
+      }    
+      
+    .img {
+      display: none;
+    }
+  
+    label,
+    input {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 14px;
+    }
+  
+    .submit {
+      width: 100%;
+      margin-top: 20px;
+    }
+  
+    .forgot-pass {
+      margin-top: 10px;
+      text-align: center;
+    }
+  
+  }
+  
+
+
+  .form-container {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    height: auto;
+    transition: height 0.5s ease-in-out;
+}
+
+.form-container.slide-left {
+    transform: translateX(-100%);
+}
+
+.form-container.slide-right {
+    transform: translateX(100%);
+}
+
+.form {
     width: 100%;
-    border-radius: 10px;
-    box-shadow: none;
-    padding: 20px;
-  }
+    position: absolute;
+    transition: transform 0.5s ease-in-out;
+}
 
-  .form {
+.form.active {
+    transform: translateX(0);
+}
+
+/* Ẩn form đăng ký cho điện thoại trên máy tính */
+.form-mobile {
+    display: flex;
     width: 100%;
-    padding: 0;
+    transform: translateX(110%); /* Di chuyển form ra khỏi màn hình bên phải */
+    transition: transform 0.5s ease; /* Thêm hiệu ứng di chuyển */
+    margin-top: -1000px;
   }
+  
+  .slide-in {
+    transform: translateX(0%); /* Di chuyển form từ phải vào trung tâm màn hình */
+  }
+  .slide-left{
+    transform: translateX(0%);
+  }
+  
+  
+  /* Hiển thị form đăng ký cho điện thoại khi kích thước màn hình nhỏ hơn 768px */
+  @media screen and (max-width: 768px) {
+    .form-desktop {
+      display: none;
+    }
+    .form-mobile {
+      display: block;
+    }
+  }
+  
+  
+@media screen and (max-width: 991px) {
+    .cont {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: none;
+      padding: 20px;
+    }
+  
+    .form {
+      width: 100%;
+      padding: 0;
+    }
+  
+    .sub-cont {
+      width: 100%;
+      padding-left: 0;
+      position: static;
+      -webkit-transform: none;
+      transform: none;
+    }
+  
+    .img {
+      display: none;
+    }
+  
+    label,
+    input {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      font-size: 14px;
+    }
+  
+    .submit {
+      width: 100%;
+      margin-top: 20px;
+    }
+  
+    .forgot-pass {
+      margin-top: 10px;
+      text-align: center;
+    }
+    #button-login{
+      margin-top: 0;
+      left: 0;
+    }
+  }
+  .mobile-only {
+    display: none; /* Mặc định ẩn nút */
+}
 
-  .sub-cont {
-    width: 100%;
-    padding-left: 0;
-    position: static;
-    -webkit-transform: none;
-    transform: none;
-  }
-
-  .img {
-    display: none;
-  }
-
-  label,
-  input {
-    width: 100%;
-    margin: 10px 0;
-    padding: 10px;
-    font-size: 14px;
-  }
-
-  .submit {
-    width: 100%;
-    margin-top: 20px;
-  }
-
-  .forgot-pass {
-    margin-top: 10px;
-    text-align: center;
-  }
-  #button-login{
-    margin-top: 0;
-    left: 0;
-  }
+@media screen and (max-width: 768px) {
+    .mobile-only {
+        display: block; /* Hiển thị nút chỉ trên thiết bị di động */
+    }
 }

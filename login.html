@@ -75,6 +75,8 @@
                 </label>
                 <p class="forgot-pass">Quên mật khẩu?</p>
                 <button id="button-login" type="button" class="submit">Đăng nhập</button>
+
+                <button id="dangky" type="button" class="mobile-only">Bạn chưa có tài khoản? Hãy đăng ký!</button>
             
               </div>
               <div class="sub-cont">
@@ -107,18 +109,27 @@
                     <input type="password" />
                   </label>
                   <button id="button-login" type="button" class="submit">Đăng ký</button>
-            
+                  <button id="dangnhap" type="button" class="mobile-only">Nếu bạn đã có tài khoản, chỉ cần đăng nhập.</button>
                 </div>
               </div>
+              <div class="form-mobile">
+                <h2>Tạo tài khoản</h2>
+                <label>
+                  <span>Name</span>
+                  <input type="text" />
+                </label>
+                <label>
+                  <span>Email</span>
+                  <input type="email" />
+                </label>
+                <label>
+                  <span>Password</span>
+                  <input type="password" />
+                </label>
+                <button id="button-login" type="button" class="submit">Đăng ký</button>
+                <button id="dangky" type="button" class="mobile-only">Nếu bạn đã có tài khoản, chỉ cần đăng nhập.</button>
+              </div>
             </div>
-            
-            <script>
-              document.querySelector('.img__btn').addEventListener('click', function() {
-                document.querySelector('.cont').classList.toggle('s--signup');
-              });
-            </script>
-
-
           </div>
           </div>
           </div>
