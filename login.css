@@ -126,10 +126,11 @@
 	padding: 30px 25px;
   border-radius: 5px;
 	transform-origin: top;
+  
 }
 @media all and (max-width:768px) {
-  .form{
-    width: max-content;
+  #formm{
+    width: 40%;
   }
 }
 
