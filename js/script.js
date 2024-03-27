@@ -43,12 +43,33 @@ $(window).on("load",function (){
 //     });
 // });
 $(document).ready(function(){
-    $('.nav-item.dropdown').hover(function(){
-        $(this).find('.dropdown-menu').stop(true, true).fadeIn(500);
-    }, function(){
-        $(this).find('.dropdown-menu').stop(true, true).fadeOut(500);
+    var isMenuOpen = false; // Biến đánh dấu trạng thái mở hay đóng của menu
+
+    // Sự kiện khi click vào mục menu
+    $('.nav-item.dropdown').click(function(e) {
+        e.stopPropagation(); // Ngăn chặn sự kiện click tự lan ra ngoài để không tắt menu ngay lập tức
+        if (!isMenuOpen) { // Nếu menu đang đóng
+            $(this).find('.dropdown-menu').stop(true, true).fadeIn(500); // Mở menu
+            isMenuOpen = true; // Cập nhật trạng thái là đã mở
+        } else { // Nếu menu đang mở
+            $(this).find('.dropdown-menu').stop(true, true).fadeOut(0); // Đóng menu
+            isMenuOpen = false; // Cập nhật trạng thái là đã đóng
+        }
+    });
+
+    // Sự kiện khi click ra khỏi mục menu
+    $(document).click(function(e) {
+        if (!$(e.target).closest('.nav-item.dropdown').length) { // Nếu click ra khỏi mục menu
+            if (isMenuOpen) { // Nếu menu đang mở
+                $('.dropdown-menu').stop(true, true).fadeOut(500); // Đóng menu
+                isMenuOpen = false; // Cập nhật trạng thái là đã đóng
+            }
+        }
     });
 });
+
+
+
 
 $(document).ready(function(){
     $('.nav-link.dropdown-toggle').hover(function(){
