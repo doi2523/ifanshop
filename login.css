@@ -127,6 +127,11 @@
   border-radius: 5px;
 	transform-origin: top;
 }
+@media all and (max-width:768px) {
+  .form{
+    width: max-content;
+  }
+}
 
 .form-login {
 	animation: hideLogin .3s ease-out forwards;
