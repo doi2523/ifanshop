@@ -62,74 +62,57 @@
       
             <br>
             <br>
-            <div class="cont">
-              <div class="form sign-in">
-                <h2>Chào mừng</h2>
-                <label>
-                  <span>Email</span>
-                  <input type="email" />
-                </label>
-                <label>
-                  <span>Password</span>
-                  <input type="password" />
-                </label>
-                <p class="forgot-pass">Quên mật khẩu?</p>
-                <button id="button-login" type="button" class="submit">Đăng nhập</button>
-
-                <button id="dangky" type="button" class="mobile-only">Bạn chưa có tài khoản? Hãy đăng ký!</button>
-            
-              </div>
-              <div class="sub-cont">
-                <div class="img">
-                  <div class="img__text m--up">
-            
-                    <h3>Bạn chưa có tài khoản? Hãy đăng ký!<h3>
-                  </div>
-                  <div class="img__text m--in">
-            
-                    <h3>Nếu bạn đã có tài khoản, chỉ cần đăng nhập.<h3>
-                  </div>
-                  <div class="img__btn">
-                    <span class="m--up">Đăng ký</span>
-                    <span class="m--in">Đăng nhập</span>
-                  </div>
+            <section class="forms-section">
+              <h1 class="section-title">Login & SignUp</h1>
+              <div class="forms">
+                <div class="form-wrapper is-active">
+                  <button type="button" class="switcher switcher-login">
+                    Đăng nhập
+                    <span class="underline"></span>
+                  </button>
+                  <form class="form form-login">
+                    <fieldset>
+                      <legend>Please, enter your email and password for login.</legend>
+                      <div class="input-block">
+                        <label for="login-email">E-mail</label>
+                        <input id="login-email" type="email" required>
+                      </div>
+                      <div class="input-block">
+                        <label for="login-password">Password</label>
+                        <input id="login-password" type="password" required>
+                      </div>
+                      <a href=""><div>Quên mật khẩu?</div></a>
+                    </fieldset>
+                    <button type="submit" class="btn-login">Đăng nhập</button>
+                  </form>
                 </div>
-                <div class="form sign-up">
-                  <h2>Tạo tài khoản</h2>
-                  <label>
-                    <span>Name</span>
-                    <input type="text" />
-                  </label>
-                  <label>
-                    <span>Email</span>
-                    <input type="email" />
-                  </label>
-                  <label>
-                    <span>Password</span>
-                    <input type="password" />
-                  </label>
-                  <button id="button-login" type="button" class="submit">Đăng ký</button>
-                  <button id="dangnhap" type="button" class="mobile-only">Nếu bạn đã có tài khoản, chỉ cần đăng nhập.</button>
+                <div class="form-wrapper">
+                  <button type="button" class="switcher switcher-signup">
+                    Đăng ký
+                    <span class="underline"></span>
+                  </button>
+                  <form class="form form-signup">
+                    <fieldset>
+                      <legend>Please, enter your email, password and password confirmation for sign up.</legend>
+                      <div class="input-block">
+                        <label for="signup-username">Username</label>
+                        <input id="signup-email" type="text" required>
+                      </div>
+                      <div class="input-block">
+                        <label for="signup-email">E-mail</label>
+                        <input id="signup-email" type="email" required>
+                      </div>
+                      <div class="input-block">
+                        <label for="signup-password">Password</label>
+                        <input id="signup-password" type="password" required>
+                      </div>
+                      <a href="" id="have-account">Bạn đã có tài khoản?</a>
+                    </fieldset>
+                    <button type="submit" class="btn-signup">Đăng ký</button>
+                  </form>
                 </div>
               </div>
-              <div class="form-mobile">
-                <h2>Tạo tài khoản</h2>
-                <label>
-                  <span>Name</span>
-                  <input type="text" />
-                </label>
-                <label>
-                  <span>Email</span>
-                  <input type="email" />
-                </label>
-                <label>
-                  <span>Password</span>
-                  <input type="password" />
-                </label>
-                <button id="button-login" type="button" class="submit">Đăng ký</button>
-                <button id="dangky" type="button" class="mobile-only">Nếu bạn đã có tài khoản, chỉ cần đăng nhập.</button>
-              </div>
-            </div>
+            </section>
           </div>
           </div>
           </div>
@@ -143,7 +126,7 @@
 
 
 <!-------Download End------->
-<section class="download section-padding">
+<!-- <section class="download section-padding">
   <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -163,7 +146,7 @@
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 <!-------Download End------->
 
@@ -185,5 +168,24 @@
 <script src="js/scrollIt.min.js"></script> 
 <script src="js/wow.min.js"></script> 
 <script src="js/script.js"></script>
+<script>
+  const loginText = document.querySelector(".title-text .login");
+const loginForm = document.querySelector("form.login");
+const loginBtn = document.querySelector("label.login");
+const signupBtn = document.querySelector("label.signup");
+const signupLink = document.querySelector("form .signup-link a");
+signupBtn.onclick = () => {
+  loginForm.style.marginLeft = "-50%";
+  loginText.style.marginLeft = "-50%";
+};
+loginBtn.onclick = () => {
+  loginForm.style.marginLeft = "0%";
+  loginText.style.marginLeft = "0%";
+};
+signupLink.onclick = () => {
+  signupBtn.click();
+  return false;
+};
+</script>
 </body>
 </html>
