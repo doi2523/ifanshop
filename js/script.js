@@ -35,41 +35,39 @@ $(window).on("load",function (){
 	});
 });
 
-// $(document).ready(function(){
-//     $('.nav-item.dropdown').hover(function(){
-//         $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
-//     }, function(){
-//         $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
-//     });
-// });
 $(document).ready(function(){
-    // Biến đánh dấu trạng thái của menu
-    var isMenuOpen = false;
+    $('.nav-item.dropdown').hover(function(){
+        $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+    }, function(){
+        $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+    });
+});
+$(document).ready(function(){
+    var isMenuOpen = false; // Biến đánh dấu trạng thái mở hay đóng của menu
 
-    // Xử lý sự kiện khi click hoặc touch vào mục menu
-    $('.nav-item.dropdown').on('click touchstart', function(e) {
-        e.stopPropagation(); // Ngăn chặn sự kiện lan ra bên ngoài
-        var dropdownMenu = $(this).find('.dropdown-menu');
-
-        if (!isMenuOpen) { // Nếu menu chưa mở
-            dropdownMenu.stop(true, true).fadeIn(500); // Hiển thị menu
-            isMenuOpen = true; // Cập nhật trạng thái là menu đã mở
-        } else { // Nếu menu đã mở
-            dropdownMenu.stop(true, true).fadeOut(500); // Ẩn menu
-            isMenuOpen = false; // Cập nhật trạng thái là menu đã thu vào
+    // Sự kiện khi click vào mục menu
+    $('.nav-item.dropdown').click(function(e) {
+        e.stopPropagation(); // Ngăn chặn sự kiện click tự lan ra ngoài để không tắt menu ngay lập tức
+        if (!isMenuOpen) { // Nếu menu đang đóng
+            $(this).find('.dropdown-menu').stop(true, true).fadeIn(500); // Mở menu
+            isMenuOpen = true; // Cập nhật trạng thái là đã mở
+        } else { // Nếu menu đang mở
+            $(this).find('.dropdown-menu').stop(true, true).fadeOut(500); // Đóng menu
+            isMenuOpen = false; // Cập nhật trạng thái là đã đóng
         }
     });
 
-    // Xử lý sự kiện khi click hoặc touch ra ngoài mục menu
-    $(document).on('click touchstart', function(e) {
+    // Sự kiện khi click ra khỏi mục menu
+    $(document).click(function(e) {
         if (!$(e.target).closest('.nav-item.dropdown').length) { // Nếu click ra khỏi mục menu
             if (isMenuOpen) { // Nếu menu đang mở
-                $('.dropdown-menu').stop(true, true).fadeOut(500); // Ẩn menu
-                isMenuOpen = false; // Cập nhật trạng thái là menu đã thu vào
+                $('.dropdown-menu').stop(true, true).fadeOut(500); // Đóng menu
+                isMenuOpen = false; // Cập nhật trạng thái là đã đóng
             }
         }
     });
 });
+
 
 
 
