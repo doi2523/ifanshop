@@ -6,11 +6,6 @@
   padding: 0;
 }
 
-body {
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  background: #ffffff;
-}
-
 input,
 button {
   border: none;
@@ -70,7 +65,7 @@ button {
   transform: translate3d(-640px, 0, 0);
 }
 
-button {
+#button-login {
   display: block;
   margin: 0 auto;
   width: 260px;
@@ -296,4 +291,51 @@ input {
 .cont.s--signup .sign-up {
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
+}
+@media screen and (max-width: 768px) {
+  .cont {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: none;
+    padding: 20px;
+  }
+
+  .form {
+    width: 100%;
+    padding: 0;
+  }
+
+  .sub-cont {
+    width: 100%;
+    padding-left: 0;
+    position: static;
+    -webkit-transform: none;
+    transform: none;
+  }
+
+  .img {
+    display: none;
+  }
+
+  label,
+  input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .submit {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .forgot-pass {
+    margin-top: 10px;
+    text-align: center;
+  }
+  #button-login{
+    margin-top: 0;
+    left: 0;
+  }
 }
