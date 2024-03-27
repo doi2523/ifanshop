@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="login.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -55,19 +56,73 @@
 <section class="banner" data-scroll-index='0'>
   <div class="banner-overlay">
     <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-sm-12">
-          <div class="banner-text">
-            <h2 class="white">Chào mừng đến với iFanShop</h2>
-            <h6 class="white">Cam kết, Đảm bảo, Uy tín <a href="index.html" target="_blank" rel="dofollow" class="weblink">iFanShop</a>.</h6>
-            <p class="banner-text white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur hendrerit neque massa, sit amet tristique ante porta ut. In sodales et justo vel vulputate. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-            <ul>
-              <li><a href="#"><img src="" class="wow fadeInUp" data-wow-delay="0.4s"/>Xem thêm</a></li>
-              <li><a href="#"><img src="" class="wow fadeInUp" data-wow-delay="0.7s"/>Mua Ngay</a></li>
-            </ul>
+      <div>
+        <div>
+          <div>
+      
+            <br>
+            <br>
+            <div class="cont">
+              <div class="form sign-in">
+                <h2>Chào mừng</h2>
+                <label>
+                  <span>Email</span>
+                  <input type="email" />
+                </label>
+                <label>
+                  <span>Password</span>
+                  <input type="password" />
+                </label>
+                <p class="forgot-pass">Quên mật khẩu?</p>
+                <button type="button" class="submit">Đăng nhập</button>
+            
+              </div>
+              <div class="sub-cont">
+                <div class="img">
+                  <div class="img__text m--up">
+            
+                    <h3>Bạn chưa có tài khoản? Hãy đăng ký!<h3>
+                  </div>
+                  <div class="img__text m--in">
+            
+                    <h3>Nếu bạn đã có tài khoản, chỉ cần đăng nhập.<h3>
+                  </div>
+                  <div class="img__btn">
+                    <span class="m--up">Đăng ký</span>
+                    <span class="m--in">Đăng nhập</span>
+                  </div>
+                </div>
+                <div class="form sign-up">
+                  <h2>Tạo tài khoản</h2>
+                  <label>
+                    <span>Name</span>
+                    <input type="text" />
+                  </label>
+                  <label>
+                    <span>Email</span>
+                    <input type="email" />
+                  </label>
+                  <label>
+                    <span>Password</span>
+                    <input type="password" />
+                  </label>
+                  <button type="button" class="submit">Đăng ký</button>
+            
+                </div>
+              </div>
+            </div>
+            
+            <script>
+              document.querySelector('.img__btn').addEventListener('click', function() {
+                document.querySelector('.cont').classList.toggle('s--signup');
+              });
+            </script>
+
+
+          </div>
+          </div>
           </div>
         </div>
-        <div class="col-md-4 col-sm-12"> <img src="images/15prm.png" class="ip15prm"/> </div>
       </div>
     </div>
   </div>

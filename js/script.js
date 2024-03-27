@@ -73,9 +73,6 @@ $(document).ready(function(){
 
 
 
-
-
-
 $(document).ready(function(){
     $('.nav-link.dropdown-toggle').hover(function(){
         $(this).find('.rotate-icon').addClass('hovered');
