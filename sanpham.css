@@ -287,9 +287,20 @@ a {
 
 
 @media all and (max-width:768px) {
+  .slide-prev,
+  .slide-next{
+    top: 55%;
+  }
+  .slide img {
+    height: auto; /* Giữ tỷ lệ khung hình */
+    width: 500px;
+  }
+  .slide-buttons{
+    top: 82%;
+  }
   .container-grid {
     display: grid;
-    grid-template-columns: repeat(2, max-content); /* 4 cột có độ rộng bằng nhau */
+    grid-template-columns: repeat(2, 1fr); /* 4 cột có độ rộng bằng nhau */
     grid-template-rows: repeat(7, max-content); /* 5 hàng có chiều cao là 320px */
     grid-gap: 1rem;
   }
@@ -323,10 +334,12 @@ a {
     color: dimgrey;
     font-size: 15px;
     text-decoration: line-through;
+    margin-left: -0.5px;
   }
   #phan-tram{
     color: dimgrey;
     float: left;
+    margin-left: 0;
   }
   .add-shoping{
     background-color: #d8caf7;
