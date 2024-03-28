@@ -1,0 +1,2 @@
+1. Tạo database có tên là: ifanshop
+2. Sau đó import file sql này: ifanshop.sql

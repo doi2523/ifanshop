@@ -151,7 +151,7 @@
   ?> -->
 
   
-    <!-- <?php
+    <?php
         include ('control.php'); //gọi trang php
         $get_data= new data_usrname(); //Gọi lớp ata_user_ifanshop trong trang control
         if(isset($_GET['bt-signup']))
@@ -164,7 +164,7 @@
             else 
             echo "<script>alert('Không thực thi được')</script>";                
         }
-    ?> -->
+    ?>
 
 <footer class="footer-copy">
   <div class="container-fluid">
