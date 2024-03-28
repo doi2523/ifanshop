@@ -19,7 +19,7 @@ button {
 }
 
 /********** LOGO **********/
-h1 {
+/* h1 {
   text-align: center;
   width: 200px;
   height: 20px;
@@ -28,8 +28,17 @@ h1 {
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
-}
+} */
 
+
+.txt-ip{
+  color: black;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
 /********** TYPOGRAPHY **********/
 body,
 button {
@@ -184,4 +193,31 @@ button {
   color: #ed8e6c;
   cursor: pointer;
   height: max-content;
+}
+
+
+.container-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cột có độ rộng bằng nhau */
+  grid-template-rows: repeat(5, 400px); /* 5 hàng có chiều cao là 320px */
+  grid-gap: 1rem;
+}
+
+.item {
+  background-color: #d8caf7;
+  color: black;
+  border-radius: 4px;
+}
+.giatien{
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+.txt-name{
+  font-size: 20px;
+}
+.img-ip{
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
 }
