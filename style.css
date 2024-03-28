@@ -80,6 +80,8 @@ h6 {
 .navbar .nav-item a:hover::after {
 	transform: scaleX(1);
 }
+
+
 .dropdown-menu a{
 	text-align: center;
 }
@@ -140,7 +142,7 @@ h6 {
 	color: #333;
 }
 .nav-scroll .nav-link:hover:after {
-	background-color: #2388ed;
+	background-color: #fff;
 }
 .nav-scroll .active {
 	position: relative;

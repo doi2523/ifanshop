@@ -72,3 +72,20 @@ $(".slider").each(function () {
 
 
 
+// JavaScript
+window.addEventListener('resize', function() {
+  if (window.innerWidth <= 768) {
+    document.getElementById('image1').src = 'images/315mb';
+    document.getElementById('image2').src = 'images/another_image2.png';
+    document.getElementById('image3').src = 'images/another_image3.png';
+    document.getElementById('image4').src = 'images/another_image4.png';
+  } else {
+    document.getElementById('image1').src = 'images/315dm.png';
+    document.getElementById('image2').src = 'images/313dm.png';
+    document.getElementById('image3').src = 'images/314dm.png';
+    document.getElementById('image4').src = 'images/315dm.png';
+  }
+});
+
+// Gọi hàm một lần để xác định hình ảnh ban đầu dựa trên kích thước màn hình hiện tại
+window.dispatchEvent(new Event('resize'));

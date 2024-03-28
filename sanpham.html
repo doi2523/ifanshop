@@ -8,9 +8,11 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="style.css"/>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="sanpham.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-qA+YO42piCGtf3n1bYGzv5e7CwYd1f9hJ5hH1G8/CtLcA9CpXhQJ6zy5CKF1fkqSoRh+Q/u7ShFegf8rceI+3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -59,23 +61,23 @@
       
         <div class="slider">
           <h1 class="txt-ip">iPhone</h1>
-          <button type="button" class="slide-prev">&#10094;</button> <!-- Nút chuyển sang trước -->
+          <button id="button-slide" type="button" class="slide-prev">&#10094;</button> <!-- Nút chuyển sang trước -->
           <div class="slide-viewer">
             <div class="slide-group">
               <div class="slide slide-1">
-                <img src="images/315dm.png" alt="No two are the same" />
+                <img id="image1" src="images/315dm.png" alt="No two are the same" />
               </div>
               <div class="slide slide-2">
-                <img src="images/313dm.png" alt="Monsieur Mints" />
+                <img id="image2" src="images/313dm.png" alt="Monsieur Mints" />
               </div>
               <div class="slide slide-3">
-                <img src="images/314dm.png" alt="The Flower Series" />
+                <img id="image3" src="images/314dm.png" alt="The Flower Series" />
               </div>
               <div class="slide slide-4">
-                <img src="images/315dm.png" alt="Salt o' The Sea" />
+                <img id="image4" src="images/315dm.png" alt="Salt o' The Sea" />
               </div>
             </div>
-            <button type="button" class="slide-next">&#10095;</button> <!-- Nút chuyển sang sau -->
+            <button id="button-slide" type="button" class="slide-next">&#10095;</button> <!-- Nút chuyển sang sau -->
           </div>
           <div class="slide-buttons"></div>
         </div>
@@ -84,29 +86,337 @@
 
         <div class="container-grid">
           <div class="item item1">
-            <div class="img-ip">
-              <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
-            </div>
-            <div class="txt-name">iPhone 15 pro max</div>
-            <div class="giatien">
-              <p>30.000.000₫</p>
-              <p>34.000.000₫</p>
-              <p>-15%</p>
+            <div class="grid-item">
+              <div class="tag-voucher">
+                <img src="images/0-phantram.png" alt="">
+              </div>
+              <div class="img-ip">
+                <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
+              </div>
+              <div class="txt-name">iPhone 15 pro max</div>
+              <div class="giatien">
+                <span id="gia-uu-dai">30.000.000₫</span>
+                <span id="giagoc">34.000.000₫</span>
+                <span id="phan-tram">-15%</span>
+              </div>
+              <div class="adding">
+                <button class="add-shoping">
+                  <a href="#" class="add-to-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                  </a>
+                  <span id="text-add-shoping">Thêm vào giỏ hàng</span>
+                </button>
+              </div>             
             </div>
           </div>
           <div class="item item2">
-            <img src="images/0022263_iphone-15-pro-128gb_240.png" alt="">
-          </div>
+            <div class="grid-item">
+              <div class="tag-voucher">
+                <img src="images/0-phantram.png" alt="">
+              </div>
+              <div class="img-ip">
+                <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
+              </div>
+              <div class="txt-name">iPhone 15 pro max</div>
+              <div class="giatien">
+                <span id="gia-uu-dai">30.000.000₫</span>
+                <span id="giagoc">34.000.000₫</span>
+                <span id="phan-tram">-15%</span>
+              </div>
+              <div class="adding">
+                <button class="add-shoping">
+                  <a href="#" class="add-to-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                  </a>
+                  <span id="text-add-shoping">Thêm vào giỏ hàng</span>
+                </button>
+              </div>             
+            </div>          </div>
           <div class="item item3">
-            <img src="images/0020317_iphone-15-plus-128gb_240.webp" alt="">
-          </div>
+            <div class="grid-item">
+              <div class="tag-voucher">
+                <img src="images/0-phantram.png" alt="">
+              </div>
+              <div class="img-ip">
+                <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
+              </div>
+              <div class="txt-name">iPhone 15 pro max</div>
+              <div class="giatien">
+                <span id="gia-uu-dai">30.000.000₫</span>
+                <span id="giagoc">34.000.000₫</span>
+                <span id="phan-tram">-15%</span>
+              </div>
+              <div class="adding">
+                <button class="add-shoping">
+                  <a href="#" class="add-to-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                  </a>
+                  <span id="text-add-shoping">Thêm vào giỏ hàng</span>
+                </button>
+              </div>             
+            </div>          </div>
           <div class="item item4">
-            <img src="images/0024431_iphone-15-128gb_240.png" alt="">
-          </div>
+            <div class="grid-item">
+              <div class="tag-voucher">
+                <img src="images/0-phantram.png" alt="">
+              </div>
+              <div class="img-ip">
+                <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
+              </div>
+              <div class="txt-name">iPhone 15 pro max</div>
+              <div class="giatien">
+                <span id="gia-uu-dai">30.000.000₫</span>
+                <span id="giagoc">34.000.000₫</span>
+                <span id="phan-tram">-15%</span>
+              </div>
+              <div class="adding">
+                <button class="add-shoping">
+                  <a href="#" class="add-to-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                  </a>
+                  <span id="text-add-shoping">Thêm vào giỏ hàng</span>
+                </button>
+              </div>             
+            </div>          </div>
           <div class="item item5">
-            <img src="images/0020315_iphone-15-pro-256gb_240.webp" alt="">
+            <div class="grid-item">
+              <div class="tag-voucher">
+                <img src="images/0-phantram.png" alt="">
+              </div>
+              <div class="img-ip">
+                <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
+              </div>
+              <div class="txt-name">iPhone 15 pro max</div>
+              <div class="giatien">
+                <span id="gia-uu-dai">30.000.000₫</span>
+                <span id="giagoc">34.000.000₫</span>
+                <span id="phan-tram">-15%</span>
+              </div>
+              <div class="adding">
+                <button class="add-shoping">
+                  <a href="#" class="add-to-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                  </a>
+                  <span id="text-add-shoping">Thêm vào giỏ hàng</span>
+                </button>
+              </div>             
+            </div>          </div>
+          <div class="item item5">
+            <div class="grid-item">
+              <div class="tag-voucher">
+                <img src="images/0-phantram.png" alt="">
+              </div>
+              <div class="img-ip">
+                <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
+              </div>
+              <div class="txt-name">iPhone 15 pro max</div>
+              <div class="giatien">
+                <span id="gia-uu-dai">30.000.000₫</span>
+                <span id="giagoc">34.000.000₫</span>
+                <span id="phan-tram">-15%</span>
+              </div>
+              <div class="adding">
+                <button class="add-shoping">
+                  <a href="#" class="add-to-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                  </a>
+                  <span id="text-add-shoping">Thêm vào giỏ hàng</span>
+                </button>
+              </div>             
+            </div>
           </div>
-          <div class="item item5"></div>
+          <div class="item item6">
+            <div class="grid-item">
+              <div class="tag-voucher">
+                <img src="images/0-phantram.png" alt="">
+              </div>
+              <div class="img-ip">
+                <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
+              </div>
+              <div class="txt-name">iPhone 15 pro max</div>
+              <div class="giatien">
+                <span id="gia-uu-dai">30.000.000₫</span>
+                <span id="giagoc">34.000.000₫</span>
+                <span id="phan-tram">-15%</span>
+              </div>
+              <div class="adding">
+                <button class="add-shoping">
+                  <a href="#" class="add-to-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                  </a>
+                  <span id="text-add-shoping">Thêm vào giỏ hàng</span>
+                </button>
+              </div>             
+            </div>
+          </div>
+          <div class="item item7">
+            <div class="grid-item">
+              <div class="tag-voucher">
+                <img src="images/0-phantram.png" alt="">
+              </div>
+              <div class="img-ip">
+                <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
+              </div>
+              <div class="txt-name">iPhone 15 pro max</div>
+              <div class="giatien">
+                <span id="gia-uu-dai">30.000.000₫</span>
+                <span id="giagoc">34.000.000₫</span>
+                <span id="phan-tram">-15%</span>
+              </div>
+              <div class="adding">
+                <button class="add-shoping">
+                  <a href="#" class="add-to-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                  </a>
+                  <span id="text-add-shoping">Thêm vào giỏ hàng</span>
+                </button>
+              </div>             
+            </div>
+          </div>
+          <div class="item item8">
+            <div class="grid-item">
+              <div class="tag-voucher">
+                <img src="images/0-phantram.png" alt="">
+              </div>
+              <div class="img-ip">
+                <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
+              </div>
+              <div class="txt-name">iPhone 15 pro max</div>
+              <div class="giatien">
+                <span id="gia-uu-dai">30.000.000₫</span>
+                <span id="giagoc">34.000.000₫</span>
+                <span id="phan-tram">-15%</span>
+              </div>
+              <div class="adding">
+                <button class="add-shoping">
+                  <a href="#" class="add-to-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                  </a>
+                  <span id="text-add-shoping">Thêm vào giỏ hàng</span>
+                </button>
+              </div>             
+            </div>
+          </div>
+          <div class="item item9">
+            <div class="grid-item">
+              <div class="tag-voucher">
+                <img src="images/0-phantram.png" alt="">
+              </div>
+              <div class="img-ip">
+                <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
+              </div>
+              <div class="txt-name">iPhone 15 pro max</div>
+              <div class="giatien">
+                <span id="gia-uu-dai">30.000.000₫</span>
+                <span id="giagoc">34.000.000₫</span>
+                <span id="phan-tram">-15%</span>
+              </div>
+              <div class="adding">
+                <button class="add-shoping">
+                  <a href="#" class="add-to-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                  </a>
+                  <span id="text-add-shoping">Thêm vào giỏ hàng</span>
+                </button>
+              </div>             
+            </div>
+          </div>
+          <div class="item item10">
+            <div class="grid-item">
+              <div class="tag-voucher">
+                <img src="images/0-phantram.png" alt="">
+              </div>
+              <div class="img-ip">
+                <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
+              </div>
+              <div class="txt-name">iPhone 15 pro max</div>
+              <div class="giatien">
+                <span id="gia-uu-dai">30.000.000₫</span>
+                <span id="giagoc">34.000.000₫</span>
+                <span id="phan-tram">-15%</span>
+              </div>
+              <div class="adding">
+                <button class="add-shoping">
+                  <a href="#" class="add-to-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                  </a>
+                  <span id="text-add-shoping">Thêm vào giỏ hàng</span>
+                </button>
+              </div>             
+            </div>
+          </div>
+          <div class="item item11">
+            <div class="grid-item">
+              <div class="tag-voucher">
+                <img src="images/0-phantram.png" alt="">
+              </div>
+              <div class="img-ip">
+                <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
+              </div>
+              <div class="txt-name">iPhone 15 pro max</div>
+              <div class="giatien">
+                <span id="gia-uu-dai">30.000.000₫</span>
+                <span id="giagoc">34.000.000₫</span>
+                <span id="phan-tram">-15%</span>
+              </div>
+              <div class="adding">
+                <button class="add-shoping">
+                  <a href="#" class="add-to-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                  </a>
+                  <span id="text-add-shoping">Thêm vào giỏ hàng</span>
+                </button>
+              </div>             
+            </div>
+          </div>
+          <div class="item item12">
+            <div class="grid-item">
+              <div class="tag-voucher">
+                <img src="images/0-phantram.png" alt="">
+              </div>
+              <div class="img-ip">
+                <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
+              </div>
+              <div class="txt-name">iPhone 15 pro max</div>
+              <div class="giatien">
+                <span id="gia-uu-dai">30.000.000₫</span>
+                <span id="giagoc">34.000.000₫</span>
+                <span id="phan-tram">-15%</span>
+              </div>
+              <div class="adding">
+                <button class="add-shoping">
+                  <a href="#" class="add-to-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                  </a>
+                  <span id="text-add-shoping">Thêm vào giỏ hàng</span>
+                </button>
+              </div>             
+            </div>
+          </div>
+          <div class="item item13">
+            <div class="grid-item">
+              <div class="tag-voucher">
+                <img src="images/0-phantram.png" alt="">
+              </div>
+              <div class="img-ip">
+                <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
+              </div>
+              <div class="txt-name">iPhone 15 pro max</div>
+              <div class="giatien">
+                <span id="gia-uu-dai">30.000.000₫</span>
+                <span id="giagoc">34.000.000₫</span>
+                <span id="phan-tram">-15%</span>
+              </div>
+              <div class="adding">
+                <button class="add-shoping">
+                  <a href="#" class="add-to-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                  </a>
+                  <span id="text-add-shoping">Thêm vào giỏ hàng</span>
+                </button>
+              </div>             
+            </div>
+          </div>
         </div>
     </div>
   </div>
