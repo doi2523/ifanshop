@@ -45,16 +45,32 @@ $(".slider").each(function () {
     }, 4000);
   }
 
-  $.each($slides, function (index) {
+  // $.each($slides, function (index) {
+  //   var $button = $('<button type="button" class="slide-btn">&bull;</button>');
+  //   if (index === currentIndex) {
+  //     $button.addClass("active");
+  //   }
+  //   $button.on("click", function () {
+  //     move(index);
+  //   }).appendTo(".slide-buttons");
+  //   buttonArray.push($button);
+  // });
+
+  $(".slide-buttons").empty();
+
+  // Create new buttons
+  var buttonArray = [];
+  $slides.each(function (index) {
     var $button = $('<button type="button" class="slide-btn">&bull;</button>');
-    if (index === currentIndex) {
-      $button.addClass("active");
-    }
     $button.on("click", function () {
       move(index);
-    }).appendTo(".slide-buttons");
+    });
     buttonArray.push($button);
   });
+
+  // Append buttons to the slide-buttons container
+  $(".slide-buttons").append(buttonArray);
+
 
   $(".slide-prev").on("click", function () {
     var newIndex = currentIndex === 0 ? $slides.length - 1 : currentIndex - 1;
