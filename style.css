@@ -83,8 +83,14 @@ h6 {
 
 
 .dropdown-menu a{
-	text-align: center;
+	text-align: left;
 }
+
+.dropdown-menu a:hover{
+	background: linear-gradient(to left, #7a60ff, #cd9ffa);
+}
+
+
 #icon{
 	margin-top: 0px;
 	margin-left: 5px;
@@ -275,6 +281,10 @@ h6 {
 }
 }
 @media all and (max-width:768px) {
+
+	.dropdown-menu a{
+		text-align: center;
+	}
 .nav-scroll .navbar-brand img, .navbar-brand img {
 	transform: scale(0.75) !important;
 	-webkit-transform: scale(0.75) !important;

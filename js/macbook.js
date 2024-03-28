@@ -91,9 +91,9 @@ $(".slider").each(function () {
   // JavaScript
   window.addEventListener('resize', function() {
     if (window.innerWidth <= 768) {
-      document.getElementById('image1').src = 'images/313mb.png';
-      document.getElementById('image2').src = 'images/314mb.png';
-      document.getElementById('image3').src = 'images/315mb.png';
+      document.getElementById('image1').src = 'images/macm3mb.png';
+      document.getElementById('image2').src = 'images/3m1mb.png';
+      document.getElementById('image3').src = 'images/3m31mb.png';
       document.getElementById('image4').src = 'images/313mb.png';
     } else {
       document.getElementById('image1').src = 'images/macm3dm.png';
