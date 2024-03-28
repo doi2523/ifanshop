@@ -280,7 +280,7 @@ a {
   margin-left: 10px;
 }
 
-@media all and (max-width:991px) {
+@media all and (max-width:768px) {
   .slide-prev,
   .slide-next{
     top: 55%;
@@ -308,7 +308,7 @@ a {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 4 cột có độ rộng bằng nhau */
     grid-template-rows: repeat(7, max-content); /* 5 hàng có chiều cao là 320px */
-    grid-gap: 0.5rem;
+    grid-gap: 1rem;
   }
   .item {
     background-color: #eae5f7;
@@ -386,7 +386,7 @@ a {
     margin-left: 10px;
   }
 }
-@media all and (max-width:768px) {
+@media all and (max-width:991px) {
   .slide-prev,
   .slide-next{
     top: 55%;
@@ -426,10 +426,11 @@ a {
     height: 30px;
   }
   .img-ip{
-    height: 200px;
+    height: 170px;
   }
   .img-ip img{
-    height: 200px;
+    height: 170px;
+    margin-top: 10px;
   }
   .giatien{
     display: flex;
