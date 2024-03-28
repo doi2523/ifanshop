@@ -1,0 +1,20 @@
+
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+#datetime {
+    font-size: 17px;
+    color: #fff;
+    letter-spacing: -0.5px;
+    font-family: monospace; /* Sử dụng font monospace để đảm bảo rằng mỗi ký tự có độ rộng giống nhau */
+}
+#icon-logout{
+    margin-left: 7px;
+    font-size: 17px;
+}

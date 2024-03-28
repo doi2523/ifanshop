@@ -65,32 +65,37 @@
                     Đăng nhập
                     <span class="underline"></span>
                   </button>
-                  <form id="formm" class="form form-login">
+                  <form id="formm" class="form form-login" method="POST">
                     <fieldset>
-                      <legend>Please, enter your email and password for login.</legend>
-                      <div class="input-block">
-                        <label for="login-email">E-mail</label>
-                        <!-- Cách ra cho biết phần name nè -->
-                        <input id="login-email" type="email" required name="txt-email-login">
-                      </div>
-                      <div class="input-block">
-                        <label for="login-password">Password</label>
-                        <!-- Cách ra cho biết phần name nè -->
-                        <input id="login-password" type="password" name="txt-password-login" required>
-
-                      </div>
-                      <a href=""><div>Quên mật khẩu?</div></a>
+                        <legend>Please, enter your email and password for login.</legend>
+                        <div class="input-block">
+                            <label for="login-email">Username</label>
+                            <input id="login-email" type="text" required name="txt-user-login">
+                        </div>
+                        <div class="input-block">
+                            <label for="login-password">Password</label>
+                            <input id="login-password" type="password" name="txt-password-login" required>
+                        </div>
+                        <a href=""><div>Quên mật khẩu?</div></a>
                     </fieldset>
-
-                     <!-- Cách ra cho biết phần name nè -->
                     <button type="submit" class="btn-login" name="bt-login">Đăng nhập</button>
-                  </form>
+
+                    <div id="loginSuccessMessage" style="display: none;">Đăng nhập thành công!</div>
+                    <p class="notee" id="loginMessage"></p>
+                </form>
+
+                <!-- Cách ra cho biết phần name nè -->
+                <!-- Cách ra cho biết phần name nè -->
+
                 </div>
                 <div class="form-wrapper">
                   <button type="button" class="switcher switcher-signup">
                     Đăng ký
                     <span class="underline"></span>
                   </button>
+
+                  <!-- Cách ra cho biết phần name nè -->
+                  <!-- Cách ra cho biết phần name nè -->
                   <form method="GET" id="formm" class="form form-signup">
                     <fieldset>
                         <legend>Please, enter your email, password and password confirmation for sign up.</legend>
@@ -184,5 +189,6 @@
 <script src="js/scrollIt.min.js"></script> 
 <script src="js/wow.min.js"></script> 
 <script src="js/script.js"></script>
+<script src="js/login.js"></script>
 </body>
 </html>
