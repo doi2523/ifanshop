@@ -1,0 +1,187 @@
+@import url(https://fonts.googleapis.com/css?family=Jacques+Francois);
+@import url(https://fonts.googleapis.com/css?family=Quattrocento+Sans);
+
+
+.page {
+  max-width: 640px;
+  margin: 0px auto 30px auto;
+}
+
+.panel {
+  background-color: #fff;
+  color: #666;
+  box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.2);
+  overflow: auto;
+}
+
+button {
+  border: none;
+}
+
+/********** LOGO **********/
+h1 {
+  text-align: center;
+  width: 200px;
+  height: 20px;
+  margin: 40px auto 40px auto;
+  background-repeat: no-repeat;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/********** TYPOGRAPHY **********/
+body,
+button {
+  font-family: "Jacques Francois", serif;
+}
+
+h2,
+h3 {
+  font-weight: normal;
+  margin: 0em;
+}
+h2 {
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 230%;
+  line-height: 1em;
+  padding: 20px 0px 0px 20px;
+}
+h3 {
+  font-size: 90%;
+  letter-spacing: 0.2em;
+}
+
+p {
+  font-family: "Quattrocento Sans", sans-serif;
+  line-height: 1.4em;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  font-size: 90%;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+/*****************  No JS ***************/
+#billboard {
+  text-align: center;
+}
+.js-warning {
+  display: none;
+}
+
+.no-js .js-warning {
+  display: block;
+  border: 3px solid #fff;
+  text-align: center;
+  background-color: #fff;
+  color: #db5391;
+  padding: 10px;
+}
+
+/********** SLIDER **********/
+.slider {
+  max-width: 100%;
+  margin: 0px auto 30px auto;
+	padding:100px 0px;
+	position:relative;
+}
+
+
+.slide-prev,
+.slide-next {
+  position: absolute; /* Định vị tuyệt đối so với phần slider */
+  top: 50%; /* Đặt vị trí ở giữa theo chiều dọc */
+  transform: translateY(-50%); /* Dịch chuyển nút lên trên một nửa chiều cao của chính nó để căn giữa */
+  background-color: rgba(0, 0, 0, 0.5); /* Màu nền của nút */
+  color: white; /* Màu chữ của nút */
+  border: none; /* Loại bỏ viền */
+  padding: 10px; /* Khoảng cách bên trong nút */
+  cursor: pointer; /* Con trỏ chuột thành dạng bàn */
+  transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu nền */
+  z-index: 10;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 15px;
+}
+
+.slide-prev {
+  left: 0; /* Đặt vị trí của nút chuyển sang trước ở bên trái */
+}
+
+.slide-next {
+  right: 0; /* Đặt vị trí của nút chuyển sang sau ở bên phải */
+}
+
+.slide-prev:hover,
+.slide-next:hover {
+  background-color: rgba(0, 0, 0, 0.7); /* Màu nền của nút khi hover */
+}
+
+
+
+
+.slide-viewer {
+  position: relative; /* needed for IE7 */
+  overflow: hidden;
+  height: 430px;
+}
+
+.slide-group {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slide {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: absolute;
+}
+
+.slide:first-child {
+  display: block;
+}
+
+/********** BUTTONS **********/
+.slide-buttons {
+  text-align: center;
+  z-index: 10;
+  position: absolute;
+  top: 76%;
+  left: 50%;
+  height: max-content;
+
+}
+
+
+.slide-btn {
+  border: none;
+  background: none;
+  color: linear-gradient(to left, #7a60ff, #cd9ffa);
+  color: #7a60ff;
+  line-height: 0.5em;
+  font-size: 30px;
+  height: max-content;
+}
+
+.slide-btn.active,
+.slide-btn:hover {
+  color: #ed8e6c;
+  cursor: pointer;
+  height: max-content;
+}

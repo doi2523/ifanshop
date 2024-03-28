@@ -10,10 +10,11 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="sanpham.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body>
+<body class="body-style">
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg">
   <div class="container"> 
@@ -32,7 +33,7 @@
             Đăng nhập<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 8 2" fill="currentColor" id="icon" class="rotate-icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.646 3.708L0.645996 0.708L1.354 0L4 2.647L6.646 0L7.354 0.708L4.354 3.708L4 4.061L3.646 3.708Z" fill="currentColor"></path></svg>
           </a>        
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#" style="color: #5f0099;">Đăng nhập</a>
+              <a class="dropdown-item" href="login.html" style="color: #5f0099;">Đăng nhập</a>
               <a class="dropdown-item" href="#" style="color: #5f0099;">Đăng kí</a>
           </div>
         </li>
@@ -52,29 +53,41 @@
 </nav>
 <!-- End Navbar --> 
 <!-------Banner Start------->
-<section class="banner" data-scroll-index='0'>
-  <div class="banner-overlay">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-sm-12">
-          <div class="banner-text">
-            <h2 class="white">Chào mừng đến với iFanShop</h2>
-            <h6 class="white">Cam kết, Đảm bảo, Uy tín <a href="index.html" target="_blank" rel="dofollow" class="weblink">iFanShop</a>.</h6>
-            <p class="banner-text white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur hendrerit neque massa, sit amet tristique ante porta ut. In sodales et justo vel vulputate. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-            <ul>
-              <li><a href="#"><img src="" class="wow fadeInUp" data-wow-delay="0.4s"/>Xem thêm</a></li>
-              <li><a href="#"><img src="" class="wow fadeInUp" data-wow-delay="0.7s"/>Mua Ngay</a></li>
-            </ul>
+<section>
+  <div >
+    <div class="container">  
+        <div class="slider">
+
+          <button type="button" class="slide-prev">&#10094;</button> <!-- Nút chuyển sang trước -->
+
+          <div class="slide-viewer">
+            <div class="slide-group">
+              <div class="slide slide-1">
+                <img src="images/315dm.png" alt="No two are the same" />
+              </div>
+              <div class="slide slide-2">
+                <img src="images/313dm.png" alt="Monsieur Mints" />
+              </div>
+              <div class="slide slide-3">
+                <img src="images/314dm.png" alt="The Flower Series" />
+              </div>
+              <div class="slide slide-4">
+                <img src="images/315dm.png" alt="Salt o' The Sea" />
+              </div>
+            </div>
+            <button type="button" class="slide-next">&#10095;</button> <!-- Nút chuyển sang sau -->
           </div>
+          <div class="slide-buttons"></div>
         </div>
-        <div class="col-md-4 col-sm-12"> <img src="images/15prm.png" class="ip15prm"/> </div>
-      </div>
+      
+
+
+
     </div>
   </div>
   </section>
 
 <!-------Banner End-------> 
-
 
 <!-------Download End------->
 <section class="download section-padding">
@@ -119,5 +132,6 @@
 <script src="js/scrollIt.min.js"></script> 
 <script src="js/wow.min.js"></script> 
 <script src="js/script.js"></script>
+<script src="js/sanpham.js"></script>
 </body>
 </html>

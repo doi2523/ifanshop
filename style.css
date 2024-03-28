@@ -2,7 +2,7 @@
 	padding:0;
 	margin:0;
 }
-body {
+.body-style {
 	font-family: 'Poppins', sans-serif;
 	font-size: 14px;
 }
@@ -38,6 +38,8 @@ h6 {
 	line-height: 50px;
 	background: transparent;
 	z-index: 1030;
+	background: #7a60ff;
+	background: linear-gradient(to left, #7a60ff, #cd9ffa);
 }
 .navbar .active {
 	color: #5f0099 !important;
@@ -117,14 +119,15 @@ h6 {
 	display: none;
 }
 .nav-scroll {
-	background: #fff;
+	background: #7a60ff;
+	background: linear-gradient(to left, #7a60ff, #cd9ffa);
 	-webkit-box-shadow: 0 1px 8px 3px rgba(0, 0, 0, 0.0509803922);
 	box-shadow: 0 1px 8px 3px rgba(0, 0, 0, 0.0509803922);
 	-webkit-transition: all .4s ease;
 	transition: all .4s ease;
 }
 .nav-scroll .navbar-nav > li > a {
-	color: #333;
+	color: #fff;
 }
 .nav-scroll .navbar-brand img {
 	-webkit-transform: scale(1.03) !important;
