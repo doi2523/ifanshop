@@ -254,7 +254,39 @@ function updateHTMLFromLocalStorage() {
 // Hàm cập nhật HTML ban đầu từ Local Storage
 updateHTMLFromLocalStorage();
 
-// Hàm lưu thông tin người dùng vào Local Storage
+// Lấy dữ liệu từ Local Storage
+var userList = localStorage.getItem('userList') ? JSON.parse(localStorage.getItem('userList')) : [];
+
+// Hàm cập nhật HTML từ dữ liệu trong Local Storage
+function updateHTMLFromLocalStorage() {
+    var userListHTML = '';
+    userList.forEach(function(user, index) {
+        userListHTML += `
+            <fieldset>
+                <legend>Thông tin người dùng ${index + 1}</legend>
+                <div class="input-block">
+                    <label>Username:</label>
+                    <span>${user.username}</span>
+                </div>
+                <div class="input-block">
+                    <label>Email:</label>
+                    <span>${user.email}</span>
+                </div>
+                <div class="input-block">
+                    <label>Password:</label>
+                    <span>${user.password}</span>
+                </div>
+            </fieldset>
+            <hr>
+        `;
+    });
+    document.getElementById('user-list').innerHTML = userListHTML;
+}
+
+// Cập nhật HTML từ Local Storage khi trang được tải lần đầu
+updateHTMLFromLocalStorage();
+
+// Hàm lưu thông tin người dùng vào Local Storage và cập nhật HTML
 function saveUser(username, email, password) {
     var newUser = {
         username: username,
@@ -263,25 +295,22 @@ function saveUser(username, email, password) {
     };
     userList.push(newUser);
     localStorage.setItem('userList', JSON.stringify(userList));
-    // Sau khi lưu, cập nhật lại HTML
     updateHTMLFromLocalStorage();
 }
 
-// Hàm xoá thông tin người dùng từ Local Storage
+// Hàm xoá thông tin người dùng từ Local Storage và cập nhật HTML
 function deleteUser(index) {
     userList.splice(index, 1);
     localStorage.setItem('userList', JSON.stringify(userList));
-    // Sau khi xoá, cập nhật lại HTML
     updateHTMLFromLocalStorage();
 }
 
-// Hàm cập nhật thông tin người dùng trong Local Storage
+// Hàm cập nhật thông tin người dùng trong Local Storage và cập nhật HTML
 function updateUser(index, username, email, password) {
     userList[index].username = username;
     userList[index].email = email;
     userList[index].password = password;
     localStorage.setItem('userList', JSON.stringify(userList));
-    // Sau khi cập nhật, cập nhật lại HTML
     updateHTMLFromLocalStorage();
 }
 
