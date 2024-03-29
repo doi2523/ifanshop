@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User List</title>
+    <style>
+    legend {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    }
+
+    </style>
+</head>
+<body>
+    <h1>User List</h1>
+    <button class="re"><a href="admin.html">&larr;Quay lại</a></button>
+    <form id="product-form">
+        <fieldset>
+            <legend>Thêm sản phẩm mới</legend>
+            <div class="form-group">
+                <label for="productId">ID:</label>
+                <input type="text" id="productId" required>
+            </div>
+            <div class="form-group">
+                <label for="productName">Tên sản phẩm:</label>
+                <input type="text" id="productName" required>
+            </div>
+            <div class="form-group">
+                <label for="discount">Phần trăm giảm giá:</label>
+                <input type="number" id="discount" required>
+            </div>
+            <div class="form-group">
+                <label for="discountedPrice">Giá ưu đãi:</label>
+                <input type="number" id="discountedPrice" required>
+            </div>
+            <div class="form-group">
+                <label for="originalPrice">Giá gốc:</label>
+                <input type="number" id="originalPrice" required>
+            </div>
+            <button type="submit">Thêm</button>
+        </fieldset>
+    </form>
+    <div id="product-list"></div>
+    
+    <div id="product-list"></div>
+    
+    
+    <div id="user-list"></div>
+    <script src="js/product.js" defer></script>
+</body>
+</html>
