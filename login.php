@@ -91,34 +91,28 @@
                     Đăng ký
                     <span class="underline"></span>
                   </button>
-                  <form method="GET" id="formm" class="form form-signup">
+
+                  
+                  <form method="POST" id="formm" class="form form-signup">
                     <fieldset>
                         <legend>Please, enter your email, password and password confirmation for sign up.</legend>
                         <div class="input-block">
                             <label for="signup-username">Username</label>
-
-                            <!-- Cách ra cho biết phần name nè -->
                             <input id="signup-username" type="text" name="txt-username-signup" required>
-
                         </div>
                         <div class="input-block">
                             <label for="signup-email">E-mail</label>
-
-                            <!-- Cách ra cho biết phần name nè -->
                             <input id="signup-email" type="email" required name="txt-email-signup">
                         </div>
                         <div class="input-block">
                             <label for="signup-password">Password</label>
-
-                            <!-- Cách ra cho biết phần name nè -->
-                            <input id="signup-password" type="password" required name="txt-password-signup">
+                            <input type="password" id="txt-password-signup" name="txt-password-signup" required>
                         </div>
                         <a href="" id="have-account">Bạn đã có tài khoản?</a>
                     </fieldset>
-
-                     <!-- Cách ra cho biết phần name nè -->
                     <button type="submit" class="btn-signup" name="bt-signup">Đăng ký</button>
                 </form>
+
                 
                 </div>
               </div>
@@ -133,38 +127,63 @@
   </section>
 
 
-  <!-- Không đưuocj sờ -->
-  <!-- <?php
-          if(isset($_GET['bt-signup'])) //Hàm kiểm tra nút submit
-          {
-              if(empty($_GET['txt-username-signup']) 
-              || empty($_GET['txt-email-signup']) 
-              || empty($_GET['txt-password-signup']))
-              echo "Bạn chưa nhập đủ thông tin";
-              else
-              {
-                  echo "Username: ".$_GET['txt-username-signup']."<br>".
-                  "Email: ".$_GET['txt-email-signup']."<br>".
-                  "Passwd: ".$_GET['txt-password-signup']."<br>";
-              }
-          }
-  ?> -->
+  <?php
+// Kết nối đến cơ sở dữ liệu
+include('connect.php'); // File connect.php chứa thông tin kết nối đến cơ sở dữ liệu
+
+// Lấy dữ liệu từ form nếu form đã được gửi đi
+if(isset($_GET['bt-signup'])) {
+    $usrnm = $_GET['txt-username-signup']; // Lấy giá trị của trường username từ form
+    $pwd = $_GET['txt-password-signup']; // Lấy giá trị của trường password từ form
+    $email = $_GET['txt-email-signup']; // Lấy giá trị của trường email từ form
+
+    // Thực hiện chèn dữ liệu vào cơ sở dữ liệu
+    $inserted = insert_usr($usrnm, $pwd, $email);
+
+    if($inserted) {
+        echo "<script>alert('Thành công');</script>";
+    } else {
+        echo "<script>alert('Không thực thi được')</script>";
+    }
+}
+
+// Hàm chèn dữ liệu người dùng vào cơ sở dữ liệu
+function insert_usr($usrnm , $pwd, $email) {
+    global $conn;
+    $sql = "INSERT INTO user (username, password, email) VALUES ('$usrnm','$pwd','$email')";
+    $run = mysqli_query($conn, $sql);
+    return $run;
+}
+?>
+
+
 
   
-    <?php
-        include ('control.php'); //gọi trang php
-        $get_data= new data_usrname(); //Gọi lớp ata_user_ifanshop trong trang control
-        if(isset($_GET['bt-signup']))
-        {
-            $in_usr =$get_data -> insert_usr($_GET['txt-username-signup'],
-                                                $_GET['txt-email-signup'],
-                                                $_GET['txt-password-signup']);
-            if($in_usr) echo "<script>alert('Thành công');
-                            </script>";
-            else 
-            echo "<script>alert('Không thực thi được')</script>";                
-        }
-    ?>
+
+<?php
+// Bước 1: Kết nối đến cơ sở dữ liệu
+// include('connect.php'); // File connect.php chứa thông tin kết nối đến cơ sở dữ liệu
+
+// // Bước 2: Lấy dữ liệu từ form
+// if(isset($_POST['submit'])) { // Kiểm tra xem form đã được gửi đi hay chưa
+//     $usrnm = $_POST['username']; // Lấy giá trị của trường username từ form
+//     $pwd = $_POST['password']; // Lấy giá trị của trường password từ form
+//     $email = $_POST['email']; // Lấy giá trị của trường email từ form
+
+//     // Bước 3: Chuẩn bị và thực thi câu lệnh SQL INSERT
+//     $sql = "INSERT INTO user (username, password, email) VALUES ('$usrnm', '$pwd', '$email')";
+
+//     if(mysqli_query($conn, $sql)) { // Thực thi câu lệnh SQL
+//         echo "Thêm dữ liệu thành công.";
+//     } else {
+//         echo "Lỗi: " . mysqli_error($conn);
+//     }
+// }
+
+// // Bước 4: Đóng kết nối
+// mysqli_close($conn);
+?>
+
 
 <footer class="footer-copy">
   <div class="container-fluid">

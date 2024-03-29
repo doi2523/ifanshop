@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <link rel="stylesheet" href="css/sanpham.css">
+<link rel="stylesheet" href="css/thecart.css">
 <link rel="stylesheet" href="">
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-qA+YO42piCGtf3n1bYGzv5e7CwYd1f9hJ5hH1G8/CtLcA9CpXhQJ6zy5CKF1fkqSoRh+Q/u7ShFegf8rceI+3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -43,7 +44,21 @@
         <li class="nav-item"> <a class="nav-link" href="services.html">Dịch vụ</a> </li>
         <li class="nav-item"> <a class="nav-link" href="faq.html">Faq</a> </li>
         <li class="nav-item"> <a class="nav-link" href="contact.html">Liên hệ</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="login.html">Đăng nhập</a> </li>
+        
+        <li class="nav-item">
+          <p class="nav-link">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+              </ul>
+              <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" id="search_field" placeholder="Search" aria-label="Search">
+              </form>
+              <button type="button" class="btn btn-success my-2 my-sm-0" data-toggle="modal" data-target="#staticBackdrop">
+                <i class="fas fa-shopping-cart total-count"></i>
+              </button>
+            </div>
+          </p>
+         </li>
     </ul>
       </ul>
     </div>
@@ -78,318 +93,594 @@
           <div class="slide-buttons"></div>
         </div>
 
-
-
-        <div class="container-grid">
-          <div class="item item1">
-            <div class="grid-item">
-              <div class="tag-voucher">
-                <img src="images/0-phantram.png" alt="">
+        <main>
+          <!-- <nav style="margin-top: 70px; height: 10%;" class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+          </nav> -->
+          <section>
+            <div class="featured-area pt-100 pb-70">
+              <div class="container">
+                <div class="tab featured-tab-area">
+                  <div class="row justify-content-center">
+        
+                    <div class="col-lg-4 col-md-8">
+                      <ul class="tabs active">
+                        <li class="">
+                          <a href="#">
+                            All
+                          </a>
+                        </li>
+                        <li class="">
+                          <a href="#">
+                            iPhone 15
+                          </a>
+                        </li>
+                        <li class="">
+                          <a href="#">
+                            iPhone 14
+                          </a>
+                        </li>
+                        <li class="">
+                          <a href="#">
+                            iPhone 13
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="tab_content current active pt-45">
+        
+                    <div class="tabs_item current">
+                      <div class="row justify-content-center">
+                        <div class="col-lg-3 col-md-6">
+                          <div class="featured-item">
+                            <div class="featured-item-img">
+                              <a href="#">
+                                <img src="https://add-to-cart-javascript.vercel.app/img/men-1.jpg" alt="Images">
+                              </a>
+                            </div>
+                            <div class="content">
+                              <h3><a href="#">Oxford Shirts</a></h3>
+                              <hr>
+                              <div class="content-in">
+                                <h4>₹ 1200 </h4>
+                                <span>(4.9)<i class="fa fa-star"></i></span>
+                              </div>
+                              <hr>
+                              <div class="featured-content-list">
+                                <button type="button" data-name="Oxford" data-price="1200" class="default-btn border-radius-5"> Add to cart</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                          <div class="featured-item">
+                            <div class="featured-item-img">
+                              <a href="#">
+                                <img src="https://add-to-cart-javascript.vercel.app/img/women-1.jpg" alt="Images">
+                              </a>
+                            </div>
+                            <div class="content">
+                              <h3><a href="#">Tunic </a></h3>
+                              <hr>
+                              <div class="content-in">
+                                <h4>₹ 459 </h4>
+                                <span>(4.4)<i class="fa fa-star"></i></span>
+                              </div>
+                              <hr>
+                              <div class="featured-content-list">
+                                <button type="button" data-name="Tunic" data-price="459" class="default-btn border-radius-5">Add to cart</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                          <div class="featured-item">
+                            <div class="featured-item-img">
+                              <a href="#">
+                                <img src="https://add-to-cart-javascript.vercel.app/img/watch-1.jpg" alt="Images">
+                              </a>
+                            </div>
+                            <div class="content">
+                              <h3><a href="#">Huawei Watch Buds </a></h3>
+                              <hr>
+                              <div class="content-in">
+                                <h4>₹ 4059 </h4>
+                                <span>(4.4)<i class="fa fa-star"></i></span>
+                              </div>
+                              <hr>
+                              <div class="featured-content-list">
+                                <button type="button" data-name="Huawei" data-price="4059" class="default-btn border-radius-5">Add to cart</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                          <div class="featured-item">
+                            <div class="featured-item-img">
+                              <a href="#">
+                                <img src="https://add-to-cart-javascript.vercel.app/img/men-2.jpg" alt="Images">
+                              </a>
+                            </div>
+                            <div class="content">
+                              <h3><a href="#">Short-Sleeve Shirt</a></h3>
+                              <hr>
+                              <div class="content-in">
+                                <h4>₹ 800 </h4>
+                                <span>(4.9)<i class="fa fa-star"></i></span>
+                              </div>
+                              <hr>
+                              <div class="featured-content-list">
+                                <button type="button" data-name="Short-Sleeve" data-price="800" class="default-btn border-radius-5">Add to cart</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                          <div class="featured-item">
+                            <div class="featured-item-img">
+                              <a href="#">
+                                <img src="https://add-to-cart-javascript.vercel.app/img/women-2.jpg" alt="Images">
+                              </a>
+                            </div>
+                            <div class="content">
+                              <h3><a href="#">Culotte dress</a></h3>
+                              <hr>
+                              <div class="content-in">
+                                <h4>₹ 2459 </h4>
+                                <span>(4.4)<i class="fa fa-star"></i></span>
+                              </div>
+                              <hr>
+                              <div class="featured-content-list">
+                                <button type="button" data-name="Culotte" data-price="2459" class="default-btn border-radius-5">Add to cart</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                          <div class="featured-item">
+                            <div class="featured-item-img">
+                              <a href="#">
+                                <img src="https://add-to-cart-javascript.vercel.app/img/watch-2.jpg" alt="Images">
+                              </a>
+                            </div>
+                            <div class="content">
+                              <h3><a href="#">Fire Boltt Dazzle </a></h3>
+                              <hr>
+                              <div class="content-in">
+                                <h4>₹ 1999 </h4>
+                                <span>(4.4)<i class="fa fa-star"></i></span>
+                              </div>
+                              <hr>
+                              <div class="featured-content-list">
+                                <button type="button" data-name="FireBoltt" data-price="1999" class="default-btn border-radius-5">Add to cart</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                          <div class="featured-item">
+                            <div class="featured-item-img">
+                              <a href="#">
+                                <img src="https://add-to-cart-javascript.vercel.app/img/men-3.jpg" alt="Images">
+                              </a>
+                            </div>
+                            <div class="content">
+                              <h3><a href="#">Cuban Collar Shirt</a></h3>
+                              <hr>
+                              <div class="content-in">
+                                <h4>₹ 499 </h4>
+                                <span>(4.9)<i class="fa fa-star"></i></span>
+                              </div>
+                              <hr>
+                              <div class="featured-content-list">
+                                <button type="button" data-name="CubanCollar" data-price="499" class="default-btn border-radius-5">Add to cart</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                          <div class="featured-item">
+                            <div class="featured-item-img">
+                              <a href="#">
+                                <img src="https://add-to-cart-javascript.vercel.app/img/women-3.jpg" alt="Images">
+                              </a>
+                            </div>
+                            <div class="content">
+                              <h3><a href="#">Babydoll</a></h3>
+                              <hr>
+                              <div class="content-in">
+                                <h4>₹ 1159 </h4>
+                                <span>(4.0)<i class="fa fa-star"></i></span>
+                              </div>
+                              <hr>
+                              <div class="featured-content-list">
+                                <button type="button" data-name="Babydoll" data-price="1159" class="default-btn border-radius-5">Add to cart</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                          <div class="featured-item">
+                            <div class="featured-item-img">
+                              <a href="#">
+                                <img src="https://add-to-cart-javascript.vercel.app/img/watch-3.jpg" alt="Images">
+                              </a>
+                            </div>
+                            <div class="content">
+                              <h3><a href="#">Google Pixel</a></h3>
+                              <hr>
+                              <div class="content-in">
+                                <h4>₹ 2059 </h4>
+                                <span>(4.4)<i class="fa fa-star"></i></span>
+                              </div>
+                              <hr>
+                              <div class="featured-content-list">
+                                <button type="button" data-name="Google" data-price="2059" class="default-btn border-radius-5">Add to cart</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                          <div class="featured-item">
+                            <div class="featured-item-img">
+                              <a href="#">
+                                <img src="https://add-to-cart-javascript.vercel.app/img/men-4.jpg" alt="Images">
+                              </a>
+                            </div>
+                            <div class="content">
+                              <h3><a href="#">T-shirt</a></h3>
+                              <hr>
+                              <div class="content-in">
+                                <h4>₹ 700 </h4>
+                                <span>(3.9)<i class="fa fa-star"></i></span>
+                              </div>
+                              <hr>
+                              <div class="featured-content-list">
+                                <button type="button" data-name="T-shirt" data-price="700" class="default-btn border-radius-5">Add to cart</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                          <div class="featured-item">
+                            <div class="featured-item-img">
+                              <a href="#">
+                                <img src="https://add-to-cart-javascript.vercel.app/img/women-4.jpg" alt="Images">
+                              </a>
+                            </div>
+                            <div class="content">
+                              <h3><a href="#">Wrap around</a></h3>
+                              <hr>
+                              <div class="content-in">
+                                <h4>₹ 4059 </h4>
+                                <span>(4.4)<i class="fa fa-star"></i></span>
+                              </div>
+                              <hr>
+                              <div class="featured-content-list">
+                                <button type="button" data-name="Wrap" data-price="4059" class="default-btn border-radius-5">Add to cart</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                          <div class="featured-item">
+                            <div class="featured-item-img">
+                              <a href="#">
+                                <img src="https://add-to-cart-javascript.vercel.app/img/watch-4.jpg" alt="Images">
+                              </a>
+                            </div>
+                            <div class="content">
+                              <h3><a href="#">titan Power</a></h3>
+                              <hr>
+                              <div class="content-in">
+                                <h4>₹ 459 </h4>
+                                <span>(4.4)<i class="fa fa-star"></i></span>
+                              </div>
+                              <hr>
+                              <div class="featured-content-list">
+                                <button type="button" data-name="titan" data-price="459" class="default-btn border-radius-5">Add to cart</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tabs_item">
+                      <div class="row justify-content-center">
+                        <div class="col-lg-3 col-md-6">
+                          <div class="featured-item">
+                            <div class="featured-item-img">
+                              <a href="#">
+                                <img src="https://add-to-cart-javascript.vercel.app/img/men-1.jpg" alt="Images">
+                              </a>
+                            </div>
+                            <div class="content">
+                              <h3><a href="#">Oxford Shirts</a></h3>
+                              <hr>
+                              <div class="content-in">
+                                <h4>₹ 1200 </h4>
+                                <span>(4.9)<i class="fa fa-star"></i></span>
+                              </div>
+                              <hr>
+                              <div class="featured-content-list">
+                                <button type="button" data-name="Oxford" data-price="1200" class="default-btn border-radius-5">Add to cart</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                          <div class="featured-item">
+                            <div class="featured-item-img">
+                              <a href="#">
+                                <img src="https://add-to-cart-javascript.vercel.app/img/men-2.jpg" alt="Images">
+                              </a>
+                            </div>
+                            <div class="content">
+                              <h3><a href="#">Short-Sleeve Shirt</a></h3>
+                              <hr>
+                              <div class="content-in">
+                                <h4>₹ 800 </h4>
+                                <span>(4.9)<i class="fa fa-star"></i></span>
+                              </div>
+                              <hr>
+                              <div class="featured-content-list">
+                                <button type="button" data-name="Short-Sleeve" data-price="800" class="default-btn border-radius-5">Add to cart</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                          <div class="featured-item">
+                            <div class="featured-item-img">
+                              <a href="#">
+                                <img src="https://add-to-cart-javascript.vercel.app/img/men-3.jpg" alt="Images">
+                              </a>
+                            </div>
+                            <div class="content">
+                              <h3><a href="#">Cuban Collar Shirt</a></h3>
+                              <hr>
+                              <div class="content-in">
+                                <h4>₹ 499 </h4>
+                                <span>(4.9)<i class="fa fa-star"></i></span>
+                              </div>
+                              <hr>
+                              <div class="featured-content-list">
+                                <button type="button" data-name="Cuban" data-price="499" class="default-btn border-radius-5">Add to cart</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                          <div class="featured-item">
+                            <div class="featured-item-img">
+                              <a href="#">
+                                <img src="https://add-to-cart-javascript.vercel.app/img/men-4.jpg" alt="Images">
+                              </a>
+                            </div>
+                            <div class="content">
+                              <h3><a href="#">T-shirt</a></h3>
+                              <hr>
+                              <div class="content-in">
+                                <h4>₹ 700 </h4>
+                                <span>(3.9)<i class="fa fa-star"></i></span>
+                              </div>
+                              <hr>
+                              <div class="featured-content-list">
+                                <button type="button" data-name="T-shirt" data-price="700" class="default-btn border-radius-5">Add to cart</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tabs_item">
+                      <div class="row justify-content-center">
+                        <div class="col-lg-3 col-md-6">
+                          <div class="featured-item">
+                            <div class="featured-item-img">
+                              <a href="#">
+                                <img src="https://add-to-cart-javascript.vercel.app/img/women-1.jpg" alt="Images">
+                              </a>
+                            </div>
+                            <div class="content">
+                              <h3><a href="#">Tunic </a></h3>
+                              <hr>
+                              <div class="content-in">
+                                <h4>₹ 459 </h4>
+                                <span>(4.4)<i class="fa fa-star"></i></span>
+                              </div>
+                              <hr>
+                              <div class="featured-content-list">
+                                <button type="button" data-name="Tunic" data-price="459" class="default-btn border-radius-5">Add to cart</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                          <div class="featured-item">
+                            <div class="featured-item-img">
+                              <a href="#">
+                                <img src="https://add-to-cart-javascript.vercel.app/img/women-2.jpg" alt="Images">
+                              </a>
+                            </div>
+                            <div class="content">
+                              <h3><a href="#">Culotte dress</a></h3>
+                              <hr>
+                              <div class="content-in">
+                                <h4>₹ 2459 </h4>
+                                <span>(4.4)<i class="fa fa-star"></i></span>
+                              </div>
+                              <hr>
+                              <div class="featured-content-list">
+                                <button type="button" data-name="Culotte" data-price="2459" class="default-btn border-radius-5">Add to cart</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                          <div class="featured-item">
+                            <div class="featured-item-img">
+                              <a href="#">
+                                <img src="https://add-to-cart-javascript.vercel.app/img/women-3.jpg" alt="Images">
+                              </a>
+                            </div>
+                            <div class="content">
+                              <h3><a href="#">Babydoll</a></h3>
+                              <hr>
+                              <div class="content-in">
+                                <h4>₹ 1159 </h4>
+                                <span>(4.0)<i class="fa fa-star"></i></span>
+                              </div>
+                              <hr>
+                              <div class="featured-content-list">
+                                <button type="button" data-name="Babydoll" data-price="1159" class="default-btn border-radius-5">Add to cart</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                          <div class="featured-item">
+                            <div class="featured-item-img">
+                              <a href="#">
+                                <img src="https://add-to-cart-javascript.vercel.app/img/women-4.jpg" alt="Images">
+                              </a>
+                            </div>
+                            <div class="content">
+                              <h3><a href="#">Wrap around</a></h3>
+                              <hr>
+                              <div class="content-in">
+                                <h4>₹ 4059 </h4>
+                                <span>(4.4)<i class="fa fa-star"></i></span>
+                              </div>
+                              <hr>
+                              <div class="featured-content-list">
+                                <button type="button" data-name="Wrap" data-price="4059" class="default-btn border-radius-5">Add to cart</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tabs_item">
+                      <div class="row justify-content-center">
+                        <div class="col-lg-3 col-md-6">
+                          <div class="featured-item">
+                            <div class="featured-item-img">
+                              <a href="#">
+                                <img src="https://add-to-cart-javascript.vercel.app/img/watch-1.jpg" alt="Images">
+                              </a>
+                            </div>
+                            <div class="content">
+                              <h3><a href="#">Huawei Watch Buds </a></h3>
+                              <hr>
+                              <div class="content-in">
+                                <h4>₹ 4059 </h4>
+                                <span>(4.4)<i class="fa fa-star"></i></span>
+                              </div>
+                              <hr>
+                              <div class="featured-content-list">
+                                <button type="button" data-name="Huawei" data-price="4059" class="default-btn border-radius-5">Add to cart</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                          <div class="featured-item">
+                            <div class="featured-item-img">
+                              <a href="#">
+                                <img src="https://add-to-cart-javascript.vercel.app/img/watch-2.jpg" alt="Images">
+                              </a>
+                            </div>
+                            <div class="content">
+                              <h3><a href="#">Fire Boltt Dazzle </a></h3>
+                              <hr>
+                              <div class="content-in">
+                                <h4>₹ 1999 </h4>
+                                <span>(4.4)<i class="fa fa-star"></i></span>
+                              </div>
+                              <hr>
+                              <div class="featured-content-list">
+                                <button type="button" data-name="FireBoltt" data-price="1999" class="default-btn border-radius-5">Add to cart</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                          <div class="featured-item">
+                            <div class="featured-item-img">
+                              <a href="#">
+                                <img src="https://add-to-cart-javascript.vercel.app/img/watch-3.jpg" alt="Images">
+                              </a>
+                            </div>
+                            <div class="content">
+                              <h3><a href="#">Google Pixel</a></h3>
+                              <hr>
+                              <div class="content-in">
+                                <h4>₹ 2059 </h4>
+                                <span>(4.4)<i class="fa fa-star"></i></span>
+                              </div>
+                              <hr>
+                              <div class="featured-content-list">
+                                <button type="button" data-name="Google" data-price="2059" class="default-btn border-radius-5">Add to cart</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                          <div class="featured-item">
+                            <div class="featured-item-img">
+                              <a href="#">
+                                <img src="https://add-to-cart-javascript.vercel.app/img/watch-4.jpg" alt="Images">
+                              </a>
+                            </div>
+                            <div class="content">
+                              <h3><a href="#">titan Power</a></h3>
+                              <hr>
+                              <div class="content-in">
+                                <h4>₹ 459 </h4>
+                                <span>(4.4)<i class="fa fa-star"></i></span>
+                              </div>
+                              <hr>
+                              <div class="featured-content-list">
+                                <button type="button" data-name="titan" data-price="459" class="default-btn border-radius-5">Add to cart</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+        
+                    <p id="not_found"></p>
+                  </div>
+                </div>
               </div>
-              <div class="img-ip">
-                <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
+            </div>
+          </section>
+        
+          <!-- Modal -->
+          <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Your Cart</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <table class="show-cart table">
+        
+                  </table>
+                  <div class="grand-total">Total price: ₹<span class="total-cart"></span></div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <!-- <button type="button" class="btn btn-danger clear-all">Clear All</button> -->
+                </div>
               </div>
-              <div class="txt-name">iPhone 15 pro max 256GB</div>
-              <div class="giatien">
-                <span id="gia-uu-dai">30.000.000₫</span>
-                <span id="giagoc">34.000.000₫</span>
-                <span id="phan-tram">-15%</span>
-              </div>
-              <div class="adding">
-                <button class="add-shoping">
-                  <a href="#" class="add-to-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                  </a>
-                  <span id="text-add-shoping">Thêm vào giỏ hàng</span>
-                </button>
-              </div>             
             </div>
           </div>
-          <div class="item item2">
-            <div class="grid-item">
-              <div class="tag-voucher">
-                <img src="images/0-phantram.png" alt="">
-              </div>
-              <div class="img-ip">
-                <img src="images/0022263_iphone-15-pro-128gb_240.png" alt="">
-              </div>
-              <div class="txt-name">iPhone 15 pro 128GB</div>
-              <div class="giatien">
-                <span id="gia-uu-dai">26.190.000₫</span>
-                <span id="giagoc">30.990.000₫</span>
-                <span id="phan-tram">-15%</span>
-              </div>
-              <div class="adding">
-                <button class="add-shoping">
-                  <a href="#" class="add-to-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                  </a>
-                  <span id="text-add-shoping">Thêm vào giỏ hàng</span>
-                </button>
-              </div>             
-            </div>          </div>
-          <div class="item item3">
-            <div class="grid-item">
-              <div class="tag-voucher">
-                <img src="images/0-phantram.png" alt="">
-              </div>
-              <div class="img-ip">
-                <img src="images/0024431_iphone-15-128gb_240.png" alt="">
-              </div>
-              <div class="txt-name">iPhone 15</div>
-              <div class="giatien">
-                <span id="gia-uu-dai">19.890.000₫</span>
-                <span id="giagoc">24.990.000₫</span>
-                <span id="phan-tram">20%</span>
-              </div>
-              <div class="adding">
-                <button class="add-shoping">
-                  <a href="#" class="add-to-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                  </a>
-                  <span id="text-add-shoping">Thêm vào giỏ hàng</span>
-                </button>
-              </div>             
-            </div>          </div>
-          <div class="item item4">
-            <div class="grid-item">
-              <div class="tag-voucher">
-                <img src="images/0-phantram.png" alt="">
-              </div>
-              <div class="img-ip">
-                <img src="images/0020317_iphone-15-plus-128gb_240.webp" alt="">
-              </div>
-              <div class="txt-name">iPhone 15 plus</div>
-              <div class="giatien">
-                <span id="gia-uu-dai">22.890.000₫</span>
-                <span id="giagoc">27.990.000₫</span>
-                <span id="phan-tram">-18%</span>
-              </div>
-              <div class="adding">
-                <button class="add-shoping">
-                  <a href="#" class="add-to-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                  </a>
-                  <span id="text-add-shoping">Thêm vào giỏ hàng</span>
-                </button>
-              </div>             
-            </div>          </div>
-          <div class="item item5">
-            <div class="grid-item">
-              <div class="tag-voucher">
-                <img src="images/0-phantram.png" alt="">
-              </div>
-              <div class="img-ip">
-                <img src="images/0024430_iphone-13_240.png" alt="">
-              </div>
-              <div class="txt-name">iPhone 13 pro</div>
-              <div class="giatien">
-                <span id="gia-uu-dai">13.990.000₫</span>
-                <span id="giagoc">24.990.000₫</span>
-                <span id="phan-tram">-44%</span>
-              </div>
-              <div class="adding">
-                <button class="add-shoping">
-                  <a href="#" class="add-to-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                  </a>
-                  <span id="text-add-shoping">Thêm vào giỏ hàng</span>
-                </button>
-              </div>             
-            </div>          </div>
-          <div class="item item6">
-            <div class="grid-item">
-              <div class="tag-voucher">
-                <img src="images/0-phantram.png" alt="">
-              </div>
-              <div class="img-ip">
-                <img src="images/0006849_iphone-12-128gb_240.png" alt="">
-              </div>
-              <div class="txt-name">iPhone 12 128GB</div>
-              <div class="giatien">
-                <span id="gia-uu-dai">12.290.000₫</span>
-                <span id="giagoc">22.990.000₫</span>
-                <span id="phan-tram">-46%</span>
-              </div>
-              <div class="adding">
-                <button class="add-shoping">
-                  <a href="#" class="add-to-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                  </a>
-                  <span id="text-add-shoping">Thêm vào giỏ hàng</span>
-                </button>
-              </div>             
-            </div>
-          </div>
-          <div class="item item7">
-            <div class="grid-item">
-              <div class="tag-voucher">
-                <img src="images/0-phantram.png" alt="">
-              </div>
-              <div class="img-ip">
-                <img src="images/0009181_iphone-14-128gb_240.png" alt="">
-              </div>
-              <div class="txt-name">iPhone 14 128GB</div>
-              <div class="giatien">
-                <span id="gia-uu-dai">16.990.000₫</span>
-                <span id="giagoc">24.990.000₫</span>
-                <span id="phan-tram">-32%</span>
-              </div>
-              <div class="adding">
-                <button class="add-shoping">
-                  <a href="#" class="add-to-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                  </a>
-                  <span id="text-add-shoping">Thêm vào giỏ hàng</span>
-                </button>
-              </div>             
-            </div>
-          </div>
-          <div class="item item8">
-            <div class="grid-item">
-              <div class="tag-voucher">
-                <img src="images/0-phantram.png" alt="">
-              </div>
-              <div class="img-ip">
-                <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
-              </div>
-              <div class="txt-name">iPhone 15 pro max</div>
-              <div class="giatien">
-                <span id="gia-uu-dai">30.000.000₫</span>
-                <span id="giagoc">34.000.000₫</span>
-                <span id="phan-tram">-15%</span>
-              </div>
-              <div class="adding">
-                <button class="add-shoping">
-                  <a href="#" class="add-to-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                  </a>
-                  <span id="text-add-shoping">Thêm vào giỏ hàng</span>
-                </button>
-              </div>             
-            </div>
-          </div>
-          <!-- <div class="item item9">
-            <div class="grid-item">
-              <div class="tag-voucher">
-                <img src="images/0-phantram.png" alt="">
-              </div>
-              <div class="img-ip">
-                <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
-              </div>
-              <div class="txt-name">iPhone 15 pro max</div>
-              <div class="giatien">
-                <span id="gia-uu-dai">30.000.000₫</span>
-                <span id="giagoc">34.000.000₫</span>
-                <span id="phan-tram">-15%</span>
-              </div>
-              <div class="adding">
-                <button class="add-shoping">
-                  <a href="#" class="add-to-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                  </a>
-                  <span id="text-add-shoping">Thêm vào giỏ hàng</span>
-                </button>
-              </div>             
-            </div>
-          </div>
-          <div class="item item10">
-            <div class="grid-item">
-              <div class="tag-voucher">
-                <img src="images/0-phantram.png" alt="">
-              </div>
-              <div class="img-ip">
-                <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
-              </div>
-              <div class="txt-name">iPhone 15 pro max</div>
-              <div class="giatien">
-                <span id="gia-uu-dai">30.000.000₫</span>
-                <span id="giagoc">34.000.000₫</span>
-                <span id="phan-tram">-15%</span>
-              </div>
-              <div class="adding">
-                <button class="add-shoping">
-                  <a href="#" class="add-to-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                  </a>
-                  <span id="text-add-shoping">Thêm vào giỏ hàng</span>
-                </button>
-              </div>             
-            </div>
-          </div>
-          <div class="item item11">
-            <div class="grid-item">
-              <div class="tag-voucher">
-                <img src="images/0-phantram.png" alt="">
-              </div>
-              <div class="img-ip">
-                <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
-              </div>
-              <div class="txt-name">iPhone 15 pro max</div>
-              <div class="giatien">
-                <span id="gia-uu-dai">30.000.000₫</span>
-                <span id="giagoc">34.000.000₫</span>
-                <span id="phan-tram">-15%</span>
-              </div>
-              <div class="adding">
-                <button class="add-shoping">
-                  <a href="#" class="add-to-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                  </a>
-                  <span id="text-add-shoping">Thêm vào giỏ hàng</span>
-                </button>
-              </div>             
-            </div>
-          </div>
-          <div class="item item12">
-            <div class="grid-item">
-              <div class="tag-voucher">
-                <img src="images/0-phantram.png" alt="">
-              </div>
-              <div class="img-ip">
-                <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
-              </div>
-              <div class="txt-name">iPhone 15 pro max</div>
-              <div class="giatien">
-                <span id="gia-uu-dai">30.000.000₫</span>
-                <span id="giagoc">34.000.000₫</span>
-                <span id="phan-tram">-15%</span>
-              </div>
-              <div class="adding">
-                <button class="add-shoping">
-                  <a href="#" class="add-to-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                  </a>
-                  <span id="text-add-shoping">Thêm vào giỏ hàng</span>
-                </button>
-              </div>             
-            </div>
-          </div>
-          <div class="item item13">
-            <div class="grid-item">
-              <div class="tag-voucher">
-                <img src="images/0-phantram.png" alt="">
-              </div>
-              <div class="img-ip">
-                <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
-              </div>
-              <div class="txt-name">iPhone 15 pro max</div>
-              <div class="giatien">
-                <span id="gia-uu-dai">30.000.000₫</span>
-                <span id="giagoc">34.000.000₫</span>
-                <span id="phan-tram">-15%</span>
-              </div>
-              <div class="adding">
-                <button class="add-shoping">
-                  <a href="#" class="add-to-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                  </a>
-                  <span id="text-add-shoping">Thêm vào giỏ hàng</span>
-                </button>
-              </div>             
-            </div>
-          </div> -->
-        </div>
+        </main>
     </div>
   </div>
   </section>
@@ -440,5 +731,6 @@
 <script src="js/wow.min.js"></script> 
 <script src="js/script.js"></script>
 <script src="js/sanpham.js"></script>
+<script src="js/thecart.js"></script>
 </body>
 </html>

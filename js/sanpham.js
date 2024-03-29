@@ -105,3 +105,8 @@ window.addEventListener('resize', function() {
 
 // Gọi hàm một lần để xác định hình ảnh ban đầu dựa trên kích thước màn hình hiện tại
 window.dispatchEvent(new Event('resize'));
+
+
+
+
+
