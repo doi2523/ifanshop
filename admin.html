@@ -1,125 +1,268 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>iFanShop</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-<link rel="stylesheet" href="css/animate.css">
-<link rel="icon" href="images/marketplace.png" type="image/x-icon">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="style.css"/>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link rel="stylesheet" href="css/admin.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<!DOCTYPE html> 
+<html lang="en"> 
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+<head> 
+	<meta charset="UTF-8"> 
+	<meta http-equiv="X-UA-Compatible"
+		content="IE=edge"> 
+	<meta name="viewport"
+		content="width=device-width, 
+				initial-scale=1.0"> 
+	<title>GeeksForGeeks</title> 
+    <link rel="stylesheet" href="css/admin.css">
+</head> 
 
-<body class="body-style">
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg">
-  <div class="container"> 
-    <a class="navbar-brand navbar-logo" href="index.html"><img style="height: 50px;" src="images/ifa1.png" alt=""></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="fas fa-bars"></span> </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <!-- <li class="nav-item"> <a class="nav-link" href="index.html">Trang chủ</a> </li>          
-        <li class="nav-item"> <a class="nav-link" href="about.html">Giới thiệu</a> </li>
-        <li class="nav-item dropdown"> 
-          <a class="nav-link dropdown-toggle" href="#" id="login" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Sản phẩm<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 8 2" fill="currentColor" id="icon" class="rotate-icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.646 3.708L0.645996 0.708L1.354 0L4 2.647L6.646 0L7.354 0.708L4.354 3.708L4 4.061L3.646 3.708Z" fill="currentColor"></path></svg>
-          </a>        
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="	background: linear-gradient(to left, #7a60ff, #cd9ffa); color: #fff;">
-              <a class="dropdown-item" href="sanpham.html" style=" text-transform: none; font-size: 17px;">iPhone</a>
-              <a class="dropdown-item" href="macbook.html" style=" text-transform: none; font-size: 17px;">Macbook</a>
-              <a class="dropdown-item" href="ipad.html" style=" text-transform: none; font-size: 17px;">iPad</a>
-              <a class="dropdown-item" href="accessory.html" style=" text-transform: none; font-size: 17px;">Phụ kiện</a>
-          </div>
-        </li>
-        <li class="nav-item"> <a class="nav-link" href="services.html">Dịch vụ</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="faq.html">Faq</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="contact.html">Liên hệ</a> </li> -->
-        <li class="nav-item"> <a class="nav-link" href="product.html">SQL Sản phẩm</a> </li>
-        <li class="nav-item"> <a class="nav-link" href="account.html">SQL Tài khoản</a> </li>
-        <li class="nav-item"><div id="datetime"></div></li>
-        <li class="nav-item"> <a class="nav-link" href="login.html">Đăng xuất<i id="icon-logout" class="fas fa-sign-out-alt"></i>
-        </a> </li>
-    </ul>
-    
-    </div>
-  </div>
-</nav>
-<!-- End Navbar --> 
-<!-------Banner Start------->
-<section class="banner" data-scroll-index='0'>
-  <div class="banner-overlay">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-sm-12">
-          <div class="banner-text">
-            <h2 class="white">TRANG NAY CUA ADMIN</h2>
-            <h6 class="white">Cam kết, Đảm bảo, Uy tín <a href="index.html" target="_blank" rel="dofollow" class="weblink">iFanShop</a>.</h6>
-            <p class="banner-text white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur hendrerit neque massa, sit amet tristique ante porta ut. In sodales et justo vel vulputate. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-            <ul>
-              <li><a href="#"><img src="" class="wow fadeInUp" data-wow-delay="0.4s"/>Xem thêm</a></li>
-              <li><a href="#"><img src="" class="wow fadeInUp" data-wow-delay="0.7s"/>Mua Ngay</a></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-12"> <img src="images/15prm.png" class="ip15prm"/> </div>
-      </div>
-    </div>
-  </div>
-  </section>
+<body> 
+	
+	<!-- for header part -->
+	<header> 
 
-<!-------Banner End-------> 
+		<div class="logosec"> 
+			<div class="logo">GeeksForGeeks</div> 
+			<img src= 
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
+				class="icn menuicn"
+				id="menuicn"
+				alt="menu-icon"> 
+		</div> 
 
+		<div class="searchbar"> 
+			<input type="text"
+				placeholder="Search"> 
+			<div class="searchbtn"> 
+			<img src= 
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+					class="icn srchicn"
+					alt="search-icon"> 
+			</div> 
+		</div> 
 
-<!-------Download End------->
-<!-- <section class="download section-padding">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="sectioner-header text-center white">
-          <h3>Download Our App</h3>
-          <span class="line"></span>
-          <p class="white">Sed quis nisi nisi. Proin consectetur porttitor dui sit amet viverra. Fusce sit amet lorem faucibus, vestibulum ante in, pharetra ante.</p>
-        </div>
-      </div>
-      <div class="col-md-12">
-        <div class="section-content text-center">
-          <ul>
-            <li><a href="#"><img src="images/appstore.png" class="wow fadeInUp" data-wow-delay="0.4s"/></a></li>
-            <li><a href="#"><img src="images/playstore.png" class="wow fadeInUp" data-wow-delay="0.7s"/></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
+		<div class="message"> 
+			<div class="circle"></div> 
+			<img src= 
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/8.png"
+				class="icn"
+				alt=""> 
+			<div class="dp"> 
+			<img src= 
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
+					class="dpicn"
+					alt="dp"> 
+			</div> 
+		</div> 
 
-<!-------Download End------->
+	</header> 
 
-<footer class="footer-copy">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12">
-        <p>2024 &copy; Applight. Website Designed by <a href="" target="_blank" rel="dofollow">Doi teamwork</a></p>
-      </div>
-    </div>
-  </div>
-</footer>
+	<div class="main-container"> 
+		<div class="navcontainer"> 
+			<nav class="nav"> 
+				<div class="nav-upper-options"> 
+					<div class="nav-option option1"> 
+						<img src= 
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
+							class="nav-img"
+							alt="dashboard"> 
+						<h3> Dashboard</h3> 
+					</div> 
 
+					<div class="option2 nav-option"> 
+						<img src= 
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
+							class="nav-img"
+							alt="articles"> 
+						<h3> Articles</h3> 
+					</div> 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script> 
-<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script> 
-<!-- scrollIt js --> 
-<script src="js/scrollIt.min.js"></script> 
-<script src="js/wow.min.js"></script> 
-<script src="js/script.js"></script>
-<script src="js/admin.js"></script>
-</body>
+					<div class="nav-option option3"> 
+						<img src= 
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/5.png"
+							class="nav-img"
+							alt="report"> 
+						<h3> Report</h3> 
+					</div> 
+
+					<div class="nav-option option4"> 
+						<img src= 
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/6.png"
+							class="nav-img"
+							alt="institution"> 
+						<h3> Institution</h3> 
+					</div> 
+
+					<div class="nav-option option5"> 
+						<img src= 
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210183323/10.png"
+							class="nav-img"
+							alt="blog"> 
+						<h3>Người dùng</h3> 
+					</div> 
+
+					<div class="nav-option option6"> 
+						<img src= 
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/4.png"
+							class="nav-img"
+							alt="settings"> 
+						<h3>Cài đặt</h3> 
+					</div> 
+
+          <a href="login.html">
+            <div class="nav-option logout"> 
+              <img src= 
+  "https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
+                class="nav-img"
+                alt="logout"> 
+              <h3>Đăng xuất</h3> 
+            </div>
+          </a>
+
+				</div> 
+			</nav> 
+		</div> 
+		<div class="main"> 
+
+			<div class="searchbar2"> 
+				<input type="text"
+					name=""
+					id=""
+					placeholder="Search"> 
+				<div class="searchbtn"> 
+				<img src= 
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+						class="icn srchicn"
+						alt="search-button"> 
+				</div> 
+			</div> 
+
+			<div class="box-container"> 
+
+				<div class="box box1"> 
+					<div class="text"> 
+						<h2 class="topic-heading">60.5k</h2> 
+						<h2 class="topic">Article Views</h2> 
+					</div> 
+
+					<img src= 
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210184645/Untitled-design-(31).png"
+						alt="Views"> 
+				</div> 
+
+				<div class="box box2"> 
+					<div class="text"> 
+						<h2 class="topic-heading">150</h2> 
+						<h2 class="topic">Likes</h2> 
+					</div> 
+
+					<img src= 
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210185030/14.png"
+						alt="likes"> 
+				</div> 
+
+				<div class="box box3"> 
+					<div class="text"> 
+						<h2 class="topic-heading">320</h2> 
+						<h2 class="topic">Comments</h2> 
+					</div> 
+
+					<img src= 
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210184645/Untitled-design-(32).png"
+						alt="comments"> 
+				</div> 
+
+				<div class="box box4"> 
+					<div class="text"> 
+						<h2 class="topic-heading">70</h2> 
+						<h2 class="topic">Published</h2> 
+					</div> 
+
+					<img src= 
+"https://media.geeksforgeeks.org/wp-content/uploads/20221210185029/13.png" alt="published"> 
+				</div> 
+			</div> 
+
+			<div class="report-container"> 
+				<div class="report-header"> 
+					<h1 class="recent-Articles">Recent Articles</h1> 
+					<button class="view">View All</button> 
+				</div> 
+
+				<div class="report-body"> 
+					<div class="report-topic-heading"> 
+						<h3 class="t-op">Article</h3> 
+						<h3 class="t-op">Views</h3> 
+						<h3 class="t-op">Comments</h3> 
+						<h3 class="t-op">Status</h3> 
+					</div> 
+
+					<div class="items"> 
+						<div class="item1"> 
+							<h3 class="t-op-nextlvl">Article 73</h3> 
+							<h3 class="t-op-nextlvl">2.9k</h3> 
+							<h3 class="t-op-nextlvl">210</h3> 
+							<h3 class="t-op-nextlvl label-tag">Published</h3> 
+						</div> 
+
+						<div class="item1"> 
+							<h3 class="t-op-nextlvl">Article 72</h3> 
+							<h3 class="t-op-nextlvl">1.5k</h3> 
+							<h3 class="t-op-nextlvl">360</h3> 
+							<h3 class="t-op-nextlvl label-tag">Published</h3> 
+						</div> 
+
+						<div class="item1"> 
+							<h3 class="t-op-nextlvl">Article 71</h3> 
+							<h3 class="t-op-nextlvl">1.1k</h3> 
+							<h3 class="t-op-nextlvl">150</h3> 
+							<h3 class="t-op-nextlvl label-tag">Published</h3> 
+						</div> 
+
+						<div class="item1"> 
+							<h3 class="t-op-nextlvl">Article 70</h3> 
+							<h3 class="t-op-nextlvl">1.2k</h3> 
+							<h3 class="t-op-nextlvl">420</h3> 
+							<h3 class="t-op-nextlvl label-tag">Published</h3> 
+						</div> 
+
+						<div class="item1"> 
+							<h3 class="t-op-nextlvl">Article 69</h3> 
+							<h3 class="t-op-nextlvl">2.6k</h3> 
+							<h3 class="t-op-nextlvl">190</h3> 
+							<h3 class="t-op-nextlvl label-tag">Published</h3> 
+						</div> 
+
+						<div class="item1"> 
+							<h3 class="t-op-nextlvl">Article 68</h3> 
+							<h3 class="t-op-nextlvl">1.9k</h3> 
+							<h3 class="t-op-nextlvl">390</h3> 
+							<h3 class="t-op-nextlvl label-tag">Published</h3> 
+						</div> 
+
+						<div class="item1"> 
+							<h3 class="t-op-nextlvl">Article 67</h3> 
+							<h3 class="t-op-nextlvl">1.2k</h3> 
+							<h3 class="t-op-nextlvl">580</h3> 
+							<h3 class="t-op-nextlvl label-tag">Published</h3> 
+						</div> 
+
+						<div class="item1"> 
+							<h3 class="t-op-nextlvl">Article 66</h3> 
+							<h3 class="t-op-nextlvl">3.6k</h3> 
+							<h3 class="t-op-nextlvl">160</h3> 
+							<h3 class="t-op-nextlvl label-tag">Published</h3> 
+						</div> 
+
+						<div class="item1"> 
+							<h3 class="t-op-nextlvl">Article 65</h3> 
+							<h3 class="t-op-nextlvl">1.3k</h3> 
+							<h3 class="t-op-nextlvl">220</h3> 
+							<h3 class="t-op-nextlvl label-tag">Published</h3> 
+						</div> 
+
+					</div> 
+				</div> 
+			</div> 
+		</div> 
+	</div> 
+
+	<script src="js/admin.js"></script> 
+</body> 
 </html>

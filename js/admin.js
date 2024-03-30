@@ -33,3 +33,16 @@ document.addEventListener('DOMContentLoaded', function() {
     updateDateTime(); // Gọi hàm cập nhật thời gian
     setInterval(updateDateTime, 1000); // Cập nhật thời gian mỗi giây
 });
+
+
+
+
+
+let menuicn = document.querySelector(".menuicn"); 
+let nav = document.querySelector(".navcontainer"); 
+
+menuicn.addEventListener("click", () => { 
+	nav.classList.toggle("navclose"); 
+})
+
+  

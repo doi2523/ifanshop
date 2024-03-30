@@ -98,12 +98,9 @@ var userList = localStorage.getItem('userList') ? JSON.parse(localStorage.getIte
 // Hàm xử lý sự kiện đăng nhập
 document.getElementById('formm').addEventListener('submit', function(event) {
     event.preventDefault(); // Ngăn chặn hành vi mặc định của form
-
     var username = document.getElementById("login-email").value;
     var password = document.getElementById("login-password").value;
-
     var found = false;
-
     // Duyệt qua danh sách người dùng để kiểm tra thông tin đăng nhập
     userList.forEach(function(user) {
         if (username === user.username && password === user.password) {
@@ -111,11 +108,21 @@ document.getElementById('formm').addEventListener('submit', function(event) {
             return;
         }
     });
-
     if (found) {
         document.getElementById('loginSuccessMessage').style.display = 'block';
         document.getElementById('loginMessage').innerText = ''; // Xóa thông báo lỗi nếu có
         // Chuyển đến trang thành công sau 2 giây
+        if (username === 'admin' && password === '12345') {
+            // Nếu đúng, chuyển hướng sang trang HTML khác
+            document.getElementById('loginMessage').innerText = 'Đăng nhập thành công! Vui lòng đợi.';
+            alert('Đăng nhập thành công! Vui lòng đợi.');
+            loginMessage.style.color = 'green';
+            window.location.href = "admin.html";
+            setTimeout(function() {
+                window.location.href = 'admin.html';
+            }, 2000); // 2000 milliseconds = 2 giây
+            errorMessage.style.color = 'green';
+        }
         setTimeout(function() {
             window.location.href = "index.html"; // Đổi thành đường dẫn trang thành công của bạn
         }, 2000);
@@ -123,23 +130,21 @@ document.getElementById('formm').addEventListener('submit', function(event) {
         document.getElementById('loginSuccessMessage').style.display = 'none';
         document.getElementById('loginMessage').innerText = 'Tên người dùng hoặc mật khẩu không đúng.';
         loginMessage.style.color = 'red';
-
         var reset_all = document.getElementById('formm');
         reset_all.reset();
-
     }
-
-        // Kiểm tra nếu username và password là 'admin' và '12345'
-        if (username === 'admin' && password === '12345') {
-            // Nếu đúng, chuyển hướng sang trang HTML khác
-            document.getElementById('loginMessage').innerText = 'Đăng nhập thành công! Vui lòng đợi.';
-            alert('Đăng nhập thành công! Vui lòng đợi.');
-            loginMessage.style.color = 'green';
-            setTimeout(function() {
-                window.location.href = 'admin.html';
-            }, 2000); // 2000 milliseconds = 2 giây
-            errorMessage.style.color = 'green';
-        } else { 
+        // // Kiểm tra nếu username và password là 'admin' và '12345'
+        // if (username === 'admin' && password === '12345') {
+        //     // Nếu đúng, chuyển hướng sang trang HTML khác
+        //     document.getElementById('loginMessage').innerText = 'Đăng nhập thành công! Vui lòng đợi.';
+        //     alert('Đăng nhập thành công! Vui lòng đợi.');
+        //     loginMessage.style.color = 'green';
+        //     window.location.href = "admin.html";
+        //     setTimeout(function() {
+        //         window.location.href = 'admin.html';
+        //     }, 2000); // 2000 milliseconds = 2 giây
+        //     errorMessage.style.color = 'green';
+        // } else { 
         // Xóa thông báo lỗi nếu có
         //     // Nếu sai, hiển thị thông báo lỗi
         //     document.getElementById('loginMessage').innerText = 'Tên người dùng hoặc mật khẩu không đúng.';
@@ -147,7 +152,6 @@ document.getElementById('formm').addEventListener('submit', function(event) {
         //     errorMessage.style.color = 'red';
         //     // Đặt lại form để người dùng có thể nhập lại
         //     document.getElementById('formm').reset();
-        }
 });
 
 

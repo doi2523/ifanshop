@@ -255,8 +255,8 @@ hr {
     flex-direction: column;
   }
   .txt-name{
-    font-size: 20px;
-    margin-top: 10px;
+    font-size: 18px;
+    margin-top: 20px;
   }
   #gia-uu-dai{
     color:blue;
@@ -639,11 +639,13 @@ a {
   flex-direction: row;
 }
 .txt-name{
-  font-size: 20px;
+  font-size: 18px;
+  margin-top: 20px;
 }
 .img-ip{
   display: flex;
   justify-content: center;
+  margin-top: 10px;
 }
 .tag-voucher{
 }
@@ -761,8 +763,8 @@ a {
     flex-direction: column;
   }
   .txt-name{
-    font-size: 20px;
-    margin-top: 10px;
+    font-size: 18px;
+    margin-top: 20px;
   }
   #gia-uu-dai{
     color:blue;
@@ -874,8 +876,8 @@ a {
     flex-direction: column;
   }
   .txt-name{
-    font-size: 20px;
-    margin-top: 10px;
+    font-size: 18px;
+    margin-top: 20px;
   }
   #gia-uu-dai{
     color:blue;
@@ -930,3 +932,10 @@ a {
   }
 }
 
+
+
+
+
+.hidden {
+  display: none;
+}
