@@ -595,7 +595,7 @@ a {
   text-align: center;
   z-index: 10;
   position: absolute;
-  top: 76%;
+  top: 74%;
   left: 50%;
   height: max-content;
 
@@ -726,7 +726,13 @@ a {
     width: 100%;
   }
   .slide-buttons{
-    top: 82%;
+    top: 80%;
+    margin-left: -14px;
+  }
+  .slide-btn {
+    line-height: 0.5em;
+    font-size: 25px;
+    height: max-content;
   }
   .container-grid {
     display: grid;
@@ -833,6 +839,12 @@ a {
   }
   .slide-buttons{
     top: 82%;
+    margin-left: -14px;
+  }
+  .slide-btn {
+    line-height: 0.5em;
+    font-size: 25px;
+    height: max-content;
   }
   .container-grid {
     display: grid;
