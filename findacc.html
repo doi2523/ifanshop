@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="css/findacc.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -50,51 +51,30 @@
 <section class="banner" data-scroll-index='0'>
   <div class="banner-overlay">
     <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-sm-12">
-          <div class="banner-text">
-            <h2 class="white">Chào mừng đến với iFanShop</h2>
-            <h6 class="white">Cam kết, Đảm bảo, Uy tín <a href="index.html" target="_blank" rel="dofollow" class="weblink">iFanShop</a>.</h6>
-            <p class="banner-text white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur hendrerit neque massa, sit amet tristique ante porta ut. In sodales et justo vel vulputate. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-            <ul>
-              <li><a href="#"><img src="" class="wow fadeInUp" data-wow-delay="0.4s"/>Xem thêm</a></li>
-              <li><a href="#"><img src="" class="wow fadeInUp" data-wow-delay="0.7s"/>Mua Ngay</a></li>
-            </ul>
-          </div>
+
+        <div class="">
+            <h2>Password Recovery</h2>
+            <form id="formm" class="form form-login">
+                <fieldset>
+                  <legend>Please, enter your email and password for login.</legend>
+                  <div class="input-block">
+                    <label for="login-email">E-mail</label>
+                    <!-- Cách ra cho biết phần name nè -->
+                    <input id="login-email" type="email" required name="txt-email-login">
+                  </div>
+                </fieldset>
+
+                 <!-- Cách ra cho biết phần name nè -->
+                <button type="submit" class="btn-login" name="bt-login">Đăng nhập</button>
+              </form>
         </div>
-        <div class="col-md-4 col-sm-12"> <img src="images/15prm.png" class="ip15prm"/> </div>
-      </div>
+
     </div>
   </div>
   </section>
 
 <!-------Banner End-------> 
 
-
-<!-------Download End------->
-<section class="download section-padding">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="sectioner-header text-center white">
-          <h3>Download Our App</h3>
-          <span class="line"></span>
-          <p class="white">Sed quis nisi nisi. Proin consectetur porttitor dui sit amet viverra. Fusce sit amet lorem faucibus, vestibulum ante in, pharetra ante.</p>
-        </div>
-      </div>
-      <div class="col-md-12">
-        <div class="section-content text-center">
-          <ul>
-            <li><a href="#"><img src="images/appstore.png" class="wow fadeInUp" data-wow-delay="0.4s"/></a></li>
-            <li><a href="#"><img src="images/playstore.png" class="wow fadeInUp" data-wow-delay="0.7s"/></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-------Download End------->
 
 <footer class="footer-copy">
   <div class="container-fluid">
@@ -114,5 +94,6 @@
 <script src="js/scrollIt.min.js"></script> 
 <script src="js/wow.min.js"></script> 
 <script src="js/script.js"></script>
+<script src="js/findacc.js"></script>
 </body>
 </html>

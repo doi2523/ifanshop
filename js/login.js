@@ -133,7 +133,8 @@ document.getElementById('formm').addEventListener('submit', function(event) {
         if (username === 'admin' && password === '12345') {
             // Nếu đúng, chuyển hướng sang trang HTML khác
             document.getElementById('loginMessage').innerText = 'Đăng nhập thành công! Vui lòng đợi.';
-            // alert('Đăng nhập thành công! Vui lòng đợi.');
+            alert('Đăng nhập thành công! Vui lòng đợi.');
+            loginMessage.style.color = 'green';
             setTimeout(function() {
                 window.location.href = 'admin.html';
             }, 2000); // 2000 milliseconds = 2 giây
