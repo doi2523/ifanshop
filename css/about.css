@@ -374,6 +374,7 @@ footer .bottom-details .bottom_text {
   }
   .img {
     margin-left: 0rem;
+    height: 500px;
   }
   footer .content .link-boxes {
     flex-wrap: wrap;

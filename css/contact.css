@@ -1,22 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-
-body::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-}
 
 section {
   position: relative;
@@ -25,7 +8,7 @@ section {
   padding-bottom: 50px;
 }
 
-.container {
+.container-contact {
   max-width: 1080px;
   margin-left: auto;
   margin-right: auto;
@@ -51,7 +34,7 @@ section {
 
 .row {
   display: flex;
-  flwx-wrap: wrap;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
 }
