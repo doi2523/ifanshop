@@ -177,16 +177,14 @@ input[type="text"] {
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-span {
+/* span {
   position: absolute;
-  left: 10px;
-  top: 50%;
   transform: translateY(-50%);
   color: #999;
-  pointer-events: none; /* Ngăn chặn sự kiện click và hover cho span */
+  pointer-events: none; 
   transition: opacity 0.3s ease;
   opacity: 1;
-}
+} */
 .hide {
   opacity: 0;
 }
