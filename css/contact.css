@@ -154,6 +154,7 @@ section {
   font-size: 18px;
   border: 1px solid #00bcd4;
   transition: 0.5s;
+  border-radius: 10px;
 }
 
 .contact-form .input-box input[type="submit"]:hover {
@@ -179,4 +180,30 @@ section {
   .contact-form {
     width: 100%;
   }
+}
+
+
+.input-box {
+  position: relative;
+  margin-bottom: 20px;
+
+}
+input[type="text"] {
+  padding: 10px;
+  width: 200px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+span {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  pointer-events: none; /* Ngăn chặn sự kiện click và hover cho span */
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+.hide {
+  opacity: 0;
 }
