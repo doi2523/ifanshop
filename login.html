@@ -61,7 +61,7 @@
           <span class="underline"></span>
         </button>
 
-        <form class="form form-login">
+        <form id="signin" class="form form-login">
           <fieldset>
           <legend>Please, enter your email and password for login.</legend>
           <div class="input-block">
@@ -85,7 +85,7 @@
             </button>
             <!-- Cách ra cho biết phần name nè -->
             <!-- Cách ra cho biết phần name nè -->
-        <form class="form form-signup">
+        <form id="signup" class="form form-signup">
             <fieldset>
             <legend>Please, enter your email, password and password confirmation for sign up.</legend>
             <div class="input-block">
@@ -129,7 +129,6 @@
 <script src="js/scrollIt.min.js"></script> 
 <script src="js/wow.min.js"></script> 
 <script src="js/script.js"></script>
-<script src="js/login.js"></script>
 </script>
 </body>
 <script type="module">
@@ -137,7 +136,7 @@
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
   import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
-  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -178,6 +177,10 @@ document.getElementById('signup').addEventListener('submit', function(event) {
         password: password
     })
     alert('Đăng ký thành công!');
+    document.getElementById('signupMessage').innerText = 'Đăng ký thành công! Vui lòng đăng nhập!';
+    setTimeout(function() {
+            window.location.reload();
+        }, 2000);
     // ...
   })
   .catch((error) => {
@@ -185,11 +188,12 @@ document.getElementById('signup').addEventListener('submit', function(event) {
     const errorMessage = error.message;
     // ..
     alert('Đăng ký thất bại!');
+    document.getElementById('signupMessage').innerText = 'Email hoặc username đã được sử dụng!';
   });
 });
 
 
-document.getElementById('sign-in').addEventListener('submit', function(event) {
+document.getElementById('signin').addEventListener('submit', function(event) {
     event.preventDefault();
 
     var email = document.getElementById("login-email").value;
@@ -203,13 +207,28 @@ document.getElementById('sign-in').addEventListener('submit', function(event) {
     update(ref(database, 'users/' + user.uid),{
         last_login : dt,
     })
-    alert('Đăng nhập thành công!');
+
+    if (email === 'admin@gmail.com' && password === '123456') {
+        document.getElementById('loginMessage').innerText = 'Đăng nhập thành công! Vui lòng đợi!';        // Đợi 2 giây trước khi tải lại trang
+        setTimeout(function() {
+          window.location.href = 'admin.html';
+        }, 2000);
+        alert('Chào mừng admin!');      
+        }
+    else {
+      document.getElementById('loginMessage').innerText = 'Đăng nhập thành công! Vui lòng đợi!';        // Đợi 2 giây trước khi tải lại trang
+        setTimeout(function() {
+          window.location.href = 'index.html';
+        }, 2000); 
+      alert('Đăng nhập thành công!');}
+    
     // ...
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
     alert('Đăng nhập thất bại!');
+    document.getElementById('loginMessage').innerText = 'Tên người dùng hoặc mật khẩu không đúng!';
   });
 });
 </script>
