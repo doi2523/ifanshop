@@ -51,126 +51,63 @@
 <section class="banner" data-scroll-index='0'>
   <div class="banner-overlay">
     <div class="container">
-      <div>
-        <div>
-          <div>
-      
-            <br>
-            <br>
-            <section class="forms-section">
-              <h1 class="section-title">Login & SignUp</h1>
-              <div class="forms">
-                <div class="form-wrapper is-active">
-                  <button type="button" class="switcher switcher-login">
-                    Đăng nhập
-                    <span class="underline"></span>
-                  </button>
-                  <form id="formm" class="form form-login" method="POST">
-                    <fieldset>
-                        <legend>Please, enter your email and password for login.</legend>
-                        <div class="input-block">
-                            <label for="login-email">Username</label>
-                            <input id="login-email" type="text" required name="txt-user-login">
-                        </div>
-                        <div class="input-block">
-                            <label for="login-password">Password</label>
-                            <input id="login-password" type="password" name="txt-password-login" required>
-                        </div>
-                        <a href="findacc.html"><div>Quên mật khẩu?</div></a>
-                    </fieldset>
-                    <button type="submit" class="btn-login" name="bt-login">Đăng nhập</button>
+      <br>
+      <br>
+      <section class="forms-section">
+        <h1 class="section-title">Login & SignUp</h1>
+        <div class="forms">
+        <div class="form-wrapper is-active">
+        <button type="button" class="switcher switcher-login">Đăng nhập
+          <span class="underline"></span>
+        </button>
 
-                    <div id="loginSuccessMessage" style="display: none;"></div>
-                    <p class="notee" id="loginMessage"></p>
-                </form>
-
-                <!-- Cách ra cho biết phần name nè -->
-                <!-- Cách ra cho biết phần name nè -->
-
-                </div>
-                <div class="form-wrapper">
-                  <button type="button" class="switcher switcher-signup">
-                    Đăng ký
-                    <span class="underline"></span>
-                  </button>
-
-                  <!-- Cách ra cho biết phần name nè -->
-                  <!-- Cách ra cho biết phần name nè -->
-                  <form method="POST" id="signup" class="form form-signup">
-                    <fieldset>
-                        <legend>Please, enter your email, password and password confirmation for sign up.</legend>
-                        <div class="input-block">
-                            <label for="signup-username">Username</label>
-
-                            <!-- Cách ra cho biết phần name nè -->
-                            <input id="signup-username" type="text" name="txt-username-signup" required>
-
-                        </div>
-                        <div class="input-block">
-                            <label for="signup-email">E-mail</label>
-
-                            <!-- Cách ra cho biết phần name nè -->
-                            <input id="signup-email" type="email" required name="txt-email-signup">
-                        </div>
-                        <div class="input-block">
-                            <label for="signup-password">Password</label>
-
-                            <!-- Cách ra cho biết phần name nè -->
-                            <input id="signup-password" type="password" required name="txt-password-signup">
-                        </div>
-                        <a href="" id="have-account">Bạn đã có tài khoản?</a>
-                    </fieldset>
-
-                     <!-- Cách ra cho biết phần name nè -->
-                    <button type="submit" class="btn-signup" name="bt-signup">Đăng ký</button>
-                    <div id="signupSuccessMessage" style="display: none;">Đăng ký thành công!</div>
-                    <p class="notee" id="signupMessage"></p>
-                </form>
-                </div>
-              </div>
-            </section>
+        <form class="form form-login">
+          <fieldset>
+          <legend>Please, enter your email and password for login.</legend>
+          <div class="input-block">
+          <label for="login-email">E-mail</label>
+          <input id="login-email" type="text" required autocomplete="email" name="txt-user-login"></div>
+          <div class="input-block">
+          <label for="login-password">Password</label>
+          <input id="login-password" type="password" name="txt-password-login" autocomplete="current-password" required></div>
+          <a href="findacc.html"><div>Quên mật khẩu?</div></a>
+          </fieldset>
+          <button id="sign-in" type="submit" class="btn-login" name="btn-login">Đăng nhập</button>
+          <div id="loginSuccessMessage" style="display: none;"></div>
+          <p class="notee" id="loginMessage"></p>
+        </form>
+            <!-- Cách ra cho biết phần name nè -->
+            <!-- Cách ra cho biết phần name nè -->
           </div>
-          </div>
-          </div>
-        </div>
-      </div>
+          <div class="form-wrapper">
+            <button type="button" class="switcher switcher-signup">Đăng ký
+              <span class="underline"></span>
+            </button>
+            <!-- Cách ra cho biết phần name nè -->
+            <!-- Cách ra cho biết phần name nè -->
+        <form class="form form-signup">
+            <fieldset>
+            <legend>Please, enter your email, password and password confirmation for sign up.</legend>
+            <div class="input-block">
+            <label for="signup-username">Username</label>
+            <input id="signup-username" type="text" name="txt-username-signup" autocomplete="username" required></div>
+            <div class="input-block">
+            <label for="signup-email">E-mail</label>
+            <input id="signup-email" type="email" required name="txt-email-signup"></div>
+            <div class="input-block">
+            <label for="signup-password">Password</label>
+            <input id="signup-password" type="password" required autocomplete="current-password" name="txt-password-signup"></div>
+            <a href="" id="have-account">Bạn đã có tài khoản?</a>
+            </fieldset>
+            <button id="signup" type="submit" class="btn-signup" name="bt-signup">Đăng ký</button>
+            <div id="signupSuccessMessage" style="display: none;">Đăng ký thành công!</div>
+            <p class="notee" id="signupMessage"></p>
+        </form></div></div>
+          </section>
     </div>
   </div>
   </section>
 
-
-  <!-- Không đưuocj sờ -->
-  <!-- <?php
-          if(isset($_GET['bt-signup'])) //Hàm kiểm tra nút submit
-          {
-              if(empty($_GET['txt-username-signup']) 
-              || empty($_GET['txt-email-signup']) 
-              || empty($_GET['txt-password-signup']))
-              echo "Bạn chưa nhập đủ thông tin";
-              else
-              {
-                  echo "Username: ".$_GET['txt-username-signup']."<br>".
-                  "Email: ".$_GET['txt-email-signup']."<br>".
-                  "Passwd: ".$_GET['txt-password-signup']."<br>";
-              }
-          }
-  ?> -->
-
-  
-    <!-- <?php
-        include ('control.php'); //gọi trang php
-        $get_data= new data_usrname(); //Gọi lớp ata_user_ifanshop trong trang control
-        if(isset($_GET['bt-signup']))
-        {
-            $in_usr =$get_data -> insert_usr($_GET['txt-username-signup'],
-                                                $_GET['txt-email-signup'],
-                                                $_GET['txt-password-signup']);
-            if($in_usr) echo "<script>alert('Thành công');
-                            </script>";
-            else 
-            echo "<script>alert('Không thực thi được')</script>";                
-        }
-    ?> -->
 
 <footer class="footer-copy">
   <div class="container-fluid">
@@ -181,6 +118,88 @@
     </div>
   </div>
 </footer>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
+  import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
+  import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCnZzlFSm-61oaNvO2TTJyef2PMc6iU8DY",
+    authDomain: "user-inifanshop.firebaseapp.com",
+    databaseURL: "https://user-inifanshop-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "user-inifanshop",
+    storageBucket: "user-inifanshop.appspot.com",
+    messagingSenderId: "104690936940",
+    appId: "1:104690936940:web:5398fbb0edae0c7a76bc49",
+    measurementId: "G-NLBDR28748"
+  };
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const database = getDatabase(app);
+  const auth = getAuth();
+
+
+document.getElementById('signup').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    var username = document.getElementById("signup-username").value;
+    var email = document.getElementById("signup-email").value;
+    var password = document.getElementById("signup-password").value;
+
+    createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+
+    set(ref(database, 'users/' + user.uid),{
+        username : username,
+        email: email,
+        password: password
+    })
+    alert('Đăng ký thành công!');
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // ..
+    alert('Đăng ký thất bại!');
+  });
+});
+
+
+document.getElementById('sign-in').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var email = document.getElementById("login-email").value;
+    var password = document.getElementById("login-password").value;
+
+    signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    const dt = new Date();
+    update(ref(database, 'users/' + user.uid),{
+        last_login : dt,
+    })
+    alert('Đăng nhập thành công!');
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert('Đăng nhập thất bại!');
+  });
+});
+</script>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
