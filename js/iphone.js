@@ -109,4 +109,30 @@ window.dispatchEvent(new Event('resize'));
 
 
 
+// Lấy tham chiếu tới nút "Thêm vào giỏ hàng"
+var addToCartButton = document.getElementById("add-to-cart-button");
+// Thêm sự kiện "click" cho nút "Thêm vào giỏ hàng"
+addToCartButton.addEventListener("click", addToCart);
+// Hàm xử lý khi nhấn vào nút "Thêm vào giỏ hàng"
+function addToCart() {
+    // Lấy thông tin sản phẩm từ các phần tử HTML
+    var productName = document.getElementById("name-sanpham").textContent;
+    var productPrice = document.getElementById("gia-uu-dai").textContent;
+    var imageElement = document.getElementById('0022266_iphone-15-pro-max-256gb_240');
+    var imageUrl = imageElement.getAttribute('src');
+    // Tạo một đối tượng chứa thông tin sản phẩm
+    var product = {
+        name: productName,
+        price: productPrice
+    };
+    // Thêm sản phẩm vào giỏ hàng (đây chỉ là một phần giả định)
+    console.log("Đường dẫn của ảnh là: " + imageUrl);
 
+    // Thông báo khi thêm sản phẩm thành công (có thể thay đổi tùy theo yêu cầu)
+    alert("Sản phẩm " + productName + productPrice + " đã được thêm vào giỏ hàng.");
+}
+// Hàm giả lập việc thêm sản phẩm vào giỏ hàng
+function addToCartFunction(product) {
+    // Viết mã xử lý thêm sản phẩm vào giỏ hàng ở đây
+    console.log("Thêm sản phẩm vào giỏ hàng:", product);
+}

@@ -939,3 +939,40 @@ a {
 .hidden {
   display: none;
 }
+
+/* styles.css */
+.form-popup {
+  display: none;
+  position: absolute;
+  background-color: #fefefe;
+  border: 1px solid #ccc;
+  padding: 20px;
+  max-width: 300px;
+  z-index: 9;
+  /* margin-top: 800px; */
+}
+.form-container input[type=text] {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 15px 0;
+  border: none;
+  background: #f1f1f1;
+}
+.form-container input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+}
+.close {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}

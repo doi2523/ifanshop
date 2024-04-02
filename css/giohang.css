@@ -62,6 +62,8 @@ Side note: I know that this style of nesting in SASS doesn't result in the most 
   .product,
   .totals-item {
     zoom: 1;
+    padding-left: 50px;
+    padding-right: 50px;
   }
   
   /* Apply clearfix in a few places */

@@ -130,7 +130,7 @@
                 <img src="images/0-phantram.png" alt="">
               </div>
               <div class="img-ip" id="img-sanpham">
-                <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
+                <img id="0022266_iphone-15-pro-max-256gb_240" src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
               </div>
               <div class="txt-name" id="name-sanpham">iPhone 15 pro max 256GB</div>
               <div class="giatien">
@@ -148,39 +148,9 @@
           </div>
 
 
-          <script>
-// Lấy tham chiếu tới nút "Thêm vào giỏ hàng"
-var addToCartButton = document.getElementById("add-to-cart-button");
 
-// Thêm sự kiện "click" cho nút "Thêm vào giỏ hàng"
-addToCartButton.addEventListener("click", addToCart);
 
-// Hàm xử lý khi nhấn vào nút "Thêm vào giỏ hàng"
-function addToCart() {
-    // Lấy thông tin sản phẩm từ các phần tử HTML
-    var productName = document.getElementById("name-sanpham").textContent;
-    var productPrice = document.getElementById("gia-uu-dai").textContent;
 
-    // Tạo một đối tượng chứa thông tin sản phẩm
-    var product = {
-        name: productName,
-        price: productPrice
-    };
-
-    // Thêm sản phẩm vào giỏ hàng (đây chỉ là một phần giả định)
-    addToCartFunction(product);
-
-    // Thông báo khi thêm sản phẩm thành công (có thể thay đổi tùy theo yêu cầu)
-    alert("Sản phẩm " + productName + productPrice + " đã được thêm vào giỏ hàng.");
-}
-
-// Hàm giả lập việc thêm sản phẩm vào giỏ hàng
-function addToCartFunction(product) {
-    // Viết mã xử lý thêm sản phẩm vào giỏ hàng ở đây
-    console.log("Thêm sản phẩm vào giỏ hàng:", product);
-}
-
-          </script>
 
 
           <div class="item item2">
@@ -189,9 +159,9 @@ function addToCartFunction(product) {
                 <img src="images/0-phantram.png" alt="">
               </div>
               <div class="img-ip">
-                <img src="images/0022263_iphone-15-pro-128gb_240.png" alt="">
+                <img id="0022263_iphone-15-pro-128gb_240" src="images/0022263_iphone-15-pro-128gb_240.png" alt="">
               </div>
-              <div class="txt-name" id="ten-sanpham">iPhone 15 pro 128GB</div>
+              <div class="iphone-15-pro" id="ten-sanpham">iPhone 15 pro 128GB</div>
               <div class="giatien">
                 <span id="gia-uu-dai">26.190.000₫</span>
                 <span id="giagoc">30.990.000₫</span>
@@ -199,13 +169,14 @@ function addToCartFunction(product) {
               </div>
               <div class="adding">
                 <button class="add-shoping">
-                  <a href="#" class="add-to-cart">
+                  <a href="#" class="add-to-cart" id="add-to-cart-button">
                     <i class="fas fa-shopping-cart"></i>
                   </a>
                   <span id="text-add-shoping">Thêm vào giỏ hàng</span>
                 </button>
               </div>             
-            </div>          </div>
+            </div>          
+          </div>
           <div class="item item3">
             <div class="grid-item">
               <div class="tag-voucher">
