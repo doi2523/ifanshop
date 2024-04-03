@@ -29,17 +29,20 @@
     <fieldset>
     <legend>Thông tin người dùng + 1</legend>
         <div id="user-${index}">
-        <form id="get-user">
-            <label>Username:</label>
-            <input type="text" id="username" name="username" autocomplete="username" required><br>
-            <label>Email:</label>
-            <input type="text" id="email"><br>
-            <label>Password:</label>
-            <input type="text" id="password"><br>
-            <button type="button" id="get-user">Get</button>
-            <button type="button">Edit</button>
-            <button type="button">Delete</button>
-        </form>
+            <form id="get" class="form form-signup">
+                <div class="input-block">
+                <label for="signup-username">Username</label>
+                <input id="signup-username" type="text" name="txt-username-signup" autocomplete="username" required></div>
+                <div class="input-block">
+                <label for="signup-email">E-mail</label>
+                <input id="signup-email" type="email" required name="txt-email-signup"></div>
+                <div class="input-block">
+                <label for="signup-password">Password</label>
+                <input id="signup-password" type="password" required autocomplete="current-password" name="txt-password-signup"></div>
+                <button id="signup" type="submit" class="btn-signup" name="bt-signup">Đăng ký</button>
+                <div id="signupSuccessMessage" style="display: none;">Đăng ký thành công!</div>
+                <p class="notee" id="signupMessage"></p>
+            </form>
         <!-- Thêm form con để chỉnh sửa -->
         <div id="edit-form-${index}" style="display: none;">
             <form>
@@ -53,7 +56,8 @@
                 <button type="button">Update</button>
             </form>
         </div>
-    </div>
+        </div>
+        <div id="usersData"></div>
 </fieldset>
     <hr><hr>
 </body>
@@ -61,7 +65,7 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
-  import { getDatabase, set, ref, update, child, get } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
+  import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
   import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
@@ -83,23 +87,6 @@
   const analytics = getAnalytics(app);
   const database = getDatabase(app);
   const auth = getAuth();
-
-  document.getElementById('get-user').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    var username = document.getElementById("username").value;
-    console.log(username);
-    const dbRef = ref(getDatabase());
-    get(child(dbRef, `users/${user.uid}`)).then((snapshot) => {
-    if (snapshot.exists()) {
-        console.log(snapshot.val());
-    } else {
-        console.log("No data available");
-    }
-    }).catch((error) => {
-    console.error(error);
-    });
-  });
   </script>
 
 
