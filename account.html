@@ -25,33 +25,82 @@
     <h1>User List</h1>
     <button class="re"><a href="admin.html">&larr;Quay lại</a></button>
     <div id="user-list"></div>
+    <hr>            
+    <fieldset>
+    <legend>Thông tin người dùng + 1</legend>
+        <div id="user-${index}">
+        <form id="get-user">
+            <label>Username:</label>
+            <input type="text" id="username" name="username" autocomplete="username" required><br>
+            <label>Email:</label>
+            <input type="text" id="email"><br>
+            <label>Password:</label>
+            <input type="text" id="password"><br>
+            <button type="button" id="get-user">Get</button>
+            <button type="button">Edit</button>
+            <button type="button">Delete</button>
+        </form>
+        <!-- Thêm form con để chỉnh sửa -->
+        <div id="edit-form-${index}" style="display: none;">
+            <form>
+                <label>Username:</label>
+                <input type="text" id="edit-username-${index}" value="${user.username}"><br>
+                <label>Email:</label>
+                <input type="email" id="edit-email-${index}" value="${user.email}"><br>
+                <label>Password:</label>
+                <input type="password" id="edit-password-${index}" value="${user.password}"><br>
+                <!-- Thêm nút Update -->
+                <button type="button">Update</button>
+            </form>
+        </div>
+    </div>
+</fieldset>
+    <hr><hr>
 </body>
 <script type="module">
-    // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-  
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyCeb0lEhol6EnON6j8SsWYAymh1uJVR8bQ",
-      authDomain: "ifanshop-f0528.firebaseapp.com",
-      projectId: "ifanshop-f0528",
-      storageBucket: "ifanshop-f0528.appspot.com",
-      messagingSenderId: "658475364525",
-      appId: "1:658475364525:web:5bede01fed55604d32d624",
-      measurementId: "G-YY9QWT84GV"
-    };
-  
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
-  </script>
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
+  import { getDatabase, set, ref, update, child, get } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
-  <script src="js/account.js"></script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCnZzlFSm-61oaNvO2TTJyef2PMc6iU8DY",
+    authDomain: "user-inifanshop.firebaseapp.com",
+    databaseURL: "https://user-inifanshop-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "user-inifanshop",
+    storageBucket: "user-inifanshop.appspot.com",
+    messagingSenderId: "104690936940",
+    appId: "1:104690936940:web:5398fbb0edae0c7a76bc49",
+    measurementId: "G-NLBDR28748"
+  };
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const database = getDatabase(app);
+  const auth = getAuth();
+
+  document.getElementById('get-user').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var username = document.getElementById("username").value;
+    console.log(username);
+    const dbRef = ref(getDatabase());
+    get(child(dbRef, `users/${user.uid}`)).then((snapshot) => {
+    if (snapshot.exists()) {
+        console.log(snapshot.val());
+    } else {
+        console.log("No data available");
+    }
+    }).catch((error) => {
+    console.error(error);
+    });
+  });
+  </script>
 
 
 </html>
