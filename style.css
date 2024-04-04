@@ -5,6 +5,7 @@
 .body-style {
 	font-family: 'Poppins', sans-serif;
 	font-size: 14px;
+	padding-left: 0;
 }
 a {
 	color:#5f0099;
@@ -19,7 +20,7 @@ h4, h5 {
 	font-weight:600;
 }
 h6 {
-	font-weight:500;
+	font-weight:200;
 }
 .white {
 	color:#ffffff !important;
