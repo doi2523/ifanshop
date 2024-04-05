@@ -112,9 +112,9 @@
 logout.addEventListener('click', (e) => {
   signOut(auth).then(() => {
   // Sign-out successful.
-  alert('Đăng xuất thành công!');
+  alert('Đang đăng xuất, vui lòng đợi!');
   setTimeout(function() {
-          window.location.href = 'https://doi2523.github.io/ifanshop/login.html';
+          window.location.href = 'login.html';
   }, 2000);
   const user = userCredential.user;
   const lg = new Date();

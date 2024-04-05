@@ -202,7 +202,7 @@
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
   import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
-  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -264,6 +264,11 @@ document.getElementById('signin').addEventListener('submit', function(event) {
     document.getElementById('loginMessage').innerText = 'Tên người dùng hoặc mật khẩu không đúng!';
     loginMessage.style.color = 'red';
   });
+
+  let ForgotPasswd = () =>{
+    sendPass
+  }
 });
+
 </script>
 </html>
