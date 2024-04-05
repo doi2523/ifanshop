@@ -81,7 +81,7 @@
                         <div class="d-flex flex-row mb-4">
                           <i class="fas fa-lock fa-lg my-3 mx-1 fa-fw"></i>
                           <div class="form-outline flex-fill mb-0">
-                            <input type="password" id="login-password" type="password" name="txt-password-login" type="password" required autocomplete="current-password" name="txt-password-signup" class="form-control" />
+                            <input type="password" id="login-password" type="password" name="txt-password-login" type="password" required name="txt-password-signup" class="form-control" />
                             <label class="form-label" for="form3Example4c">Password</label>
                           </div>
                         </div>
@@ -91,8 +91,8 @@
                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                           <button type="submit" id="signup" name="bt-signup" class="btn btn-primary btn-lg">Đăng nhập</button>
                         </div>
-                        <div id="loginMessage" style="display: none;">Đăng ký thành công!</div>
-                        <p class="notee" id="signupMessage"></p>
+                        <div style="display: none;">Đăng ký thành công!</div>
+                        <p class="notee" id="loginMessage"></p>
                       </form>
                       <div>
                         <p style="text-align: right;">Chưa có tài khoản? <a href="signup.html">Đăng ký</a></p>
@@ -245,7 +245,7 @@ document.getElementById('signin').addEventListener('submit', function(event) {
         setTimeout(function() {
           window.location.href = 'admin.html';
         }, 2000);
-        alert('Chào mừng admin!');      
+        //alert('Chào mừng admin!');      
         }
     else {
       document.getElementById('loginMessage').innerText = 'Đăng nhập thành công! Vui lòng đợi!'; 
@@ -253,14 +253,15 @@ document.getElementById('signin').addEventListener('submit', function(event) {
         setTimeout(function() {
           window.location.href = 'auth.index.html';
         }, 2000); 
-      alert('Đăng nhập thành công!');}
+      //alert('Đăng nhập thành công!');
+      }
     
     // ...
   })
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-    alert('Đăng nhập thất bại!');
+    //alert('Đăng nhập thất bại!');
     document.getElementById('loginMessage').innerText = 'Tên người dùng hoặc mật khẩu không đúng!';
     loginMessage.style.color = 'red';
   });

@@ -663,3 +663,23 @@
     top: 0.5rem;
     transition: transform 0.3s ease-out, color 0.3s ease-out;
   }
+
+
+
+  .input-with-icon {
+    position: relative;
+}
+
+.input-with-icon input {
+    padding-right: 40px; /* Để trống để chứa nút */
+}
+
+.input-with-icon .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+}
