@@ -1,0 +1,12 @@
+.style{
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    padding: 50px;
+}
+button{
+    margin: 10px;
+    color: aliceblue;
+    background-color: blue;
+    font-weight: 600;
+}

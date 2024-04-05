@@ -1,0 +1,43 @@
+    /* CSS để tạo giao diện đẹp cho thanh giỏ hàng */
+    .custom-navbar {
+    background: linear-gradient(to left, #7a60ff, #cd9ffa);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: flex-start;
+      flex-direction: column;
+  }
+  .custom-search-box {
+      display: flex;
+      justify-content: space-between;
+  }
+  .txt-cart{
+    display: flex;
+    justify-content: flex-start;
+    font-size: 20px;
+  }
+  .custom-search-input {
+      padding: 8px;
+      border: none;
+      border-radius: 5px;
+      margin-right: 10px;
+  }
+  .custom-search-button {
+      background-color: #555;
+      color: white;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+  }
+  .custom-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+.custom-menu-item {
+    margin-right: 10px;
+}

@@ -1,0 +1,381 @@
+* {
+	padding:0;
+	margin:0;
+}
+.body-style {
+	font-family: 'Poppins', sans-serif;
+	font-size: 14px;
+	padding-left: 0;
+}
+.container{
+	max-width: 1250px;
+}
+a {
+	color:#5f0099;
+}
+a:hover {
+	color:#5f0099;
+}
+.white {
+	color:#ffffff !important;
+}
+.black {
+	color:#000000;
+}
+.navbar {
+	position: fixed;
+	right: 0;
+	left: 0;
+	width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+	min-height: 50px;
+	line-height: 50px;
+	background: transparent;
+	z-index: 1030;
+	background: #7a60ff;
+	background: linear-gradient(to left, #7a60ff, #cd9ffa);
+}
+.navbar .active {
+	color: #5f0099 !important;
+}
+.navbar .navbar-brand {
+	
+}
+.navbar .nav-item {
+	margin: 0 5px;
+	padding: 0;
+}
+.navbar .nav-item a {
+	color: #fff;
+	font-weight: 500;
+	font-size: 14px;
+	justify-content: center;
+}
+
+.navbar .nav-item a:hover{
+	color: #5f0099;
+}
+.navbar .nav-item a::after{
+	content: '';
+    position: absolute;
+    width: 80%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transform-origin: right left;
+    transition: .3s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: -17px;
+}
+.navbar .nav-item a:hover::after {
+	transform: scaleX(1);
+}
+
+.dropdown-menu a{
+	text-align: left;
+}
+
+.dropdown-menu a:hover{
+	background: linear-gradient(to left, #7a60ff, #cd9ffa);
+}
+
+
+#icon{
+	margin-top: 0px;
+	margin-left: 5px;
+}
+
+.rotate-icon {
+    transition: transform 0.3s ease;
+}
+
+.rotate-icon.hovered {
+    transform: rotate(180deg);
+}
+
+
+@media (max-width: 768px) {
+    .navbar .nav-item a::after {
+        width: 100%; /* Định dạng lại chiều rộng cho chế độ di động */
+		background-color: #7a60ff;
+    }
+}
+
+
+.navbar .nav-link {
+	position: relative;
+	padding: 0;
+}
+.navbar .navbar-toggler {
+	cursor: pointer;
+}
+.navbar .navbar-toggler span {
+	color: #fff;
+}
+.navbar-style2 .active:after, .navbar-style2 .nav-link:after {
+	display: none;
+}
+.nav-scroll {
+	background: #7a60ff;
+	background: linear-gradient(to left, #7a60ff, #cd9ffa);
+	-webkit-box-shadow: 0 1px 8px 3px rgba(0, 0, 0, 0.0509803922);
+	box-shadow: 0 1px 8px 3px rgba(0, 0, 0, 0.0509803922);
+	-webkit-transition: all .4s ease;
+	transition: all .4s ease;
+}
+.nav-scroll .navbar-nav > li > a {
+	color: #fff;
+}
+.nav-scroll .navbar-brand img {
+	-webkit-transform: scale(1.03) !important;
+	transform: scale(1.03) !important;
+}
+.nav-scroll .navbar-toggler {
+	cursor: pointer;
+}
+.nav-scroll .navbar-toggler span {
+	color: #333;
+}
+.nav-scroll .nav-link:hover:after {
+	background-color: #fff;
+}
+.nav-scroll .active {
+	position: relative;
+}
+
+.nav-item {
+    position: relative; /* Đảm bảo phần tử là relative để các phần tử con có thể được định vị tuyệt đối hoặc tương đối với nó */
+}
+
+
+.banner {
+	background: #7a60ff;
+	background: linear-gradient(to left, #7a60ff, #cd9ffa);
+	padding:100px 0px;
+	position:relative;
+}
+.banner::before {
+	content: "";
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: url(images/pattern.png);
+}
+.banner a.weblink {
+	color:#ffffff;
+	border-bottom:1px dotted #ffffff;
+}
+.banner a:hover {
+	text-decoration:none;
+}
+.svg-wave {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+.banner-text {
+	padding-right:80px;
+	margin:50px 0px 0px;
+}
+.banner-text p {
+	margin:40px 0px;
+}
+.banner-text ul {
+	list-style: none;
+}
+.banner-text ul li {
+	display: inline-block;
+	margin: 0px 10px 10px 0px;
+}
+.banner-text ul li a {
+	display: block;
+}
+.banner-text ul li a img {
+	width: 150px;
+	border-radius: 7px;
+}
+.prelative {
+	position:relative
+}
+.section-padding {
+	padding:80px 0px;
+}
+.sectioner-header {
+	width:69%;
+	margin:0 auto;
+}
+
+.ip15prm{
+	height: 450px;
+}
+.download {
+	background: #7a60ff;
+	background: linear-gradient(to left, #7a60ff, #cd9ffa);
+	padding:100px 0px;
+	position:relative;
+}
+.download::before {
+	content: "";
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: url(images/pattern.png);
+}
+.download ul {
+	list-style: none;
+}
+.download ul li {
+	display: inline-block;
+	margin: 0px 10px 10px 0px;
+}
+.download ul li a {
+	display: block;
+}
+.download ul li a img {
+	width: 150px;
+	border-radius: 7px;
+}
+.footer-copy {
+	background: #ffffff;
+	color: #242424;
+	font-size: 13px;
+	text-align: center;
+	padding:15px 0px;
+}
+.footer-copy p {
+	margin-bottom:0px;
+}
+
+
+
+@media all and (max-width:991px) {
+.navbar .navbar-collapse {
+	overflow: auto;
+	background:  rgb(213, 198, 221);
+	color: #fff !important;
+	text-align: center;
+	padding: 10px 0;
+}
+.nav-scroll .navbar-collapse {
+	background: rgb(213, 198, 221) !important;
+}
+#contact_form {
+	margin-bottom:20px;
+}
+}
+@media all and (max-width:768px) {
+
+	.dropdown-menu a{
+		text-align: center;
+	}
+.nav-scroll .navbar-brand img, .navbar-brand img {
+	transform: scale(0.75) !important;
+	-webkit-transform: scale(0.75) !important;
+}
+.banner-text {
+	padding-right: 0px;
+	margin: 10px 0px 0px;
+}
+h2 {
+	font-size: 25px;
+}
+h3 {
+	font-size: 23px;
+}
+.section-padding {
+	padding: 40px 0px;
+}
+.banner-text p {
+	margin: 25px 0px;
+}
+.banner-text ul li a img {
+	width: 140px;
+	border-radius: 7px;
+}
+.sectioner-header {
+	width: 90%;
+}
+.sectioner-header p {
+	font-size: 14px;
+}
+.about-btn {
+	padding: 5px 30px;
+	margin-top: 0px;
+	font-size: 16px;
+}
+.single-feature {
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+.team-detail {
+	margin-top: 20px;
+}
+.team-detail img {
+	width: 50%;
+}
+.bx-controls
+{
+	display:none;
+}
+.bx-wrapper {
+	margin: 0px 20px !important;
+}
+.slider .test-img img {
+	margin: 0 auto;
+}
+.test-img {
+	float:none;
+	width: 200px;
+	height: 200px;
+	margin: 0 auto;
+}
+.test-text {
+	float: none;
+	width: 100%;
+	text-align: center;
+}
+.section-content {
+	margin-top: 40px;
+}
+.faq-content {
+	margin: 10px 0px;
+}
+.faq-content h4 {
+	font-size: 16px;
+}
+.faq-content p {
+	font-size: 13px;
+}
+#contact_form {
+	margin-bottom:20px;
+}
+.contact-item {
+	font-size: 12px;
+}
+.download ul li a img {
+	width: 120px;
+}
+.footer-copy p {
+	font-size: 10px;
+}
+}
+
+
+.avatar{
+	width: 40px;
+	height: 40px;
+	background-color: #fff;
+	border-radius: 100%;
+	background-image: url(images/user.svg);
+	background-size: 40px;
+}
