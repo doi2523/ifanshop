@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>iFanShop</title>
+<link rel="icon" href="images/marketplace.png" type="image/x-icon">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<link rel="stylesheet" href="css/animate.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="style.css"/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" href="css/macbook.css">
+<link rel="stylesheet" href="css/iphone.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-qA+YO42piCGtf3n1bYGzv5e7CwYd1f9hJ5hH1G8/CtLcA9CpXhQJ6zy5CKF1fkqSoRh+Q/u7ShFegf8rceI+3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="body-style">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container"> 
+    <a class="navbar-brand navbar-logo" href="index.html"><img style="height: 50px;" src="images/ifa1.png" alt=""></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="fas fa-bars"></span> </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"> <a class="nav-link" href="index.html">Trang chủ</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="about.html">Giới thiệu</a> </li>
+        <!-- <li class="nav-item"> <a class="nav-link" href="sanpham.html">Sản phẩm</a> </li> -->
+        <li class="nav-item dropdown"> 
+          <a class="nav-link dropdown-toggle" href="#" id="login" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Sản phẩm<svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 8 2" fill="currentColor" id="icon" class="rotate-icon"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.646 3.708L0.645996 0.708L1.354 0L4 2.647L6.646 0L7.354 0.708L4.354 3.708L4 4.061L3.646 3.708Z" fill="currentColor"></path></svg>
+          </a>        
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="	background: linear-gradient(to left, #7a60ff, #cd9ffa); color: #fff;">
+              <a class="dropdown-item" href="iphone.html" style=" text-transform: none; font-size: 17px;">iPhone</a>
+              <a class="dropdown-item" href="macbook.html" style=" text-transform: none; font-size: 17px;">Macbook</a>
+              <a class="dropdown-item" href="ipad.html" style=" text-transform: none; font-size: 17px;">iPad</a>
+              <a class="dropdown-item" href="accessory.html" style=" text-transform: none; font-size: 17px;">Phụ kiện</a>
+          </div>
+        </li>
+        <li class="nav-item"> <a class="nav-link" href="services.html">Dịch vụ</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="giohang.html">Giỏ hàng</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="contact.html">Liên hệ</a> </li>
+        <li class="nav-item"> <a class="nav-link" href="login.html">Đăng nhập</a> </li>
+    </ul>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- End Navbar --> 
+<!-------Banner Start------->
+<section>
+  <div>
+    <div class="container">
+      
+        <div class="slider">
+            <h1 class="txt-ip">Macbook</h1>
+            <button id="button-slide" type="button" class="slide-prev">&#10094;</button> <!-- Nút chuyển sang trước -->
+            <div class="slide-viewer">
+              <div class="slide-group">
+                <div class="slide slide-1">
+                  <img id="image1" src="images/macm3dm.png" alt="No two are the same" />
+                </div>
+                <div class="slide slide-2">
+                  <img id="image2" src="images/3m1dm.png" alt="Monsieur Mints" />
+                </div>
+                <div class="slide slide-3">
+                  <img id="image3" src="images/3m31dm.png" alt="The Flower Series" />
+                </div>
+              </div>
+              <button id="button-slide" type="button" class="slide-next">&#10095;</button> <!-- Nút chuyển sang sau -->
+            </div>
+            <div class="slide-buttons"></div>
+          </div>
+          <div class="container-grid">
+            <div class="item item1">
+              <div class="grid-item">
+                <div class="tag-voucher">
+                  <img src="images/0-phantram.png" alt="">
+                </div>
+                <div class="img-ip">
+                  <img src="images/0008043_macbook-pro-16-m1-pro-16-core16gb1tb_240.png" alt="">
+                </div>
+                <div class="txt-name">MacBook Pro 16 M1</div>
+                <div class="giatien">
+                  <span id="gia-uu-dai">30.000.000₫</span>
+                  <span id="giagoc">34.000.000₫</span>
+                  <span id="phan-tram">-15%</span>
+                </div>
+                <div class="adding">
+                  <button class="add-shoping">
+                    <a href="#" class="add-to-cart">
+                      <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <span id="text-add-shoping">Thêm vào giỏ hàng</span>
+                  </button>
+                </div>             
+              </div>
+            </div>
+            <div class="item item2">
+              <div class="grid-item">
+                <div class="tag-voucher">
+                  <img src="images/0-phantram.png" alt="">
+                </div>
+                <div class="img-ip">
+                  <img src="images/0022263_iphone-15-pro-128gb_240.png" alt="">
+                </div>
+                <div class="txt-name">iPhone 15 pro 128GB</div>
+                <div class="giatien">
+                  <span id="gia-uu-dai">26.190.000₫</span>
+                  <span id="giagoc">30.990.000₫</span>
+                  <span id="phan-tram">-15%</span>
+                </div>
+                <div class="adding">
+                  <button class="add-shoping">
+                    <a href="#" class="add-to-cart">
+                      <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <span id="text-add-shoping">Thêm vào giỏ hàng</span>
+                  </button>
+                </div>             
+              </div>          </div>
+            <div class="item item3">
+              <div class="grid-item">
+                <div class="tag-voucher">
+                  <img src="images/0-phantram.png" alt="">
+                </div>
+                <div class="img-ip">
+                  <img src="images/0024431_iphone-15-128gb_240.png" alt="">
+                </div>
+                <div class="txt-name">iPhone 15</div>
+                <div class="giatien">
+                  <span id="gia-uu-dai">19.890.000₫</span>
+                  <span id="giagoc">24.990.000₫</span>
+                  <span id="phan-tram">20%</span>
+                </div>
+                <div class="adding">
+                  <button class="add-shoping">
+                    <a href="#" class="add-to-cart">
+                      <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <span id="text-add-shoping">Thêm vào giỏ hàng</span>
+                  </button>
+                </div>             
+              </div>          </div>
+            <div class="item item4">
+              <div class="grid-item">
+                <div class="tag-voucher">
+                  <img src="images/0-phantram.png" alt="">
+                </div>
+                <div class="img-ip">
+                  <img src="images/0020317_iphone-15-plus-128gb_240.webp" alt="">
+                </div>
+                <div class="txt-name">iPhone 15 plus</div>
+                <div class="giatien">
+                  <span id="gia-uu-dai">22.890.000₫</span>
+                  <span id="giagoc">27.990.000₫</span>
+                  <span id="phan-tram">-18%</span>
+                </div>
+                <div class="adding">
+                  <button class="add-shoping">
+                    <a href="#" class="add-to-cart">
+                      <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <span id="text-add-shoping">Thêm vào giỏ hàng</span>
+                  </button>
+                </div>             
+              </div>          </div>
+            <div class="item item5">
+              <div class="grid-item">
+                <div class="tag-voucher">
+                  <img src="images/0-phantram.png" alt="">
+                </div>
+                <div class="img-ip">
+                  <img src="images/0024430_iphone-13_240.png" alt="">
+                </div>
+                <div class="txt-name">iPhone 13 pro</div>
+                <div class="giatien">
+                  <span id="gia-uu-dai">13.990.000₫</span>
+                  <span id="giagoc">24.990.000₫</span>
+                  <span id="phan-tram">-44%</span>
+                </div>
+                <div class="adding">
+                  <button class="add-shoping">
+                    <a href="#" class="add-to-cart">
+                      <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <span id="text-add-shoping">Thêm vào giỏ hàng</span>
+                  </button>
+                </div>             
+              </div>          </div>
+            <div class="item item6">
+              <div class="grid-item">
+                <div class="tag-voucher">
+                  <img src="images/0-phantram.png" alt="">
+                </div>
+                <div class="img-ip">
+                  <img src="images/0006849_iphone-12-128gb_240.png" alt="">
+                </div>
+                <div class="txt-name">iPhone 12 128GB</div>
+                <div class="giatien">
+                  <span id="gia-uu-dai">12.290.000₫</span>
+                  <span id="giagoc">22.990.000₫</span>
+                  <span id="phan-tram">-46%</span>
+                </div>
+                <div class="adding">
+                  <button class="add-shoping">
+                    <a href="#" class="add-to-cart">
+                      <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <span id="text-add-shoping">Thêm vào giỏ hàng</span>
+                  </button>
+                </div>             
+              </div>
+            </div>
+            <div class="item item7">
+              <div class="grid-item">
+                <div class="tag-voucher">
+                  <img src="images/0-phantram.png" alt="">
+                </div>
+                <div class="img-ip">
+                  <img src="images/0009181_iphone-14-128gb_240.png" alt="">
+                </div>
+                <div class="txt-name">iPhone 14 128GB</div>
+                <div class="giatien">
+                  <span id="gia-uu-dai">16.990.000₫</span>
+                  <span id="giagoc">24.990.000₫</span>
+                  <span id="phan-tram">-32%</span>
+                </div>
+                <div class="adding">
+                  <button class="add-shoping">
+                    <a href="#" class="add-to-cart">
+                      <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <span id="text-add-shoping">Thêm vào giỏ hàng</span>
+                  </button>
+                </div>             
+              </div>
+            </div>
+            <div class="item item8">
+              <div class="grid-item">
+                <div class="tag-voucher">
+                  <img src="images/0-phantram.png" alt="">
+                </div>
+                <div class="img-ip">
+                  <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
+                </div>
+                <div class="txt-name">iPhone 15 pro max</div>
+                <div class="giatien">
+                  <span id="gia-uu-dai">30.000.000₫</span>
+                  <span id="giagoc">34.000.000₫</span>
+                  <span id="phan-tram">-15%</span>
+                </div>
+                <div class="adding">
+                  <button class="add-shoping">
+                    <a href="#" class="add-to-cart">
+                      <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <span id="text-add-shoping">Thêm vào giỏ hàng</span>
+                  </button>
+                </div>             
+              </div>
+            </div>
+            <!-- <div class="item item9">
+              <div class="grid-item">
+                <div class="tag-voucher">
+                  <img src="images/0-phantram.png" alt="">
+                </div>
+                <div class="img-ip">
+                  <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
+                </div>
+                <div class="txt-name">iPhone 15 pro max</div>
+                <div class="giatien">
+                  <span id="gia-uu-dai">30.000.000₫</span>
+                  <span id="giagoc">34.000.000₫</span>
+                  <span id="phan-tram">-15%</span>
+                </div>
+                <div class="adding">
+                  <button class="add-shoping">
+                    <a href="#" class="add-to-cart">
+                      <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <span id="text-add-shoping">Thêm vào giỏ hàng</span>
+                  </button>
+                </div>             
+              </div>
+            </div>
+            <div class="item item10">
+              <div class="grid-item">
+                <div class="tag-voucher">
+                  <img src="images/0-phantram.png" alt="">
+                </div>
+                <div class="img-ip">
+                  <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
+                </div>
+                <div class="txt-name">iPhone 15 pro max</div>
+                <div class="giatien">
+                  <span id="gia-uu-dai">30.000.000₫</span>
+                  <span id="giagoc">34.000.000₫</span>
+                  <span id="phan-tram">-15%</span>
+                </div>
+                <div class="adding">
+                  <button class="add-shoping">
+                    <a href="#" class="add-to-cart">
+                      <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <span id="text-add-shoping">Thêm vào giỏ hàng</span>
+                  </button>
+                </div>             
+              </div>
+            </div>
+            <div class="item item11">
+              <div class="grid-item">
+                <div class="tag-voucher">
+                  <img src="images/0-phantram.png" alt="">
+                </div>
+                <div class="img-ip">
+                  <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
+                </div>
+                <div class="txt-name">iPhone 15 pro max</div>
+                <div class="giatien">
+                  <span id="gia-uu-dai">30.000.000₫</span>
+                  <span id="giagoc">34.000.000₫</span>
+                  <span id="phan-tram">-15%</span>
+                </div>
+                <div class="adding">
+                  <button class="add-shoping">
+                    <a href="#" class="add-to-cart">
+                      <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <span id="text-add-shoping">Thêm vào giỏ hàng</span>
+                  </button>
+                </div>             
+              </div>
+            </div>
+            <div class="item item12">
+              <div class="grid-item">
+                <div class="tag-voucher">
+                  <img src="images/0-phantram.png" alt="">
+                </div>
+                <div class="img-ip">
+                  <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
+                </div>
+                <div class="txt-name">iPhone 15 pro max</div>
+                <div class="giatien">
+                  <span id="gia-uu-dai">30.000.000₫</span>
+                  <span id="giagoc">34.000.000₫</span>
+                  <span id="phan-tram">-15%</span>
+                </div>
+                <div class="adding">
+                  <button class="add-shoping">
+                    <a href="#" class="add-to-cart">
+                      <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <span id="text-add-shoping">Thêm vào giỏ hàng</span>
+                  </button>
+                </div>             
+              </div>
+            </div>
+            <div class="item item13">
+              <div class="grid-item">
+                <div class="tag-voucher">
+                  <img src="images/0-phantram.png" alt="">
+                </div>
+                <div class="img-ip">
+                  <img src="images/0022266_iphone-15-pro-max-256gb_240.png" alt="">
+                </div>
+                <div class="txt-name">iPhone 15 pro max</div>
+                <div class="giatien">
+                  <span id="gia-uu-dai">30.000.000₫</span>
+                  <span id="giagoc">34.000.000₫</span>
+                  <span id="phan-tram">-15%</span>
+                </div>
+                <div class="adding">
+                  <button class="add-shoping">
+                    <a href="#" class="add-to-cart">
+                      <i class="fas fa-shopping-cart"></i>
+                    </a>
+                    <span id="text-add-shoping">Thêm vào giỏ hàng</span>
+                  </button>
+                </div>             
+              </div>
+            </div> -->
+          </div>
+
+    </div>
+  </div>
+  </section>
+
+<!-------Banner End-------> 
+
+<!-------Download End------->
+<section class="download section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="sectioner-header text-center white">
+          <h3>Download Our App</h3>
+          <span class="line"></span>
+          <p class="white">Sed quis nisi nisi. Proin consectetur porttitor dui sit amet viverra. Fusce sit amet lorem faucibus, vestibulum ante in, pharetra ante.</p>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="section-content text-center">
+          <ul>
+            <li><a href="#"><img src="images/appstore.png" class="wow fadeInUp" data-wow-delay="0.4s"/></a></li>
+            <li><a href="#"><img src="images/playstore.png" class="wow fadeInUp" data-wow-delay="0.7s"/></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-------Download End------->
+
+<footer class="footer-copy">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <p>2024 &copy; Applight. Website Designed by <a href="" target="_blank" rel="dofollow">Doi teamwork</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script> 
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script> 
+<!-- scrollIt js --> 
+<script src="js/scrollIt.min.js"></script> 
+<script src="js/wow.min.js"></script> 
+<script src="js/script.js"></script>
+<script src="js/macbook.js"></script>
+</body>
+</html>

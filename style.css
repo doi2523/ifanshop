@@ -7,20 +7,14 @@
 	font-size: 14px;
 	padding-left: 0;
 }
+.container{
+	max-width: 1250px;
+}
 a {
 	color:#5f0099;
 }
 a:hover {
 	color:#5f0099;
-}
-h1, h2, h3 {
-	font-weight: 700;
-}
-h4, h5 {
-	font-weight:600;
-}
-h6 {
-	font-weight:200;
 }
 .white {
 	color:#ffffff !important;
@@ -54,8 +48,7 @@ h6 {
 }
 .navbar .nav-item a {
 	color: #fff;
-	text-transform: uppercase;
-	font-weight: 600;
+	font-weight: 500;
 	font-size: 14px;
 	justify-content: center;
 }

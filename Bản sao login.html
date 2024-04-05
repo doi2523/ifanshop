@@ -43,8 +43,8 @@
         <li class="nav-item"> <a class="nav-link" href="login.html">Đăng nhập</a> </li>
     </ul>
     <div class="">
-      <button type="button" class="btn btn-outline-primary me-2"><a href="login.html">Login</a></button>
-      <button type="button" class="btn btn-primary"><a href="signup.html">Sign-up</a></button>
+      <button type="button" class="btn btn-outline-primary me-2">Login</button>
+      <button type="button" class="btn btn-primary">Sign-up</button>
     </div>
     </div>
   </div>
@@ -52,63 +52,62 @@
 <!-- End Navbar --> 
 
 <!-------Banner Start------->
-<section class="">
-  <div class="">
+<section class="banner" data-scroll-index='0'>
+  <div class="banner-overlay">
     <div class="container">
       <br>
       <br>
-      <section class="vh-100" style="margin-top: 100px;">
-        <div class="container h-100">
-          <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-lg-12 col-xl-11">
-              <div class="card text-black" style="border-radius: 25px;">
-                <div class="card-body p-md-5">
-                  <div class="row justify-content-center">
-                    <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-      
-                      <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Đăng nhập</p>
-      
-                      <form class="mx-1 mx-md-4" id="signin">
-      
-                        <div class="d-flex flex-row mb-4">
-                          <i class="fas fa-envelope fa-lg my-3 mx-1 fa-fw"></i>
-                          <div class="form-outline flex-fill mb-0">
-                            <input type="email" id="login-email" type="email" required name="txt-email-signup" class="form-control" />
-                            <label class="form-label" for="form3Example3c">E-mail</label>
-                          </div>
-                        </div>
-      
-                        <div class="d-flex flex-row mb-4">
-                          <i class="fas fa-lock fa-lg my-3 mx-1 fa-fw"></i>
-                          <div class="form-outline flex-fill mb-0">
-                            <input type="password" id="login-password" type="password" name="txt-password-login" type="password" required autocomplete="current-password" name="txt-password-signup" class="form-control" />
-                            <label class="form-label" for="form3Example4c">Password</label>
-                          </div>
-                        </div>
-      
-                        <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                          <button type="submit" id="signup" name="bt-signup" class="btn btn-primary btn-lg">Đăng nhập</button>
-                        </div>
-                        <div id="loginMessage" style="display: none;">Đăng ký thành công!</div>
-                        <p class="notee" id="signupMessage"></p>
-                      </form>
-                      <div>
-                        <p style="text-align: right;">Chưa có tài khoản? <a href="signup.html">Đăng ký</a></p>
-                      </div>
-                    </div>
-                    <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-      
-                      <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                        class="img-fluid" alt="Sample image">
-      
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+      <section class="forms-section">
+        <h1 class="section-title">Login & SignUp</h1>
+        <div class="forms">
+        <div class="form-wrapper is-active">
+        <button type="button" class="switcher switcher-login">Đăng nhập
+          <span class="underline"></span>
+        </button>
+
+        <form id="signin" class="form form-login">
+          <fieldset>
+          <legend>Please, enter your email and password for login.</legend>
+          <div class="input-block">
+          <label for="login-email">E-mail</label>
+          <input id="login-email" type="text" required autocomplete="email" name="txt-user-login"></div>
+          <div class="input-block">
+          <label for="login-password">Password</label>
+          <input id="login-password" type="password" name="txt-password-login" autocomplete="current-password" required></div>
+          <a href="findacc.html"><div>Quên mật khẩu?</div></a>
+          </fieldset>
+          <button id="sign-in" type="submit" class="btn-login" name="btn-login">Đăng nhập</button>
+          <div id="loginSuccessMessage" style="display: none;"></div>
+          <p class="notee" id="loginMessage"></p>
+        </form>
+            <!-- Cách ra cho biết phần name nè -->
+            <!-- Cách ra cho biết phần name nè -->
           </div>
-        </div>
-      </section>
+          <div class="form-wrapper">
+            <button type="button" class="switcher switcher-signup">Đăng ký
+              <span class="underline"></span>
+            </button>
+            <!-- Cách ra cho biết phần name nè -->
+            <!-- Cách ra cho biết phần name nè -->
+        <form id="signup" class="form form-signup">
+            <fieldset>
+            <legend>Please, enter your email, password and password confirmation for sign up.</legend>
+            <div class="input-block">
+            <label for="signup-username">Username</label>
+            <input id="signup-username" type="text" name="txt-username-signup" autocomplete="username" required></div>
+            <div class="input-block">
+            <label for="signup-email">E-mail</label>
+            <input id="signup-email" type="email" required name="txt-email-signup"></div>
+            <div class="input-block">
+            <label for="signup-password">Password</label>
+            <input id="signup-password" type="password" required autocomplete="current-password" name="txt-password-signup"></div>
+            <a href="" id="have-account">Bạn đã có tài khoản?</a>
+            </fieldset>
+            <button id="signup" type="submit" class="btn-signup" name="bt-signup">Đăng ký</button>
+            <div id="signupSuccessMessage" style="display: none;">Đăng ký thành công!</div>
+            <p class="notee" id="signupMessage"></p>
+        </form></div></div>
+          </section>
     </div>
   </div>
   </section>
@@ -286,7 +285,7 @@ document.getElementById('signin').addEventListener('submit', function(event) {
       document.getElementById('loginMessage').innerText = 'Đăng nhập thành công! Vui lòng đợi!'; 
       loginMessage.style.color = 'green';       // Đợi 2 giây trước khi tải lại trang
         setTimeout(function() {
-          window.location.href = '<Auth>index.html';
+          window.location.href = 'index.html';
         }, 2000); 
       alert('Đăng nhập thành công!');}
     
