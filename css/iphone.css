@@ -7,16 +7,12 @@
   --bodyColor: #666666;
   --lightblueColor: #8d99ff;
   --whiteColor: #ffffff;
-  --fontSize: 16px;
+  /* --fontSize: 16px; */
   --transition: 0.5s;
 }
-/* body {
-  padding: 0;
-  margin: 0;
-  font-family: "Noto Sans", sans-serif !important;
-} */
+
 img {
-  max-width: 100%;
+  max-width: 1200px;
 }
 hr {
   margin-top: 0 !important;
@@ -214,7 +210,7 @@ hr {
     width: 100%;
   }
   .slider {
-    max-width: 100%;
+    max-width: 1200px;
     max-height: 100%;
   }
   .slide-group {
@@ -418,14 +414,6 @@ hr {
   }
 }
 
-
-
-
-
-@import url(https://fonts.googleapis.com/css?family=Jacques+Francois);
-@import url(https://fonts.googleapis.com/css?family=Quattrocento+Sans);
-
-
 .page {
   max-width: 640px;
   margin: 0px auto 30px auto;
@@ -464,33 +452,6 @@ hr {
   font-weight: 500;
 }
 /********** TYPOGRAPHY **********/
-body,
-button {
-  font-family: "Jacques Francois", serif;
-}
-
-h2,
-h3 {
-  font-weight: normal;
-  margin: 0em;
-}
-h2 {
-  color: #666;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 230%;
-  line-height: 1em;
-  padding: 20px 0px 0px 20px;
-}
-h3 {
-  font-size: 90%;
-  letter-spacing: 0.2em;
-}
-
-p {
-  font-family: "Quattrocento Sans", sans-serif;
-  line-height: 1.4em;
-}
 
 a {
   text-decoration: none;
@@ -521,10 +482,19 @@ a {
 
 /********** SLIDER **********/
 .slider {
-  max-width: 100%;
+  height: auto;
+  width: 1200px;
   margin: 0px auto 30px auto;
 	padding:100px 0px;
 	position:relative;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+.slide img{
+  height: 400px;
+  width: 1200px;
+  border-radius: 10px;
 }
 
 
@@ -571,16 +541,17 @@ a {
   position: relative; /* needed for IE7 */
   overflow: hidden;
   height: 430px;
+  border-radius: 10px;
 }
 
 .slide-group {
-  width: 100%;
+  width: 1200px;
   height: 100%;
   position: relative;
 }
 
 .slide {
-  width: 100%;
+  width: 1200px;
   height: 100%;
   display: none;
   position: absolute;
@@ -588,6 +559,7 @@ a {
 
 .slide:first-child {
   display: block;
+  border-radius: 10px;
 }
 
 /********** BUTTONS **********/
@@ -595,7 +567,7 @@ a {
   text-align: center;
   z-index: 10;
   position: absolute;
-  top: 74%;
+  top: 78%;
   left: 50%;
   height: max-content;
 

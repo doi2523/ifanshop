@@ -86,7 +86,7 @@
                           </div>
                         </div>
                         <div>
-                          <a href="forgot_password.html">Quên mật khẩu?</a>
+                          <a class="link" href="forgot_password.html">Quên mật khẩu?</a>
                         </div>
                         <br>
                         <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
@@ -96,7 +96,7 @@
                         <p class="notee" id="loginMessage"></p>
                       </form>
                       <div>
-                        <p style="text-align: right;">Chưa có tài khoản? <a href="signup.html">Đăng ký</a></p>
+                        <p style="text-align: right;">Chưa có tài khoản? <a class="link" href="signup.html">Đăng ký</a></p>
                       </div>
                     </div>
                     <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
@@ -203,7 +203,11 @@
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
   import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
-  import { getAuth,onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+  import { getAuth,
+    onAuthStateChanged, 
+    createUserWithEmailAndPassword, 
+    signInWithEmailAndPassword, 
+    sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -271,6 +275,18 @@ document.getElementById('signin').addEventListener('submit', function(event) {
     sendPass
   }
 });
+// const user = auth.currentUser;
+// onAuthStateChanged(auth, (user) => {
+//   if (user) {
+//     // User is signed in, see docs for a list of available properties
+//     // https://firebase.google.com/docs/reference/js/auth.user
+//     // location.replace("auth.userpage.html")
+//     // ...
+//   } else {
+//     // User is signed out
+//     window.location.replace("login.html")
+//   }
+// });
 
 </script>
 </html>
