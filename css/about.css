@@ -390,13 +390,6 @@
 }
 /* ---------------------------------------------------------------------------- */
 
-
-.logo-footer{
-  background-image: url('images/0012445_Logo_ShopDunk.png');
-}
-/* .text-justify{
-  width: 70%;
-} */
 .row{
   display: flex;
   justify-content: flex-start;
