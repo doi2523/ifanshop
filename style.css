@@ -370,3 +370,28 @@ h3 {
 	font-size: 10px;
 }
 }
+
+
+.btn.btn-outline-primary.me-2 a {
+	color:#242424;
+}
+
+.btn.btn-outline-primary.me-2 a:hover {
+
+}
+.btn.btn-primary a {
+	color: #fff;
+}
+
+.btn.btn-primary a:hover {
+}
+#btt-login{
+	border: none; 
+	background-color: #fff;
+}
+#btt-login:hover{
+	background-color: #007bff;
+}
+#btt-sigup:hover{
+	
+}
