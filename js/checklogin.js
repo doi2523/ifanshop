@@ -62,6 +62,56 @@ onAuthStateChanged(auth, (user) => {
                 document.getElementById("username").value = username_profile;
                 document.getElementById("email").value = email_profile;
                 document.getElementById("password").value = password_profile;
+
+                // Lấy phần tử có lớp là "mb-0" bằng querySelector
+                const usernameElement = document.getElementById('txt-username');
+                // Gán giá trị cho phần tử
+                usernameElement.textContent = "@"+username_profile;
+
+                const uidd = document.getElementById('uid');
+                const usernm = document.getElementById('username');
+                const emaill = document.getElementById('email');
+                const passwd = document.getElementById('password');
+                // Gán giá trị cho phần tử
+                uidd.textContent =uid;
+                usernm.textContent= username_profile;
+                emaill.textContent= email_profile;
+                passwd.textContent= password_profile;
+
+
+                function getLatestInputValue(inputId) {
+                    const inputElement = document.getElementById(inputId);
+                    let latestValue = '';
+                    let timeoutId;
+                    inputElement.addEventListener('input', function() {
+                        clearTimeout(timeoutId);
+                        latestValue = this.value;
+                
+                        // Tạo một timeout mới để ghi log sau 300ms
+                        timeoutId = setTimeout(function() {
+                            console.log('Giá trị cuối =>', inputId + ':', latestValue);
+                        }, 300);
+                    });
+                    return function() {
+                        return latestValue;
+                    };
+                }
+                
+                const newusername = getLatestInputValue('update-username');
+                const newemail = getLatestInputValue('update-email');
+                const newpassword = getLatestInputValue('update-password');
+                
+                console.log(newusername());
+                console.log(newemail());
+                console.log(newpassword());
+                
+
+
+                document.getElementById('profile_update').addEventListener('submit', function(event){
+                    event.preventDefault;
+            
+                    
+                })
             })
             .catch((error) => {
                 console.error("Error fetching user data:", error);
