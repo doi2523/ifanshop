@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
-import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
+import { getDatabase, set, ref, update, child, get } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
 import { getAuth, 
         createUserWithEmailAndPassword, 
         signOut, 
@@ -36,18 +36,38 @@ onAuthStateChanged(auth, (user) => {
         // ...
         console.log(user)
         var uid = user.uid;
-        var email = user.email;
-        var username = user.username;
+        // var email = user.email;
+        // var username = user.username;
 
-        // Thực hiện các hành động cập nhật thông tin người dùng tại đây
-        console.log("Email:", email);
-        console.log("Username:", username);
-        console.log("UID:", uid);
+        const databaseRef = ref(database); // Bạn đã quên dấu "," ở giữa "users/" và "user.uid"
+        
+        get(child(databaseRef, "users/" + user.uid)) // Bạn cần thêm dấu "+" để nối chuỗi "users/" và user.uid
+            .then((snapshot) => {
+                var usrs = [];
+                snapshot.forEach((childSnapshot) => {
+                    usrs.push(childSnapshot.val());
+                });
+                console.log("User data:", usrs);
 
-        // Đẩy giá trị vào form
-        document.getElementById("uid").value = uid;
-        document.getElementById("Username").value = username;
-        document.getElementById("email").value = email;
+                const email_profile = usrs[0];
+                const password_profile = usrs[1];
+                const username_profile = usrs[2];
+                // console.log("UID:", uid);
+                // console.log("Email:", email_profile);
+                // console.log("Username:", username_profile);
+                // console.log("Password:", password_profile);
+
+                // Đẩy các giá trị vào các trường trong form
+                document.getElementById("uid").value = uid;
+                document.getElementById("username").value = username_profile;
+                document.getElementById("email").value = email_profile;
+                document.getElementById("password").value = password_profile;
+            })
+            .catch((error) => {
+                console.error("Error fetching user data:", error);
+            });   
+        
+
 
         
     } else {

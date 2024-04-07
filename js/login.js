@@ -70,10 +70,10 @@ document.getElementById('signin').addEventListener('submit', function(event) {
   .then((userCredential) => {
   // Signed in 
   const user = auth.currentUser;
-  const dt = new Date();
-  update(ref(database, 'users/' + user.uid),{
-      last_login : dt,
-  })
+  // const dt = new Date();
+  // update(ref(database, 'users/' + user.uid),{
+  //     last_login : dt,
+  // })
 
   if (email === 'admin@gmail.com' && password === '123456') {
       document.getElementById('loginMessage').innerText = 'Đăng nhập thành công! Vui lòng đợi!';
