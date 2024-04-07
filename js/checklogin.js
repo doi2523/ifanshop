@@ -34,7 +34,7 @@ onAuthStateChanged(auth, (user) => {
         // https://firebase.google.com/docs/reference/js/auth.user
         // location.replace("auth.userpage.html")
         // ...
-        console.log(user)
+        // console.log(user)
         var uid = user.uid;
         // var email = user.email;
         // var username = user.username;
@@ -47,7 +47,7 @@ onAuthStateChanged(auth, (user) => {
                 snapshot.forEach((childSnapshot) => {
                     usrs.push(childSnapshot.val());
                 });
-                console.log("User data:", usrs);
+                // console.log("User data:", usrs);
 
                 const email_profile = usrs[0];
                 const password_profile = usrs[1];
@@ -67,8 +67,6 @@ onAuthStateChanged(auth, (user) => {
                 console.error("Error fetching user data:", error);
             });   
         
-
-
         
     } else {
         // User is signed out
