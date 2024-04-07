@@ -1,0 +1,7 @@
+.hide{
+    display: none;
+}
+.success-message {
+    display: none; /* Bắt đầu ẩn đi */
+    color: #007bff; /* Đặt màu chữ là màu xanh */
+}

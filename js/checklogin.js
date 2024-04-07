@@ -66,9 +66,7 @@ onAuthStateChanged(auth, (user) => {
                 document.getElementById("email").value = email_profile;
                 document.getElementById("password").value = password_profile;
 
-                // Lấy phần tử có lớp là "mb-0" bằng querySelector
                 const usernameElement = document.getElementById('txt-username');
-                // Gán giá trị cho phần tử
                 usernameElement.textContent = "@"+username_profile;
 
                 const uidd = document.getElementById('uid');
@@ -82,24 +80,24 @@ onAuthStateChanged(auth, (user) => {
                 passwd.textContent= password_profile;
 
                 
-                const updateButton = document.getElementById('xacminhemail');
-                updateButton.addEventListener('click', function(event) {
-                event.preventDefault();
-                sendEmailVerification(auth.currentUser)
-                .then(() => {
-                  // Email verification sent!
-                  // ...
-                  alert("Một email xác minh đã được gửi");
-                  const xacminh = document.getElementById('xacminhemail');
-                  xacminh.textContent = "Đã gửi Email";
-                  xacminh.style.backgroundColor = 'green';
-                });             
-            });
-            })
-            .catch((error) => {
-                console.error("Error fetching user data:", error);
-            });   
-        
+                  
+                
+            //     const updateButton = document.getElementById('xacminhemail');
+            //     updateButton.addEventListener('click', function(event) {
+            //     event.preventDefault();
+
+
+            //     sendEmailVerification(auth.currentUser)
+            //     .then(() => {
+            //       // Email verification sent!
+            //       // ...
+            //       alert("Một email xác minh đã được gửi");
+            //       const xacminh = document.getElementById('xacminhemail');
+            //       xacminh.textContent = "Đã gửi Email";
+            //       xacminh.style.backgroundColor = 'green';
+            //     });             
+            // });
+            })        
         
     } else {
         // User is signed out
