@@ -82,21 +82,21 @@ onAuthStateChanged(auth, (user) => {
                 
                   
                 
-            //     const updateButton = document.getElementById('xacminhemail');
-            //     updateButton.addEventListener('click', function(event) {
-            //     event.preventDefault();
+                const updateButton = document.getElementById('xacminhemail');
+                updateButton.addEventListener('click', function(event) {
+                event.preventDefault();
 
 
-            //     sendEmailVerification(auth.currentUser)
-            //     .then(() => {
-            //       // Email verification sent!
-            //       // ...
-            //       alert("Một email xác minh đã được gửi");
-            //       const xacminh = document.getElementById('xacminhemail');
-            //       xacminh.textContent = "Đã gửi Email";
-            //       xacminh.style.backgroundColor = 'green';
-            //     });             
-            // });
+                sendEmailVerification(auth.currentUser)
+                .then(() => {
+                  // Email verification sent!
+                  // ...
+                  alert("Một email xác minh đã được gửi");
+                  const xacminh = document.getElementById('xacminhemail');
+                  xacminh.textContent = "Đã gửi Email";
+                  xacminh.style.backgroundColor = 'green';
+                });             
+            });
             })        
         
     } else {
