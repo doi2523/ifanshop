@@ -28,7 +28,6 @@ logout.addEventListener('click', (e) => {
           window.location.href = 'login.html';
   }, 2000);
   const user = userCredential.user;
-
   // const lg = new Date();
   //   update(ref(database, 'users/' + user.uid),{
   //       last_logout : lg,

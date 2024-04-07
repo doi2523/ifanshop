@@ -34,6 +34,22 @@ onAuthStateChanged(auth, (user) => {
         // https://firebase.google.com/docs/reference/js/auth.user
         // location.replace("auth.userpage.html")
         // ...
+        console.log(user)
+        var uid = user.uid;
+        var email = user.email;
+        var username = user.username;
+
+        // Thực hiện các hành động cập nhật thông tin người dùng tại đây
+        console.log("Email:", email);
+        console.log("Username:", username);
+        console.log("UID:", uid);
+
+        // Đẩy giá trị vào form
+        document.getElementById("uid").value = uid;
+        document.getElementById("Username").value = username;
+        document.getElementById("email").value = email;
+
+        
     } else {
         // User is signed out
         window.location.replace("login.html")

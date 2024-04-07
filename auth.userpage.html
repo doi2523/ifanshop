@@ -52,8 +52,29 @@
       <button style="margin: 100px;" id="logout">Đăng xuất</button>
     </div>
   </div>
-  </section>
+</section>
 
+<div class="container">
+  <div class="container mt-3">
+    <form action="/submit_update" method="post" id="updateForm">
+      <div>
+          <label for="uid">UID:</label>
+          <input type="text" id="uid" name="uid" required>
+      </div>
+      <div>
+          <label for="Username">Username:</label>
+          <input type="text" id="Username" name="Username" required>
+      </div>
+      <div>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+      </div>
+      <div>
+          <button type="submit" id="updateButton">Update</button>
+      </div>
+  </form>
+</div>
+</div>
 <!-------Banner End-------> 
 
 
