@@ -6,7 +6,10 @@ import { getAuth,
         createUserWithEmailAndPassword, 
         signOut, 
         signInWithEmailAndPassword, 
-        onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+        onAuthStateChanged,
+        updateEmail,
+        reauthenticateWithCredential,
+        sendEmailVerification } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -78,40 +81,20 @@ onAuthStateChanged(auth, (user) => {
                 emaill.textContent= email_profile;
                 passwd.textContent= password_profile;
 
-
-                function getLatestInputValue(inputId) {
-                    const inputElement = document.getElementById(inputId);
-                    let latestValue = '';
-                    let timeoutId;
-                    inputElement.addEventListener('input', function() {
-                        clearTimeout(timeoutId);
-                        latestValue = this.value;
                 
-                        // Tạo một timeout mới để ghi log sau 300ms
-                        timeoutId = setTimeout(function() {
-                            console.log('Giá trị cuối =>', inputId + ':', latestValue);
-                        }, 300);
-                    });
-                    return function() {
-                        return latestValue;
-                    };
-                }
-                
-                const newusername = getLatestInputValue('update-username');
-                const newemail = getLatestInputValue('update-email');
-                const newpassword = getLatestInputValue('update-password');
-                
-                console.log(newusername());
-                console.log(newemail());
-                console.log(newpassword());
-                
-
-
-                document.getElementById('profile_update').addEventListener('submit', function(event){
-                    event.preventDefault;
-            
-                    
-                })
+                const updateButton = document.getElementById('xacminhemail');
+                updateButton.addEventListener('click', function(event) {
+                event.preventDefault();
+                sendEmailVerification(auth.currentUser)
+                .then(() => {
+                  // Email verification sent!
+                  // ...
+                  alert("Một email xác minh đã được gửi");
+                  const xacminh = document.getElementById('xacminhemail');
+                  xacminh.textContent = "Đã gửi Email";
+                  xacminh.style.backgroundColor = 'green';
+                });             
+            });
             })
             .catch((error) => {
                 console.error("Error fetching user data:", error);

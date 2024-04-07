@@ -54,8 +54,10 @@
     <div class="card p-3">
       <div class="e-navlist e-navlist--active-bg">
         <ul class="nav">
-          <li class="nav-item"><a class="nav-link px-2 active" href="auth.userpage.html"><i class="fa fa-fw fa-user mr-1"></i><span>Tài khoản</span></a></li>
-          <li class="nav-item"><a class="nav-link px-2" href="auth.updateuser.html"><i class="fa fa-fw fa-user mr-1"></i><span>Sửa thông tin</span></a></li>
+          <li class="nav-item"><a class="nav-link px-2" href="auth.userpage.html"><i class="fa fa-fw fa-user mr-1"></i><span>Tài khoản</span></a></li>
+          <li class="nav-item"><a class="nav-link px-2 active" href="auth.updateuser.html"><i class="fa fa-fw fa-user mr-1"></i><span>Đổi username</span></a></li>
+          <li class="nav-item"><a class="nav-link px-2 active" href="auth.updatepasswd.html"><i class="fa fa-fw fa-user mr-1"></i><span>Đổi mật khẩu</span></a></li>
+          <li class="nav-item"><a class="nav-link px-2 active" href="auth.updateemail.html"><i class="fa fa-fw fa-user mr-1"></i><span>Đổi email</span></a></li>
           <li class="nav-item"><a class="nav-link px-2" href="auth.setting.html" target="__blank"><i class="fa fa-fw fa-cog mr-1"></i><span>Settings</span></a></li>
         </ul>
       </div>
@@ -126,11 +128,28 @@
                             </div>
                           </div>
                         </div>
-                        <div class="row">
+                        <!-- <div class="row">
                           <div class="col">
                             <div class="form-group">
                               <label>Email</label><br>
                               <label for="email" id="email" class="form-control"></label>
+                            </div>
+                          </div>
+                        </div> -->
+
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+                              <label>Email</label><br>
+                             
+                              <div class="input-group">
+                                <label for="email" id="email" class="form-control"></label> 
+                                <div class="input-group-append">
+                                  <button id="xacminhemail" style="background-color: #007bff; color: #fff;" class="btn btn-outline-secondary" type="button">
+                                    Xác minh Email
+                                  </button>
+                                </div>
+                              </div>
                             </div>
                           </div>
                         </div>
