@@ -85,8 +85,6 @@ onAuthStateChanged(auth, (user) => {
                 const updateButton = document.getElementById('xacminhemail');
                 updateButton.addEventListener('click', function(event) {
                 event.preventDefault();
-
-
                 sendEmailVerification(auth.currentUser)
                 .then(() => {
                   // Email verification sent!
