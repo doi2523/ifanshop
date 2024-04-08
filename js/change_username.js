@@ -25,11 +25,12 @@ import { getAuth, deleteUser } from "https://www.gstatic.com/firebasejs/10.10.0/
     const auth = getAuth();
     const user = auth.currentUser;
     
-const updateUsernameButton = document.getElementById('update-username');
-updateUsernameButton.addEventListener('click', function(event) {
-    event.preventDefault(); // Ngăn chặn hành vi mặc định của sự kiện click
-    updateUsername();
-});
+    const updateUsernameForm = document.getElementById('update-username'); // Lấy thẻ form bằng id
+    updateUsernameForm.addEventListener('submit', function(event) { // Gắn sự kiện submit vào form
+        event.preventDefault(); // Ngăn chặn hành vi mặc định của sự kiện submit
+        updateUsername(); // Gọi hàm updateUsername khi form được submit
+    });
+    
 
 const newusr = document.getElementById('newusername').value; // Lấy giá trị của ô input
 console.log(newusr)
@@ -39,6 +40,7 @@ function updateUsername() {
     const user = auth.currentUser;
     const uid = user.uid;
     const database = getDatabase(app);
+    
     
     const newusr = document.getElementById('newusername').value; // Lấy giá trị của ô input
     console.log(newusr)

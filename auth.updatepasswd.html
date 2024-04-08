@@ -85,11 +85,19 @@
                     <h4 id="txt-username" class="pt-sm-2 pb-1 mb-0 text-nowrap">----</h4>
                     <!-- <p class="mb-0" >@johnny.s</p> -->
                     <!-- <div class="text-muted"><small>Last seen 2 hours ago</small></div> -->
-                    <div class="mt-2">
+                    <!-- <div class="mt-2">
                       <button class="btn btn-primary" type="button" id="changePhotoButton">
                         <i class="fa fa-fw fa-camera"></i>
                         <span>Change Photo</span>
                       </button>
+                    </div> -->
+                    <div class="row">
+                      <div class="col">
+                        <div class="form-group">
+                          <label>UID:</label><br>
+                          <label class="form-control" for="uid" id="uid" name="uid"></label>
+                        </div>
+                      </div>
                     </div>
                     <div id="fileInputContainer" style="display: none;">
                       <input type="file" id="fileInput">
@@ -113,18 +121,9 @@
               </ul>
               <div class="tab-content pt-3">
                 <div class="tab-pane active">
-                  <form id="profile_update">
+                  <form id="update-password">
                     <div class="row">
                       <div class="col">
-
-                        <div class="hide" class="row">
-                          <div class="col">
-                            <div class="form-group">
-                              <label>UID:</label><br>
-                              <label class="form-control" for="uid" id="uid" name="uid"></label>
-                            </div>
-                          </div>
-                        </div>
 
                         <div class="row hide">
                           <div class="col">
@@ -147,7 +146,7 @@
                             <div class="form-group">
                               <label>Password cũ:</label>
                               <div class="input-group">
-                                <input class="form-control" type="password" id="password" name="password" required placeholder="--------">
+                                <input class="form-control" type="password" id="password" name="password" placeholder="--------">
                                 <div class="input-group-append">
                                   <button class="btn btn-outline-secondary" type="button" id="togglePassword">
                                     <i class="fas fa-eye-slash"></i>
@@ -161,7 +160,7 @@
                           <div class="col">
                             <div class="form-group">
                               <label>Password mới:</label>
-                            <input id="newpassword" name="update-password" class="form-control" type="text" name="fullname">
+                            <input id="newpassword" name="update-password" class="form-control" required type="text" name="fullname">
                             </div>
                           </div>
                         </div>
@@ -193,7 +192,7 @@
 
                     <div class="row">
                       <div class="col d-flex justify-content-end">
-                        <button class="btn btn-primary" id="updatepasswd" name="updatepasswd" type="button">Thay Đổi</button>
+                        <button class="btn btn-primary" id="updatepasswd" name="updatepasswd" type="submit">Thay Đổi</button>
                       </div>
                     </div>
                   </form>
@@ -253,15 +252,65 @@
 </div>
 </div> -->
 
-<footer class="footer-copy">
-  <div class="container-fluid">
+<div class="container">
+  <footer class="py-5">
     <div class="row">
-      <div class="col-md-12">
-        <p>2024 &copy; Applight. Website Designed by <a href="" target="_blank" rel="dofollow">Doi teamwork</a></p>
+      <div class="col-6 col-md-2 mb-3">
+        <h5>Section</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-2 mb-3">
+        <h5>Section</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-2 mb-3">
+        <h5>Section</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+        </ul>
+      </div>
+
+      <div class="col-md-5 offset-md-1 mb-3">
+        <form>
+          <h5>Đăng ký nhận thông báo mới nhất</h5>
+          <p>Monthly digest of what's new and exciting from us.</p>
+          <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+            <label for="newsletter1" class="visually-hidden">Email address</label>
+            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+            <button class="btn btn-primary" type="button">Đăng ký</button>
+          </div>
+        </form>
       </div>
     </div>
-  </div>
-</footer>
+
+    <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+      <p>© 2024 Company, Inc. All rights reserved.</p>
+      <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"></use></svg></a></li>
+        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+        <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+      </ul>
+    </div>
+  </footer>
+</div>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 

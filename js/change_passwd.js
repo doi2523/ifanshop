@@ -25,11 +25,11 @@ import { getAuth, deleteUser } from "https://www.gstatic.com/firebasejs/10.10.0/
     const auth = getAuth();
     const user = auth.currentUser;
     
-const updatePasswdButton = document.getElementById('updatepasswd');
-updatePasswdButton.addEventListener('click', function(event) {
-    event.preventDefault(); // Ngăn chặn hành vi mặc định của sự kiện click
-    updatePassword();
-});
+    const updatePasswdForm = document.getElementById('update-password');
+    updatePasswdForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Ngăn chặn hành vi mặc định của sự kiện submit
+        updatePassword();
+    });
 
 const newpass = document.getElementById('newpassword').value; // Lấy giá trị của ô input
 console.log(newpass)

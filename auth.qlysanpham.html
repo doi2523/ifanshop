@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/submit_form" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="text1">Tên sản phẩm:</label>
+            <input type="text" id="text1" name="text1" required>
+        </div>
+        <div>
+            <label for="text2">Dung lượng:</label>
+            <input type="text" id="text2" name="text2" required>
+        </div>
+        <div>
+            <label for="number1">Giá sale:</label>
+            <input type="number" id="number1" name="number1" required>
+        </div>
+        <div>
+            <label for="number2">Giá gốc:</label>
+            <input type="number" id="number2" name="number2" required>
+        </div>
+        <div>
+            <label for="file">Hình ảnh:</label>
+            <input type="file" id="file" name="file" required>
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    
+</body>
+</html>

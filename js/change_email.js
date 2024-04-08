@@ -25,11 +25,12 @@ import { getAuth, deleteUser, updateEmail } from "https://www.gstatic.com/fireba
     const auth = getAuth();
     const user = auth.currentUser;
     
-const updateEmailButton = document.getElementById('updateemail');
-    updateEmailButton.addEventListener('click', function(event) {
-        event.preventDefault(); // Ngăn chặn hành vi mặc định của sự kiện click
+    const updateEmailForm = document.getElementById('update-email');
+    updateEmailForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Ngăn chặn hành vi mặc định của sự kiện submit
         NewEmail();
-});
+    });
+    
 
 const newmail = document.getElementById('newemail').value; // Lấy giá trị của ô input
 console.log(newmail)
@@ -40,11 +41,7 @@ function NewEmail() {
     const uid = user.uid;
     const database = getDatabase(app);
     
-    updateEmail(auth.currentUser, "user@example.com")
-    .then(() => {
-        // Email updated!
-        // ...
-        const newmail = document.getElementById('newemail').value;
+    const newmail = document.getElementById('newemail').value;
         update(ref(database, "users/" + uid), {
             email : newmail
         })
@@ -52,7 +49,7 @@ function NewEmail() {
             const successMessage = document.querySelector('.success-message');
             successMessage.style.display = 'block';
     
-            // alert("Email đã được cập nhật thành công!");
+            alert("Email đã được cập nhật thành công!");
             setTimeout(() => {
                 successMessage.style.display = 'none';
                 window.location.reload();
@@ -62,17 +59,22 @@ function NewEmail() {
             alert("Đã xảy ra lỗi khi cập nhật Email: " + error.message);
         });
 
-        const successMessage = document.querySelector('.success-message');
-        successMessage.style.display = 'block';
-        alert("Email đã được cập nhật thành công!");
-        setTimeout(() => {
-            successMessage.style.display = 'none';
-            window.location.reload();
-        }, 2000);
-      }).catch((error) => {
-        // An error occurred
-        // ...
-        // alert("Đã xảy ra lỗi khi cập nhật Email: " + error.message);
-        alert("Hãy xác minh email của bạn!");
-      });
+//     updateEmail(auth.currentUser, "user@example.com")
+//     .then(() => {
+//         // Email updated!
+//         // ...
+//         const successMessage = document.querySelector('.success-message');
+//         successMessage.style.display = 'block';
+//         alert("Email đã được cập nhật thành công!");
+//         setTimeout(() => {
+//             successMessage.style.display = 'none';
+//             window.location.reload();
+//         }, 2000);
+//       })
+//     //   .catch((error) => {
+//     //     // An error occurred
+//     //     // ...
+//     //     // alert("Đã xảy ra lỗi khi cập nhật Email: " + error.message);
+//     //     // alert("Hãy xác minh email của bạn!");
+//     //   });
 }
