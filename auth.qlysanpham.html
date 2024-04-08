@@ -6,21 +6,21 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/submit_form" method="post" enctype="multipart/form-data">
+    <form id="addsp">
         <div>
-            <label for="text1">Tên sản phẩm:</label>
+            <label for="tensp">Tên sản phẩm:</label>
             <input type="text" id="text1" name="text1" required>
         </div>
         <div>
-            <label for="text2">Dung lượng:</label>
+            <label for="dungluong">Dung lượng:</label>
             <input type="text" id="text2" name="text2" required>
         </div>
         <div>
-            <label for="number1">Giá sale:</label>
+            <label for="giasale">Giá sale:</label>
             <input type="number" id="number1" name="number1" required>
         </div>
         <div>
-            <label for="number2">Giá gốc:</label>
+            <label for="giagoc">Giá gốc:</label>
             <input type="number" id="number2" name="number2" required>
         </div>
         <div>
@@ -33,4 +33,5 @@
     </form>
     
 </body>
+<script type="module" src="js/qlysanpham.js"></script>
 </html>

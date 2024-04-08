@@ -2,7 +2,11 @@
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
   import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
-  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+  import { getStorage,
+     ref as sRef,
+     uploadBytesResumable,
+     getDownloadURL } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-storage.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -23,3 +27,7 @@
   const analytics = getAnalytics(app);
   const database = getDatabase(app);
   const auth = getAuth();
+
+  var files = [];
+  var reader = new FileReader();
+  var namebox
