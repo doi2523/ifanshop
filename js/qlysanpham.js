@@ -44,55 +44,53 @@ document.getElementById('addsp').addEventListener('submit', function(event) {
         return;
     }
     let rowCount = 0;
-    if (file) {
-        const fileInfo = {
-            stt: ++rowCount,
-            fileName: file.name,
-            fileSize: file.size,
-            fileType: file.type
-        };
-        displayFileInfo(fileInfo);
-    }
-    function displayFileInfo(fileInfo) {
-        const tableBody = document.getElementById('fileInfoBody');
-        // Xóa các dòng cũ trong bảng
-        tableBody.innerHTML = '';
-        // Tạo một dòng mới cho thông tin của tệp
-        const newRow = document.createElement('tr');
-        newRow.innerHTML = `
-            <td>${fileInfo.stt}</td>
-            <td>${fileInfo.fileName}</td>
-            <td>${fileInfo.fileSize}</td>
-            <td>${fileInfo.fileType}</td>
-        `;
+    // if (file) {
+    //     const fileInfo = {
+    //         stt: ++rowCount,
+    //         fileName: file.name,
+    //         fileSize: file.size,
+    //         fileType: file.type
+    //     };
+    //     displayFileInfo(fileInfo);
+    // }
+    // function displayFileInfo(fileInfo) {
+    //     const tableBody = document.getElementById('fileInfoBody');
+    //     // Xóa các dòng cũ trong bảng
+    //     tableBody.innerHTML = '';
+    //     // Tạo một dòng mới cho thông tin của tệp
+    //     const newRow = document.createElement('tr');
+    //     newRow.innerHTML = `
+    //         <td>${fileInfo.stt}</td>
+    //         <td>${fileInfo.fileName}</td>
+    //         <td>${fileInfo.fileSize}</td>
+    //         <td>${fileInfo.fileType}</td>
+    //     `;
 
-        tableBody.appendChild(newRow);
-    }
+    //     tableBody.appendChild(newRow);
+    // }
 
     const storage = getStorage();
-    // Tạo một ID ngẫu nhiên
-    const uniqueId = generateUniqueId();
-    document.getElementById('id-file').value = file.name;
+    // // Tạo một ID ngẫu nhiên
+    // const uniqueId = generateUniqueId();
+    // document.getElementById('id-file').value = file.name;
 
-    function generateUniqueId() {
-        return Math.random().toString(36).substr(2, 9);
-    }
+    // function generateUniqueId() {
+    //     return Math.random().toString(36).substr(2, 9);
+    // }
     const storageRef = ref(storage, 'iPhone/' + file.name);
-    
-
     uploadBytes(storageRef, file).then((snapshot) => {
       console.log('Tải ảnh lên thành công!');
-    //   setTimeout(() => {
-    //     location.reload();
-    // }, 2000);
+    setTimeout(() => {
+        location.reload();
+    }, 2000);
     });
    
 
 });
 const storage = getStorage();
-const uid = document.getElementById('id-file').value;
-console.log('Giá trị từ ô input:', uid);
-const listRef = ref(storage, 'iPhone');
+// const uid = document.getElementById('id-file').value;
+// console.log('Giá trị từ ô input:', uid);
+// const listRef = ref(storage, 'iPhone');
 const imagesRef = ref(storage, 'iPhone');
 
     // Lấy danh sách tất cả các tệp hình ảnh
@@ -218,4 +216,3 @@ function deleteImage(imageRef) {
             });
     }
 }
-
