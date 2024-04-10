@@ -50,21 +50,27 @@ onAuthStateChanged(auth, (user) => {
                 snapshot.forEach((childSnapshot) => {
                     usrs.push(childSnapshot.val());
                 });
-                // console.log("User data:", usrs);
+                console.log("User data:", usrs);
 
                 const email_profile = usrs[0];
-                const password_profile = usrs[1];
-                const username_profile = usrs[2];
-                // console.log("UID:", uid);
-                // console.log("Email:", email_profile);
-                // console.log("Username:", username_profile);
-                // console.log("Password:", password_profile);
+                const hoten_profile = usrs[1];
+                const password_profile = usrs[2];
+                const sdt_profile = usrs[3];
+                const username_profile = usrs[4];
+                console.log("UID:", uid);
+                console.log("Email:", email_profile);
+                console.log("Username:", username_profile);
+                console.log("Password:", password_profile);
+                console.log("Name:",hoten_profile);
+                console.log("Sdt:",sdt_profile);
 
                 // Đẩy các giá trị vào các trường trong form
                 document.getElementById("uid").value = uid;
                 document.getElementById("username").value = username_profile;
                 document.getElementById("email").value = email_profile;
                 document.getElementById("password").value = password_profile;
+                document.getElementById("hoten").value = hoten_profile;
+                document.getElementById("sdt").value = sdt_profile;
 
                 const usernameElement = document.getElementById('txt-username');
                 usernameElement.textContent = "@"+username_profile;
@@ -73,12 +79,15 @@ onAuthStateChanged(auth, (user) => {
                 const usernm = document.getElementById('username');
                 const emaill = document.getElementById('email');
                 const passwd = document.getElementById('password');
+                const hotenn = document.getElementById('hoten');
+                const sdtt = document.getElementById('sdt');
                 // Gán giá trị cho phần tử
                 uidd.textContent =uid;
                 usernm.textContent= username_profile;
                 emaill.textContent= email_profile;
                 passwd.textContent= password_profile;
-
+                hotenn.textContent= hoten_profile;
+                sdtt.textContent= sdt_profile;
                 
                   
                 

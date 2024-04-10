@@ -2,7 +2,7 @@
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
   import { getDatabase, ref, child, onValue, get } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
-  import { getAuth } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+  import { getAuth, deleteUser } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -26,33 +26,37 @@
 
     var stdNo =0;
     var tbody = document.getElementById('tbody1')
-    function AddItemToTable(username, email, passwd){
+    function AddItemToTable(username, hoten, sdt, email, passwd) {
         let trow = document.createElement("tr");
         let td1 = document.createElement("td");
         let td2 = document.createElement("td");
         let td3 = document.createElement("td");
         let td4 = document.createElement("td");
         let td5 = document.createElement("td");
-
-        td1.innerHTML=++stdNo;
-        td2.innerHTML= username;
-        td3.innerHTML= email;
-        td4.innerHTML= passwd;
-        td5.innerHTML = '<button onclick="edit()">Sửa</button><button onclick="del()">Xoá</button>';
-
+        let td6 = document.createElement("td");
+    
+        td1.innerHTML = ++stdNo;
+        td2.innerHTML = username;
+        td3.innerHTML = hoten;
+        td4.innerHTML = sdt;
+        td5.innerHTML = email;
+        td6.innerHTML = passwd;
+    
         trow.appendChild(td1);
         trow.appendChild(td2);
         trow.appendChild(td3);
         trow.appendChild(td4);
         trow.appendChild(td5);
-
+        trow.appendChild(td6);
+    
         tbody.appendChild(trow);
     }
+    
     function AddAllItemToTable(UserList){
         stdNo=0;
         tbody.innerHTML="";
         UserList.forEach(element => {
-            AddItemToTable(element.username,element.email,element.password)
+            AddItemToTable(element.username, element.hoten, element.sdt , element.email,element.password)
         });
     };
 

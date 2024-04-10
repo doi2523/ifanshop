@@ -1,7 +1,7 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
-  import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
+  import { getDatabase, set, ref, get, child } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
   import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
@@ -27,7 +27,9 @@
 
 document.getElementById('signup').addEventListener('submit', function(event) {
     event.preventDefault();
-    
+
+    var hoten = document.getElementById("signup-hoten").value;
+    var sdt = document.getElementById("signup-sdt").value;
     var username = document.getElementById("signup-username").value;
     var email = document.getElementById("signup-email").value;
     var password = document.getElementById("signup-password").value;
@@ -40,7 +42,9 @@ document.getElementById('signup').addEventListener('submit', function(event) {
     set(ref(database, 'users/' + user.uid),{
         username : username,
         email: email,
-        password: password
+        password: password,
+        hoten: hoten,
+        sdt: sdt
     })
     alert('Đăng ký thành công!');
     document.getElementById('signupMessage').innerText = 'Đăng ký thành công! Vui lòng đăng nhập!';
@@ -69,11 +73,10 @@ document.getElementById('signin').addEventListener('submit', function(event) {
   signInWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
   // Signed in 
+  const auth = getAuth();
   const user = auth.currentUser;
-  // const dt = new Date();
-  // update(ref(database, 'users/' + user.uid),{
-  //     last_login : dt,
-  // })
+
+  
 
   if (email === 'admin@gmail.com' && password === '123456') {
       document.getElementById('loginMessage').innerText = 'Đăng nhập thành công! Vui lòng đợi!';
@@ -81,7 +84,7 @@ document.getElementById('signin').addEventListener('submit', function(event) {
       setTimeout(function() {
         window.location.href = 'auth.admin.html';
       }, 2000);
-      //alert('Chào mừng admin!');      
+      alert('Chào mừng admin!');      
       }
   else {
     document.getElementById('loginMessage').innerText = 'Đăng nhập thành công! Vui lòng đợi!'; 
@@ -89,7 +92,7 @@ document.getElementById('signin').addEventListener('submit', function(event) {
       setTimeout(function() {
         window.location.href = 'auth.index.html';
       }, 2000); 
-    //alert('Đăng nhập thành công!');
+    alert("Chào mừng "+user.email +" đăng nhập")
     }
   
   // ...

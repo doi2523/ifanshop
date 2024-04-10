@@ -4,34 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+    
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+    
+        th {
+            background-color: #f2f2f2;
+        }
+        .image-thumbnail {
+        max-width: 100px;
+        max-height: 100px;
+    }
+    </style>
 </head>
 <body>
+    <a href="auth.admin.html">
+        <button>Quay lại</button>
+    </a>
+    <h1 style="text-align: center;">Chọn file</h1>
     <form id="addsp">
-        <div>
+        <!-- <div>
             <label for="tensp">Tên sản phẩm:</label>
-            <input type="text" id="text1" name="text1" required>
+            <input type="text" id="name" name="text1" required>
         </div>
         <div>
             <label for="dungluong">Dung lượng:</label>
-            <input type="text" id="text2" name="text2" required>
+            <input type="text" id="dungluong" name="text2" required>
         </div>
         <div>
             <label for="giasale">Giá sale:</label>
-            <input type="number" id="number1" name="number1" required>
+            <input type="number" id="giasale" name="number1" required>
         </div>
         <div>
             <label for="giagoc">Giá gốc:</label>
-            <input type="number" id="number2" name="number2" required>
+            <input type="number" id="giagoc" name="number2" required>
         </div>
-        <div>
+        <div> -->
             <label for="file">Hình ảnh:</label>
             <input type="file" id="file" name="file" required>
         </div>
         <div>
-            <button type="submit">Submit</button>
+            <button id="add-file" type="button">Tải lên</button>
         </div>
     </form>
+    <h1 style="text-align: center;">Cập nhật</h1>
+    <form>
+        <div>
+            <label for="giagoc">Thông tin tệp:</label>
+            <input type="text" id="id-file" name="number2" required>
+        </div>
+        <div>
+            <button id="reloadd" type="button">Cập nhật</button>
+        </div>
+    </form>
+    <h1 style="text-align: center;">File đã Upload</h1>
+    <table id="fileInfoTable">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên tệp</th>
+                <th>Kích thước (bytes)</th>
+                <th>Loại MIME</th>
+            </tr>
+        </thead>
+        <tbody id="fileInfoBody">
+        </tbody>
+    </table>
+    <h1 style="text-align: center;">Tất cả hình ảnh</h1>
+    <table id="imageTable">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Tên</th>
+                <th>Hình Ảnh</th>
+                <th>Xoá</th>
+            </tr>
+        </thead>
+        <tbody id="imageTableBody">
+        </tbody>
+    </table>
     
 </body>
 <script type="module" src="js/qlysanpham.js"></script>
+<script type="module" src="js/checklogout.js"></script>
+<script type="module" src="js/checklogin.js"></script>
 </html>
