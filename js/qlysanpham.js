@@ -87,112 +87,43 @@ document.getElementById('addsp').addEventListener('submit', function(event) {
    
 
 });
-const storage = getStorage();
-// const uid = document.getElementById('id-file').value;
-// console.log('Giá trị từ ô input:', uid);
-// const listRef = ref(storage, 'iPhone');
-const imagesRef = ref(storage, 'iPhone');
-
-    // Lấy danh sách tất cả các tệp hình ảnh
+function displayImages() {
+    const storage = getStorage();
+    const imagesRef = ref(storage, 'iPhone');
     listAll(imagesRef)
         .then((result) => {
             const imageTableBody = document.getElementById('imageTableBody');
             let rowCount = 0;
             result.items.forEach((imageRef) => {
-                // Lấy URL tải xuống của hình ảnh
                 getDownloadURL(imageRef)
-        .then((url) => {
-            // Tạo một thẻ <img> để hiển thị hình ảnh
-            const img = document.createElement('img');
-            img.src = url;
-            img.alt = imageRef.name;
-            img.classList.add('image-thumbnail'); // Thêm lớp để xác định kích thước hình ảnh
+                    .then((url) => {
+                        const img = document.createElement('img');
+                        img.src = url;
+                        img.alt = imageRef.name;
+                        img.classList.add('image-thumbnail'); // Thêm lớp để xác định kích thước hình ảnh
 
-            // Tạo một hàng mới trong bảng
-            const newRow = imageTableBody.insertRow();
-            const sttCell = newRow.insertCell();
-            const nameCell = newRow.insertCell();
-            const imageCell = newRow.insertCell();
-            const deleteCell = newRow.insertCell();
+                        const newRow = imageTableBody.insertRow();
+                        const sttCell = newRow.insertCell();
+                        const nameCell = newRow.insertCell();
+                        const imageCell = newRow.insertCell();
+                        const deleteCell = newRow.insertCell();
 
-            // Đặt nội dung cho các ô
-            sttCell.textContent = ++rowCount;
-            nameCell.textContent = imageRef.name; // Tên của hình ảnh
-            imageCell.appendChild(img); // Thêm hình ảnh vào ô
-
-            // Nếu bạn muốn thêm các thông tin khác, hãy tạo các ô khác và đặt nội dung cho chúng
-            // Tạo nút xoá
-            const deleteButton = document.createElement('button');
-            deleteButton.textContent = 'Xoá';
-            deleteButton.addEventListener('click', function() {
-                deleteImage(imageRef);
+                        sttCell.textContent = ++rowCount;
+                        nameCell.textContent = imageRef.name; // Tên của hình ảnh
+                        imageCell.appendChild(img); // Thêm hình ảnh vào ô
+                        const deleteButton = document.createElement('button');
+                        deleteButton.textContent = 'Xoá';
+                        deleteButton.addEventListener('click', function() {
+                            deleteImage(imageRef);
+                        });
+                        deleteCell.appendChild(deleteButton);
+                    });
             });
+        });
+}
 
-            // Thêm nút xoá vào ô
-            deleteCell.appendChild(deleteButton);
-        })
-        })
-        // .catch((error) => {
-        //     console.error('Lỗi khi lấy URL tải xuống:', error);
-        // });
-            });
-// document.getElementById('reloadd').addEventListener('click', function() {
-//     const uid = document.getElementById('id-file').value;
-//     const storage = getStorage();
-
-//     console.log('Giá trị từ ô input:', uid);
-//     const listRef = ref(storage, 'iPhone');
-//     const imagesRef = ref(storage, 'iPhone');
-
-//         // Lấy danh sách tất cả các tệp hình ảnh
-//         listAll(imagesRef)
-//             .then((result) => {
-//                 const imageTableBody = document.getElementById('imageTableBody');
-//                 let rowCount = 0;
-//                 result.items.forEach((imageRef) => {
-//                     // Lấy URL tải xuống của hình ảnh
-//                     getDownloadURL(imageRef)
-//             .then((url) => {
-//                 // Tạo một thẻ <img> để hiển thị hình ảnh
-//                 const img = document.createElement('img');
-//                 img.src = url;
-//                 img.alt = imageRef.name;
-//                 img.classList.add('image-thumbnail'); // Thêm lớp để xác định kích thước hình ảnh
-
-//                 // Tạo một hàng mới trong bảng
-//                 const newRow = imageTableBody.insertRow();
-//                 const sttCell = newRow.insertCell();
-//                 const nameCell = newRow.insertCell();
-//                 const imageCell = newRow.insertCell();
-//                 const deleteCell = newRow.insertCell();
-
-//                 // Đặt nội dung cho các ô
-//                 sttCell.textContent = ++rowCount;
-//                 nameCell.textContent = imageRef.name; // Tên của hình ảnh
-//                 imageCell.appendChild(img); // Thêm hình ảnh vào ô
-
-//                 // Nếu bạn muốn thêm các thông tin khác, hãy tạo các ô khác và đặt nội dung cho chúng
-//                 // Tạo nút xoá
-//                 const deleteButton = document.createElement('button');
-//                 deleteButton.textContent = 'Xoá';
-//                 deleteButton.addEventListener('click', function() {
-//                     deleteImage(imageRef);
-//                 });
-
-//                 // Thêm nút xoá vào ô
-//                 deleteCell.appendChild(deleteButton);
-//             })
-//             })
-//             // .catch((error) => {
-//             //     console.error('Lỗi khi lấy URL tải xuống:', error);
-//             // });
-//                 });
-//             })
-            // .catch((error) => {
-            //     console.error('Lỗi khi lấy danh sách tệp hình ảnh:', error);
-            // });
-
-        // Hàm xoá hình ảnh
+// Gọi hàm displayImages() khi cần thiết
+displayImages();
 // Hàm xoá hình ảnh
 function deleteImage(imageRef) {
     // Hiển thị hộp thoại xác nhận
