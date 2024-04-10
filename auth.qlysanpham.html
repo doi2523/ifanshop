@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        table {
+        /* table {
             border-collapse: collapse;
             width: 100%;
         }
@@ -18,41 +18,69 @@
     
         th {
             background-color: #f2f2f2;
-        }
+        } */
         .image-thumbnail {
         max-width: 100px;
         max-height: 100px;
     }
     </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 <body>
     <a href="auth.admin.html">
         <button>Quay lại</button>
     </a>
     <h1 style="text-align: center;">Chọn file</h1>
-    <form id="addsp">
-        <!-- <div>
-            <label for="tensp">Tên sản phẩm:</label>
-            <input type="text" id="name" name="text1" required>
-        </div>
-        <div>
-            <label for="dungluong">Dung lượng:</label>
-            <input type="text" id="dungluong" name="text2" required>
-        </div>
-        <div>
-            <label for="giasale">Giá sale:</label>
-            <input type="number" id="giasale" name="number1" required>
-        </div>
-        <div>
-            <label for="giagoc">Giá gốc:</label>
-            <input type="number" id="giagoc" name="number2" required>
-        </div>
-        <div> -->
-            <label for="file">Hình ảnh:</label>
-            <input type="file" id="file" name="file" required>
-        </div>
-        <div>
-            <button id="add-file" type="button">Tải lên</button>
+    <form style="padding: 0 100px 0 100px;" id="addsp">
+        <div class="row">
+            <div class="col">
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label>Tên sản phẩm:</label><br>
+                    <input class="form-control" type="text" id="tensanpham" name="text1" required>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label>Dung lượng:</label><br>
+                    <input class="form-control" type="text" id="dungluong" name="text2" required>
+                </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label>Giá sale:</label><br>
+                    <input class="form-control" type="number" id="giasale" name="number1" required>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label>Giá gốc:</label><br>
+                    <input class="form-control" type="number" id="giagoc" name="number2" required>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="form-group">
+                    <label>Hình ảnh:</label><br>
+                    <input class="form-control" type="file" id="file" name="file" required>
+                  </div>
+                </div>
+              </div>
+                <div class="row">
+                <div class="col d-flex justify-content-end">
+                <button class="btn btn-primary" id="add-file" type="submit">Tải lên</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </form>
     <h1 style="text-align: center;">Cập nhật</h1>
@@ -66,20 +94,22 @@
         </div>
     </form>
     <h1 style="text-align: center;">File đã Upload</h1>
-    <table id="fileInfoTable">
-        <thead>
-            <tr>
-                <th>STT</th>
-                <th>Tên tệp</th>
-                <th>Kích thước (bytes)</th>
-                <th>Loại MIME</th>
-            </tr>
-        </thead>
-        <tbody id="fileInfoBody">
-        </tbody>
-    </table>
+    <div>
+        <table id="fileInfoTable" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Tên tệp</th>
+                    <th>Kích thước (bytes)</th>
+                    <th>Loại MIME</th>
+                </tr>
+            </thead>
+            <tbody id="fileInfoBody">
+            </tbody>
+        </table>
+    </div>
     <h1 style="text-align: center;">Tất cả hình ảnh</h1>
-    <table id="imageTable">
+    <table id="imageTable" class="table table-striped">
         <thead>
             <tr>
                 <th>STT</th>
@@ -96,4 +126,5 @@
 <script type="module" src="js/qlysanpham.js"></script>
 <script type="module" src="js/checklogout.js"></script>
 <script type="module" src="js/checklogin.js"></script>
+<script type="module" src="js/addsanpham.js"></script>
 </html>

@@ -1,7 +1,7 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp, getApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
-  import { getDatabase } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
+  import { getDatabase, set } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
   import { getAuth } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
   import { getStorage,
      ref,
@@ -34,9 +34,8 @@
 
 
 // Lắng nghe sự kiện khi người dùng nhấn nút submit trong form
-document.getElementById('add-file').addEventListener('click', function(event) {
+document.getElementById('addsp').addEventListener('submit', function(event) {
     event.preventDefault();
-
     const fileInput = document.getElementById('file');
     const file = fileInput.files[0]; // Lấy tệp từ trường input
 
@@ -56,10 +55,8 @@ document.getElementById('add-file').addEventListener('click', function(event) {
     }
     function displayFileInfo(fileInfo) {
         const tableBody = document.getElementById('fileInfoBody');
-
         // Xóa các dòng cũ trong bảng
         tableBody.innerHTML = '';
-
         // Tạo một dòng mới cho thông tin của tệp
         const newRow = document.createElement('tr');
         newRow.innerHTML = `
@@ -84,7 +81,7 @@ document.getElementById('add-file').addEventListener('click', function(event) {
     
 
     uploadBytes(storageRef, file).then((snapshot) => {
-      console.log('Uploaded a blob or file!');
+      console.log('Tải ảnh lên thành công!');
     //   setTimeout(() => {
     //     location.reload();
     // }, 2000);
@@ -221,5 +218,4 @@ function deleteImage(imageRef) {
             });
     }
 }
-
 

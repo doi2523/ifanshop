@@ -56,8 +56,6 @@
         <ul class="nav">
           <li class="nav-item"><a class="nav-link px-2" href="auth.userpage.html"><i class="fa fa-fw fa-user mr-1"></i><span>Tài khoản</span></a></li>
           <li class="nav-item"><a class="nav-link px-2 active" href="auth.changeuser.html"><i class="fa fa-fw fa-user mr-1"></i><span>Đổi thông tin</span></a></li>
-          <!-- <li class="nav-item"><a class="nav-link px-2 active" href="auth.updatepasswd.html"><i class="fa fa-fw fa-user mr-1"></i><span>Đổi mật khẩu</span></a></li>
-          <li class="nav-item"><a class="nav-link px-2 active" href="auth.updateemail.html"><i class="fa fa-fw fa-user mr-1"></i><span>Đổi email</span></a></li> -->
           <li class="nav-item"><a class="nav-link px-2" href="auth.setting.html"><i class="fa fa-fw fa-cog mr-1"></i><span>Settings</span></a></li>
         </ul>
       </div>
@@ -81,14 +79,6 @@
                 <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
                   <div class="text-center text-sm-left mb-2 mb-sm-0">
                     <h4 id="txt-username" class="pt-sm-2 pb-1 mb-0 text-nowrap">----</h4>
-                    <!-- <p class="mb-0" >@johnny.s</p> -->
-                    <!-- <div class="text-muted"><small>Last seen 2 hours ago</small></div>
-                    <div class="mt-2">
-                      <button class="btn btn-primary" type="button">
-                        <i class="fa fa-fw fa-camera"></i>
-                        <span>Change Photo</span>
-                      </button>
-                    </div> -->
                   </div>
                   <div class="text-center text-sm-right">
                     <span class="badge badge-secondary">user</span>
@@ -101,7 +91,7 @@
               </ul>
               <div class="tab-content pt-3">
                 <div class="tab-pane active">
-                  <form id="profile_user">
+                  <form id="update-profile">
                     <div class="row">
                       <div class="col">
 
@@ -118,7 +108,7 @@
                           <div class="col">
                             <div class="form-group">
                               <label>Họ và tên:</label><br>
-                              <label class="form-control" id="hoten"></label>
+                              <input class="form-control" id="hoten" required>
                             </div>
                           </div>
                         </div>
@@ -127,46 +117,31 @@
                           <div class="col">
                             <div class="form-group">
                               <label>Số điện thoại:</label><br>
-                              <label class="form-control" id="sdt"></label>
+                              <input required class="form-control" id="sdt">
                             </div>
                           </div>
                         </div>
 
                         <div class="row">
-                          <!-- <div class="col">
-                            <div class="form-group">
-                              <label>Full Name</label>
-                              <input id="fullname" class="form-control" type="text" name="fullname">
-                            </div>
-                          </div> -->
                           <div class="col">
                             <div class="form-group">
                               <label>Username:</label><br>
-                              <label for="username" id="username" class="form-control"></label>
+                              <input for="username" id="username" required class="form-control">
                             </div>
                           </div>
                         </div>
-                        <!-- <div class="row">
-                          <div class="col">
-                            <div class="form-group">
-                              <label>Email</label><br>
-                              <label for="email" id="email" class="form-control"></label>
-                            </div>
-                          </div>
-                        </div> -->
 
                         <div class="row">
                           <div class="col">
                             <div class="form-group">
                               <label>Email</label><br>
-                             
                               <div class="input-group">
-                                <label for="email" id="email" class="form-control"></label> 
-                                <div class="input-group-append">
+                                <input required for="email" id="email" class="form-control">
+                                <!-- <div class="input-group-append">
                                   <button id="xacminhemail" style="background-color: #007bff; color: #fff;" class="btn btn-outline-secondary" type="button">
                                     Xác minh Email
                                   </button>
-                                </div>
+                                </div> -->
                               </div>
                             </div>
                           </div>
@@ -176,15 +151,14 @@
                           <div class="col">
                             <div class="form-group">
                               <label>Password</label><br>
-                              <label for="password" id="password" class="form-control"></label>
-                              <!-- <div class="input-group">
+                              <div class="input-group">
                                 <input class="form-control" type="password" id="password" name="password" required placeholder="--------">
                                 <div class="input-group-append">
                                   <button class="btn btn-outline-secondary" type="button" id="togglePassword">
                                     <i class="fas fa-eye-slash"></i>
                                   </button>
                                 </div>
-                              </div> -->
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -202,24 +176,14 @@
                           });
 
                         </script>
-                        <!-- <div class="row">
-                          <div class="col mb-3">
-                            <div class="form-group">
-                              <label>About</label>
-                              <textarea class="form-control" rows="5" placeholder="My Bio"></textarea>
-                            </div>
-                          </div>
-                        </div> -->
                       </div>
                     </div>
-
-                    <!-- <div class="row">
+                    <div class="row">
                       <div class="col d-flex justify-content-end">
-                        <button class="btn btn-primary" type="submit">Save Changes</button>
+                        <button class="btn btn-primary" id="update_thongtin" type="submit">Cập nhật</button>
                       </div>
-                    </div> -->
+                    </div>
                   </form>
-
                 </div>
               </div>
             </div>
@@ -252,29 +216,6 @@
 </div>
 </div>
 </div>
-
-<!-- <div class="container">
-  <div class="container mt-3">
-    <form id="profile_user">
-      <div>
-          <label for="uid">UID:</label>
-          <input type="text" id="uid" name="uid" required>
-      </div>
-      <div>
-          <label for="Username">Username:</label>
-          <input type="text" id="username" name="username" required>
-      </div>
-      <div>
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-      </div>
-      <div>
-          <label for="Password">Password:</label>
-          <input type="Password" id="password" name="Password" required>
-      </div>
-  </form>
-</div>
-</div> -->
 
 <div class="container">
   <footer class="py-5">
@@ -347,4 +288,5 @@
 </body>
 <script type="module" src="js/checklogin.js"></script>
 <script type="module" src="js/checklogout.js"></script>
+<script type="module" src="js/update_thongtin.js"></script>
 </html>
