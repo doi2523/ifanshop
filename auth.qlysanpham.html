@@ -62,7 +62,7 @@
     <h2 class="container mt-3">Insert Sản phẩm vào Web</h2>
 
     <div class="container mt-3">
-        <form>
+        <form id="insert">
             <div class="row">
                 <div class="col">
                     <div class="row">
@@ -74,9 +74,31 @@
                     <div class="row">
                         <div class="col">
                             <label for="">Nhập tên sản phẩm</label><br>
-                            <input type="text" id="number-grid">
+                            <input type="text" id="tensp-insert">
                         </div>
                     </div>
+                    <div class="row mt-3">
+                      <div class="col d-flex justify-content-end">
+                      <button class="btn btn-primary" id="getthongtin"  type="submit">Lấy thông tin</button>
+                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="col">
+                          <label for="">Tên tệp</label><br>
+                          <label class="form-control" type="text" id="tentep"></label>
+                      </div>
+                  </div>
+                    <div class="row">
+                      <div class="col">
+                          <label for="">URL ảnh</label><br>
+                          <label class="form-control" type="text" id="urlanh"></label>
+                      </div>
+                  </div>
+                  <div class="row mt-3">
+                    <div class="col d-flex justify-content-end">
+                    <button class="btn btn-primary" id="insert"  type="submit">Chèn</button>
+                      </div>
+                  </div>
                 </div>
             </div>
         </form>
@@ -184,4 +206,5 @@
 <script type="module" src="js/checklogout.js"></script>
 <script type="module" src="js/checklogin.js"></script>
 <script type="module" src="js/addsanpham.js"></script>
+<script src="js/insert_sanpham.js"></script>
 </html>

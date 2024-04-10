@@ -44,39 +44,7 @@ document.getElementById('addsp').addEventListener('submit', function(event) {
         return;
     }
     let rowCount = 0;
-    // if (file) {
-    //     const fileInfo = {
-    //         stt: ++rowCount,
-    //         fileName: file.name,
-    //         fileSize: file.size,
-    //         fileType: file.type
-    //     };
-    //     displayFileInfo(fileInfo);
-    // }
-    // function displayFileInfo(fileInfo) {
-    //     const tableBody = document.getElementById('fileInfoBody');
-    //     // Xóa các dòng cũ trong bảng
-    //     tableBody.innerHTML = '';
-    //     // Tạo một dòng mới cho thông tin của tệp
-    //     const newRow = document.createElement('tr');
-    //     newRow.innerHTML = `
-    //         <td>${fileInfo.stt}</td>
-    //         <td>${fileInfo.fileName}</td>
-    //         <td>${fileInfo.fileSize}</td>
-    //         <td>${fileInfo.fileType}</td>
-    //     `;
-
-    //     tableBody.appendChild(newRow);
-    // }
-
     const storage = getStorage();
-    // // Tạo một ID ngẫu nhiên
-    // const uniqueId = generateUniqueId();
-    // document.getElementById('id-file').value = file.name;
-
-    // function generateUniqueId() {
-    //     return Math.random().toString(36).substr(2, 9);
-    // }
     const storageRef = ref(storage, 'iPhone/' + file.name);
     uploadBytes(storageRef, file).then((snapshot) => {
       console.log('Tải ảnh lên thành công!');
@@ -146,4 +114,29 @@ function deleteImage(imageRef) {
                 window.alert('Đã xảy ra lỗi khi xoá tệp hình ảnh.');
             });
     }
+}
+document.getElementById('getthongtin').addEventListener('click', function(event) {
+    event.preventDefault();
+    setTimeout(function() {
+    GetURL();
+    }, 1000);
+})
+function GetURL(){
+    const nameanh = tentep.textContent;
+    // let nameanh = document.getElementById("tentep").value;
+    console.log(nameanh)
+    const storage = getStorage();
+    const imageRef = ref(storage, 'iPhone/' + nameanh);
+    setTimeout(function() {
+    getDownloadURL(imageRef)
+  .then((url) => {
+    console.log('URL của ảnh:', url);
+    // Ở đây bạn có thể sử dụng URL để hiển thị ảnh trong HTML hoặc làm bất kỳ điều gì khác bạn muốn
+    const urlimg= document.getElementById('urlanh');
+    urlimg.textContent = url;
+  })
+  .catch((error) => {
+    console.error('Lỗi khi lấy URL ảnh:', error);
+  });
+}, 1000);
 }

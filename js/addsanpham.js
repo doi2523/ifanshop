@@ -227,3 +227,31 @@ function deleteSanPham(event) {
     let productName = event.target.getAttribute('data-name');
     confirmDelete(productName); // Gọi hàm hiển thị cảnh báo xác nhận
 }
+
+document.getElementById('getthongtin').addEventListener('click', function(event) {
+    event.preventDefault();
+    GetThongTin();
+})
+
+function GetThongTin(){
+    var grid = document.getElementById("number-grid").value;
+    var tensp = document.getElementById("tensp-insert").value;
+
+    console.log(grid + tensp)
+    const databaseRef = ref (database);
+
+    get(child(databaseRef, "sanpham/" + tensp))
+    .then((snapshot)=>{
+        var sanpham = [];
+        snapshot.forEach(childSnapshot => {
+            sanpham.push(childSnapshot.val());
+        });
+        // console.log(sanpham)
+        const tenanh = sanpham[1];
+        console.log(tenanh);
+        const tentep= document.getElementById('tentep');
+        tentep.textContent = tenanh;
+    })
+    
+    
+}
