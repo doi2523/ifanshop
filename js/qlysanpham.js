@@ -81,10 +81,12 @@ function displayImages() {
                         imageCell.appendChild(img); // Thêm hình ảnh vào ô
                         const deleteButton = document.createElement('button');
                         deleteButton.textContent = 'Xoá';
+                        deleteButton.classList.add('btn', 'btn-primary');
                         deleteButton.addEventListener('click', function() {
                             deleteImage(imageRef);
                         });
                         deleteCell.appendChild(deleteButton);
+                        //////
                     });
             });
         });

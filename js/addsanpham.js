@@ -87,12 +87,14 @@ function AddSanPhamToTable(tensanpham, dungluong, giasale, giagoc, file){
     deleteBtn.textContent = 'Xoá';
     deleteBtn.setAttribute('data-name', tensanpham); // Lưu trữ tên của sản phẩm
     deleteBtn.addEventListener('click', deleteSanPham);
+    deleteBtn.classList.add('btn', 'btn-primary', 'btn-sm');
     
     // Tạo nút sửa
     let editBtn = document.createElement('button');
     editBtn.textContent = 'Sửa';
     editBtn.setAttribute('data-name', tensanpham); // Lưu trữ tên của sản phẩm
     editBtn.addEventListener('click', editSanPham);
+    editBtn.classList.add('btn', 'btn-primary', 'btn-sm');
 
     // Thêm các nút vào hàng
     td7.appendChild(deleteBtn);
