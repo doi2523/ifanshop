@@ -78,6 +78,12 @@ a:hover {
 
 .dropdown-menu a{
 	text-align: left;
+	text-transform: none;
+	font-size: 13px;
+
+}
+.dropdown-item{
+	font-size: 13px;
 }
 
 .dropdown-menu a:hover{
