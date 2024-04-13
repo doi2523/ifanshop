@@ -332,9 +332,13 @@
 /* ------------------------------------------media-footer------------------------------------------- */
 @media (max-width: 900px) {
   .company-info {
-    width: 100%;
+    width: 80%;
     margin-right: 0rem;
     margin-left: 1rem;
+  }
+  .img img{
+    height: auto;
+    width: 270px;
   }
   .company-info p {
     margin-right: 2rem;
@@ -367,6 +371,10 @@
   .content .top .logo-details {
     font-size: 26px;
   }
+  .img img{
+    height: auto;
+    width: 270px;
+  }
   .content .top .media-icons a {
     height: 35px;
     width: 35px;
@@ -381,6 +389,10 @@
 @media (max-width: 520px) {
   .content .top .media-icons {
     margin-top: 16px;
+  }
+  .img img{
+    height: auto;
+    width: 270px;
   }
 }
 @media (max-width: 320px) {
