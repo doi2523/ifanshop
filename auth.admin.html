@@ -1,270 +1,126 @@
-<!DOCTYPE html> 
-<html lang="en"> 
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
 
-<head> 
-	<meta charset="UTF-8"> 
-	<meta http-equiv="X-UA-Compatible"
-		content="IE=edge"> 
-	<meta name="viewport"
-		content="width=device-width, 
-				initial-scale=1.0"> 
-	<title>Admin</title> 
-    <link rel="stylesheet" href="css/admin.css">
-	<link rel="icon" href="images/marketplace.png" type="image/x-icon">
+<head>
 
-</head> 
+  <meta charset="utf-8">
+  <title>Admin</title>
 
-<body> 
-	
-	<!-- for header part -->
-	<header> 
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+  <link rel="icon" href="images/marketplace.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
 
-		<div class="logosec"> 
-			<div class="logo">ADMIN</div> 
-			<img src= 
-"https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
-				class="icn menuicn"
-				id="menuicn"
-				alt="menu-icon"> 
-		</div> 
+<body>
+<!-- overlay -->
+<div id="sidebar-overlay" class="overlay w-100 vh-100 position-fixed d-none"></div>
 
-		<div class="searchbar"> 
-			<input type="text"
-				placeholder="Tìm kiếm"> 
-			<div class="searchbtn"> 
-			<img src= 
-"https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
-					class="icn srchicn"
-					alt="search-icon"> 
-			</div> 
-		</div> 
+<!-- sidebar -->
+<div class="col-md-3 col-lg-2 px-0 position-fixed h-100 bg-white shadow-sm sidebar" id="sidebar">
+  <h1 class="bi bi-bootstrap text-primary d-flex my-4 justify-content-center"></h1>
+  <div class="list-group rounded-0">
+    <a href="#" class="list-group-item list-group-item-action active border-0 d-flex align-items-center">
+      <span class="bi bi-border-all"></span>
+      <span class="ml-2">Dashboard</span>
+    </a>
+    <a href="auth.qlysanpham.html" class="list-group-item list-group-item-action border-0 align-items-center">
+      <span class="bi bi-box"></span>
+      <span class="ml-2">QLY Sản phẩm</span>
+    </a>
 
-		<div class="message"> 
-			<div class="circle"></div> 
-			<img src= 
-"https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/8.png"
-				class="icn"
-				alt=""> 
-			<div class="dp"> 
-			<img src= 
-"https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
-					class="dpicn"
-					alt="dp"> 
-			</div> 
-		</div> 
+    <a href="auth.qlyaccount.html" class="list-group-item list-group-item-action border-0 align-items-center">
+      <span class="bi bi-box"></span>
+      <span class="ml-2">QLY người dùng</span>
+    </a>
+    <!-- <button class="list-group-item list-group-item-action border-0 d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#sale-collapse">
+      <div>
+        <span class="bi bi-cart-dash"></span>
+        <span class="ml-2">Sale</span>
+      </div>
+      <span class="bi bi-chevron-down small"></span>
+    </button>
+    <div class="collapse" id="sale-collapse" data-parent="#sidebar">
+      <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action border-0 pl-5">Customers</a>
+        <a href="#" class="list-group-item list-group-item-action border-0 pl-5">Sales</a>
+      </div>
+    </div>
 
-	</header> 
+    <button class="list-group-item list-group-item-action border-0 d-flex justify-content-between align-items-center" data-toggle="collapse" data-target="#purchase-collapse">
+      <div>
+        <span class="bi bi-cart-plus"></span>
+        <span class="ml-2">Purchase</span>
+      </div>
+      <span class="bi bi-chevron-down small"></span>
+    </button>
+    <div class="collapse" id="purchase-collapse" data-parent="#sidebar">
+      <div class="list-group">
+        <a href="#" class="list-group-item list-group-item-action border-0 pl-5">Sellers</a>
+        <a href="#" class="list-group-item list-group-item-action border-0 pl-5">Purchases</a>
+      </div>
+    </div> -->
+  </div>
+</div>
 
-	<div class="main-container"> 
-		<div class="navcontainer"> 
-			<nav class="nav"> 
-				<div class="nav-upper-options"> 
-					<div class="nav-option option1"> 
-						<img src= 
-"https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
-							class="nav-img"
-							alt="dashboard"> 
-						<h3>Bảng điều khiển</h3> 
-					</div> 
+<div class="col-md-9 col-lg-10 ml-md-auto px-0 ms-md-auto">
+  <!-- top nav -->
+  <nav class="w-100 d-flex px-4 py-2 mb-4 shadow-sm">
+    <!-- close sidebar -->
+    <button class="btn py-0 d-lg-none" id="open-sidebar">
+      <span class="bi bi-list text-primary h3"></span>
+    </button>
+    <div class="dropdown ml-auto">
+      <button class="btn py-0 d-flex align-items-center" id="logout-dropdown" data-toggle="dropdown" aria-expanded="false">
+        <span class="bi bi-person text-primary h4"></span>
+        <span class="bi bi-chevron-down ml-1 mb-2 small"></span>
+      </button>
+      <div class="dropdown-menu dropdown-menu-right border-0 shadow-sm" aria-labelledby="logout-dropdown">
+        <a class="dropdown-item" href="#">Logout</a>
+        <a class="dropdown-item" href="#">Settings</a>
+      </div>
+    </div>
+  </nav>
 
-					<!-- <div class="option2 nav-option"> 
-						<img src= 
-"https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
-							class="nav-img"
-							alt="articles"> 
-						<h3> Articles</h3> 
-					</div>  -->
-
-					<a href="auth.qlysanpham.html">
-						<div class="nav-option option3"> 
-							<img src= 
-	"https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/5.png"
-								class="nav-img"
-								alt="report"> 
-							<h3>Hình ảnh</h3> 
-						</div> 
-					</a>
-
-					<!-- <div class="nav-option option4"> 
-						<img src= 
-"https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/6.png"
-							class="nav-img"
-							alt="institution"> 
-						<h3> Institution</h3> 
-					</div>  -->
-
-					<a href="auth.account.html">
-						<div class="nav-option option5"> 
-							<img src= 
-	"https://media.geeksforgeeks.org/wp-content/uploads/20221210183323/10.png"
-								class="nav-img"
-								alt="blog"> 
-							<h3>Người dùng</h3> 
-						</div>
-					</a>
-
-					<div class="nav-option option6"> 
-						<img src= 
-"https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/4.png"
-							class="nav-img"
-							alt="settings"> 
-						<h3>Cài đặt</h3> 
-					</div> 
-
-          <a href="login.html">
-			<button style="width: 200px; height: 70px; margin-left: -50px;" id="logout">Đăng xuất</button>
+  <!-- main content -->
+  <main class="p-4 min-vh-100">
+    <section class="row">
+      <div class="col-md-6 col-lg-4">
+        <!-- card -->
+        <article class="p-4 rounded shadow-sm border-left
+       mb-4">
+          <a href="#" class="d-flex align-items-center">
+            <span class="bi bi-box h5"></span>
+            <h5 class="ml-2">Products</h5>
           </a>
+        </article>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <article class="p-4 rounded shadow-sm border-left mb-4">
+          <a href="#" class="d-flex align-items-center">
+            <span class="bi bi-person h5"></span>
+            <h5 class="ml-2">Customers</h5>
+          </a>
+        </article>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <article class="p-4 rounded shadow-sm border-left mb-4">
+          <a href="#" class="d-flex align-items-center">
+            <span class="bi bi-person-check h5"></span>
+            <h5 class="ml-2">Sellers</h5>
+          </a>
+        </article>
+      </div>
+    </section>
 
-				</div> 
-			</nav> 
-		</div> 
-		<div class="main"> 
-
-			<div class="searchbar2"> 
-				<input type="text"
-					name=""
-					id=""
-					placeholder="Search"> 
-				<div class="searchbtn"> 
-				<img src= 
-"https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
-						class="icn srchicn"
-						alt="search-button"> 
-				</div> 
-			</div> 
-
-			<div class="box-container"> 
-
-				<div class="box box1"> 
-					<div class="text"> 
-						<h2 class="topic-heading">60.5k</h2> 
-						<h2 class="topic">Article Views</h2> 
-					</div> 
-
-					<img src= 
-"https://media.geeksforgeeks.org/wp-content/uploads/20221210184645/Untitled-design-(31).png"
-						alt="Views"> 
-				</div> 
-
-				<div class="box box2"> 
-					<div class="text"> 
-						<h2 class="topic-heading">150</h2> 
-						<h2 class="topic">Likes</h2> 
-					</div> 
-
-					<img src= 
-"https://media.geeksforgeeks.org/wp-content/uploads/20221210185030/14.png"
-						alt="likes"> 
-				</div> 
-
-				<div class="box box3"> 
-					<div class="text"> 
-						<h2 class="topic-heading">320</h2> 
-						<h2 class="topic">Comments</h2> 
-					</div> 
-
-					<img src= 
-"https://media.geeksforgeeks.org/wp-content/uploads/20221210184645/Untitled-design-(32).png"
-						alt="comments"> 
-				</div> 
-
-				<div class="box box4"> 
-					<div class="text"> 
-						<h2 class="topic-heading">70</h2> 
-						<h2 class="topic">Published</h2> 
-					</div> 
-
-					<img src= 
-"https://media.geeksforgeeks.org/wp-content/uploads/20221210185029/13.png" alt="published"> 
-				</div> 
-			</div> 
-
-			<div class="report-container"> 
-				<div class="report-header"> 
-					<h1 class="recent-Articles">Recent Articles</h1> 
-					<button class="view">View All</button> 
-				</div> 
-
-				<div class="report-body"> 
-					<div class="report-topic-heading"> 
-						<h3 class="t-op">Article</h3> 
-						<h3 class="t-op">Views</h3> 
-						<h3 class="t-op">Comments</h3> 
-						<h3 class="t-op">Status</h3> 
-					</div> 
-
-					<div class="items"> 
-						<div class="item1"> 
-							<h3 class="t-op-nextlvl">Article 73</h3> 
-							<h3 class="t-op-nextlvl">2.9k</h3> 
-							<h3 class="t-op-nextlvl">210</h3> 
-							<h3 class="t-op-nextlvl label-tag">Published</h3> 
-						</div> 
-
-						<div class="item1"> 
-							<h3 class="t-op-nextlvl">Article 72</h3> 
-							<h3 class="t-op-nextlvl">1.5k</h3> 
-							<h3 class="t-op-nextlvl">360</h3> 
-							<h3 class="t-op-nextlvl label-tag">Published</h3> 
-						</div> 
-
-						<div class="item1"> 
-							<h3 class="t-op-nextlvl">Article 71</h3> 
-							<h3 class="t-op-nextlvl">1.1k</h3> 
-							<h3 class="t-op-nextlvl">150</h3> 
-							<h3 class="t-op-nextlvl label-tag">Published</h3> 
-						</div> 
-
-						<div class="item1"> 
-							<h3 class="t-op-nextlvl">Article 70</h3> 
-							<h3 class="t-op-nextlvl">1.2k</h3> 
-							<h3 class="t-op-nextlvl">420</h3> 
-							<h3 class="t-op-nextlvl label-tag">Published</h3> 
-						</div> 
-
-						<div class="item1"> 
-							<h3 class="t-op-nextlvl">Article 69</h3> 
-							<h3 class="t-op-nextlvl">2.6k</h3> 
-							<h3 class="t-op-nextlvl">190</h3> 
-							<h3 class="t-op-nextlvl label-tag">Published</h3> 
-						</div> 
-
-						<div class="item1"> 
-							<h3 class="t-op-nextlvl">Article 68</h3> 
-							<h3 class="t-op-nextlvl">1.9k</h3> 
-							<h3 class="t-op-nextlvl">390</h3> 
-							<h3 class="t-op-nextlvl label-tag">Published</h3> 
-						</div> 
-
-						<div class="item1"> 
-							<h3 class="t-op-nextlvl">Article 67</h3> 
-							<h3 class="t-op-nextlvl">1.2k</h3> 
-							<h3 class="t-op-nextlvl">580</h3> 
-							<h3 class="t-op-nextlvl label-tag">Published</h3> 
-						</div> 
-
-						<div class="item1"> 
-							<h3 class="t-op-nextlvl">Article 66</h3> 
-							<h3 class="t-op-nextlvl">3.6k</h3> 
-							<h3 class="t-op-nextlvl">160</h3> 
-							<h3 class="t-op-nextlvl label-tag">Published</h3> 
-						</div> 
-
-						<div class="item1"> 
-							<h3 class="t-op-nextlvl">Article 65</h3> 
-							<h3 class="t-op-nextlvl">1.3k</h3> 
-							<h3 class="t-op-nextlvl">220</h3> 
-							<h3 class="t-op-nextlvl label-tag">Published</h3> 
-						</div> 
-
-					</div> 
-				</div> 
-			</div> 
-		</div> 
-	</div> 
-
+    <div class="jumbotron jumbotron-fluid rounded bg-white border-0 shadow-sm border-left px-4">
+      <div class="container">
+        <h1 class="display-4 mb-2 text-primary">Simple</h1>
+        <p class="lead text-muted">Simple Admin Dashboard with Bootstrap.</p>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
 <script src="js/admin.js"></script>
-<script type="module" src="js/checklogin.js"></script>
-<script type="module" src="js/checklogout.js"></script> 
-</body> 
 </html>
