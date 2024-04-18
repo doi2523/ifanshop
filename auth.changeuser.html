@@ -12,6 +12,13 @@
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  .image-thumbnail {
+    width: 200px;
+    height: 200px;
+    object-fit: cover; /* Đảm bảo hình ảnh không bị biến dạng */
+}
+</style>
 </head>
 
 <body class="body-style">
@@ -71,18 +78,34 @@
               <div class="row">
                 <div class="col-12 col-sm-auto mb-3">
                   <div class="mx-auto" style="width: 140px;">
-                    <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
-                      <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;">140x140</span>
+                    <div id="imageContainer" class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
+                        <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;">140x140</span>
                     </div>
-                  </div>
+                </div>
                 </div>
                 <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
                   <div class="text-center text-sm-left mb-2 mb-sm-0">
                     <h4 id="txt-username" class="pt-sm-2 pb-1 mb-0 text-nowrap">----</h4>
+                    <div class="mt-2">
+                      <!-- Input ẩn để chọn file -->
+                      <input type="file" id="file-input" style="display: none;" accept="image/*">
+                      <!-- Nút "Change Photo" -->
+                      <button class="btn btn-primary" type="button" onclick="document.getElementById('file-input').click();">
+                          <i class="fa fa-fw fa-camera"></i>
+                          <span>Change Photo</span>
+                      </button>
+                      <!-- Label hiển thị tên file -->
+                      <label id="file-name" class="form-label mt-1" style="display: none;"></label>
+                      <!-- Thanh loading -->
+                      <div id="loading-bar" class="progress mt-2" style="display: none;">
+                          <div id="loading-progress" class="progress-bar bg-success" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                      </div>
+                  </div>
                   </div>
                   <div class="text-center text-sm-right">
                     <span class="badge badge-secondary">user</span>
                     <!-- <div class="text-muted"><small>Joined 09 Dec 2017</small></div> -->
+                    
                   </div>
                 </div>
               </div>
@@ -182,7 +205,7 @@
                       <div class="col">
                         <div class="form-group">
                           <label>Tên file avatar:</label><br>
-                          <label for="username" id="name-avatar" class="form-control"></label>
+                          <label id="name-avatar" class="form-control"></label>
                         </div>
                       </div>
                     </div>
@@ -297,4 +320,5 @@
 <script type="module" src="js/checklogin.js"></script>
 <script type="module" src="js/checklogout.js"></script>
 <script type="module" src="js/update_thongtin.js"></script>
+<script type="module" src="js/get_imgavtar.js"></script>
 </html>

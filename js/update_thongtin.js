@@ -65,3 +65,67 @@ import { getAuth, deleteUser } from "https://www.gstatic.com/firebasejs/10.10.0/
             alert("Đã xảy ra lỗi khi cập nhật thông tin: " + error.message);
         });
     }
+
+    document.getElementById('file-input').addEventListener('change', function() {
+        var fileInput = document.getElementById('file-input');
+        var loadingBar = document.getElementById('loading-bar');
+        var loadingProgress = document.getElementById('loading-progress');
+        var fileNameLabel = document.getElementById('file-name');
+
+        // Lấy tên của tập tin đã chọn
+        var fileName = fileInput.files[0].name;
+        // Hiển thị tên tập tin
+        fileNameLabel.innerText = fileName;
+        fileNameLabel.style.display = 'block';
+
+        // Hiển thị thanh loading khi bắt đầu tải
+        loadingBar.style.display = 'block';
+
+        // Tạo một FormData để tải file
+        var formData = new FormData();
+        formData.append('file', fileInput.files[0]);
+
+        // Xử lý việc tải file ở đây (ví dụ: sử dụng AJAX hoặc Fetch API)
+        // Ví dụ: mô phỏng việc tải file trong 5 giây
+        var progress = 0;
+        var interval = setInterval(function() {
+            progress += 10;
+            loadingProgress.style.width = progress + '%';
+            loadingProgress.innerHTML = progress + '%';
+            if (progress >= 100) {
+                clearInterval(interval);
+                // Giữ lại thanh loading ở trạng thái 100%
+                setTimeout(function() {
+                    loadingProgress.style.width = '100%';
+                    loadingProgress.innerHTML = '100%';
+                    // Hiển thị thông báo thành công
+                    alert('Tải lên thành công!');
+                    // Ẩn thanh loading
+                    // loadingBar.style.display = 'none';
+                    const auth = getAuth();
+                    const user = auth.currentUser;
+                    const uid = user.uid;
+                    const database = getDatabase(app);
+                    
+                    // Lấy tham chiếu đến nút "label" trong HTML
+                    const nameLabel = document.getElementById("name-avatar");
+                    
+                    // Function để cập nhật giao diện người dùng với thông tin mới
+                    function updateLabel(newName) {
+                        nameLabel.textContent = newName;
+                    }
+                    update(ref(database, "users/" + uid), {
+                        nameavatar: fileName,
+                    })
+                    .then(() => {
+                        // Sau khi cập nhật thành công, gọi hàm để cập nhật giao diện người dùng
+                        updateLabel(fileName);
+                    })
+                    .catch((error) => {
+                        console.error("Error updating user data:", error);
+                    });
+                }, 500);
+            }
+        }, 500);
+
+    });
