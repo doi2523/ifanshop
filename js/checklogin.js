@@ -57,6 +57,7 @@ onAuthStateChanged(auth, (user) => {
                 const password_profile = usrs[5];
                 const sdt_profile = usrs[6];
                 const username_profile = usrs[7];
+                const filename_profile = usrs[4];
                 // console.log("UID:", uid);
                 // console.log("Email:", email_profile);
                 // console.log("Username:", username_profile);
@@ -74,6 +75,8 @@ onAuthStateChanged(auth, (user) => {
 
                 const usernameElement = document.getElementById('txt-username');
                 usernameElement.textContent = "@"+username_profile;
+                const filenameElement = document.getElementById('name-avatar');
+                filenameElement.textContent = filename_profile;
 
                 const uidd = document.getElementById('uid');
                 const usernm = document.getElementById('username');
