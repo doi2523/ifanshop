@@ -1,7 +1,7 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
-  import { getDatabase, set, ref, get, child } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
+  import { getDatabase, set, ref, get, child, update } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
   import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
@@ -44,7 +44,10 @@ document.getElementById('signup').addEventListener('submit', function(event) {
         email: email,
         password: password,
         hoten: hoten,
-        sdt: sdt
+        sdt: sdt,
+        last_login: "",
+        last_logout: "",
+        nameavatar: "",
     })
     alert('Đăng ký thành công!');
     document.getElementById('signupMessage').innerText = 'Đăng ký thành công! Vui lòng đăng nhập!';
@@ -76,7 +79,24 @@ document.getElementById('signin').addEventListener('submit', function(event) {
   const auth = getAuth();
   const user = auth.currentUser;
 
-  
+  let last_login_time = new Date();
+  let formattedDateTime = last_login_time.toLocaleString('vi-VN', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  });
+  let updates = {};
+  updates['/users/' + user.uid + '/last_login'] = formattedDateTime;
+  update(ref(database), updates)
+      .then(() => {
+          console.log('Đã cập nhật thời gian đăng nhập cuối cùng thành công.');
+      })
+      .catch((error) => {
+          console.error('Lỗi khi cập nhật thời gian đăng nhập cuối cùng:', error);
+      });
 
   if (email === 'admin@gmail.com' && password === '123456') {
       document.getElementById('loginMessage').innerText = 'Đăng nhập thành công! Vui lòng đợi!';
