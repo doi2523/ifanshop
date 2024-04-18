@@ -32,29 +32,30 @@
   const auth = getAuth();
   const firebaseApp = getApp();
 
-function GetAvatar(){
-    // Lấy giá trị mới nhất của label sau khi tải ảnh lên thành công
-    var avatarLabel = document.getElementById('name-avatar');
-    var fileName = avatarLabel.textContent;
-    console.log(fileName);
+
+document.getElementById('update-profile').addEventListener('submit', function(event) {
+    event.preventDefault();
+    UploadAvatar();
+});
+function UploadAvatar() {
+    const fileInput = document.getElementById('file-input');
+    const file = fileInput.files[0]; // Lấy tệp từ trường input
+
+    if (!file) {
+        console.log('Vui lòng chọn một tệp.');
+        return;
+    }
 
     const storage = getStorage();
-    const imageRef = ref(storage, 'Avatar/' + fileName);
-    getDownloadURL(imageRef)
-        .then((url) => {
-            const img = document.createElement('img');
-            img.src = url;
-            img.alt = fileName;
-            img.classList.add('image-thumbnail');
-            const imageContainer = document.getElementById('imageContainer');
-            imageContainer.innerHTML = '';
-            imageContainer.appendChild(img);
+    const storageRef = ref(storage, 'Avatar/' + file.name);
+    uploadBytes(storageRef, file)
+        .then((snapshot) => {
+            console.log('Tải ảnh lên thành công!');
+            // setTimeout(() => {
+            //     location.reload();
+            // }, 2000);
         })
         .catch((error) => {
-            console.error('Lỗi khi lấy ảnh từ Firebase:', error);
+            console.error('Lỗi khi tải ảnh lên:', error);
         });
 }
-window.onload = function() {
-    // Gọi hàm GetAvatar() khi trang được tải lên
-    setTimeout(GetAvatar, 2000);
-};

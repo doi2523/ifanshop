@@ -73,11 +73,11 @@
             <div class="e-profile">
               <div class="row">
                 <div class="col-12 col-sm-auto mb-3">
-                  <div class="mx-auto" style="width: 140px;">
-                    <div class="d-flex justify-content-center align-items-center rounded" style="height: 140px; background-color: rgb(233, 236, 239);">
-                      <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;">140x140</span>
+                  <div class="mx-auto avatar">
+                    <div id="imageContainer" class="d-flex justify-content-center align-items-center imgavt" >
+                        <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;">200x200</span>
                     </div>
-                  </div>
+                </div>
                 </div>
                 <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
                   <div class="text-center text-sm-left mb-2 mb-sm-0">
@@ -173,7 +173,7 @@
                           </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row hide">
                           <div class="col">
                             <div class="form-group">
                               <label>Password</label><br>
@@ -203,14 +203,14 @@
                           });
 
                         </script>
-                                            <div class="row hide">
-                                              <div class="col">
-                                                <div class="form-group">
-                                                  <label>Tên file avatar:</label><br>
-                                                  <label id="name-avatar" class="form-control"></label>
-                                                </div>
-                                              </div>
-                                            </div>
+                    <div class="row hide">
+                      <div class="col">
+                        <div class="form-group">
+                          <label>Tên file avatar:</label><br>
+                          <label id="name-avatar" class="form-control"></label>
+                        </div>
+                      </div>
+                    </div>
                         <!-- <div class="row">
                           <div class="col mb-3">
                             <div class="form-group">
@@ -356,4 +356,6 @@
 </body>
 <script type="module" src="js/checklogin.js"></script>
 <script type="module" src="js/checklogout.js"></script>
+<script type="module" src="js/update_thongtin.js"></script>
+<script type="module" src="js/get_imgavtar.js"></script>
 </html>

@@ -401,3 +401,29 @@ h3 {
 #btt-sigup:hover{
 	
 }
+
+
+#imageContainer{
+	width: 200px;
+	background-color: #ffd1fe;
+	height: 200px;
+	border-radius: 100%;
+}
+.image-thumbnail {
+    width: 200px;
+    height: 200px;
+
+    /* object-fit: cover; Đảm bảo hình ảnh không bị biến dạng */
+}
+.avatar{
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  position: relative;
+  z-index: 3;
+}
+.imgavt img{
+  position: relative;
+    z-index: 2;
+    border-radius: 100%;
+}
