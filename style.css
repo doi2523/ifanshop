@@ -369,7 +369,7 @@ a:hover {
     position: fixed;
     top: 88%; /* Giữ nguyên vị trí ở giữa theo chiều dọc */
     right: 0;
-	left: 90%;
+	left: 98%;
     transform: translateY(-50%); /* Đưa div vào giữa màn hình theo chiều dọc */
 	transform: translateX(-50%);
     background-color: #f0f0f0;
@@ -389,7 +389,8 @@ a:hover {
 .boxchat{
 	position: fixed;
 	top: 53%;
-	margin-right: 20px;
+	transform: translateY(-50%);
+	transform: translateX(-60%);
     right: 0; /* Đặt vị trí từ bên phải của trình duyệt */
     transform: translateY(-50%); /* Đưa div vào giữa màn hình theo chiều dọc */
     background-color: #f0f0f0;

@@ -137,5 +137,3 @@ let ForgotPasswd = () =>{
   sendPass
 }
 });
-
-
