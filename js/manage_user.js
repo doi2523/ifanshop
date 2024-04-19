@@ -26,11 +26,12 @@ import { getAuth, deleteUser } from "https://www.gstatic.com/firebasejs/10.10.0/
     const user = auth.currentUser;
     
     const deleteButton = document.getElementById('delete_acc');
+//Gắn sự kiện cho nút xoá tài khoản và chạy function "ConfirmDelete "   
     deleteButton.addEventListener('click', function(event) {
         event.preventDefault(); // Ngăn chặn hành vi mặc định của sự kiện click
         confirmDelete();
     });
-
+//Hộp thoại xác nhận để xoá người dùng
 function confirmDelete() {
     // Hiển thị hộp thoại xác nhận
     if (confirm("Bạn có chắc chắn muốn xóa tài khoản không?")) {
@@ -41,7 +42,7 @@ function confirmDelete() {
         console.log("Người dùng đã hủy xóa tài khoản.");
     }
 }
-
+//Function xoá tài khoản khi người dùng đồng ý xoá tài khoản
 function deleteAccount() {
     // Thực hiện xóa tài khoản
     console.log("Tài khoản đã được xóa!");

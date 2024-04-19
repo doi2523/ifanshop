@@ -24,7 +24,7 @@
   const database = getDatabase(app);
   const auth = getAuth();
 
-
+//Sự kiện đăng ký người dùng và tạo cở sở dữ liệu
 document.getElementById('signup').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -34,11 +34,11 @@ document.getElementById('signup').addEventListener('submit', function(event) {
     var email = document.getElementById("signup-email").value;
     var password = document.getElementById("signup-password").value;
 
-    createUserWithEmailAndPassword(auth, email, password)
+  createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed up 
     const user = userCredential.user;
-
+    //Tạo cơ sở dữ liệu trong database có tên là users làm gốc và user.uid là khoá chính cho người dùng
     set(ref(database, 'users/' + user.uid),{
         username : username,
         email: email,
@@ -49,6 +49,7 @@ document.getElementById('signup').addEventListener('submit', function(event) {
         last_logout: "",
         nameavatar: "",
     })
+    //Thông báo cho người dùng biết đăng ký thành công
     alert('Đăng ký thành công!');
     document.getElementById('signupMessage').innerText = 'Đăng ký thành công! Vui lòng đăng nhập!';
     signupMessage.style.color = 'green';
@@ -61,15 +62,18 @@ document.getElementById('signup').addEventListener('submit', function(event) {
   .catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
-    // ..
+    // Thông báo lỗi khi đăng kí thất bại
     alert('Đăng ký thất bại!');
     document.getElementById('signupMessage').innerText = 'Email hoặc username đã được sử dụng!';
     signupMessage.style.color = 'red';
   });
 });
+
+//Hàm đăng nhập cho người sử dụng
 document.getElementById('signin').addEventListener('submit', function(event) {
   event.preventDefault();
 
+  //Lấy giá trị từ từ2 ô input trang login để so sánh trong csdl
   var email = document.getElementById("login-email").value;
   var password = document.getElementById("login-password").value;
 
@@ -79,7 +83,9 @@ document.getElementById('signin').addEventListener('submit', function(event) {
   const auth = getAuth();
   const user = auth.currentUser;
 
-  let last_login_time = new Date();
+  //Thêm giá trị thời gian đăng nhập cho người dùng để kiểm soát
+  let last_login_time = new Date();oát
+  //Cấu hình cho time là khu vực việt nam
   let formattedDateTime = last_login_time.toLocaleString('vi-VN', {
     day: '2-digit',
     month: '2-digit',
@@ -89,6 +95,7 @@ document.getElementById('signin').addEventListener('submit', function(event) {
     second: '2-digit'
   });
   let updates = {};
+  //Cập nhật giá trị last_login ở trong database
   updates['/users/' + user.uid + '/last_login'] = formattedDateTime;
   update(ref(database), updates)
       .then(() => {
@@ -98,6 +105,7 @@ document.getElementById('signin').addEventListener('submit', function(event) {
           console.error('Lỗi khi cập nhật thời gian đăng nhập cuối cùng:', error);
       });
 
+  //Điều kiện so sánh nếu là thông tin admin thì mới được chuyển sang admin    
   if (email === 'admin@gmail.com' && password === '123456') {
       document.getElementById('loginMessage').innerText = 'Đăng nhập thành công! Vui lòng đợi!';
       loginMessage.style.color = 'green';        // Đợi 2 giây trước khi tải lại trang

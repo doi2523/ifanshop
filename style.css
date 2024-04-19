@@ -9,6 +9,8 @@
 }
 .container{
 	max-width: 1250px;
+	position: relative;
+	z-index: 1;
 }
 a {
 	color:#5f0099;
@@ -262,10 +264,23 @@ a:hover {
 .footer-copy p {
 	margin-bottom:0px;
 }
-
-
-
+@media all and (min-width: 992px) {
+	.fixed-div {
+		top: -30%;
+		right: 70%;
+	}
+	.boxchat {
+		margin-top: 2%;
+		left: 76%;
+	}
+  }
 @media all and (max-width:991px) {
+	.fixed-div {
+		margin-right: 30px;
+	}
+	.boxchat {
+		margin-top: 6%;
+	}
 .navbar .navbar-collapse {
 	overflow: auto;
 	background:  rgb(213, 198, 221);
@@ -281,99 +296,22 @@ a:hover {
 }
 }
 @media all and (max-width:768px) {
-
+	.fixed-div {
+		position: fixed;
+		margin-top: -200px;
+		left: 0;
+		border: 1px solid #ccc;
+		z-index: 9999; /* Đặt z-index cao hơn */
+	}
+	.boxchat {
+		
+	}
 	.dropdown-menu a{
 		text-align: center;
 	}
 .nav-scroll .navbar-brand img, .navbar-brand img {
 	transform: scale(0.75) !important;
 	-webkit-transform: scale(0.75) !important;
-}
-.banner-text {
-	padding-right: 0px;
-	margin: 10px 0px 0px;
-}
-h2 {
-	font-size: 25px;
-}
-h3 {
-	font-size: 23px;
-}
-.section-padding {
-	padding: 40px 0px;
-}
-.banner-text p {
-	margin: 25px 0px;
-}
-.banner-text ul li a img {
-	width: 140px;
-	border-radius: 7px;
-}
-.sectioner-header {
-	width: 90%;
-}
-.sectioner-header p {
-	font-size: 14px;
-}
-.about-btn {
-	padding: 5px 30px;
-	margin-top: 0px;
-	font-size: 16px;
-}
-.single-feature {
-	margin-bottom: 20px;
-	margin-top: 20px;
-}
-.team-detail {
-	margin-top: 20px;
-}
-.team-detail img {
-	width: 50%;
-}
-.bx-controls
-{
-	display:none;
-}
-.bx-wrapper {
-	margin: 0px 20px !important;
-}
-.slider .test-img img {
-	margin: 0 auto;
-}
-.test-img {
-	float:none;
-	width: 200px;
-	height: 200px;
-	margin: 0 auto;
-}
-.test-text {
-	float: none;
-	width: 100%;
-	text-align: center;
-}
-.section-content {
-	margin-top: 40px;
-}
-.faq-content {
-	margin: 10px 0px;
-}
-.faq-content h4 {
-	font-size: 16px;
-}
-.faq-content p {
-	font-size: 13px;
-}
-#contact_form {
-	margin-bottom:20px;
-}
-.contact-item {
-	font-size: 12px;
-}
-.download ul li a img {
-	width: 120px;
-}
-.footer-copy p {
-	font-size: 10px;
 }
 }
 
@@ -426,4 +364,59 @@ h3 {
   position: relative;
     z-index: 2;
     border-radius: 100%;
+}
+.buttonchat {
+    position: fixed;
+    top: 88%; /* Giữ nguyên vị trí ở giữa theo chiều dọc */
+    right: 0;
+	left: 90%;
+    transform: translateY(-50%); /* Đưa div vào giữa màn hình theo chiều dọc */
+	transform: translateX(-50%);
+    background-color: #f0f0f0;
+    padding: 20px;
+	width: 60px;
+	height: 60px;
+	left: 94%;
+    border: 1px solid #ccc;
+    border-radius: 100%;
+    z-index: 9999; /* Đặt z-index cao hơn */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	outline: none;
+	cursor: pointer;
+}
+.boxchat{
+	position: fixed;
+	top: 53%;
+	margin-right: 20px;
+    right: 0; /* Đặt vị trí từ bên phải của trình duyệt */
+    transform: translateY(-50%); /* Đưa div vào giữa màn hình theo chiều dọc */
+    background-color: #f0f0f0;
+    padding: 20px;
+	width: 300px;
+	height: 350px;
+	background-color: #007bff;
+	border-radius: 10px;
+	z-index: 9999;
+}
+.boxchat h4{
+	color: #fff;
+}
+.diamond {
+	position: fixed;
+    width: 20px; /* Độ dài cạnh của hình vuông */
+    height: 20px; /* Độ dài cạnh của hình vuông */
+    background-color: #007bff; /* Màu sắc của hình vuông */
+    transform: rotate(45deg); /* Xoay hình vuông 45 độ */
+    transform-origin: center; /* Đặt trung tâm của xoay là trung tâm của hình vuông */
+	top: 96%;
+	left: 88%;
+	z-index: 90;
+}
+.chat{
+	width: 250px;
+	height: 270px;
+	background-color: #ccc;
+	z-index: 997;
 }

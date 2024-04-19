@@ -30,7 +30,7 @@ document.getElementById('addsp').addEventListener('submit', function(event) {
     AddSanPham();
   })
 
-  function AddSanPham(){
+function AddSanPham(){
     var idsanpham = document.getElementById('idsanpham').value;
     var soluong = document.getElementById('soluong').value;
     var tensanpham = document.getElementById('tensanpham').value;
