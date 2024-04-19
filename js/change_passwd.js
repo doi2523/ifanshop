@@ -25,49 +25,37 @@ import { getAuth, deleteUser } from "https://www.gstatic.com/firebasejs/10.10.0/
     const auth = getAuth();
     const user = auth.currentUser;
     
-    const deleteButton = document.getElementById('delete_acc');
-    deleteButton.addEventListener('click', function(event) {
-        event.preventDefault(); // Ngăn chặn hành vi mặc định của sự kiện click
-        confirmDelete();
+    const updatePasswdForm = document.getElementById('update-password');
+    updatePasswdForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Ngăn chặn hành vi mặc định của sự kiện submit
+        updatePassword();
     });
 
-function confirmDelete() {
-    // Hiển thị hộp thoại xác nhận
-    if (confirm("Bạn có chắc chắn muốn xóa tài khoản không?")) {
-        // Nếu người dùng nhấp vào OK, thực hiện xóa tài khoản
-        deleteAccount();
-    } else {
-        // Nếu người dùng nhấp vào Cancel, không làm gì cả
-        console.log("Người dùng đã hủy xóa tài khoản.");
-    }
-}
+const newpass = document.getElementById('newpassword').value; // Lấy giá trị của ô input
+console.log(newpass)
 
-function deleteAccount() {
-    // Thực hiện xóa tài khoản
-    console.log("Tài khoản đã được xóa!");
-
+function updatePassword() {
     const auth = getAuth();
     const user = auth.currentUser;
+    const uid = user.uid;
+    const database = getDatabase(app);
+    
+    const newpass = document.getElementById('newpassword').value; // Lấy giá trị của ô input
+    console.log(newpass)
+    update(ref(database, "users/" + uid), {
+        password: newpass
+    })
+    .then(() => {
+        const successMessage = document.querySelector('.success-message');
+        successMessage.style.display = 'block';
 
-    var uid = user.uid;
-    var email = user.email;
-
-    deleteUser(user).then(() => {
-        // User deleted.
-        console.log("Tài khoản ")
-    }).catch((error) => {
-        // An error ocurred
-        // ...
-        console.log("error")
+        alert("Mật khẩu đã được cập nhật thành công!");
+        setTimeout(() => {
+            successMessage.style.display = 'none';
+            window.location.reload();
+        }, 2000);
+    })
+    .catch((error) => {
+        alert("Đã xảy ra lỗi khi cập nhật mật khẩu: " + error.message);
     });
-
-    console.log(uid)
-    remove(ref(database, "users/" + uid))
-    .then(()=>{
-        // alert("ok")
-        alert("Đã xoá tài khoản " + email + " thành công!");
-    })
-    .catch((error)=>{
-        // alert("no")
-    })
 }

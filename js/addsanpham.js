@@ -30,7 +30,7 @@ document.getElementById('addsp').addEventListener('submit', function(event) {
     AddSanPham();
   })
 
-function AddSanPham(){
+  function AddSanPham(){
     var idsanpham = document.getElementById('idsanpham').value;
     var soluong = document.getElementById('soluong').value;
     var tensanpham = document.getElementById('tensanpham').value;
@@ -167,7 +167,7 @@ function editSanPham(event) {
     tdElements[4].innerHTML = '<input type="text" value="' + tdElements[4].innerHTML + '">';
     tdElements[5].innerHTML = '<input type="text" value="' + tdElements[5].innerHTML + '">';
     tdElements[6].innerHTML = '<input type="text" value="' + tdElements[6].innerHTML + '">';
-    tdElements[7].innerHTML = '<input type="text" value="' + tdElements[7].innerHTML + '">';
+    tdElements[7].innerHTML = '<input type="text" value="' + tdElements[6].innerHTML + '">';
 
 
     // Thay đổi nút "Sửa" thành nút "Lưu"

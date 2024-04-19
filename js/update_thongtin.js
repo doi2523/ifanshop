@@ -24,22 +24,20 @@ import { getAuth, deleteUser } from "https://www.gstatic.com/firebasejs/10.10.0/
     const database = getDatabase(app);
     const auth = getAuth();
     const user = auth.currentUser;
-
-    //Gắn sự kiện cho nút cập nhật và tiếp tục function "UpdateThongtin"
+    
     document.getElementById('update-profile').addEventListener('submit', function(event) {
         event.preventDefault();
         UpdateThongtin();
     });
-    //Viết function cập nhật thông tin với tên là UpdateThongtin
+
     function UpdateThongtin(){
-        //lấy giá trị từ các ô input thông qua id tương ứng
         var newhoten = document.getElementById('hoten').value;
         var newsdt = document.getElementById('sdt').value;
         var newusername = document.getElementById('username').value;
         var newemail = document.getElementById('email').value;
         var newpassword = document.getElementById('password').value;
     
-        // In thông tin lấy được ra console để xem có lấy đúng giá trị không
+        // In thông tin lấy được ra console
         console.log('Họ và tên:', newhoten);
         console.log('Số điện thoại:', newsdt);
         console.log('Username:', newusername);
@@ -50,7 +48,6 @@ import { getAuth, deleteUser } from "https://www.gstatic.com/firebasejs/10.10.0/
         const user = auth.currentUser;
         const uid = user.uid;
         const database = getDatabase(app);
-        //Gọi hàm cập nhật từ database cập nhât thông qua uid là của người dùng tương ứng các giá trị
         update(ref(database, "users/" + uid), {
             username: newusername,
             hoten: newhoten,
@@ -69,14 +66,10 @@ import { getAuth, deleteUser } from "https://www.gstatic.com/firebasejs/10.10.0/
         });
     }
 
-    //Hàm lấy giá trị từ ô input file để người dùng tải ảnh đại diện lên web và lưu và csdl
     document.getElementById('file-input').addEventListener('change', function() {
-        //Lấy dữ liệu từ ô input thông qua id
         var fileInput = document.getElementById('file-input');
-        //Lấy dữ liệu thanh loading qua id
         var loadingBar = document.getElementById('loading-bar');
         var loadingProgress = document.getElementById('loading-progress');
-        //Lấy dữ liêu thẻ label để hiển thị tên của file đã tải
         var fileNameLabel = document.getElementById('file-name');
 
         // Lấy tên của tập tin đã chọn
@@ -121,7 +114,6 @@ import { getAuth, deleteUser } from "https://www.gstatic.com/firebasejs/10.10.0/
                     function updateLabel(newName) {
                         nameLabel.textContent = newName;
                     }
-                    //Gọi hàm update để cập nhật thêm giá trị mới nameavtar thông qua uid
                     update(ref(database, "users/" + uid), {
                         nameavatar: fileName,
                     })

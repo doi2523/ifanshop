@@ -37,21 +37,17 @@
 document.getElementById('addsp').addEventListener('submit', function(event) {
     event.preventDefault();
     const fileInput = document.getElementById('file');
-    // Lấy tệp từ trường input
-    const file = fileInput.files[0]; 
-    //Kiểm tra xem file có dữ liệu không
+    const file = fileInput.files[0]; // Lấy tệp từ trường input
+
     if (!file) {
         console.log('Vui lòng chọn một tệp.');
         return;
     }
     let rowCount = 0;
     const storage = getStorage();
-    //Tạo đường dẫn vào kho theo iPhone/+tên của file
     const storageRef = ref(storage, 'iPhone/' + file.name);
-    //Tải file lên kho lưu trữ storage thông qua hàm uploadBytes
     uploadBytes(storageRef, file).then((snapshot) => {
       console.log('Tải ảnh lên thành công!');
-      //Tạo một function làm mới trang sau 2 giây
     setTimeout(() => {
         location.reload();
     }, 2000);
@@ -59,19 +55,14 @@ document.getElementById('addsp').addEventListener('submit', function(event) {
    
 
 });
-//Tạo function để lấy tất cả hình ảnh từ kho lưu trữ
 function displayImages() {
     const storage = getStorage();
-    //Lấy dữ liệu từ kho có tên cha là iPhone
     const imagesRef = ref(storage, 'iPhone');
-    //Gọi hàm listAll của firebase để lấy tất cả dữ liệu từ kho
     listAll(imagesRef)
         .then((result) => {
-            //Lấy id của thẻ chèn hình ảnh vào trang html
             const imageTableBody = document.getElementById('imageTableBody');
             let rowCount = 0;
             result.items.forEach((imageRef) => {
-                //Gọi hàm getDownloadURL để chuyển đổi tất cả ảnh trong kho thành dạng URL 
                 getDownloadURL(imageRef)
                     .then((url) => {
                         const img = document.createElement('img');
@@ -79,7 +70,6 @@ function displayImages() {
                         img.alt = imageRef.name;
                         img.classList.add('image-thumbnail'); // Thêm lớp để xác định kích thước hình ảnh
 
-                        //Chèn dữ liệu vào bảng với 4 cột
                         const newRow = imageTableBody.insertRow();
                         const sttCell = newRow.insertCell();
                         const nameCell = newRow.insertCell();
@@ -89,16 +79,12 @@ function displayImages() {
                         sttCell.textContent = ++rowCount;
                         nameCell.textContent = imageRef.name; // Tên của hình ảnh
                         imageCell.appendChild(img); // Thêm hình ảnh vào ô
-                        //Thêm nút vào bảng
                         const deleteButton = document.createElement('button');
                         deleteButton.textContent = 'Xoá';
                         deleteButton.classList.add('btn', 'btn-primary');
-
-                        //Tạo function xoá hình quả thông qua imageRef cho nút xoá
                         deleteButton.addEventListener('click', function() {
                             deleteImage(imageRef);
                         });
-                        //Chèn nút xoá vào bảng để hiển thị
                         deleteCell.appendChild(deleteButton);
                         //////
                     });
@@ -106,7 +92,7 @@ function displayImages() {
         });
 }
 
-// Gọi hàm displayImages() khi cần thiết ở đây thì hàm này luôn chạy để cập nhật
+// Gọi hàm displayImages() khi cần thiết
 displayImages();
 // Hàm xoá hình ảnh
 function deleteImage(imageRef) {
@@ -131,15 +117,12 @@ function deleteImage(imageRef) {
             });
     }
 }
-//Hàm lấy thông tin để chạy function geturl
 document.getElementById('getthongtin').addEventListener('click', function(event) {
     event.preventDefault();
-    //Chạy function này sau 1 giây
     setTimeout(function() {
-        GetURL();
+    GetURL();
     }, 1000);
 })
-//Fucntion GetURL để lấy link của tệp
 function GetURL(){
     const nameanh = tentep.textContent;
     // let nameanh = document.getElementById("tentep").value;
