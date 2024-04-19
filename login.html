@@ -78,13 +78,17 @@
                           </div>
                         </div>
       
-                        <div class="d-flex flex-row mb-4">
+                        <div class="d-flex flex-row mb-4 position-relative">
                           <i class="fas fa-lock fa-lg my-3 mx-1 fa-fw"></i>
-                          <div class="form-outline flex-fill mb-0">
-                            <input type="password" id="login-password" type="password" name="txt-password-login" type="password" required name="txt-password-signup" class="form-control" />
-                            <label class="form-label" for="form3Example4c">Password</label>
+                          <div class="form-outline flex-fill mb-0 position-relative">
+                            <input type="password" id="login-password" name="txt-password-login" required class="form-control" />
+                            <label class="form-label" for="login-password">Password</label>
+                            <button type="button" id="password-toggle-btn">
+                              <i id="password-toggle-icon" class="fas fa-eye-slash"></i>
+                            </button>
                           </div>
                         </div>
+
                         <div>
                           <a class="link" href="forgot_password.html">Quên mật khẩu?</a>
                         </div>

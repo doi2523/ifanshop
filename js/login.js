@@ -67,6 +67,23 @@ document.getElementById('signup').addEventListener('submit', function(event) {
     signupMessage.style.color = 'red';
   });
 });
+///Ẩn hiện mật khảu ở ô đăng nhập
+document.getElementById('password-toggle-btn').addEventListener('click', function() {
+  var passwordInput = document.getElementById('login-password');
+  var icon = document.getElementById('password-toggle-icon');
+
+  if (passwordInput.type === "password") {
+    passwordInput.type = "text";
+    icon.classList.remove('fa-eye-slash');
+    icon.classList.add('fa-eye');
+  } else {
+    passwordInput.type = "password";
+    icon.classList.remove('fa-eye');
+    icon.classList.add('fa-eye-slash');
+  }
+});
+
+
 document.getElementById('signin').addEventListener('submit', function(event) {
   event.preventDefault();
 

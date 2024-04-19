@@ -46,3 +46,16 @@
 a.link{
 	text-decoration: underline;
 }
+
+
+#password-toggle-btn {
+  position: absolute;
+  right: 0;
+  top: 40%;
+  transform: translateY(-50%);
+  border: none;
+  /* background-color: transparent; */
+  cursor: pointer;
+  width: 13%;
+  height: 80%;
+}
