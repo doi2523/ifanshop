@@ -55,19 +55,19 @@ function GetAvatar(){
         });
 }
 // Gọi hàm GetAvatar() mỗi 2 giây
-
-window.onload = function() {
-    // Gọi hàm GetAvatar() khi trang được tải lên
-  setInterval(GetAvatar, 100);
-};
+setInterval(GetAvatar, 100);
+// window.onload = function() {
+//     // Gọi hàm GetAvatar() khi trang được tải lên
+//   setInterval(GetAvatar, 100);
+// };
 // Hàm chạy đoạn mã và xóa lỗi trên console
-function runCodeAndClearConsole() {
-    // Đoạn mã bạn muốn chạy mỗi lần hàm này được gọi
-    // Ví dụ: console.log("Chạy mã và xóa lỗi trên console!");
+// function runCodeAndClearConsole() {
+//     // Đoạn mã bạn muốn chạy mỗi lần hàm này được gọi
+//     // Ví dụ: console.log("Chạy mã và xóa lỗi trên console!");
 
-    // Xóa lỗi trên console
-    console.clear();
-}
+//     // Xóa lỗi trên console
+//     console.clear();
+// }
 
 // Thiết lập hàm runCodeAndClearConsole() để chạy mỗi giây
-setInterval(runCodeAndClearConsole, 0); // 1000 milliseconds = 1 giây
+// setInterval(runCodeAndClearConsole, 0); // 1000 milliseconds = 1 giây
