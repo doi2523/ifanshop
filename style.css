@@ -525,18 +525,18 @@ a:hover {
 	bottom: 20px;
 	right: 20px;
 	z-index: 999;
-	background-color: #fff;
+	/* background-color: #fff; */
 	border: none;
 	outline: none;
 	cursor: pointer;
 	border-radius: 100%;
-	width: 50px;
-	height: 50px;
+	width: 60px;
+	height: 60px;
 }
 
 .boxchat {
 	position: fixed;
-	bottom: 80px;
+	bottom: 20px;
 	right: 20px;
 	/* width: 30%;
 	height: 50%; */
@@ -544,13 +544,12 @@ a:hover {
 	padding: 20px;
 	border-radius: 10px;
 	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-	z-index: 11;
+	z-index: 99;
 }
-
+.btn.btn-primary .text-primary {
+	color: #ffffff !important;
+	/* Màu trắng */
+}
 .hide {
 	display: none;
 }
@@ -560,18 +559,38 @@ a:hover {
 }
 
 .chat {
-	height: 85%;
+	height: 70%;
 	overflow-y: auto;
-	background-color: #007bff;
+	background-color: #fff;
 	border-radius: 10px;
 }
-
-.diamond {
-	position: absolute;
-	width: 0;
-	height: 0;
-	bottom: -20px;
-	right: 40px;
-	border: 10px solid transparent;
-	border-top-color: #fff;
+.logoboxchat img{
+	width: auto;
+	height: 50px;
+	border-radius: 100%;
+}
+.custom-thin-icon {
+	font-weight: 100;
+	/* Độ đậm của biểu tượng */
+}
+.noti {
+	position: fixed;
+	color: #fff;
+	width: max-content;
+	bottom: 20px;
+	right: 20px;
+	z-index: 1000;
+	background-color: #007bff;
+	font-size: 20px;
+	padding: 5px;
+}
+.form-group {
+	display: flex;
+	/* Sử dụng flexbox để chia cảnh */
+	align-items: center;
+	/* Canh nút và trường nhập liệu theo chiều dọc */
+}
+.send-button {
+	background-color: white;
+	/* Đặt màu nền là màu trắng */
 }

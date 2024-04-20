@@ -79,49 +79,31 @@ switchers.forEach((item) => {
   });
 });
 
-// Lấy phần tử boxchat và nút iconclick
-var boxchat = document.getElementById('boxchat');
-var iconclick = document.getElementById('iconclick');
 
-// Sự kiện khi nhấp vào nút iconclick
-iconclick.addEventListener('click', function(event) {
-  event.stopPropagation(); // Ngăn sự kiện click truyền ra ngoài
-  toggleChatbox();
+document.addEventListener("DOMContentLoaded", function() {
+  var iconClickBtn = document.getElementById("iconclick");
+  var boxChat = document.getElementById("boxchat");
+  var closeBtn = document.getElementById("closebt");
+
+  iconClickBtn.addEventListener("click", function() {
+    iconClickBtn.style.display = "none";
+    boxChat.classList.remove("hide");
+  });
+
+  closeBtn.addEventListener("click", function() {
+    iconClickBtn.style.display = "block";
+    boxChat.classList.add("hide");
+  });
+
+  document.addEventListener("mousedown", function(event) {
+    if (!boxChat.contains(event.target) && event.target !== iconClickBtn) {
+      iconClickBtn.style.display = "block";
+      boxChat.classList.add("hide");
+    }
+  });
+
+  document.addEventListener("scroll", function() {
+    iconClickBtn.style.display = "block";
+    boxChat.classList.add("hide");
+  });
 });
-
-// Sự kiện khi click bất kỳ đâu trên trang
-document.addEventListener('click', function(event) {
-  var isClickInsideBoxchat = boxchat.contains(event.target);
-  var isClickInsideIcon = iconclick.contains(event.target);
-  
-  if (!isClickInsideBoxchat && !isClickInsideIcon) {
-    hideChatbox();
-  }
-});
-
-// Sự kiện khi cuộn trang
-window.addEventListener('scroll', function() {
-  hideChatbox();
-});
-
-// Hàm ẩn boxchat
-function hideChatbox() {
-  if (!boxchat.classList.contains('hide')) {
-    boxchat.classList.remove('unhide');
-    boxchat.classList.add('hide');
-  }
-}
-
-// Hàm toggle boxchat
-function toggleChatbox() {
-  if (boxchat.classList.contains('hide')) {
-    boxchat.classList.remove('hide');
-    boxchat.classList.add('unhide');
-  } else {
-    hideChatbox();
-  }
-}
-
-
-
-

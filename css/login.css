@@ -57,6 +57,7 @@ a.link {
   top: 40%;
   transform: translateY(-50%);
   border: none;
+  border-top-right-radius: 5px;
   /* background-color: transparent; */
   cursor: pointer;
   width: 13%;

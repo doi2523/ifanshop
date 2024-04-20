@@ -148,7 +148,7 @@ a {
     transform: translateY(-50%);
     transform: translateX(-50%);
     margin-top: -60px;
-    left: 55%;
+    left: 50%;
 }
 
 .slide-buttons button {
@@ -173,7 +173,6 @@ a {
     cursor: pointer;
     height: max-content;
 }
-
 @media all and (max-width:768px) {
 
     .slide-prev,
@@ -203,7 +202,7 @@ a {
     }
 
     .slide-buttons {
-        top: 80%;
+        margin-top: -50px;
         margin-left: 50px;
     }
 
@@ -243,7 +242,7 @@ a {
 
     .slide-buttons {
             margin-top: -60px;
-    left: 50%;
+    left: 55%;
     }
 
     .slide-btn {
