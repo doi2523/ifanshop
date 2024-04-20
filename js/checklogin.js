@@ -50,7 +50,7 @@ onAuthStateChanged(auth, (user) => {
                 snapshot.forEach((childSnapshot) => {
                     usrs.push(childSnapshot.val());
                 });
-                console.log("User data:", usrs);
+                // console.log("User data:", usrs);
 
                 const email_profile = usrs[0];
                 const hoten_profile = usrs[1];

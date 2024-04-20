@@ -584,11 +584,10 @@ a:hover {
 	font-size: 20px;
 	padding: 5px;
 }
-.form-group {
+.form-group-boxchat {
 	display: flex;
 	/* Sử dụng flexbox để chia cảnh */
 	align-items: center;
-	/* Canh nút và trường nhập liệu theo chiều dọc */
 }
 .send-button {
 	background-color: white;

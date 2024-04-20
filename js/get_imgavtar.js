@@ -36,7 +36,7 @@ function GetAvatar(){
     // Lấy giá trị mới nhất của label sau khi tải ảnh lên thành công
     var avatarLabel = document.getElementById('name-avatar');
     var fileName = avatarLabel.textContent;
-    console.log(fileName);
+    // console.log(fileName);
 
     const storage = getStorage();
     const imageRef = ref(storage, 'Avatar/' + fileName);
@@ -51,12 +51,23 @@ function GetAvatar(){
             imageContainer.appendChild(img);
         })
         .catch((error) => {
-            console.error('Lỗi khi lấy ảnh từ Firebase:', error);
+            // console.error('Lỗi khi lấy ảnh từ Firebase:', error);
         });
 }
 // Gọi hàm GetAvatar() mỗi 2 giây
-setInterval(GetAvatar, 0);
-// window.onload = function() {
-//     // Gọi hàm GetAvatar() khi trang được tải lên
-//     setTimeout(GetAvatar, 2000);
-// };
+
+window.onload = function() {
+    // Gọi hàm GetAvatar() khi trang được tải lên
+  setInterval(GetAvatar, 100);
+};
+// Hàm chạy đoạn mã và xóa lỗi trên console
+function runCodeAndClearConsole() {
+    // Đoạn mã bạn muốn chạy mỗi lần hàm này được gọi
+    // Ví dụ: console.log("Chạy mã và xóa lỗi trên console!");
+
+    // Xóa lỗi trên console
+    console.clear();
+}
+
+// Thiết lập hàm runCodeAndClearConsole() để chạy mỗi giây
+setInterval(runCodeAndClearConsole, 0); // 1000 milliseconds = 1 giây

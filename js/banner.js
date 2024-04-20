@@ -91,21 +91,21 @@ $(".slider").each(function () {
 // JavaScript
 window.addEventListener('resize', function() {
   if (window.innerWidth <= 768) {
-    document.getElementById('image1').src = 'images/dm1.jpeg';
-    document.getElementById('image2').src = 'images/dm2.jpeg';
-    document.getElementById('image3').src = 'images/dm3.jpeg';
-    document.getElementById('image4').src = 'images/dm4.png';
-    document.getElementById('image5').src = 'images/315mb.png';
-    document.getElementById('image6').src = 'images/313mb.png';
-    document.getElementById('image7').src = 'images/314mb.png';
+    document.getElementById('image1').src = 'https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/images%2Fdm1.jpeg?alt=media&token=92e95378-db86-4186-ba75-0eaed6a6d446';
+    document.getElementById('image2').src = 'https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/images%2Fdm2.jpeg?alt=media&token=7123bf52-c3a9-4668-933a-c4d89c0e9d30';
+    document.getElementById('image3').src = 'https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/images%2Fdm3.jpeg?alt=media&token=37f8a480-505b-432e-91eb-f1634acefcef';
+    document.getElementById('image4').src = 'https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/images%2Fdm4.png?alt=media&token=1a0e7424-dd6e-4f6c-8956-d1e22f499710';
+    document.getElementById('image5').src = 'https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/images%2F315mb.png?alt=media&token=009bdf08-47ab-4791-a9b5-a2114b29682c';
+    document.getElementById('image6').src = 'https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/images%2F313mb.png?alt=media&token=c3d2f2a7-a3db-4be9-b729-1af2898893e6';
+    document.getElementById('image7').src = 'https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/images%2F314mb.png?alt=media&token=9f7ddd22-d948-453c-ba03-b284b9f6788a';
   } else {
-    document.getElementById('image1').src = 'images/bn1.jpeg';
-    document.getElementById('image2').src = 'images/bn2.jpeg';
-    document.getElementById('image3').src = 'images/bn3.jpeg';
-    document.getElementById('image4').src = 'images/bn4.png';
-    document.getElementById('image5').src = 'images/bn5.jpeg';
-    document.getElementById('image6').src = 'images/bn6.png';
-    document.getElementById('image7').src = 'images/bn7.png';
+    document.getElementById('image1').src = 'https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/images%2Fbn1.jpeg?alt=media&token=9d9c09ae-d138-4be8-9a87-ef6d10db2121';
+    document.getElementById('image2').src = 'https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/images%2Fbn2.jpeg?alt=media&token=e0911b7b-4dba-465a-a18f-8e0493700bacnifanshop.appspot.com/images/bn2.jpeg';
+    document.getElementById('image3').src = 'https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/images%2Fbn3.jpeg?alt=media&token=2fcad9a2-8c04-494b-9f85-eabea3e21692';
+    document.getElementById('image4').src = 'https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/images%2Fbn4.png?alt=media&token=28d0936f-25a9-41ec-8e77-65fcc2cea728';
+    document.getElementById('image5').src = 'https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/images%2Fbn5.jpeg?alt=media&token=46d51cb8-d5bc-4d31-a66c-d3d1397fed69';
+    document.getElementById('image6').src = 'https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/images%2Fbn6.png?alt=media&token=e1f944f3-e3ff-4a72-b537-9f9c29b9147c';
+    document.getElementById('image7').src = 'https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/images%2Fbn7.png?alt=media&token=234d7a22-2812-43f6-a091-c6dd199abd6e';
   }
 });
 
