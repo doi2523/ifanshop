@@ -1,50 +1,53 @@
-.notee{
-	color: #a7e245;
-	margin-top: 10px;
-	font-size: 15px;
-	text-align: center;
+.notee {
+  color: #a7e245;
+  margin-top: 10px;
+  font-size: 15px;
+  text-align: center;
 }
 
 .form-outline {
-    position: relative;
-  }
+  position: relative;
+}
 
-  .form-outline input:focus ~ .form-label,
-  .form-outline input:not(:placeholder-shown) ~ .form-label {
-    transform: translateY(-1.5rem) scale(0.8);;
-	font-size: 20px;
-	font-weight: 400;
-	margin-top: -9px;
-  }
+.form-outline input:focus~.form-label,
+.form-outline input:not(:placeholder-shown)~.form-label {
+  transform: translateY(-1.5rem) scale(0.8);
+  ;
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: -9px;
+}
 
-  .form-label {
-    position: absolute;
-    left: 0;
-    top: 0.5rem;
-    transition: transform 0.3s ease-out, color 0.3s ease-out;
-  }
+.form-label {
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  transition: transform 0.3s ease-out, color 0.3s ease-out;
+}
 
 
 
-  .input-with-icon {
-    position: relative;
+.input-with-icon {
+  position: relative;
 }
 
 .input-with-icon input {
-    padding-right: 40px; /* Để trống để chứa nút */
+  padding-right: 40px;
+  /* Để trống để chứa nút */
 }
 
 .input-with-icon .toggle-password {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    border: none;
-    background: none;
-    cursor: pointer;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  cursor: pointer;
 }
-a.link{
-	text-decoration: underline;
+
+a.link {
+  text-decoration: underline;
 }
 
 
