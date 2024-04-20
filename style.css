@@ -310,8 +310,19 @@ a:hover {
 }
 
 
+@media all and (min-width:991px) {
+	.boxchat {
+		width: 30%;
+		height: 70%;
+	}
+}
 
 @media all and (max-width:991px) {
+	.boxchat {
+		width: 30%;
+		height: 50%;
+	}
+
 	.navbar .navbar-collapse {
 		overflow: auto;
 		background: rgb(213, 198, 221);
@@ -330,6 +341,10 @@ a:hover {
 }
 
 @media all and (max-width:768px) {
+	.boxchat {
+		width: 30%;
+		height: 50%;
+	}
 
 	.dropdown-menu a {
 		text-align: center;
@@ -523,8 +538,8 @@ a:hover {
 	position: fixed;
 	bottom: 80px;
 	right: 20px;
-	width: 30%;
-	height: 50%;
+	/* width: 30%;
+	height: 50%; */
 	background-color: #fff;
 	padding: 20px;
 	border-radius: 10px;
