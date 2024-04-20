@@ -342,8 +342,8 @@ a:hover {
 
 @media all and (max-width:768px) {
 	.boxchat {
-		width: 30%;
-		height: 50%;
+		width: 60%;
+		height: 60%;
 	}
 
 	.dropdown-menu a {
