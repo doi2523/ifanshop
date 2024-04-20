@@ -548,6 +548,7 @@ a:hover {
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
+	z-index: 11;
 }
 
 .hide {
