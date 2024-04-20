@@ -55,7 +55,7 @@ function GetAvatar(){
         });
 }
 // Gọi hàm GetAvatar() mỗi 2 giây
-setInterval(GetAvatar, 100);
+setInterval(GetAvatar, 0);
 // window.onload = function() {
 //     // Gọi hàm GetAvatar() khi trang được tải lên
 //   setInterval(GetAvatar, 100);
