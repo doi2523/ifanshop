@@ -58,10 +58,6 @@ function GetURLAvatar(){
             const img = document.createElement('img');
             img.src = url;
             img.alt = fileName;
-        //     img.classList.add('image-thumbnail');
-        //     const imageContainer = document.getElementById('imageContainer');
-        //     imageContainer.innerHTML = '';
-        //   imageContainer.appendChild(img);
           
             //import url lên cookies
           const values = {

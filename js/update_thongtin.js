@@ -28,6 +28,7 @@ import { getAuth, deleteUser } from "https://www.gstatic.com/firebasejs/10.10.0/
     document.getElementById('update-profile').addEventListener('submit', function(event) {
         event.preventDefault();
         UpdateThongtin();
+        UpdateData();
     });
 
     function UpdateThongtin(){
@@ -61,7 +62,39 @@ import { getAuth, deleteUser } from "https://www.gstatic.com/firebasejs/10.10.0/
                 window.location.reload();
             }, 2000);
         })
+            
         .catch((error) => {
             alert("Đã xảy ra lỗi khi cập nhật thông tin: " + error.message);
         });
+    }
+function UpdateData() {
+                get(child(databaseRef, "users/" + user.uid)) // Bạn cần thêm dấu "+" để nối chuỗi "users/" và user.uid
+            .then((snapshot) => {
+                var usrs = [];
+                snapshot.forEach((childSnapshot) => {
+                    usrs.push(childSnapshot.val());
+                });
+                // console.log("User data:", usrs);
+
+                const email_profile = usrs[0];
+                const hoten_profile = usrs[1];
+                const password_profile = usrs[5];
+                const sdt_profile = usrs[6];
+                const username_profile = usrs[7];
+                const filename_profile = usrs[4];
+
+        const values = {
+            email_profile,
+            hoten_profile,
+            password_profile,
+            sdt_profile,
+            username_profile,
+            filename_profile
+        };
+
+        Object.keys(values).forEach(key => {
+            document.cookie = `${key}=${values[key]}`;
+        });
+                    console.log(usrs)
+            })
     }

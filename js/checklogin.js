@@ -35,7 +35,50 @@ onAuthStateChanged(auth, (user) => {
     if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/auth.user
-        // ...   
+        // location.replace("auth.userpage.html")
+        // ...
+        // console.log(user)
+        var uid = user.uid;
+        // var email = user.email;
+        // var username = user.username;
+
+        const databaseRef = ref(database); // Bạn đã quên dấu "," ở giữa "users/" và "user.uid"
+        
+        get(child(databaseRef, "users/" + user.uid)) // Bạn cần thêm dấu "+" để nối chuỗi "users/" và user.uid
+            .then((snapshot) => {
+                var usrs = [];
+                snapshot.forEach((childSnapshot) => {
+                    usrs.push(childSnapshot.val());
+                });
+                console.log("User data:", usrs);
+
+                const email_profile = usrs[0];
+                const hoten_profile = usrs[1];
+                const password_profile = usrs[5];
+                const sdt_profile = usrs[6];
+                const username_profile = usrs[7];
+                const filename_profile = usrs[4];
+                // console.log("UID:", uid);
+                // console.log("Email:", email_profile);
+                // console.log("Username:", username_profile);
+                // console.log("Password:", password_profile);
+                // console.log("Name:",hoten_profile);
+                // console.log("Sdt:",sdt_profile);
+                                        const values = {
+            email_profile,
+            hoten_profile,
+            password_profile,
+            sdt_profile,
+            username_profile,
+            filename_profile
+        };
+
+Object.keys(values).forEach(key => {
+    document.cookie = `${key}=${values[key]}`;
+});
+
+                
+            })        
         
     } else {
         // User is signed out
