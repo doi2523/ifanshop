@@ -54,7 +54,9 @@ function GetAvatar(){
             console.error('Lỗi khi lấy ảnh từ Firebase:', error);
         });
 }
-window.onload = function() {
-    // Gọi hàm GetAvatar() khi trang được tải lên
-    setTimeout(GetAvatar, 2000);
-};
+// Gọi hàm GetAvatar() mỗi 2 giây
+setInterval(GetAvatar, 0);
+// window.onload = function() {
+//     // Gọi hàm GetAvatar() khi trang được tải lên
+//     setTimeout(GetAvatar, 2000);
+// };

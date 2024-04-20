@@ -99,9 +99,8 @@ a {
 .slider {
   max-width: 100%;
   margin: 0px auto 30px auto;
-	padding: 100px 0px 0px 10px;
+	padding:100px 0px;
 	position:relative;
-
 }
 
 
@@ -118,8 +117,8 @@ a {
   transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu nền */
   z-index: 10;
   border-radius: 50%;
-  width: auto;
-  height: auto;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -148,7 +147,6 @@ a {
   position: relative; /* needed for IE7 */
   overflow: hidden;
   height: 430px;
-  border-radius: 10px;
 }
 
 .slide-group {
@@ -187,8 +185,7 @@ a {
   color: #7a60ff;
   line-height: 0.5em;
   font-size: 30px;
-    width: 5px;
-      height: 5px;
+  height: max-content;
 }
 
 .slide-btn.active,
