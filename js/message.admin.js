@@ -68,8 +68,6 @@ document.getElementById('send').addEventListener('click', function(event) {
         message: message,
         userid: uid
     }).then(() => {
-        alert('OK');
-        window.onload();
         document.getElementById("message").value = "";
     }).catch((error) => {
         console.error('Error writing message to database: ', error);
