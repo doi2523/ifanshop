@@ -26,28 +26,32 @@
 
 
 var hoten_profile; // Định nghĩa biến hoten_profile ở phạm vi toàn cục để có thể truy cập từ bên ngoài hàm GetName()
-    
-function GetName() {
-    const auth = getAuth();
-    const user = auth.currentUser;
-    const uid = user.uid;
-    const databaseRef = ref(database); // Bạn đã quên dấu "," ở giữa "users/" và "user.uid"
-        
-    get(child(databaseRef, "users/" + user.uid))
-        .then((snapshot) => {
-            var usrs = [];
-            snapshot.forEach((childSnapshot) => {
-                usrs.push(childSnapshot.val());
-            });
-            hoten_profile = usrs[1]; // Gán giá trị hoten_profile từ trong hàm GetName()
+function getCookie(name) {
+    const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+    return cookieValue ? cookieValue.pop() : '';
+}
+
+// Sử dụng hàm để lấy giá trị từ cookies
+const emailProfile = getCookie("email_profile");
+const hotenProfile = getCookie("hoten_profile");
+const passwordProfile = getCookie("password_profile");
+const sdtProfile = getCookie("sdt_profile");
+const usernameProfile = getCookie("username_profile");
+const filenameProfile = getCookie("filename_profile");
+
+// Sử dụng các giá trị đã lấy được từ cookies
+console.log(emailProfile);
+console.log(hotenProfile);
+console.log(passwordProfile);
+console.log(sdtProfile);
+console.log(usernameProfile);
+console.log(filenameProfile);
             var fullname = document.getElementById("fullname"); // Lấy thẻ div có id là "fullname"
             if (fullname) {
                 // Kiểm tra xem fullname có tồn tại không trước khi gán giá trị cho thuộc tính 'textContent'
-                fullname.textContent = hoten_profile;
+                fullname.textContent = hotenProfile;
             }
-        })
-}
-setInterval(GetName, 0);
+
 
 document.getElementById('send').addEventListener('click', function(event) {
     event.preventDefault();
@@ -57,7 +61,7 @@ document.getElementById('send').addEventListener('click', function(event) {
 
     var message = document.getElementById("message").value;
     console.log(message);
-    var name = hoten_profile; // Sử dụng giá trị hoten_profile ở đây
+    var name = hotenProfile; // Sử dụng giá trị hoten_profile ở đây
     const database = getDatabase(app);
     const messagesRef = ref(database, 'messages');
     const newMessageRef = push(messagesRef); // Tạo một khóa mới trong nút "messages"
@@ -79,20 +83,21 @@ function GetMess() {
     const database = getDatabase();
     const databaseRef = ref(database, "messages");
 
-    // Lắng nghe sự kiện khi có tin nhắn mới được thêm vào cơ sở dữ liệu
-    onChildAdded(databaseRef, (snapshot) => {
-        const message = snapshot.val();
-        displayMessage(message);
-    });
+    get(child(databaseRef, "/"))
+        .then((snapshot) => {
+            snapshot.forEach((childSnapshot) => {
+                const message = childSnapshot.val();
+                displayMessage(message);
+            });
+        })
+        .catch((error) => {
+            console.error("Error getting messages: ", error);
+        });
 }
-
-// Hàm hiển thị tin nhắn
 function displayMessage(message) {
     const messages = document.getElementById('textchat');
     const li = document.createElement('li');
     li.innerText = `${message.name}: ${message.message}`;
     messages.appendChild(li);
 }
-
-// Gọi hàm GetMess() để chạy lấy giá trị từ cơ sở dữ liệu Firebase
 GetMess();
