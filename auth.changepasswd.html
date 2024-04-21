@@ -16,6 +16,10 @@
         integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-bUjZwQT15y0cAxWgScJZLW9vC6ohBxi4o+BB2+JVi8k7pUW9vhMwIuqGkwhT6R5Tt6peKtxLkbQK28rfDyVJlw=="
+        crossorigin="anonymous" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -73,29 +77,29 @@
                 <div class="col-12 col-lg-auto mb-3" style="width: 200px;">
                     <div class="card p-2">
                         <div class="e-navlist e-navlist--active-bg">
-              <ul class="nav">
-                <li class="nav-item"><a style="font-size: 17px;" class="nav-link px-2" href="auth.userpage.html"><i
-                      class="fas fa-user"></i>
-                    <span>Tài
-                      khoản</span></a></li>
-                <li class="nav-item"><a style="font-size: 17px;" class="nav-link px-2 active" href="auth.changeuser.html"><i
-                      class="fas fa-edit"></i>
-                    <span>Đổi
-                      thông
-                      tin</span></a></li>
-                <li class="nav-item"><a style="font-size: 17px;" class="nav-link px-2" href="auth.changeavatar.html"><i
-                      class="fas fa-image"></i>
-                    <span>Đổi
-                      Avatar</span></a></li>
-                <li class="nav-item" style="display: flex; align-items: center;"><a style="font-size: 17px;" class="nav-link px-2"
-                    href="auth.changepasswd.html">
-                    <i class="fas fa-duotone fa-key"></i>
-                    <span>Đổi
-                      mật khẩu</span></a></li>
-                <li class="nav-item"><a style="font-size: 17px;" class="nav-link px-2" href="auth.setting.html"><i
-                      class="fas fa-gear"></i><span> Settings</span></a>
-                </li>
-              </ul>
+                            <ul class="nav">
+                                <li class="nav-item"><a style="font-size: 17px;" class="nav-link px-2"
+                                        href="auth.userpage.html"><i class="fas fa-user"></i>
+                                        <span>Tài
+                                            khoản</span></a></li>
+                                <li class="nav-item"><a style="font-size: 17px;" class="nav-link px-2 active"
+                                        href="auth.changeuser.html"><i class="fas fa-edit"></i>
+                                        <span>Đổi
+                                            thông
+                                            tin</span></a></li>
+                                <li class="nav-item"><a style="font-size: 17px;" class="nav-link px-2"
+                                        href="auth.changeavatar.html"><i class="fas fa-image"></i>
+                                        <span>Đổi
+                                            Avatar</span></a></li>
+                                <li class="nav-item" style="display: flex; align-items: center;"><a
+                                        style="font-size: 17px;" class="nav-link px-2" href="auth.changepasswd.html">
+                                        <i class="fas fa-duotone fa-key"></i>
+                                        <span>Đổi
+                                            mật khẩu</span></a></li>
+                                <li class="nav-item"><a style="font-size: 17px;" class="nav-link px-2"
+                                        href="auth.setting.html"><i class="fas fa-gear"></i><span> Settings</span></a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -149,7 +153,7 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="row">
+                                                            <div class="row hide">
                                                                 <div class="col">
                                                                     <div class="form-group">
                                                                         <label>Họ và tên:</label><br>
@@ -158,7 +162,7 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="row">
+                                                            <div class="row hide">
                                                                 <div class="col">
                                                                     <div class="form-group">
                                                                         <label>Số điện thoại:</label><br>
@@ -167,7 +171,7 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="row">
+                                                            <div class="row hide">
                                                                 <div class="col">
                                                                     <div class="form-group">
                                                                         <label>Username:</label><br>
@@ -177,23 +181,25 @@
                                                                 </div>
                                                             </div>
 
-                                                            <div class="row hide">
-                                                              <div class="col">
-                                                                <div class="form-group">
-                                                                  <label>Email</label><br>
-                                                                  <div class="input-group">
-                                                                    <input required for="email" id="email" class="form-control">
-                                                                    <!-- <div class="input-group-append">
-                                                                                              <button id="xacminhemail" style="background-color: #007bff; color: #fff;" class="btn btn-outline-secondary" type="button">
-                                                                                                Xác minh Email
-                                                                                              </button>
-                                                                                            </div> -->
-                                                                  </div>
-                                                                </div>
-                                                              </div>
-                                                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Email</label><br>
+                            
+                                        <div class="input-group">
+                                            <label for="email" id="email" class="form-control"></label>
+                                            <div class="input-group-append">
+                                                <button id="xacminhemail" style="background-color: #007bff; color: #fff;"
+                                                    class="btn btn-outline-secondary" type="button">
+                                                    Xác minh Email
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-                                                            <div class="row hide">
+                                                            <div class="row">
                                                                 <div class="col">
                                                                     <div class="form-group">
                                                                         <label>Password</label><br>
@@ -390,6 +396,7 @@
 <script type="module" src="js/upload_imgavt.js"></script>
 <script type="module" src="js/update_thongtin.js"></script>
 <script type="module" src="js/message.online.js"></script>
+<script type="module" src="js/save&cookies.js"></script>
 <script src="js/getdata.js"></script>
 
 </html>

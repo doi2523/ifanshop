@@ -25,8 +25,8 @@ import { getAuth, deleteUser } from "https://www.gstatic.com/firebasejs/10.10.0/
     const auth = getAuth();
     const user = auth.currentUser;
     
-    const deleteButton = document.getElementById('delete_acc');
-    deleteButton.addEventListener('click', function(event) {
+const deleteButton = document.getElementById('delete_acc');
+deleteButton.addEventListener('click', function(event) {
         event.preventDefault(); // Ngăn chặn hành vi mặc định của sự kiện click
         confirmDelete();
     });

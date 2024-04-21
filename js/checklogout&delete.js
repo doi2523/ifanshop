@@ -47,12 +47,13 @@ function Logout() {
         // setTimeout(function() {
         //     window.location.href = 'login.html';
         // }, 2000);
+        deleteAllCookies();
     }).catch((error) => {
         // Xử lý lỗi khi đăng xuất
         console.error('Lỗi khi đăng xuất:', error);
     });
 }
-deleteAllCookies();
+
 function AddLastLogout() {
     // Lấy thời gian hiện tại
     let last_logout_time = new Date();
