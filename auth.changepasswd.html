@@ -16,9 +16,6 @@
         integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-        integrity="sha512-bUjZwQT15y0cAxWgScJZLW9vC6ohBxi4o+BB2+JVi8k7pUW9vhMwIuqGkwhT6R5Tt6peKtxLkbQK28rfDyVJlw=="
-        crossorigin="anonymous" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -139,67 +136,11 @@
                                         </ul>
                                         <div class="tab-content pt-3">
                                             <div class="tab-pane active">
-                                                <form id="update-profile">
+                                                <form id="update-passwd">
                                                     <div class="row">
                                                         <div class="col">
 
                                                             <div class="row hide">
-                                                                <div class="col">
-                                                                    <div class="form-group">
-                                                                        <label>UID:</label><br>
-                                                                        <label class="form-control" for="uid" id="uid"
-                                                                            name="uid"></label>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="row hide">
-                                                                <div class="col">
-                                                                    <div class="form-group">
-                                                                        <label>Họ và tên:</label><br>
-                                                                        <input class="form-control" id="hoten" required>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="row hide">
-                                                                <div class="col">
-                                                                    <div class="form-group">
-                                                                        <label>Số điện thoại:</label><br>
-                                                                        <input required class="form-control" id="sdt">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <div class="row hide">
-                                                                <div class="col">
-                                                                    <div class="form-group">
-                                                                        <label>Username:</label><br>
-                                                                        <input for="username" id="username" required
-                                                                            class="form-control">
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                            <div class="row">
-                                <div class="col">
-                                    <div class="form-group">
-                                        <label>Email</label><br>
-                            
-                                        <div class="input-group">
-                                            <label for="email" id="email" class="form-control"></label>
-                                            <div class="input-group-append">
-                                                <button id="xacminhemail" style="background-color: #007bff; color: #fff;"
-                                                    class="btn btn-outline-secondary" type="button">
-                                                    Xác minh Email
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                                                            <div class="row">
                                                                 <div class="col">
                                                                     <div class="form-group">
                                                                         <label>Password</label><br>
@@ -220,18 +161,10 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row hide">
-                                                        <div class="col">
-                                                            <div class="form-group">
-                                                                <label>Tên file avatar:</label><br>
-                                                                <label id="name-avatar" class="form-control"></label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                     <div class="row">
                                                         <div class="col d-flex justify-content-end">
-                                                            <button class="btn btn-primary" id="update_thongtin"
-                                                                type="submit">Cập nhật</button>
+                                                            <button class="btn btn-primary" id="update"
+                                                                type="submit">Gửi mail để đổi mật khẩu</button>
                                                         </div>
                                                     </div>
                                                 </form>
@@ -393,10 +326,10 @@
 <script type="module" src="js/checklogin.js"></script>
 <script type="module" src="js/get_image.js"></script>
 <script type="module" src="js/checklogout&delete.js"></script>
-<script type="module" src="js/upload_imgavt.js"></script>
-<script type="module" src="js/update_thongtin.js"></script>
+
+<script type="module" src="js/update_paswd.js"></script>
 <script type="module" src="js/message.online.js"></script>
-<script type="module" src="js/save&cookies.js"></script>
+
 <script src="js/getdata.js"></script>
 
 </html>

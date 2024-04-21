@@ -33,11 +33,11 @@ function UpdateThongtin(){
         var newpassword = document.getElementById('password').value;
     
         // In thông tin lấy được ra console
-        console.log('Họ và tên:', newhoten);
-        console.log('Số điện thoại:', newsdt);
-        console.log('Username:', newusername);
-        console.log('Email:', newemail);
-        console.log('Password:', newpassword);
+        // console.log('Họ và tên:', newhoten);
+        // console.log('Số điện thoại:', newsdt);
+        // console.log('Username:', newusername);
+        // console.log('Email:', newemail);
+        // console.log('Password:', newpassword);
 
         const auth = getAuth();
         const user = auth.currentUser;
