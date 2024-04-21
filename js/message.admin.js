@@ -89,6 +89,11 @@ document.getElementById('send').addEventListener('click', function (event) {
         time: formattedDateTime,
         userid: uid,
         url: URLProfile
+    }).then(() => {
+        alert('Đã gửi tin nhắn thành công!');
+        document.getElementById("message-input").value = "";
+    }).catch((error) => {
+        console.error('Error writing message to database: ', error);
     });
 });
 

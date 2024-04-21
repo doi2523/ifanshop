@@ -28,7 +28,7 @@ function SavaToCookies() {
     const user = auth.currentUser;
     const databaseRef = ref(database);
     const userRef = child(databaseRef, "users/" + user.uid);
-        get(userRef)
+    get(userRef)
             .then((snapshot) => {
                 if (snapshot.exists()) {
                     const userData = snapshot.val();
@@ -45,17 +45,17 @@ function SavaToCookies() {
                     const last_logout = userData.last_logout;
 
 
-                    // console.log("Email:", email_profile);
-                    // console.log("Password:", password_profile);
-                    // console.log("Họ tên:", hoten_profile);
-                    // console.log("Số điện thoại:", sdt_profile);
-                    // console.log("Last login:", last_login);
-                    // console.log("Last logout:", last_logout);
-                    // console.log("Tên avatar:", filename_profile);
-                    // console.log("URL avatar:", url_profile);
-                    // console.log("UID:", id_profile);
-                    // console.log("Username:", username_profile)
-
+                    console.log("Email:", email_profile);
+                    console.log("Password:", password_profile);
+                    console.log("Họ tên:", hoten_profile);
+                    console.log("Số điện thoại:", sdt_profile);
+                    console.log("Last login:", last_login);
+                    console.log("Last logout:", last_logout);
+                    console.log("Tên avatar:", filename_profile);
+                    console.log("URL avatar:", url_profile);
+                    console.log("UID:", id_profile);
+                    console.log("Username:", username_profile);
+                console.log(url_profile)
                     const values = {
                         id_profile,
                         email_profile,
@@ -72,23 +72,24 @@ function SavaToCookies() {
                 } })  
 }
 function UpdateURL() {
-    // Lấy giá trị URL mới từ cookie
-    const newURL = getCookie("url");
+    function getCookie(name) {
+    const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+    return cookieValue ? cookieValue.pop() : '';
+}
 
-    // Lấy giá trị URL cũ từ cookie hoặc từ dữ liệu hiện có trong ứng dụng của bạn
-    // Đây chỉ là một ví dụ, bạn cần thay đổi phương thức này để phù hợp với ứng dụng của bạn
-    const oldURL = "giá_trị_URL_cũ";
-
-    // So sánh giá trị URL mới và cũ
-    if (newURL !== oldURL) {
-        // Nếu giá trị URL mới khác giá trị URL cũ, thực hiện cập nhật
-        update(ref(database, "users/" + uidProfile), {
-            urlavatar: newURL
+    // Sử dụng hàm để lấy giá trị từ cookies
+    const uidProfile = getCookie("id_profile")
+    const emailProfile = getCookie("email_profile");
+    const hotenProfile = getCookie("hoten_profile");
+    const passwordProfile = getCookie("password_profile");
+    const sdtProfile = getCookie("sdt_profile");
+    const usernameProfile = getCookie("username_profile");
+    const filenameProfile = getCookie("filename_profile");
+    const URLProfile = getCookie("url");
+    console.log(URLProfile)
+    update(ref(database, "users/" + uidProfile), {
+        urlavatar: URLProfile
         });
-    } else {
-        // Nếu giá trị URL mới giống với giá trị URL cũ, không cần thực hiện gì cả
-        console.log("Giá trị URL không thay đổi.");
-    }
 }
 
 onAuthStateChanged(auth, (user) => {
@@ -101,4 +102,3 @@ onAuthStateChanged(auth, (user) => {
         window.location.replace("login.html")
     }
 });
-UpdateURL();
