@@ -19,41 +19,64 @@
   const database = getDatabase(app);
   const auth = getAuth();
 
+function deleteAllCookies() {
+  //Lấy các biến có trong cookies đang có
+    const cookiesToDelete = [
+        "id_profile",
+        "email_profile",
+        "hoten_profile",
+        "password_profile",
+        "sdt_profile",
+        "username_profile",
+        "filename_profile",
+        "url"
+    ];
+
+    cookiesToDelete.forEach(cookieName => {
+        // Thiết lập thời gian hết hạn của cookie thành thời điểm trước đó
+        document.cookie = `${cookieName}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;`;
+    });
+}
+
+function Logout() {
+    signOut(auth).then(() => {
+        alert("Đăng xuất thành công!");
+        // Sign-out successful.
+        setTimeout(function() {
+            window.location.href = 'login.html';
+        }, 2000);
+    }).catch((error) => {
+        // Xử lý lỗi khi đăng xuất
+        console.error('Lỗi khi đăng xuất:', error);
+    });
+}
+
+function AddLastLogout() {
+    // Lấy thời gian hiện tại
+    let last_logout_time = new Date();
+    let formattedDateTime = last_logout_time.toLocaleString('vi-VN', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    });
+    let updates = {};
+    const user = auth.currentUser;
+    updates['/users/' + user.uid + '/last_logout'] = formattedDateTime;
+
+    update(ref(database), updates)
+        .then(() => {
+            console.log('Đã cập nhật thời gian đăng nhập cuối cùng thành công.');
+        })
+        .catch((error) => {
+            console.error('Lỗi khi cập nhật thời gian đăng nhập cuối cùng:', error);
+        });
+}
 
 logout.addEventListener('click', (e) => {
-    // Lấy thời gian hiện tại
-  let last_logout_time = new Date();
-  let formattedDateTime = last_logout_time.toLocaleString('vi-VN', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit'
-  });
-  let updates = {};
-  const user = auth.currentUser;
-  updates['/users/' + user.uid + '/last_logout'] = formattedDateTime;
-  update(ref(database), updates)
-      .then(() => {
-          console.log('Đã cập nhật thời gian đăng nhập cuối cùng thành công.');
-      })
-      .catch((error) => {
-          console.error('Lỗi khi cập nhật thời gian đăng nhập cuối cùng:', error);
-      });
-
-  signOut(auth).then(() => {
-  // Sign-out successful.
-  alert('Đang đăng xuất, vui lòng đợi!');
-  setTimeout(function() {
-          window.location.href = 'login.html';
-  }, 2000);
-  const user = userCredential.user;
-  // const lg = new Date();
-  //   update(ref(database, 'users/' + user.uid),{
-  //       last_logout : lg,
-  // })      
-}).catch((error) => {
-  // An error happened.
-});
+    deleteAllCookies();
+    AddLastLogout();
+    Logout();
 });

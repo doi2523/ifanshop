@@ -24,14 +24,8 @@ import { getAuth, deleteUser } from "https://www.gstatic.com/firebasejs/10.10.0/
     const database = getDatabase(app);
     const auth = getAuth();
     const user = auth.currentUser;
-    
-    document.getElementById('update-profile').addEventListener('submit', function(event) {
-        event.preventDefault();
-        UpdateThongtin();
-        UpdateData();
-    });
 
-    function UpdateThongtin(){
+function UpdateThongtin(){
         var newhoten = document.getElementById('hoten').value;
         var newsdt = document.getElementById('sdt').value;
         var newusername = document.getElementById('username').value;
@@ -61,17 +55,25 @@ import { getAuth, deleteUser } from "https://www.gstatic.com/firebasejs/10.10.0/
             setTimeout(() => {
                 window.location.reload();
             }, 2000);
+            //Gọi function để cập nhật cookies
+            UpdateData();
         })
             
         .catch((error) => {
             alert("Đã xảy ra lỗi khi cập nhật thông tin: " + error.message);
         });
-    }
+}
+    
+//Thêm function cập nhật cookies khi cập nhật thông tin mới
 function UpdateData() {
-                get(child(databaseRef, "users/" + user.uid)) // Bạn cần thêm dấu "+" để nối chuỗi "users/" và user.uid
-            .then((snapshot) => {
-                var usrs = [];
-                snapshot.forEach((childSnapshot) => {
+
+    const user = auth.currentUser;
+    const databaseRef = ref(database);
+
+    get(child(databaseRef, "users/" + user.uid)) // Bạn cần thêm dấu "+" để nối chuỗi "users/" và user.uid
+    .then((snapshot) => {
+        var usrs = [];
+        snapshot.forEach((childSnapshot) => {
                     usrs.push(childSnapshot.val());
                 });
                 // console.log("User data:", usrs);
@@ -97,4 +99,9 @@ function UpdateData() {
         });
                     console.log(usrs)
             })
-    }
+}
+    
+document.getElementById('update-profile').addEventListener('submit', function(event) {
+    event.preventDefault();
+    UpdateThongtin();
+});

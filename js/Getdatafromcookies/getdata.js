@@ -22,7 +22,7 @@ const URLProfile = getCookie("url");
 // console.log(sdtProfile);
 // console.log(usernameProfile);
 // console.log(filenameProfile);
-console.log(URLProfile)
+// console.log(URLProfile)
 
 const usernameElement = document.getElementById('txt-username');
 usernameElement.textContent = "@"+ usernameProfile;

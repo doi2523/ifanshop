@@ -109,10 +109,10 @@ document.getElementById('signin').addEventListener('submit', function(event) {
   updates['/users/' + user.uid + '/last_login'] = formattedDateTime;
   update(ref(database), updates)
       .then(() => {
-          console.log('Đã cập nhật thời gian đăng nhập cuối cùng thành công.');
+          console.log('Đã cập nhật thời gian đăng nhập thành công.');
       })
       .catch((error) => {
-          console.error('Lỗi khi cập nhật thời gian đăng nhập cuối cùng:', error);
+          console.error('Lỗi khi cập nhật thời gian đăng nhập:', error);
       });
 
   if (email === 'admin@gmail.com' && password === '123456') {
@@ -129,7 +129,7 @@ document.getElementById('signin').addEventListener('submit', function(event) {
       setTimeout(function() {
         window.location.href = 'auth.index.html';
       }, 2000); 
-    alert("Chào mừng "+user.email +" đăng nhập")
+    alert("Chào mừng '"+user.email +"' đăng nhập")
     }
   
   // ...
