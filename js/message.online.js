@@ -54,13 +54,13 @@ if (fullname) {
 }
 
 
-document.getElementById('message').addEventListener('submit', function(event) {
+document.getElementById('message-form').addEventListener('submit', function(event) {
     event.preventDefault();
     const auth = getAuth();
     const user = auth.currentUser;
     const uid = user.uid;
 
-    var message = document.getElementById("message").value;
+    var message = document.getElementById("message-input").value; // Sửa đổi ở đây
     console.log(message);
     var name = hotenProfile; // Sử dụng giá trị hoten_profile ở đây
     const database = getDatabase(app);
@@ -74,11 +74,12 @@ document.getElementById('message').addEventListener('submit', function(event) {
         userid: uid
     }).then(() => {
         alert('OK');
-        document.getElementById("message").value = "";
+        document.getElementById("message-input").value = ""; // Sửa đổi ở đây
     }).catch((error) => {
         console.error('Error writing message to database: ', error);
     });
 });
+
 
 function GetMess() {
     const database = getDatabase();

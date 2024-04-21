@@ -186,16 +186,20 @@
       </div>
       <hr>
       <div class="input-message form-group-boxchat">
-        <form action="" id="message">
-          <input class="form-control" type="text" placeholder="Nhập" required>
-        </form>
-        <button type="submit" class="btn btn-outline-primary me-2 send-button" id="send">
+        <form action="" id="message-form" class="form-chat"> <!-- Đổi ID thành message-form -->
+          <input class="form-control" type="text" id="message-input" placeholder="Nhập" required style="width: 235px;">
+          <!-- Đổi ID thành message-input -->
           <div class="d-flex">
-            Gửi
-            <ion-icon name="send-outline" style="font-size: 25px;"></ion-icon>
+            <button type="submit" class="btn btn-outline-primary me-2 send-button" id="send">
+              <div class="d-flex">
+                Gửi
+                <ion-icon name="send-outline" style="font-size: 25px;"></ion-icon>
+              </div>
+            </button>
           </div>
-        </button>
+        </form>
       </div>
+
     </div>
   </div>
 </body>
