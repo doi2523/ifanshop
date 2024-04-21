@@ -29,7 +29,8 @@ function deleteAllCookies() {
         "sdt_profile",
         "username_profile",
         "filename_profile",
-        "url"
+        "url",
+        "url_profile",
     ];
 
     cookiesToDelete.forEach(cookieName => {
@@ -42,9 +43,9 @@ function Logout() {
     signOut(auth).then(() => {
         alert("Đăng xuất thành công!");
         // Sign-out successful.
-        setTimeout(function() {
-            window.location.href = 'login.html';
-        }, 2000);
+        // setTimeout(function() {
+        //     window.location.href = 'login.html';
+        // }, 2000);
     }).catch((error) => {
         // Xử lý lỗi khi đăng xuất
         console.error('Lỗi khi đăng xuất:', error);

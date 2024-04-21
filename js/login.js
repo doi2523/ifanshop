@@ -121,7 +121,7 @@ document.getElementById('signin').addEventListener('submit', function(event) {
       loginMessage.style.color = 'green';        // Đợi 2 giây trước khi tải lại trang
       setTimeout(function() {
         window.location.href = 'auth.admin.html';
-      }, 2000);
+      }, 3000);
       alert('Chào mừng admin!');      
       }
   else {
@@ -129,7 +129,7 @@ document.getElementById('signin').addEventListener('submit', function(event) {
     loginMessage.style.color = 'green';       // Đợi 2 giây trước khi tải lại trang
       setTimeout(function() {
         window.location.href = 'auth.index.html';
-      }, 2000); 
+      }, 3000); 
     alert("Chào mừng '"+user.email +"' đăng nhập")
     }
   
