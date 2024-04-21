@@ -47,7 +47,7 @@ onAuthStateChanged(auth, (user) => {
             const sdt_profile = usrs[6];
             const username_profile = usrs[8];
             const filename_profile = usrs[4];
-            const id_profile = uid;
+            const id_profile = user.uid;
             const url_profile = usrs[7] //Lấy giá trị của urlavatar
                 // console.log("UID:", uid);
                 // console.log("Email:", email_profile);

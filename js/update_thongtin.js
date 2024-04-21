@@ -106,12 +106,14 @@ function UpdateData() {
 document.getElementById('update-profile').addEventListener('submit', function(event) {
     event.preventDefault();
     UpdateThongtin();
+    UpdateURL();
 });
 function UpdateURL() {
-function getCookie(name) {
-    const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
-    return cookieValue ? cookieValue.pop() : '';
-}
+    function getCookie(name) {
+        const auth = getAuth();
+        const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+            return cookieValue ? cookieValue.pop() : '';
+        }
     // Sử dụng hàm để lấy giá trị từ cookies
     const uidProfile = getCookie("id_profile")
     const emailProfile = getCookie("email_profile");
@@ -121,8 +123,9 @@ function getCookie(name) {
     const usernameProfile = getCookie("username_profile");
     const filenameProfile = getCookie("filename_profile");
     const URLProfile = getCookie("url");
+        const user = auth.currentUser;
+        const database = getDatabase(app);
     update(ref(database, "users/" + uidProfile), {
         urlavatar : URLProfile
         })
 }
-UpdateURL();

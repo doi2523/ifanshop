@@ -61,9 +61,9 @@ function GetName() {
 }
 setInterval(GetName, 0);
 
-document.getElementById('send').addEventListener('click', function(event) {
+document.getElementById('send').addEventListener('click', function (event) {
     event.preventDefault();
-        const auth = getAuth();
+    const auth = getAuth();
     const user = auth.currentUser;
     const uid = user.uid;
 
@@ -71,29 +71,37 @@ document.getElementById('send').addEventListener('click', function(event) {
     console.log(message);
     var name = "Admin"; // Sử dụng giá trị hoten_profile ở đây
     const database = getDatabase(app);
-    const messagesRef = ref(database, 'messages');
+    const messagesRef = ref(database, 'messageeveryone');
     const newMessageRef = push(messagesRef); // Tạo một khóa mới trong nút "messages"
     const id = newMessageRef.key; // Lấy khóa mới được tạo
-
+    let last_login_time = new Date();
+    let formattedDateTime = last_login_time.toLocaleString('vi-VN', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    });
     set(newMessageRef, {
         name: name,
         message: message,
-        userid: uid
-    }).then(() => {
-        document.getElementById("message").value = "";
-    }).catch((error) => {
-        console.error('Error writing message to database: ', error);
+        time: formattedDateTime,
+        userid: uid,
+        url: URLProfile
     });
 });
 
 function GetMess() {
     const database = getDatabase();
-    const databaseRef = ref(database, "messages");
+    const databaseRef = ref(database, "messageeveryone");
 
-    // Lắng nghe sự kiện khi có tin nhắn mới được thêm vào cơ sở dữ liệu
+    // Lắng nghe sự kiện child_added để nhận thông báo khi có tin nhắn mới được thêm vào
     onChildAdded(databaseRef, (snapshot) => {
         const message = snapshot.val();
         displayMessage(message);
+    }, (error) => {
+        console.error("Error getting messageeveryone: ", error);
     });
 }
 
@@ -101,7 +109,7 @@ function GetMess() {
 function displayMessage(message) {
     const messages = document.getElementById('textchat');
     const li = document.createElement('li');
-    li.innerText = `${message.name}: ${message.message}`;
+    li.innerHTML = `<img src="${message.url}" alt="User Image" style="width: 50px; height: 50px; border-radius: 100%;"> ${message.name}: ${message.message} - ${message.time}`;
     messages.appendChild(li);
 }
 

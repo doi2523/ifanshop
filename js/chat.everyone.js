@@ -55,71 +55,18 @@ if (fullname) {
 }
 
 
-// document.getElementById('message-form').addEventListener('submit', function(event) {
-//     event.preventDefault();
-//     const auth = getAuth();
-//     const user = auth.currentUser;
-//     const uid = user.uid;
-
-//     var message = document.getElementById("message-input").value; // Sửa đổi ở đây
-//     console.log(message);
-//     var name = hotenProfile; // Sử dụng giá trị hoten_profile ở đây
-//     const database = getDatabase(app);
-//     const messagesRef = ref(database, 'messages');
-//     const newMessageRef = push(messagesRef); // Tạo một khóa mới trong nút "messages"
-//     const id = newMessageRef.key; // Lấy khóa mới được tạo
-
-//     set(newMessageRef, {
-//         name: name,
-//         message: message,
-//         userid: uid
-//     }).then(() => {
-//         alert('Đã gửi tin nhắn thành công!');
-//         document.getElementById("message-input").value = ""; // Sửa đổi ở đây
-//     }).catch((error) => {
-//         console.error('Error writing message to database: ', error);
-//     });
-// });
-
-
-// function GetMess() {
-//     const database = getDatabase();
-//     const databaseRef = ref(database, "messages");
-
-//     // Lắng nghe sự kiện child_added để nhận thông báo khi có tin nhắn mới được thêm vào
-//     onChildAdded(databaseRef, (snapshot) => {
-//         const message = snapshot.val();
-//         displayMessage(message);
-//     }, (error) => {
-//         console.error("Error getting messages: ", error);
-//     });
-// }
-
-// function displayMessage(message) {
-//     const messages = document.getElementById('textchat');
-//     const li = document.createElement('li');
-//     li.innerText = `${message.name}: ${message.message}`;
-//     messages.appendChild(li);
-// }
-
-function SetAvatar() {
-var userAvatar = document.getElementById('user-avatar');
-
-// Thay đổi thuộc tính src của thẻ <img> bằng URL mới
-userAvatar.src = URLProfile;
-}
-SetAvatar();
-
-document.getElementById('message-form').addEventListener('submit', function(event) {
+document.getElementById('message-form-everyone').addEventListener('submit', function(event) {
     event.preventDefault();
+    const auth = getAuth();
+    const user = auth.currentUser;
+    const uid = user.uid;
 
-    var message = document.getElementById("message-input").value;
+    var message = document.getElementById("message-input-everyone").value; // Sửa đổi ở đây
     console.log(message);
-    var name = hotenProfile;
+    var name = hotenProfile; // Sử dụng giá trị hoten_profile ở đây
     const database = getDatabase(app);
-    const messagesRef = ref(database, 'messages');
-    const userMessagesRef = child(messagesRef, uidProfile); // Tạo nút con cho từng người dùng
-    const newMessageRef = push(userMessagesRef); // Tạo một khóa mới trong nút của người dùng
+    const messagesRef = ref(database, 'messageeveryone');
+    const newMessageRef = push(messagesRef); // Tạo một khóa mới trong nút "messages"
     const id = newMessageRef.key; // Lấy khóa mới được tạo
     let last_login_time = new Date();
     let formattedDateTime = last_login_time.toLocaleString('vi-VN', {
@@ -134,34 +81,35 @@ document.getElementById('message-form').addEventListener('submit', function(even
         name: name,
         message: message,
         time: formattedDateTime,
-        userid: uidProfile
+        url: URLProfile,
+        userid: uid
     }).then(() => {
         alert('Đã gửi tin nhắn thành công!');
-        document.getElementById("message-input").value = "";
+        document.getElementById("message-input").value = ""; // Sửa đổi ở đây
     }).catch((error) => {
         console.error('Error writing message to database: ', error);
     });
 });
 
 
-
 function GetMess() {
     const database = getDatabase();
-    const databaseRef = ref(database, "messages/" + uidProfile);
+    const databaseRef = ref(database, "messageeveryone");
 
     // Lắng nghe sự kiện child_added để nhận thông báo khi có tin nhắn mới được thêm vào
     onChildAdded(databaseRef, (snapshot) => {
         const message = snapshot.val();
         displayMessage(message);
     }, (error) => {
-        console.error("Error getting messages: ", error);
+        console.error("Error getting messageeveryone: ", error);
     });
 }
 
 function displayMessage(message) {
-    const messages = document.getElementById('textchat');
+    const messages = document.getElementById('textchat-everyone');
     const li = document.createElement('li');
-    li.innerText = `${message.name}: ${message.message} - ${message.time}`;
+    li.innerHTML = `<img src="${message.url}" alt="User Image" style="width: 50px; height: 50px; border-radius: 100%;"> ${message.name}: ${message.message} - ${message.time}`;
     messages.appendChild(li);
 }
+
 GetMess();
