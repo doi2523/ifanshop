@@ -32,10 +32,11 @@ function deleteAllCookies() {
         "url",
         "url_profile",
     ];
-
+    // console.log(cookiesToDelete);
     cookiesToDelete.forEach(cookieName => {
         // Thiết lập thời gian hết hạn của cookie thành thời điểm trước đó
         document.cookie = `${cookieName}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;`;
+        // console.log(`Đã xóa cookie ${cookieName}`);
     });
 }
 
@@ -51,7 +52,7 @@ function Logout() {
         console.error('Lỗi khi đăng xuất:', error);
     });
 }
-
+deleteAllCookies();
 function AddLastLogout() {
     // Lấy thời gian hiện tại
     let last_logout_time = new Date();
@@ -75,7 +76,6 @@ function AddLastLogout() {
             console.error('Lỗi khi cập nhật thời gian đăng nhập cuối cùng:', error);
         });
 }
-
 logout.addEventListener('click', (e) => {
     deleteAllCookies();
     AddLastLogout();
