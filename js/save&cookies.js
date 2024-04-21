@@ -24,16 +24,10 @@ import { getAuth, onAuthStateChanged, } from "https://www.gstatic.com/firebasejs
     const database = getDatabase(app);
     const auth = getAuth();
     const user = auth.currentUser;
-onAuthStateChanged(auth, (user) => {
-    if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/auth.user
-        // location.replace("auth.userpage.html")
-        // ...
-    var uid = user.uid;;
-
-const databaseRef = ref(database);
-        const userRef = child(databaseRef, "users/" + uid);
+function SavaToCookies() {
+    const user = auth.currentUser;
+    const databaseRef = ref(database);
+    const userRef = child(databaseRef, "users/" + user.uid);
         get(userRef)
             .then((snapshot) => {
                 if (snapshot.exists()) {
@@ -75,35 +69,31 @@ const databaseRef = ref(database);
                     Object.keys(values).forEach(key => {
                         document.cookie = `${key}=${values[key]}`;
                     });
-                } })          
-    } else {
-        // User is signed out
-        window.location.replace("login.html")
-    }
-});
-function UpdateURL() {
-    function getCookie(name) {
-    const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
-    return cookieValue ? cookieValue.pop() : '';
+                } })  
 }
+function UpdateURL() {
+    // Lấy giá trị URL mới từ cookie
+    const newURL = getCookie("url");
 
-    // Sử dụng hàm để lấy giá trị từ cookies
-    const uidProfile = getCookie("id_profile")
-    const emailProfile = getCookie("email_profile");
-    const hotenProfile = getCookie("hoten_profile");
-    const passwordProfile = getCookie("password_profile");
-    const sdtProfile = getCookie("sdt_profile");
-    const usernameProfile = getCookie("username_profile");
-    const filenameProfile = getCookie("filename_profile");
-    const URLProfile = getCookie("url");
-    update(ref(database, "users/" + uidProfile), {
-        urlavatar: URLProfile
-    })
+    // Lấy giá trị URL cũ từ cookie hoặc từ dữ liệu hiện có trong ứng dụng của bạn
+    // Đây chỉ là một ví dụ, bạn cần thay đổi phương thức này để phù hợp với ứng dụng của bạn
+    const oldURL = "giá_trị_URL_cũ";
 
+    // So sánh giá trị URL mới và cũ
+    if (newURL !== oldURL) {
+        // Nếu giá trị URL mới khác giá trị URL cũ, thực hiện cập nhật
+        update(ref(database, "users/" + uidProfile), {
+            urlavatar: newURL
+        });
+    } else {
+        // Nếu giá trị URL mới giống với giá trị URL cũ, không cần thực hiện gì cả
+        console.log("Giá trị URL không thay đổi.");
+    }
 }
 
 onAuthStateChanged(auth, (user) => {
     if (user) { 
+        SavaToCookies();
         //Nếu hôatj động thì chạy funtion để lấy url avatar người dùng
         UpdateURL();
     } else {

@@ -55,9 +55,9 @@ function GetURLAvatar(){
     const imageRef = ref(storage, 'Avatar/' + filenameProfile);
     getDownloadURL(imageRef)
         .then((url) => {
-            const img = document.createElement('img');
-            img.src = url;
-            img.alt = filenameProfile;
+            // const img = document.createElement('img');
+            // img.src = url;
+            // img.alt = filenameProfile;
           
             //import url lên cookies
         const values = {
@@ -72,11 +72,12 @@ function GetURLAvatar(){
             // console.error('Lỗi khi lấy ảnh từ Firebase:', error);
         });
 }
+setInterval(GetURLAvatar(), 1000);
 //Thêm hàm hiện tại người dùng đang hoạt động
 onAuthStateChanged(auth, (user) => {
     if (user) { 
         //Nếu hôatj động thì chạy funtion để lấy url avatar người dùng
-        GetURLAvatar();
+        // GetURLAvatar();
     } else {
         // User is signed out
         window.location.replace("login.html")

@@ -24,13 +24,15 @@ const URLProfile = getCookie("url");
 // console.log(filenameProfile);
 // console.log(URLProfile)
 
+
+
+
+function AutoLoadText() {
 const usernameElement = document.getElementById('txt-username');
 usernameElement.textContent = "@"+ usernameProfile;
 const filenameElement = document.getElementById('name-avatar');
-filenameElement.textContent = filenameProfile;
-
-
-
+    filenameElement.textContent = filenameProfile;
+    
 const uidd = document.getElementById('uid');
 const usernm = document.getElementById('username');
 const emaill = document.getElementById('email');
@@ -54,23 +56,24 @@ document.getElementById("email").value = emailProfile;
 document.getElementById("password").value = passwordProfile;
 document.getElementById("hoten").value = hotenProfile;
 document.getElementById("sdt").value = sdtProfile;
+}
 
-
-
-//Phương thức thêm ảnh vào trang thông qua url đã lấy từ cookie
+setInterval(AutoLoadText, 0);
+function AutoLoadImage() {
+    //Phương thức thêm ảnh vào trang thông qua url đã lấy từ cookie
 const img = document.createElement('img');
 
 // Thiết lập thuộc tính src của thẻ <img> bằng URL lấy từ cookie
 img.src = URLProfile;
-
 // Thêm các thuộc tính khác nếu cần thiết
 img.alt = "Avatar";
 img.classList.add('image-thumbnail');
-
 // Chèn thẻ <img> vào trong div có id là "imageContainer"
 const imageContainer = document.getElementById('imageContainer');
 imageContainer.innerHTML = ''; // Xóa bỏ nội dung cũ của div trước khi chèn mới
-imageContainer.appendChild(img);            
+imageContainer.appendChild(img);  
+}      
+setInterval(AutoLoadImage, 0);  
 
 
 
