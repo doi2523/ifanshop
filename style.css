@@ -309,19 +309,7 @@ a:hover {
 	margin-bottom: 0px;
 }
 
-
-@media all and (min-width:991px) {
-	.boxchat {
-		width: 30%;
-		height: 70%;
-	}
-}
-
 @media all and (max-width:991px) {
-	.boxchat {
-		width: 30%;
-		height: 50%;
-	}
 
 	.navbar .navbar-collapse {
 		overflow: auto;
@@ -341,10 +329,6 @@ a:hover {
 }
 
 @media all and (max-width:768px) {
-	.boxchat {
-		width: 60%;
-		height: 60%;
-	}
 
 	.dropdown-menu a {
 		text-align: center;
@@ -538,8 +522,8 @@ a:hover {
 	position: fixed;
 	bottom: 20px;
 	right: 20px;
-	width: 30%;
-	height: 80%;
+	width: 350px;
+	height: 470px;
 	background-color: #fff;
 	padding: 20px;
 	border-radius: 10px;
@@ -561,19 +545,44 @@ a:hover {
 }
 
 .chat {
-	height: 70%;
+	height: 100%;
+	width: 100%;
 	overflow-y: auto;
 	background-color: #fff;
 	border-radius: 10px;
 }
 .logoboxchat img{
-	width: auto;
+	width: 50px;
 	height: 50px;
 	border-radius: 100%;
 }
 .custom-thin-icon {
 	font-weight: 100;
 	/* Độ đậm của biểu tượng */
+}
+.bannerchatbox{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	height: 70px;
+}
+.titleboxchat{
+	width: max-content;
+}
+.input-message{
+	display: flex;
+	align-items: end;
+	justify-content: space-between;
+}
+.kedoc{
+	width: 1px;
+	height: 80%;
+	background-color: #fff;
+}
+.iconclose{
+	display: flex;
+	margin-top: -30px;
+	margin-right: -20px;
 }
 .noti {
 	position: fixed;

@@ -38,6 +38,7 @@ const passwordProfile = getCookie("password_profile");
 const sdtProfile = getCookie("sdt_profile");
 const usernameProfile = getCookie("username_profile");
 const filenameProfile = getCookie("filename_profile");
+const URLProfile = getCookie("url");
 
 // Sử dụng các giá trị đã lấy được từ cookies
 console.log(emailProfile);
@@ -46,16 +47,16 @@ console.log(passwordProfile);
 console.log(sdtProfile);
 console.log(usernameProfile);
 console.log(filenameProfile);
-            var fullname = document.getElementById("fullname"); // Lấy thẻ div có id là "fullname"
-            if (fullname) {
-                // Kiểm tra xem fullname có tồn tại không trước khi gán giá trị cho thuộc tính 'textContent'
-                fullname.textContent = hotenProfile;
-            }
+var fullname = document.getElementById("fullname"); // Lấy thẻ div có id là "fullname"
+if (fullname) {
+    // Kiểm tra xem fullname có tồn tại không trước khi gán giá trị cho thuộc tính 'textContent'
+    fullname.textContent = hotenProfile;
+}
 
 
-document.getElementById('send').addEventListener('click', function(event) {
+document.getElementById('message').addEventListener('submit', function(event) {
     event.preventDefault();
-        const auth = getAuth();
+    const auth = getAuth();
     const user = auth.currentUser;
     const uid = user.uid;
 
@@ -83,21 +84,27 @@ function GetMess() {
     const database = getDatabase();
     const databaseRef = ref(database, "messages");
 
-    get(child(databaseRef, "/"))
-        .then((snapshot) => {
-            snapshot.forEach((childSnapshot) => {
-                const message = childSnapshot.val();
-                displayMessage(message);
-            });
-        })
-        .catch((error) => {
-            console.error("Error getting messages: ", error);
-        });
+    // Lắng nghe sự kiện child_added để nhận thông báo khi có tin nhắn mới được thêm vào
+    onChildAdded(databaseRef, (snapshot) => {
+        const message = snapshot.val();
+        displayMessage(message);
+    }, (error) => {
+        console.error("Error getting messages: ", error);
+    });
 }
+
 function displayMessage(message) {
     const messages = document.getElementById('textchat');
     const li = document.createElement('li');
     li.innerText = `${message.name}: ${message.message}`;
     messages.appendChild(li);
 }
+
 GetMess();
+function SetAvatar() {
+var userAvatar = document.getElementById('user-avatar');
+
+// Thay đổi thuộc tính src của thẻ <img> bằng URL mới
+userAvatar.src = URLProfile;
+}
+SetAvatar();

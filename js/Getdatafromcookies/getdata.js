@@ -71,3 +71,7 @@ img.classList.add('image-thumbnail');
 const imageContainer = document.getElementById('imageContainer');
 imageContainer.innerHTML = ''; // Xóa bỏ nội dung cũ của div trước khi chèn mới
 imageContainer.appendChild(img);            
+
+
+
+

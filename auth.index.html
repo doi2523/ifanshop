@@ -164,29 +164,34 @@
       <i class="fas fa-comment-alt text-primary" style="font-size: 30px; margin-top: 5px; margin-left: -2px;"></i>
     </button>
     <div class="boxchat hide bg-primary" id="boxchat">
-      <div class="d-flex">
-        <div class="logoboxchat">
-          <img src="images/user1.jpg" alt="">
+      <div class="bannerchatbox">
+        <div class="logoboxchat border-right mx-2 pr-2" id="img-avatar-user">
+          <img id="user-avatar" src="images/user1.jpg" alt="">
         </div>
-        <div class="banerchatbox">
-          <h6 class="text-white">iFanShop Xin chào, chúng tôi sẵn sàng hỗ trợ bạn <span class="text-white" id="fullname"></span></h6>
+        <div class="titleboxchat">
+          <h7 class="text-white">iFanShop Xin chào, chúng tôi sẵn sàng hỗ trợ bạn</h7>
+          <span class="text-white" id="fullname"></span>
         </div>
-        <div>
-          <button id="closebt" type="button" class="btn btn-lg btn-link text-decoration-none">
+        <div class="mx-2">
+          <button id="closebt" type="button" class="btn btn-lg btn-link text-decoration-none iconclose">
             <ion-icon name="close-outline" style="font-size: 35px; color: #fff;"></ion-icon>
           </button>
         </div>
       </div>
+      <hr>
       <div class="chat">
         <div>
           <ul id="textchat"></ul>
         </div>
       </div>
-      <div class="form-group-boxchat">
-        <input id="message" class="form-control" type="text" placeholder="Nhập">
-        <button class="btn btn-outline-primary me-2 send-button" id="send">
+      <hr>
+      <div class="input-message form-group-boxchat">
+        <form action="" id="message">
+          <input class="form-control" type="text" placeholder="Nhập" required>
+        </form>
+        <button type="submit" class="btn btn-outline-primary me-2 send-button" id="send">
           <div class="d-flex">
-            Gửi 
+            Gửi
             <ion-icon name="send-outline" style="font-size: 25px;"></ion-icon>
           </div>
         </button>
@@ -208,6 +213,5 @@
 <script type="module" src="js/CheckLogin&SaveCookies/get_image.js"></script>
 <script src="js/banner.js"></script>
 <script type="module" src="js/message.online.js"></script>
-<script type="module" src="js/Private/uploadtocookies.js"></script>
 
 </html>
