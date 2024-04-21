@@ -92,7 +92,8 @@ function UpdateURL() {
         });
 }
 
-onAuthStateChanged(auth, (user) => {
+window.onload = function() {
+    onAuthStateChanged(auth, (user) => {
     if (user) { 
         SavaToCookies();
         //Nếu hôatj động thì chạy funtion để lấy url avatar người dùng
@@ -102,3 +103,6 @@ onAuthStateChanged(auth, (user) => {
         window.location.replace("login.html")
     }
 });
+};
+
+

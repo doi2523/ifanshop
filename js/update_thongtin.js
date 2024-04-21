@@ -51,10 +51,10 @@ function UpdateThongtin(){
             password: newpassword
         })
         .then(() => {
-            alert("Thông tin đã được cập nhật thành công!");
+            alert("Thông tin đã được cập nhật thành công! Tự làm mới sau 5 giây");
             setTimeout(() => {
                 window.location.reload();
-            }, 2000);
+            }, 5000);
             //Gọi function để cập nhật cookies
             UpdateData();
         })

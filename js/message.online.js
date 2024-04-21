@@ -25,29 +25,30 @@
     const auth = getAuth();
 
 
-var hoten_profile; // Định nghĩa biến hoten_profile ở phạm vi toàn cục để có thể truy cập từ bên ngoài hàm GetName()
 function getCookie(name) {
     const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
     return cookieValue ? cookieValue.pop() : '';
 }
 
 // Sử dụng hàm để lấy giá trị từ cookies
-const uidProfile = getCookie("id_profile")
-const emailProfile = getCookie("email_profile");
-const hotenProfile = getCookie("hoten_profile");
-const passwordProfile = getCookie("password_profile");
-const sdtProfile = getCookie("sdt_profile");
-const usernameProfile = getCookie("username_profile");
-const filenameProfile = getCookie("filename_profile");
-const URLProfile = getCookie("url");
+    // Sử dụng hàm để lấy giá trị từ cookies
+    const uidProfile = getCookie("id_profile");
+    const emailProfile = getCookie("email_profile");
+    const hotenProfile = getCookie("hoten_profile");
+    const passwordProfile = getCookie("password_profile");
+    const sdtProfile = getCookie("sdt_profile");
+    const usernameProfile = getCookie("username_profile");
+    const filenameProfile = getCookie("filename_profile");
+    const URLProfile = getCookie("url");
 
-// Sử dụng các giá trị đã lấy được từ cookies
-console.log(emailProfile);
-console.log(hotenProfile);
-console.log(passwordProfile);
-console.log(sdtProfile);
-console.log(usernameProfile);
-console.log(filenameProfile);
+    // Sử dụng các giá trị đã lấy được từ cookies
+    console.log(emailProfile);
+    console.log(hotenProfile);
+    console.log(passwordProfile);
+    console.log(sdtProfile);
+    console.log(usernameProfile);
+    console.log(filenameProfile);
+
 var fullname = document.getElementById("fullname"); // Lấy thẻ div có id là "fullname"
 if (fullname) {
     // Kiểm tra xem fullname có tồn tại không trước khi gán giá trị cho thuộc tính 'textContent'
