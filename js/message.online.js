@@ -42,12 +42,12 @@ const filenameProfile = getCookie("filename_profile");
 const URLProfile = getCookie("url");
 
 // Sử dụng các giá trị đã lấy được từ cookies
-console.log(emailProfile);
-console.log(hotenProfile);
-console.log(passwordProfile);
-console.log(sdtProfile);
-console.log(usernameProfile);
-console.log(filenameProfile);
+// console.log(emailProfile);
+// console.log(hotenProfile);
+// console.log(passwordProfile);
+// console.log(sdtProfile);
+// console.log(usernameProfile);
+// console.log(filenameProfile);
 var fullname = document.getElementById("fullname"); // Lấy thẻ div có id là "fullname"
 if (fullname) {
     // Kiểm tra xem fullname có tồn tại không trước khi gán giá trị cho thuộc tính 'textContent'

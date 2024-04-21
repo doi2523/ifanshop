@@ -66,7 +66,7 @@ function GetURLAvatar(){
                 Object.keys(values).forEach(key => {
                     document.cookie = `${key}=${values[key]}`;
                 });
-            console.log(url)
+            // console.log(url)
         })
         .catch((error) => {
             // console.error('Lỗi khi lấy ảnh từ Firebase:', error);

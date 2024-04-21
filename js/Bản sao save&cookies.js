@@ -32,50 +32,45 @@ onAuthStateChanged(auth, (user) => {
         // ...
     var uid = user.uid;;
 
-const databaseRef = ref(database);
-        const userRef = child(databaseRef, "users/" + uid);
-        get(userRef)
-            .then((snapshot) => {
-                if (snapshot.exists()) {
-                    const userData = snapshot.val();
+    const databaseRef = ref(database);
+    get(child(databaseRef, "users/" + user.uid))
+        .then((snapshot) => {
+            var usrs = [];
+            snapshot.forEach((childSnapshot) => {
+                usrs.push(childSnapshot.val());
+            });
+            console.log("User data:", usrs);
 
-                    const email_profile = userData.email;
-                    const hoten_profile = userData.hoten;
-                    const password_profile = userData.password;
-                    const sdt_profile = userData.sdt;
-                    const username_profile = userData.username;
-                    const filename_profile = userData.nameavatar;
-                    const id_profile = user.uid;
-                    const url_profile = userData.urlavatar //Lấy giá trị của urlavatar
-                    const last_login = userData.last_login;
-                    const last_logout = userData.last_logout;
+            const email_profile = usrs[0];
+            const hoten_profile = usrs[1];
+            const password_profile = usrs[5];
+            const sdt_profile = usrs[6];
+            const username_profile = usrs[8];
+            const filename_profile = usrs[4];
+            const id_profile = user.uid;
+            const url_profile = usrs[7] //Lấy giá trị của urlavatar
+                // console.log("UID:", uid);
+                // console.log("Email:", email_profile);
+                // console.log("Username:", username_profile);
+                // console.log("Password:", password_profile);
+                // console.log("Name:",hoten_profile);
+            // console.log("Sdt:",sdt_profile);
+            
+    const values = {
+        id_profile,
+        email_profile,
+        hoten_profile,
+        password_profile,
+        sdt_profile,
+        username_profile,
+        filename_profile,
+        url_profile
+        };
 
-
-                    // console.log("Email:", email_profile);
-                    // console.log("Password:", password_profile);
-                    // console.log("Họ tên:", hoten_profile);
-                    // console.log("Số điện thoại:", sdt_profile);
-                    // console.log("Last login:", last_login);
-                    // console.log("Last logout:", last_logout);
-                    // console.log("Tên avatar:", filename_profile);
-                    // console.log("URL avatar:", url_profile);
-                    // console.log("UID:", id_profile);
-                    // console.log("Username:", username_profile)
-
-                    const values = {
-                        id_profile,
-                        email_profile,
-                        hoten_profile,
-                        password_profile,
-                        sdt_profile,
-                        username_profile,
-                        filename_profile,
-                        url_profile
-                    };
-                    Object.keys(values).forEach(key => {
-                        document.cookie = `${key}=${values[key]}`;
-                    });
-                } })          
+    Object.keys(values).forEach(key => {
+        document.cookie = `${key}=${values[key]}`;
+    });
+            })          
     } else {
         // User is signed out
         window.location.replace("login.html")
