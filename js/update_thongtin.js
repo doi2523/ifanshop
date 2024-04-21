@@ -74,24 +74,26 @@ function UpdateData() {
     .then((snapshot) => {
         var usrs = [];
         snapshot.forEach((childSnapshot) => {
-                    usrs.push(childSnapshot.val());
-                });
-                // console.log("User data:", usrs);
-
-                const email_profile = usrs[0];
-                const hoten_profile = usrs[1];
-                const password_profile = usrs[5];
-                const sdt_profile = usrs[6];
-                const username_profile = usrs[7];
-                const filename_profile = usrs[4];
-
+            usrs.push(childSnapshot.val());
+        });
+            // console.log("User data:", usrs);
+            const email_profile = usrs[0];
+            const hoten_profile = usrs[1];
+            const password_profile = usrs[5];
+            const sdt_profile = usrs[6];
+            const username_profile = usrs[8];
+            const filename_profile = usrs[4];
+            const id_profile = uid;
+            const url_profile = usrs[7]
         const values = {
+            id_profile,
             email_profile,
             hoten_profile,
             password_profile,
             sdt_profile,
             username_profile,
-            filename_profile
+            filename_profile,
+            url_profile
         };
 
         Object.keys(values).forEach(key => {
@@ -105,3 +107,22 @@ document.getElementById('update-profile').addEventListener('submit', function(ev
     event.preventDefault();
     UpdateThongtin();
 });
+function UpdateURL() {
+function getCookie(name) {
+    const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+    return cookieValue ? cookieValue.pop() : '';
+}
+    // Sử dụng hàm để lấy giá trị từ cookies
+    const uidProfile = getCookie("id_profile")
+    const emailProfile = getCookie("email_profile");
+    const hotenProfile = getCookie("hoten_profile");
+    const passwordProfile = getCookie("password_profile");
+    const sdtProfile = getCookie("sdt_profile");
+    const usernameProfile = getCookie("username_profile");
+    const filenameProfile = getCookie("filename_profile");
+    const URLProfile = getCookie("url");
+    update(ref(database, "users/" + uidProfile), {
+        urlavatar : URLProfile
+        })
+}
+UpdateURL();

@@ -60,8 +60,8 @@ function GetURLAvatar(){
             img.alt = filenameProfile;
           
             //import url lên cookies
-          const values = {
-              url
+        const values = {
+            url
                 };
                 Object.keys(values).forEach(key => {
                     document.cookie = `${key}=${values[key]}`;
