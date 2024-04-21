@@ -57,7 +57,7 @@ function GetURLAvatar(){
         .then((url) => {
             const img = document.createElement('img');
             img.src = url;
-            img.alt = fileName;
+            img.alt = filenameProfile;
           
             //import url lên cookies
           const values = {
@@ -66,6 +66,7 @@ function GetURLAvatar(){
                 Object.keys(values).forEach(key => {
                     document.cookie = `${key}=${values[key]}`;
                 });
+            console.log(url)
         })
         .catch((error) => {
             // console.error('Lỗi khi lấy ảnh từ Firebase:', error);
