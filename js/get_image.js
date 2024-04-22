@@ -47,8 +47,7 @@ const passwordProfile = getCookie("password_profile");
 const sdtProfile = getCookie("sdt_profile");
 const usernameProfile = getCookie("username_profile");
 const filenameProfile = getCookie("filename_profile");
-const avatarProfile = getCookie("url_profile");
-console.log(filenameProfile)
+const avatarProfile = getCookie("url");
 
 
 function GetURLAvatar(){
@@ -56,38 +55,30 @@ function GetURLAvatar(){
     const imageRef = ref(storage, 'Avatar/' + filenameProfile);
     getDownloadURL(imageRef)
         .then((url) => {
-            // const img = document.createElement('img');
-            // img.src = url;
-            // img.alt = filenameProfile;
+            const img = document.createElement('img');
+            img.src = url;
+            img.alt = filenameProfile;
           
             //import url lên cookies
-    function updateCookieWithFileURL(fileURL) {
-    // Kiểm tra xem fileURL có tồn tại không
-    if (fileURL) {
-        // Cập nhật giá trị của cookie url_profile thành fileURL
-        document.cookie = "url_profile=" + fileURL;
-        console.log(fileURL)
-    } else {
-        console.error("Không có URL tệp được cung cấp.");
-    }
-    }
-
-    // Lấy URL của tệp từ input file
-    var fileURL = url;
-
-    // Gọi hàm để cập nhật giá trị mới cho url_profile
-            updateCookieWithFileURL(fileURL);
-            
+        const values = {
+            url
+                };
+                Object.keys(values).forEach(key => {
+                    document.cookie = `${key}=${values[key]}`;
+                });
+            console.log(url)
         })
-    .catch((error) => {
+        .catch((error) => {
             // console.error('Lỗi khi lấy ảnh từ Firebase:', error);
-    });
+        });
 }
-
-// Biến để đánh dấu xem đã gọi hàm GetURLAvatar() chưa
-var avatarProfileCalled = false;
-
-// Hàm xử lý khi trang được tải hoàn chỉnh
-window.onload = function () {
-    GetURLAvatar();
-};
+//Thêm hàm hiện tại người dùng đang hoạt động
+onAuthStateChanged(auth, (user) => {
+    if (user) { 
+        //Nếu hôatj động thì chạy funtion để lấy url avatar người dùng
+        GetURLAvatar();
+    } else {
+        // User is signed out
+        window.location.replace("login.html")
+    }
+});

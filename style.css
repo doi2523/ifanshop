@@ -40,8 +40,9 @@ a:hover {
 	line-height: 50px;
 	background: transparent;
 	z-index: 1030;
-	/* background: #7a60ff;
-	background: linear-gradient(to left, #7a60ff, #cd9ffa); */
+	background-color:#ffd1fe;
+	/* background: #7a60ff; */
+	/* background: linear-gradient(to left, #7a60ff, #cd9ffa); */
 }
 
 .navbar .active {
@@ -126,7 +127,7 @@ a:hover {
 	}
 }
 .cl a{
-	color: #007bff;
+	color: #fff;
 }
 
 .navbar .nav-link {

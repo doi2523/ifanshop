@@ -114,7 +114,7 @@ function AddLastLogout() {
 document.getElementById('logout').addEventListener('click', function(event) {
       // Ngăn chặn hành động mặc định của nút (nếu có)
         event.preventDefault();
-        printAllCookies();
+    printAllCookies();
     printAllCookies();
     deleteAllCookies();
     deleteAllCookiess();

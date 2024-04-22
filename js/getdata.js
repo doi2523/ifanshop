@@ -68,4 +68,25 @@ imageContainer.innerHTML = ''; // Xóa bỏ nội dung cũ của div trước kh
 imageContainer.appendChild(img);  
 
 
+function printAllCookies() {
+    // Tách các cookie thành mảng dựa trên dấu chấm phẩy và khoảng trắng
+    const cookiesArray = document.cookie.split('; ');
+
+    // Duyệt qua mảng các cookie và in ra từng cookie
+    cookiesArray.forEach(cookie => {
+        // Tách tên và giá trị của cookie
+        const [cookieName, cookieValue] = cookie.split('=');
+        // In ra tên và giá trị của cookie
+        console.log(`${cookieName}: ${decodeURIComponent(cookieValue)}`);
+    });
+}
+        printAllCookies();
+    // Lấy thẻ img có id là "user-avatar"
+    var userAvatar = document.getElementById("user-avatar");
+    
+    // URL mới bạn muốn thay thế
+    var newImageUrl = URLProfile;
+    
+    // Thay đổi thuộc tính src của thẻ img thành URL mới
+    userAvatar.src = newImageUrl;
 
