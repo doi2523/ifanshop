@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Menu</title>
+    <!-- Import FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Import Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <style>
+        /* Optional: Custom CSS styles */
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Your Website</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"> <a class="nav-link" href="auth.index.html">Trang chủ</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="auth.about.html">Giới thiệu</a> </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Sản phẩm<i class="fa fa-sign-out"></i>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="auth.iphone.html">iPhone</a></li>
+                            <li><a class="dropdown-item" href="auth.macbook.html">Macbook</a></li>
+                            <li><a class="dropdown-item" href="auth.ipad.html">iPad</a></li>
+                            <li><a class="dropdown-item" href="auth.accessory.html">Phụ kiện</a></li>
+                        </ul>
+                    </li>
+                                    <li class="nav-item"> <a class="nav-link" href="auth.services.html">Dịch vụ</a> </li>
+                                    <li class="nav-item"> <a class="nav-link" href="auth.giohang.html">Giỏ hàng</a> </li>
+                                    <li class="nav-item"> <a class="nav-link" href="auth.contact.html">Liên hệ</a> </li>
+                                    <li class="nav-item"> <a class="nav-link" href="auth.chat.html">Chat online</a> </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Tài khoản <i class="fa fa-sign-out"></i>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Hồ sơ</a></li>
+                            <li><a class="dropdown-item" href="#">Cài đặt</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Đăng xuất</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Import Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

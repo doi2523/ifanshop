@@ -5,7 +5,7 @@
 
 .body-style {
 	/* font-family: 'Poppins', sans-serif; */
-	font-size: 14px;
+	/* font-size: 14px; */
 	padding-left: 0;
 }
 
@@ -40,12 +40,12 @@ a:hover {
 	line-height: 50px;
 	background: transparent;
 	z-index: 1030;
-	background: #7a60ff;
-	background: linear-gradient(to left, #7a60ff, #cd9ffa);
+	/* background: #7a60ff;
+	background: linear-gradient(to left, #7a60ff, #cd9ffa); */
 }
 
 .navbar .active {
-	color: #5f0099 !important;
+	/* color: #5f0099 !important; */
 }
 
 .navbar .navbar-brand {}
@@ -56,10 +56,11 @@ a:hover {
 }
 
 .navbar .nav-item a {
-	color: #fff;
-	font-weight: 500;
+	/* color: #007bff; */
+	font-size: 15px;
+	/* font-weight: 500;
 	font-size: 14px;
-	justify-content: center;
+	justify-content: center; */
 }
 
 .navbar .nav-item a:hover {
@@ -99,7 +100,7 @@ a:hover {
 }
 
 .dropdown-menu a:hover {
-	background: linear-gradient(to left, #7a60ff, #cd9ffa);
+	/* background: linear-gradient(to left, #7a60ff, #cd9ffa); */
 }
 
 
@@ -124,7 +125,9 @@ a:hover {
 		background-color: #7a60ff;
 	}
 }
-
+.cl a{
+	color: #007bff;
+}
 
 .navbar .nav-link {
 	position: relative;
@@ -309,8 +312,9 @@ a:hover {
 	margin-bottom: 0px;
 }
 
-@media all and (max-width:991px) {
 
+
+@media all and (max-width:991px) {
 	.navbar .navbar-collapse {
 		overflow: auto;
 		background: rgb(213, 198, 221);
@@ -474,6 +478,35 @@ a:hover {
 }
 
 #btt-sigup:hover {}
+
+
+#imageContainer {
+	width: 200px;
+	background-color: #ffd1fe;
+	height: 200px;
+	border-radius: 100%;
+}
+
+.image-thumbnail {
+	width: 200px;
+	height: 200px;
+
+	/* object-fit: cover; Đảm bảo hình ảnh không bị biến dạng */
+}
+
+.avatar {
+	width: 200px;
+	height: 200px;
+	border-radius: 100%;
+	position: relative;
+	z-index: 3;
+}
+
+.imgavt img {
+	position: relative;
+	z-index: 2;
+	border-radius: 100%;
+}
 
 
 #imageContainer {
