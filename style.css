@@ -523,7 +523,7 @@ a:hover {
 	bottom: 20px;
 	right: 20px;
 	width: 350px;
-	height: 470px;
+	height: 500px;
 	background-color: #fff;
 	padding: 20px;
 	border-radius: 10px;
@@ -613,6 +613,9 @@ a:hover {
 #fullname{
 	text-decoration: underline;
 }
+.message-item{
+	padding: 10px;
+}
 .banerchatbox{
 	width: max-content;
 	height: 50px;
@@ -621,3 +624,12 @@ a:hover {
 	width: 200px;
 	height: auto;
 }
+.kengang{
+	width: 100%;
+	height: 1px;
+	background-color: #000000;
+}
+	    .legend-small {
+	    	font-size: 15px;
+	    	/* Điều chỉnh kích thước chữ tùy thích */
+	    }

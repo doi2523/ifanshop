@@ -111,6 +111,10 @@ function displayMessage(message) {
     const li = document.createElement('li');
     li.innerHTML = `<img src="${message.url}" alt="User Image" style="width: 50px; height: 50px; border-radius: 100%;"> ${message.name}: ${message.message} - ${message.time}`;
     messages.appendChild(li);
+        li.classList.add('message-item');
+        // Loại bỏ phần cuộn mặc định
+    messages.style.overflowY = 'hidden';
+    // Gọi cuộn sau một khoảng nhỏ để đảm bảo rằng kích thước của phần tử cha đã được cập nhật
+    messages.scrollTop = messages.scrollHeight;
 }
-
 GetMess();

@@ -137,7 +137,7 @@ document.getElementById('message-form').addEventListener('submit', function(even
         userid: uidProfile,
         url: URLProfile
     }).then(() => {
-        alert('Đã gửi tin nhắn thành công!');
+        // alert('Đã gửi tin nhắn thành công!');
         document.getElementById("message-input").value = "";
     }).catch((error) => {
         console.error('Error writing message to database: ', error);
@@ -159,10 +159,34 @@ function GetMess() {
     });
 }
 
+// function displayMessage(message) {
+//     const messages = document.getElementById('textchat');
+//     const li = document.createElement('li');
+//     // li.innerHTML = `<img src="${message.url}" alt="" style="width: 30px; height: 30px; border-radius: 100%;">  <br>${message.message} - ${message.time} <div class="kengang"></div>`;
+//     li.innerHTML = `
+//     <fieldset class="border p-2">
+//     <legend class="w-auto legend-small"><img src="${message.url}" alt="User Image" style="width: 40px; height: 40px; border-radius: 100%;"> ${message.name} </legend>
+//     ${message.message}<br><br>
+//     <span class="corner-text">${message.time}</span>
+//     </fieldset>
+    
+//     `
+//     messages.appendChild(li);
+//     li.classList.add('message-item');
+// }
 function displayMessage(message) {
     const messages = document.getElementById('textchat');
     const li = document.createElement('li');
-    li.innerHTML = `<img src="${message.url}" alt="User Image" style="width: 30px; height: 30px; border-radius: 100%;"> ${message.name}: ${message.message} - ${message.time}`;
+    li.innerHTML = `
+    <fieldset class="border p-2 mx-2 my-2">
+        <legend class="w-auto legend-small"><img src="${message.url}" alt="User Image"
+                style="width: 40px; height: 40px; border-radius: 100%;"> ${message.name} </legend>
+        ${message.message}<br><br>
+        <p style="margin-bottom: -18px; float: right; background-color: #fff;">${message.time}</p>
+    </fieldset>
+    <hr>
+    `
     messages.appendChild(li);
 }
+
 GetMess();
