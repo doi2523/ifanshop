@@ -154,26 +154,12 @@ function GetMess() {
     onChildAdded(databaseRef, (snapshot) => {
         const message = snapshot.val();
         displayMessage(message);
+        messages.scrollTop = messages.scrollHeight;
     }, (error) => {
         console.error("Error getting messages: ", error);
     });
 }
 
-// function displayMessage(message) {
-//     const messages = document.getElementById('textchat');
-//     const li = document.createElement('li');
-//     // li.innerHTML = `<img src="${message.url}" alt="" style="width: 30px; height: 30px; border-radius: 100%;">  <br>${message.message} - ${message.time} <div class="kengang"></div>`;
-//     li.innerHTML = `
-//     <fieldset class="border p-2">
-//     <legend class="w-auto legend-small"><img src="${message.url}" alt="User Image" style="width: 40px; height: 40px; border-radius: 100%;"> ${message.name} </legend>
-//     ${message.message}<br><br>
-//     <span class="corner-text">${message.time}</span>
-//     </fieldset>
-    
-//     `
-//     messages.appendChild(li);
-//     li.classList.add('message-item');
-// }
 function displayMessage(message) {
     const messages = document.getElementById('textchat');
     const li = document.createElement('li');

@@ -71,33 +71,12 @@ function SavaToCookies() {
                     });
                 } })  
 }
-function UpdateURL() {
-    function getCookie(name) {
-    const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
-    return cookieValue ? cookieValue.pop() : '';
-}
-
-    // Sử dụng hàm để lấy giá trị từ cookies
-    const uidProfile = getCookie("id_profile")
-    const emailProfile = getCookie("email_profile");
-    const hotenProfile = getCookie("hoten_profile");
-    const passwordProfile = getCookie("password_profile");
-    const sdtProfile = getCookie("sdt_profile");
-    const usernameProfile = getCookie("username_profile");
-    const filenameProfile = getCookie("filename_profile");
-    const URLProfile = getCookie("url");
-    // console.log(URLProfile)
-    update(ref(database, "users/" + uidProfile), {
-        urlavatar: URLProfile
-        });
-}
 
 window.onload = function() {
     onAuthStateChanged(auth, (user) => {
     if (user) { 
         SavaToCookies();
         //Nếu hôatj động thì chạy funtion để lấy url avatar người dùng
-        UpdateURL();
     } else {
         // User is signed out
         window.location.replace("login.html")
