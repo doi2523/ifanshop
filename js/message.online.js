@@ -154,7 +154,6 @@ function GetMess() {
     onChildAdded(databaseRef, (snapshot) => {
         const message = snapshot.val();
         displayMessage(message);
-        messages.scrollTop = messages.scrollHeight;
     }, (error) => {
         console.error("Error getting messages: ", error);
     });

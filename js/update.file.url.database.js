@@ -39,7 +39,7 @@ const passwordProfile = getCookie("password_profile");
 const sdtProfile = getCookie("sdt_profile");
 const usernameProfile = getCookie("username_profile");
 const filenameProfile = getCookie("filename_profile");
-const avatarProfile = getCookie("url");
+const avatarProfile = getCookie("url_profile");
 
 console.log(uidProfile)
 console.log(emailProfile);

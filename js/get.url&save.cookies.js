@@ -65,7 +65,7 @@ function GetURLAvatar(){
     // Kiểm tra xem fileURL có tồn tại không
     if (fileURL) {
         // Cập nhật giá trị của cookie url_profile thành fileURL
-        document.cookie = "url=" + fileURL;
+        document.cookie = "url_profile=" + fileURL;
         console.log(fileURL)
     } else {
         console.error("Không có URL tệp được cung cấp.");

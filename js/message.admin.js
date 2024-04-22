@@ -40,7 +40,7 @@ const passwordProfile = getCookie("password_profile");
 const sdtProfile = getCookie("sdt_profile");
 const usernameProfile = getCookie("username_profile");
 const filenameProfile = getCookie("filename_profile");
-const URLProfile = getCookie("url");    
+const URLProfile = getCookie("url_profile");    
 
 function GetName() {
     const databaseRef = ref(database); // Bạn đã quên dấu "," ở giữa "users/" và "user.uid"
