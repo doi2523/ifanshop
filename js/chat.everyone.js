@@ -86,7 +86,7 @@ document.getElementById('message-form-everyone').addEventListener('submit', func
         userid: uid
     }).then(() => {
         alert('Đã gửi tin nhắn thành công!');
-        document.getElementById("message-input").value = ""; // Sửa đổi ở đây
+        document.getElementById("message-input-everyone").value = ""; // Sửa đổi ở đây
     }).catch((error) => {
         console.error('Error writing message to database: ', error);
     });

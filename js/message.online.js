@@ -134,7 +134,8 @@ document.getElementById('message-form').addEventListener('submit', function(even
         name: hotenProfile,
         message: message,
         time: formattedDateTime,
-        userid: uidProfile
+        userid: uidProfile,
+        url: URLProfile
     }).then(() => {
         alert('Đã gửi tin nhắn thành công!');
         document.getElementById("message-input").value = "";
@@ -161,7 +162,7 @@ function GetMess() {
 function displayMessage(message) {
     const messages = document.getElementById('textchat');
     const li = document.createElement('li');
-    li.innerText = `${message.name}: ${message.message} - ${message.time}`;
+    li.innerHTML = `<img src="${message.url}" alt="User Image" style="width: 30px; height: 30px; border-radius: 100%;"> ${message.name}: ${message.message} - ${message.time}`;
     messages.appendChild(li);
 }
 GetMess();

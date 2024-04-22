@@ -114,7 +114,7 @@ function GetMess() {
 function displayMessage(message) {
     const messages = document.getElementById('textchat');
     const li = document.createElement('li');
-    li.innerHTML = `<img src="${message.url}" alt="User Image" style="width: 50px; height: 50px; border-radius: 100%;"> ${message.name}: ${message.message} - ${message.time}`;
+    li.innerHTML = `${message.time} - ${message.message} :${message.name} <img src="${message.url}" alt="User Image" style="width: 50px; height: 50px; border-radius: 100%;"> `;
     messages.appendChild(li);
 }
 
