@@ -33,10 +33,7 @@
   const firebaseApp = getApp();
 
 
-document.getElementById('update-profile').addEventListener('submit', function(event) {
-    event.preventDefault();
-    UploadAvatar();
-});
+
 function UploadAvatar() {
     const fileInput = document.getElementById('file-input');
     const file = fileInput.files[0]; // Lấy tệp từ trường input
@@ -52,6 +49,7 @@ function UploadAvatar() {
     uploadBytes(storageRef, file)
         .then((snapshot) => {
             console.log('Tải ảnh lên thành công!');
+            alert("Vui lòng chọn một tệp!")
             // setTimeout(() => {
             //     location.reload();
             // }, 2000);
@@ -60,3 +58,52 @@ function UploadAvatar() {
             console.error('Lỗi khi tải ảnh lên:', error);
         });
 }
+function GetURLAvatar() {
+        const fileInput = document.getElementById('file-input');
+    const file = fileInput.files[0]; // Lấy tệp từ trường input
+
+    if (!file) {
+        // console.log('Vui lòng chọn một tệp.');
+        alert("Vui lòng chọn một tệp!")
+        return;
+    }
+    const storage = getStorage();
+    const imageRef = ref(storage, 'Avatar/' + file.name);
+    getDownloadURL(imageRef)
+        .then((url) => {
+            // const img = document.createElement('img');
+            // img.src = url;
+            // img.alt = filenameProfile;
+          
+            //import url lên cookies
+    function updateCookieWithFileURL(fileURL) {
+    // Kiểm tra xem fileURL có tồn tại không
+    if (fileURL) {
+        // Cập nhật giá trị của cookie url_profile thành fileURL
+        document.cookie = "url_profile=" + fileURL;
+        console.log(fileURL)
+    } else {
+        console.error("Không có URL tệp được cung cấp.");
+    }
+    }
+
+    // Lấy URL của tệp từ input file
+    var fileURL = url;
+
+    // Gọi hàm để cập nhật giá trị mới cho url_profile
+    updateCookieWithFileURL(fileURL);
+            
+        })
+    .catch((error) => {
+            // console.error('Lỗi khi lấy ảnh từ Firebase:', error);
+    });
+}
+
+document.getElementById('file-input').addEventListener('change', function () {
+    // UploadAvatar();
+    // GetURLAvatar();
+});
+document.getElementById('update-profile').addEventListener('submit', function (event) {
+    event.preventDefault();
+    UploadAvatar();
+});

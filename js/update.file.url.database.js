@@ -48,24 +48,24 @@ console.log(passwordProfile);
 console.log(sdtProfile);
 console.log(usernameProfile);
 console.log(filenameProfile);
-console.log(URLProfile)
+console.log(avatarProfile)
 
-// Lắng nghe sự kiện submit trên form có id là 'update-profile'
-document.getElementById('update-profile').addEventListener('submit', function(event) {
-    // Lấy giá trị của input file
-    var fileInput = document.getElementById('file-input');
+// // Lắng nghe sự kiện submit trên form có id là 'update-profile'
+// document.getElementById('update-profile').addEventListener('submit', function(event) {
+//     // Lấy giá trị của input file
+//     var fileInput = document.getElementById('file-input');
 
-    // Kiểm tra xem có file nào được chọn hay không
-    if (fileInput.files.length > 0) {
-        // Nếu có file được chọn, ngăn chặn hành vi mặc định của sự kiện
-        event.preventDefault();
-        // Gọi hàm UpdateThongtin()
-        UpdateThongtin();
-    } else {
-        // Nếu không có file được chọn, cho phép hành vi mặc định của sự kiện xảy ra
-        // Điều này sẽ gửi form như bình thường (nếu bạn muốn)
-    }
-});
+//     // Kiểm tra xem có file nào được chọn hay không
+//     if (fileInput.files.length > 0) {
+//         // Nếu có file được chọn, ngăn chặn hành vi mặc định của sự kiện
+//         event.preventDefault();
+//         // Gọi hàm UpdateThongtin()
+//         UpdateThongtin();
+//     } else {
+//         // Nếu không có file được chọn, cho phép hành vi mặc định của sự kiện xảy ra
+//         // Điều này sẽ gửi form như bình thường (nếu bạn muốn)
+//     }
+// });
 
 function UpdateThongtin(){
         const auth = getAuth();
@@ -77,7 +77,7 @@ function UpdateThongtin(){
             urlavatar: avatarProfile
         })
         .then(() => {
-            alert("Thông tin đã được cập nhật thành công! Vui lòng tải lại trang");
+            // alert("Thông tin đã được cập nhật thành công! Vui lòng tải lại trang");
             setTimeout(() => {
                 window.location.reload();
             }, 2000);
@@ -87,3 +87,4 @@ function UpdateThongtin(){
             alert("Đã xảy ra lỗi khi cập nhật thông tin: " + error.message);
         });
 }
+UpdateThongtin();

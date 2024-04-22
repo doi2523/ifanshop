@@ -91,7 +91,7 @@ document.getElementById('file-input').addEventListener('change', function () {
         if (fileName) {
             // Cập nhật giá trị của cookie filename_profile thành fileName
             document.cookie = "filename_profile=" + fileName;
-            console.log("ok")
+            console.log(fileName)
         } else {
             console.error("Không có tên tệp được cung cấp.");
         }

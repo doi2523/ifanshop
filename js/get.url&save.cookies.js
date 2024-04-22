@@ -51,6 +51,7 @@ const avatarProfile = getCookie("url_profile");
 console.log(filenameProfile)
 
 
+
 function GetURLAvatar(){
     const storage = getStorage();
     const imageRef = ref(storage, 'Avatar/' + filenameProfile);
@@ -71,12 +72,12 @@ function GetURLAvatar(){
         console.error("Không có URL tệp được cung cấp.");
     }
     }
-
+    
     // Lấy URL của tệp từ input file
     var fileURL = url;
 
     // Gọi hàm để cập nhật giá trị mới cho url_profile
-            updateCookieWithFileURL(fileURL);
+    updateCookieWithFileURL(fileURL);
             
         })
     .catch((error) => {
@@ -87,7 +88,28 @@ function GetURLAvatar(){
 // Biến để đánh dấu xem đã gọi hàm GetURLAvatar() chưa
 var avatarProfileCalled = false;
 
-// Hàm xử lý khi trang được tải hoàn chỉnh
-window.onload = function () {
-    GetURLAvatar();
-};
+// Hàm để lấy giá trị của một cookie
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+// Hàm để so sánh giá trị mới của cookie với giá trị trước đó
+function checkForCookieChange(previousValue) {
+    const currentValue = getCookie("url_profile");
+    if (currentValue !== previousValue) {
+        // Nếu giá trị mới khác với giá trị trước đó, chạy hàm UpdateThongtin()
+        UpdateThongtin();
+        // Cập nhật giá trị trước đó với giá trị mới để so sánh trong lần kiểm tra tiếp theo
+        previousValue = currentValue;
+    }
+}
+
+// Lưu trữ giá trị ban đầu của cookie "url_profile"
+let previousAvatarProfile = getCookie("url_profile");
+
+// Kiểm tra định kỳ xem giá trị của cookie "url_profile" có thay đổi không
+setInterval(function() {
+    checkForCookieChange(previousAvatarProfile);
+}, 1000); // Kiểm tra mỗi giây
