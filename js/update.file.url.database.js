@@ -1,0 +1,89 @@
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
+import { getDatabase, set, ref, update, child, get, remove } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
+import { getAuth, deleteUser } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: "AIzaSyCnZzlFSm-61oaNvO2TTJyef2PMc6iU8DY",
+        authDomain: "user-inifanshop.firebaseapp.com",
+        databaseURL: "https://user-inifanshop-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "user-inifanshop",
+        storageBucket: "user-inifanshop.appspot.com",
+        messagingSenderId: "104690936940",
+        appId: "1:104690936940:web:5398fbb0edae0c7a76bc49",
+        measurementId: "G-NLBDR28748"
+    };
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const database = getDatabase(app);
+    const auth = getAuth();
+const user = auth.currentUser;
+    
+  //Function lấy dữ liệu từ cookies
+function getCookie(name) {
+    const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+    return cookieValue ? cookieValue.pop() : '';
+}
+
+// Sử dụng hàm để lấy giá trị từ cookies
+const uidProfile = getCookie("id_profile")
+const emailProfile = getCookie("email_profile");
+const hotenProfile = getCookie("hoten_profile");
+const passwordProfile = getCookie("password_profile");
+const sdtProfile = getCookie("sdt_profile");
+const usernameProfile = getCookie("username_profile");
+const filenameProfile = getCookie("filename_profile");
+const avatarProfile = getCookie("url");
+
+console.log(uidProfile)
+console.log(emailProfile);
+console.log(hotenProfile);
+console.log(passwordProfile);
+console.log(sdtProfile);
+console.log(usernameProfile);
+console.log(filenameProfile);
+console.log(URLProfile)
+
+// Lắng nghe sự kiện submit trên form có id là 'update-profile'
+document.getElementById('update-profile').addEventListener('submit', function(event) {
+    // Lấy giá trị của input file
+    var fileInput = document.getElementById('file-input');
+
+    // Kiểm tra xem có file nào được chọn hay không
+    if (fileInput.files.length > 0) {
+        // Nếu có file được chọn, ngăn chặn hành vi mặc định của sự kiện
+        event.preventDefault();
+        // Gọi hàm UpdateThongtin()
+        UpdateThongtin();
+    } else {
+        // Nếu không có file được chọn, cho phép hành vi mặc định của sự kiện xảy ra
+        // Điều này sẽ gửi form như bình thường (nếu bạn muốn)
+    }
+});
+
+function UpdateThongtin(){
+        const auth = getAuth();
+        const user = auth.currentUser;
+        const uid = user.uid;
+        const database = getDatabase(app);
+    update(ref(database, "users/" + uid), {
+            nameavatar: filenameProfile,
+            urlavatar: avatarProfile
+        })
+        .then(() => {
+            alert("Thông tin đã được cập nhật thành công! Vui lòng tải lại trang");
+            setTimeout(() => {
+                window.location.reload();
+            }, 2000);
+        })
+            
+        .catch((error) => {
+            alert("Đã xảy ra lỗi khi cập nhật thông tin: " + error.message);
+        });
+}

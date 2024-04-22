@@ -617,3 +617,7 @@ a:hover {
 	width: max-content;
 	height: 50px;
 }
+.form-group img{
+	width: 200px;
+	height: auto;
+}

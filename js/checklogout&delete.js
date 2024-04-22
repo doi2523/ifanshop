@@ -78,7 +78,8 @@ function AddLastLogout() {
         });
 }
 logout.addEventListener('click', (e) => {
-    deleteAllCookies();
+    
     AddLastLogout();
     Logout();
+    deleteAllCookies();
 });

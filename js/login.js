@@ -89,7 +89,7 @@ function SavaToCookies() {
     const databaseRef = ref(database);
     const userRef = child(databaseRef, "users/" + user.uid);
     get(userRef)
-.then((snapshot) => {
+    .then((snapshot) => {
     if (snapshot.exists()) {
         const userData = snapshot.val();
 
@@ -127,7 +127,7 @@ function SavaToCookies() {
           url_profile
         };
         Object.keys(values).forEach(key => {
-document.cookie = `${key}=${values[key]}`;
+          document.cookie = `${key}=${values[key]}`;
         });
     } })  
 }

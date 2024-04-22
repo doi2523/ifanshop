@@ -16,7 +16,6 @@
         integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -124,7 +123,7 @@
                                                     </h4>
                                                     <div class="mt-2">
                                                         <!-- Input ẩn để chọn file -->
-                                                        <input type="file" id="file-input" accept=".png, .jpeg, .jpg" style="display: none; "
+                                                        <input type="file" id="file-input" style="display: none;"
                                                             accept="image/*">
                                                         <!-- Nút "Change Photo" -->
                                                         <button class="btn btn-primary" type="button"
@@ -207,10 +206,10 @@
                                                                             <input required for="email" id="email"
                                                                                 class="form-control">
                                                                             <!-- <div class="input-group-append">
-                                  <button id="xacminhemail" style="background-color: #007bff; color: #fff;" class="btn btn-outline-secondary" type="button">
-                                    Xác minh Email
-                                  </button>
-                                </div> -->
+                                                                                              <button id="xacminhemail" style="background-color: #007bff; color: #fff;" class="btn btn-outline-secondary" type="button">
+                                                                                                Xác minh Email
+                                                                                              </button>
+                                                                                            </div> -->
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -240,16 +239,16 @@
                                                     <div class="row">
                                                         <div class="col">
                                                             <div class="form-group">
-                                                                <label>Tên file avatar:</label><br>
-                                                                <label id="name-avatar" class="form-control"></label>
+                                                                <label>Preview:</label><br>
+                                                                <img id="preview" src="" alt="">
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="row hide">
+                                                    <div class="row">
                                                         <div class="col">
                                                             <div class="form-group">
-                                                                <label>Đường link:</label><br>
-                                                                <label class="form-control"></label>
+                                                                <label>Tên file avatar:</label><br>
+                                                                <label id="name-avatar" class="form-control"></label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -416,9 +415,14 @@
 <script src="js/hide_passwd.js"></script>
 <!-- 2 module này kiểm tra xem có đăng nhập không nếu có thì lấy dữu liệu và lưu vào cookies -->
 <script type="module" src="js/checklogin.js"></script>
-<script type="module" src="js/get_image.js"></script>
-<script type="module" src="js/upload_imgavt.js"></script>
-<script type="module" src="js/update_thongtin.js"></script>
+<script type="module" src="js/get.url&save.cookies.js"></script>
+
+<script type="module" src="js/checklogout&delete.js"></script>
+
+<script type="module" src="js/upload.img.to.database.js"></script>
+<script type="module" src="js/update.file.url.database.js"></script>
+<!-- <script type="module" src="js/update_thongtin.js"></script> -->
+<script type="module" src="js/upload.img.user.js"></script>
 <script type="module" src="js/message.online.js"></script>
 <script src="js/getdata.js"></script>
 

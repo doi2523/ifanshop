@@ -15,14 +15,14 @@ const filenameProfile = getCookie("filename_profile");
 const URLProfile = getCookie("url");
 
 // Sử dụng các giá trị đã lấy được từ cookies
-// console.log(uidProfile)
-// console.log(emailProfile);
-// console.log(hotenProfile);
-// console.log(passwordProfile);
-// console.log(sdtProfile);
-// console.log(usernameProfile);
-// console.log(filenameProfile);
-// console.log(URLProfile)
+console.log(uidProfile)
+console.log(emailProfile);
+console.log(hotenProfile);
+console.log(passwordProfile);
+console.log(sdtProfile);
+console.log(usernameProfile);
+console.log(filenameProfile);
+console.log(URLProfile)
 
 
 const usernameElement = document.getElementById('txt-username');
