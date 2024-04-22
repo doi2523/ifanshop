@@ -114,7 +114,7 @@ function SavaToCookies() {
         console.log("Tên avatar:", filename_profile);
         console.log("URL avatar:", url_profile);
         console.log("UID:", id_profile);
-      console.log("Username:", username_profile);
+        console.log("Username:", username_profile);
       
         const values = {
           id_profile,

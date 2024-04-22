@@ -36,18 +36,43 @@ function deleteAllCookies() {
     cookiesToDelete.forEach(cookieName => {
         // Thiết lập thời gian hết hạn của cookie thành thời điểm trước đó
         document.cookie = `${cookieName}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;`;
-        // console.log(`Đã xóa cookie ${cookieName}`);
+        console.log(`Đã xóa cookie ${cookieName}`);
     });
 }
 
+function deleteAllCookiess() {
+    // Tách các cookie thành mảng dựa trên dấu chấm phẩy và khoảng trắng
+    const cookiesArray = document.cookie.split('; ');
+
+    // Duyệt qua mảng các cookie và thiết lập thời gian hết hạn của từng cookie
+    cookiesArray.forEach(cookie => {
+        // Tách tên của cookie
+        const cookieName = cookie.split('=')[0];
+        // Thiết lập thời gian hết hạn của cookie thành thời điểm trước đó
+        document.cookie = `${cookieName}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;`;
+    });
+}
+function printAllCookies() {
+    // Tách các cookie thành mảng dựa trên dấu chấm phẩy và khoảng trắng
+    const cookiesArray = document.cookie.split('; ');
+
+    // Duyệt qua mảng các cookie và in ra từng cookie
+    cookiesArray.forEach(cookie => {
+        // Tách tên và giá trị của cookie
+        const [cookieName, cookieValue] = cookie.split('=');
+        // In ra tên và giá trị của cookie
+        console.log(`${cookieName}: ${decodeURIComponent(cookieValue)}`);
+    });
+}
+
+
 function Logout() {
     signOut(auth).then(() => {
-        alert("Đăng xuất thành công!");
+        // alert("Đăng xuất thành công!");
         // Sign-out successful.
         // setTimeout(function() {
         //     window.location.href = 'login.html';
         // }, 2000);
-        deleteAllCookies();
     }).catch((error) => {
         // Xử lý lỗi khi đăng xuất
         console.error('Lỗi khi đăng xuất:', error);
@@ -65,19 +90,35 @@ function AddLastLogout() {
         minute: '2-digit',
         second: '2-digit'
     });
-    let updates = {};
     const user = auth.currentUser;
-    updates['/users/' + user.uid + '/last_logout'] = formattedDateTime;
+    update(ref(database, "users/" + user.uid), {
+        last_logout: formattedDateTime
+    })
+    
+    // updates['/users/' + user.uid + '/last_logout'] = formattedDateTime;
 
-    update(ref(database), updates)
-        .then(() => {
-            console.log('Đã cập nhật thời gian đăng nhập cuối cùng thành công.');
-        })
-        .catch((error) => {
-            console.error('Lỗi khi cập nhật thời gian đăng nhập cuối cùng:', error);
-        });
+    // update(ref(database), updates)
+    //     .then(() => {
+    //         console.log('Đã cập nhật thời gian đăng nhập cuối cùng thành công.');
+    //     })
+    //     .catch((error) => {
+    //         console.error('Lỗi khi cập nhật thời gian đăng nhập cuối cùng:', error);
+    //     });
 }
-logout.addEventListener('click', (e) => {
-    AddLastLogout();
+// logout.addEventListener('click', (e) => {
+//     printAllCookies();
+//     deleteAllCookies();
+//     // deleteAllCookies();
+//     // Logout();
+// });
+document.getElementById('logout').addEventListener('click', function(event) {
+      // Ngăn chặn hành động mặc định của nút (nếu có)
+        event.preventDefault();
+        printAllCookies();
+    printAllCookies();
+    deleteAllCookies();
+    deleteAllCookiess();
     Logout();
-});
+      alert("Bạn đã đăng xuất thành công!");
+      // Ví dụ: Redirect hoặc thực hiện các thao tác đăng xuất khác
+    });
