@@ -47,38 +47,38 @@ const passwordProfile = getCookie("password_profile");
 const sdtProfile = getCookie("sdt_profile");
 const usernameProfile = getCookie("username_profile");
 const filenameProfile = getCookie("filename_profile");
-const avatarProfile = getCookie("url");
+const avatarProfile = getCookie("url_profile");
 
 
-function GetURLAvatar(){
-    const storage = getStorage();
-    const imageRef = ref(storage, 'Avatar/' + filenameProfile);
-    getDownloadURL(imageRef)
-        .then((url) => {
-            const img = document.createElement('img');
-            img.src = url;
-            img.alt = filenameProfile;
+// function GetURLAvatar(){
+//     const storage = getStorage();
+//     const imageRef = ref(storage, 'Avatar/' + filenameProfile);
+//     getDownloadURL(imageRef)
+//         .then((url) => {
+//             const img = document.createElement('img');
+//             img.src = url;
+//             img.alt = filenameProfile;
           
-            //import url lên cookies
-        const values = {
-            url
-                };
-                Object.keys(values).forEach(key => {
-                    document.cookie = `${key}=${values[key]}`;
-                });
-            console.log(url)
-        })
-        .catch((error) => {
-            // console.error('Lỗi khi lấy ảnh từ Firebase:', error);
-        });
-}
-//Thêm hàm hiện tại người dùng đang hoạt động
-onAuthStateChanged(auth, (user) => {
-    if (user) { 
-        //Nếu hôatj động thì chạy funtion để lấy url avatar người dùng
-        GetURLAvatar();
-    } else {
-        // User is signed out
-        window.location.replace("login.html")
-    }
-});
+//             //import url lên cookies
+//         const values = {
+//             url_profile
+//                 };
+//                 Object.keys(values).forEach(key => {
+//                     document.cookie = `${key}=${values[key]}`;
+//                 });
+//             console.log(url)
+//         })
+//         .catch((error) => {
+//             // console.error('Lỗi khi lấy ảnh từ Firebase:', error);
+//         });
+// }
+// //Thêm hàm hiện tại người dùng đang hoạt động
+// onAuthStateChanged(auth, (user) => {
+//     if (user) { 
+//         //Nếu hôatj động thì chạy funtion để lấy url avatar người dùng
+//         GetURLAvatar();
+//     } else {
+//         // User is signed out
+//         window.location.replace("login.html")
+//     }
+// });

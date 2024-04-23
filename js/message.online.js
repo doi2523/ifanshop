@@ -39,7 +39,7 @@ function getCookie(name) {
     const sdtProfile = getCookie("sdt_profile");
     const usernameProfile = getCookie("username_profile");
     const filenameProfile = getCookie("filename_profile");
-    const URLProfile = getCookie("url");
+    const URLProfile = getCookie("url_profile");
 
     // Sử dụng các giá trị đã lấy được từ cookies
     // console.log(emailProfile);

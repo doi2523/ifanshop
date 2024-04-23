@@ -90,7 +90,7 @@ function UpdateURL() {
     const sdtProfile = getCookie("sdt_profile");
     const usernameProfile = getCookie("username_profile");
     const filenameProfile = getCookie("filename_profile");
-    const URLProfile = getCookie("url");
+    const URLProfile = getCookie("url_profile");
     update(ref(database, "users/" + uidProfile), {
         urlavatar: URLProfile
     })

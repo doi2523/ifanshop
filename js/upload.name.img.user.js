@@ -61,7 +61,6 @@ document.getElementById('file-input').addEventListener('change', function () {
         loadingProgress.style.width = '100%';
         loadingProgress.innerHTML = '100%';
                     // Hiển thị thông báo thành công
-    alert('Tải lên thành công!');
                     // Ẩn thanh loading
                     // loadingBar.style.display = 'none';
 
@@ -86,12 +85,14 @@ document.getElementById('file-input').addEventListener('change', function () {
         }
 
 
+    //Cập nhật giá trị của tên file trong cookies
     function updateCookieWithFileName(fileName) {
         // Kiểm tra xem fileName có tồn tại không
         if (fileName) {
             // Cập nhật giá trị của cookie filename_profile thành fileName
             document.cookie = "filename_profile=" + fileName;
             console.log(fileName)
+            // alert('Tải lên thành công!');
         } else {
             console.error("Không có tên tệp được cung cấp.");
         }
@@ -109,6 +110,7 @@ document.getElementById('file-input').addEventListener('change', function () {
         .then(() => {
             // Sau khi cập nhật thành công, gọi hàm để cập nhật giao diện người dùng
             updateLabel(fileName);
+            window.location.reload();
         })
         .catch((error) => {
             console.error("Error updating user data:", error);
@@ -117,3 +119,4 @@ document.getElementById('file-input').addEventListener('change', function () {
         }
     }, 500);
 });
+

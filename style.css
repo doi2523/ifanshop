@@ -481,13 +481,6 @@ a:hover {
 #btt-sigup:hover {}
 
 
-#imageContainer {
-	width: 200px;
-	background-color: #ffd1fe;
-	height: 200px;
-	border-radius: 100%;
-}
-
 .image-thumbnail {
 	width: 200px;
 	height: 200px;
@@ -512,7 +505,6 @@ a:hover {
 
 #imageContainer {
 	width: 200px;
-	background-color: #ffd1fe;
 	height: 200px;
 	border-radius: 100%;
 }

@@ -29,7 +29,6 @@ function deleteAllCookies() {
         "sdt_profile",
         "username_profile",
         "filename_profile",
-        "url",
         "url_profile",
     ];
     // console.log(cookiesToDelete);
@@ -115,9 +114,9 @@ document.getElementById('logout').addEventListener('click', function(event) {
       // Ngăn chặn hành động mặc định của nút (nếu có)
         event.preventDefault();
     printAllCookies();
-    printAllCookies();
     deleteAllCookies();
     deleteAllCookiess();
+    AddLastLogout();
     Logout();
       alert("Bạn đã đăng xuất thành công!");
       // Ví dụ: Redirect hoặc thực hiện các thao tác đăng xuất khác

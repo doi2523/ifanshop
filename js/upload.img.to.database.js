@@ -40,7 +40,7 @@ function UploadAvatar() {
 
     if (!file) {
         // console.log('Vui lòng chọn một tệp.');
-        alert("Vui lòng chọn một tệp!")
+        // alert("Vui lòng chọn một tệp!")
         return;
     }
 
@@ -49,7 +49,6 @@ function UploadAvatar() {
     uploadBytes(storageRef, file)
         .then((snapshot) => {
             console.log('Tải ảnh lên thành công!');
-            alert("Vui lòng chọn một tệp!")
             // setTimeout(() => {
             //     location.reload();
             // }, 2000);
@@ -59,12 +58,12 @@ function UploadAvatar() {
         });
 }
 function GetURLAvatar() {
-        const fileInput = document.getElementById('file-input');
+    const fileInput = document.getElementById('file-input');
     const file = fileInput.files[0]; // Lấy tệp từ trường input
 
     if (!file) {
         // console.log('Vui lòng chọn một tệp.');
-        alert("Vui lòng chọn một tệp!")
+        // alert("Vui lòng chọn một tệp!")
         return;
     }
     const storage = getStorage();
@@ -76,16 +75,24 @@ function GetURLAvatar() {
             // img.alt = filenameProfile;
           
             //import url lên cookies
-    function updateCookieWithFileURL(fileURL) {
-    // Kiểm tra xem fileURL có tồn tại không
-    if (fileURL) {
-        // Cập nhật giá trị của cookie url_profile thành fileURL
-        document.cookie = "url_profile=" + fileURL;
-        console.log(fileURL)
-    } else {
-        console.error("Không có URL tệp được cung cấp.");
+    //Cập nhật giá trị của tên file trong cookies
+    function updateCookieWithFileName(URLfile) {
+        // Kiểm tra xem fileName có tồn tại không
+        if (fileName) {
+            // Cập nhật giá trị của cookie filename_profile thành fileName
+            document.cookie = "url_profile=" + URLfile;
+            console.log(URLfile)
+            window.location.reload();
+        } else {
+            console.error("Không có tên tệp được cung cấp.");
+        }
     }
-    }
+    // Lấy tên của tệp từ input file
+    var URLfile = url;
+    // Gọi hàm để cập nhật giá trị mới cho filename_profile
+            updateCookieWithFileName(URLfile);
+            
+
 
     // Lấy URL của tệp từ input file
     var fileURL = url;
@@ -100,10 +107,10 @@ function GetURLAvatar() {
 }
 
 document.getElementById('file-input').addEventListener('change', function () {
-    // UploadAvatar();
+    UploadAvatar();
     // GetURLAvatar();
 });
-document.getElementById('update-profile').addEventListener('submit', function (event) {
-    event.preventDefault();
-    UploadAvatar();
-});
+// document.getElementById('update-profile').addEventListener('submit', function (event) {
+//     event.preventDefault();
+//     UploadAvatar();
+// });

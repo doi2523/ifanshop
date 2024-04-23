@@ -33,6 +33,9 @@
   const firebaseApp = getApp();
 
 
+
+
+
   //Function lấy dữ liệu từ cookies
 function getCookie(name) {
     const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
@@ -48,13 +51,27 @@ const sdtProfile = getCookie("sdt_profile");
 const usernameProfile = getCookie("username_profile");
 const filenameProfile = getCookie("filename_profile");
 const avatarProfile = getCookie("url_profile");
-console.log(filenameProfile)
 
+console.log(uidProfile)
+console.log(emailProfile);
+console.log(hotenProfile);
+console.log(passwordProfile);
+console.log(sdtProfile);
+console.log(usernameProfile);
+console.log(filenameProfile);
+console.log(avatarProfile)
 
 
 function GetURLAvatar(){
     const storage = getStorage();
     const imageRef = ref(storage, 'Avatar/' + filenameProfile);
+        // Lấy tham chiếu đến nút "label" trong HTML
+        const urllabel = document.getElementById("url-avatar");
+                    
+        // Function để cập nhật giao diện người dùng với thông tin mới
+        function updateLabel(newName) {
+            urllabel.textContent = newName;
+        }
     getDownloadURL(imageRef)
         .then((url) => {
             // const img = document.createElement('img');
@@ -67,15 +84,14 @@ function GetURLAvatar(){
     if (fileURL) {
         // Cập nhật giá trị của cookie url_profile thành fileURL
         document.cookie = "url_profile=" + fileURL;
-        console.log(fileURL)
+        // console.log(fileURL)
+        updateLabel(fileURL); 
     } else {
         console.error("Không có URL tệp được cung cấp.");
     }
     }
-    
     // Lấy URL của tệp từ input file
     var fileURL = url;
-
     // Gọi hàm để cập nhật giá trị mới cho url_profile
     updateCookieWithFileURL(fileURL);
             
@@ -84,32 +100,17 @@ function GetURLAvatar(){
             // console.error('Lỗi khi lấy ảnh từ Firebase:', error);
     });
 }
+// Gọi hàm GetURLAvatar() để nó chạy liên tục
+GetURLAvatar(); // Thực hiện mỗi giây (có thể điều chỉnh thời gian theo nhu cầu của bạn)
+function printAllCookies() {
+    // Tách các cookie thành mảng dựa trên dấu chấm phẩy và khoảng trắng
+    const cookiesArray = document.cookie.split('; ');
 
-// Biến để đánh dấu xem đã gọi hàm GetURLAvatar() chưa
-var avatarProfileCalled = false;
-
-// Hàm để lấy giá trị của một cookie
-function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
+    // Duyệt qua mảng các cookie và in ra từng cookie
+    cookiesArray.forEach(cookie => {
+        // Tách tên và giá trị của cookie
+        const [cookieName, cookieValue] = cookie.split('=');
+        // In ra tên và giá trị của cookie
+        console.log(`${cookieName}: ${decodeURIComponent(cookieValue)}`);
+    });
 }
-
-// Hàm để so sánh giá trị mới của cookie với giá trị trước đó
-function checkForCookieChange(previousValue) {
-    const currentValue = getCookie("url_profile");
-    if (currentValue !== previousValue) {
-        // Nếu giá trị mới khác với giá trị trước đó, chạy hàm UpdateThongtin()
-        UpdateThongtin();
-        // Cập nhật giá trị trước đó với giá trị mới để so sánh trong lần kiểm tra tiếp theo
-        previousValue = currentValue;
-    }
-}
-
-// Lưu trữ giá trị ban đầu của cookie "url_profile"
-let previousAvatarProfile = getCookie("url_profile");
-
-// Kiểm tra định kỳ xem giá trị của cookie "url_profile" có thay đổi không
-setInterval(function() {
-    checkForCookieChange(previousAvatarProfile);
-}, 1000); // Kiểm tra mỗi giây

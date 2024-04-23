@@ -122,7 +122,7 @@ function UpdateURL() {
     const sdtProfile = getCookie("sdt_profile");
     const usernameProfile = getCookie("username_profile");
     const filenameProfile = getCookie("filename_profile");
-    const URLProfile = getCookie("url");
+    const URLProfile = getCookie("url_profile");
         const user = auth.currentUser;
         const database = getDatabase(app);
     update(ref(database, "users/" + uidProfile), {

@@ -36,6 +36,7 @@ const emaill = document.getElementById('email');
 const passwd = document.getElementById('password');
 const hotenn = document.getElementById('hoten');
 const sdtt = document.getElementById('sdt');
+const urlavatar = document.getElementById('url-avatar');
 // Gán giá trị cho phần tử
 uidd.textContent = uidProfile;
 usernm.textContent= usernameProfile;
@@ -43,6 +44,7 @@ emaill.textContent= emailProfile;
 passwd.textContent= passwordProfile;
 hotenn.textContent= hotenProfile;
 sdtt.textContent = sdtProfile;
+urlavatar.textContent = URLProfile;
 
 
 
@@ -54,6 +56,7 @@ document.getElementById("password").value = passwordProfile;
 document.getElementById("hoten").value = hotenProfile;
 document.getElementById("sdt").value = sdtProfile;
 
+function AddAvatar() {
     //Phương thức thêm ảnh vào trang thông qua url đã lấy từ cookie
 const img = document.createElement('img');
 
@@ -66,7 +69,8 @@ img.classList.add('image-thumbnail');
 const imageContainer = document.getElementById('imageContainer');
 imageContainer.innerHTML = ''; // Xóa bỏ nội dung cũ của div trước khi chèn mới
 imageContainer.appendChild(img);  
-
+}
+AddAvatar();
 
 function printAllCookies() {
     // Tách các cookie thành mảng dựa trên dấu chấm phẩy và khoảng trắng
