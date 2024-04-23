@@ -163,12 +163,7 @@
                               </div>
 
                               <div class="row">
-                                <!-- <div class="col">
-                            <div class="form-group">
-                              <label>Full Name</label>
-                              <input id="fullname" class="form-control" type="text" name="fullname">
-                            </div>
-                          </div> -->
+                              
                                 <div class="col">
                                   <div class="form-group">
                                     <label>Username:</label><br>
@@ -176,14 +171,7 @@
                                   </div>
                                 </div>
                               </div>
-                              <!-- <div class="row">
-                          <div class="col">
-                            <div class="form-group">
-                              <label>Email</label><br>
-                              <label for="email" id="email" class="form-control"></label>
-                            </div>
-                          </div>
-                        </div> -->
+                             
 
                               <div class="row">
                                 <div class="col">
@@ -203,60 +191,13 @@
                                 </div>
                               </div>
 
-                              <div class="row hide">
-                                <div class="col">
-                                  <div class="form-group">
-                                    <label>Password</label><br>
-                                    <label for="password" id="password" class="form-control"></label>
-                                    <!-- <div class="input-group">
-                                <input class="form-control" type="password" id="password" name="password" required placeholder="--------">
-                                <div class="input-group-append">
-                                  <button class="btn btn-outline-secondary" type="button" id="togglePassword">
-                                    <i class="fas fa-eye-slash"></i>
-                                  </button>
-                                </div>
-                              </div> -->
-                                  </div>
-                                </div>
-                              </div>
-                              <script>
-                                const togglePasswordButton = document.getElementById('togglePassword');
-                                const passwordInput = document.getElementById('password');
-
-                                togglePasswordButton.addEventListener('click', function () {
-                                  const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-                                  passwordInput.setAttribute('type', type);
-
-                                  // Thay đổi icon giữa 'eye' và 'eye-slash'
-                                  this.querySelector('i').classList.toggle('fa-eye');
-                                  this.querySelector('i').classList.toggle('fa-eye-slash');
-                                });
-
-                              </script>
-                              <div class="row hide">
-                                <div class="col">
-                                  <div class="form-group">
-                                    <label>Tên file avatar:</label><br>
-                                    <label id="name-avatar" class="form-control"></label>
-                                  </div>
-                                </div>
-                              </div>
-                              <!-- <div class="row">
-                          <div class="col mb-3">
-                            <div class="form-group">
-                              <label>About</label>
-                              <textarea class="form-control" rows="5" placeholder="My Bio"></textarea>
-                            </div>
-                          </div>
-                        </div> -->
+                              
+                              
+                              
                             </div>
                           </div>
 
-                          <!-- <div class="row">
-                      <div class="col d-flex justify-content-end">
-                        <button class="btn btn-primary" type="submit">Save Changes</button>
-                      </div>
-                    </div> -->
+                        
                         </form>
 
                       </div>
@@ -266,55 +207,28 @@
               </div>
             </div>
 
-            <div class="col-12 col-md-3 mb-3">
-              <div class="card mb-3">
-                <div class="card-body">
-                  <div class="px-xl-3">
-                    <button id="logout" class="btn btn-primary">
-                      <i class="fa fa-sign-out"></i>
-                      <span>Đăng xuất</span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-body">
-                  <h6 class="card-title font-weight-bold">Support</h6>
-                  <p class="card-text">Get fast, free help from our friendly assistants.</p>
-                  <button type="button" class="btn btn-primary">Contact Us</button>
-                </div>
-              </div>
-            </div>
+                        <div class="col-12 col-md-3 mb-3">
+                          <div class="card">
+                            <div class="card-body">
+                              <h6 class="card-title font-weight-bold">Mua hàng</h6>
+                              <p class="card-text">Ưu đãi trả góp 0%, miễn phí chuyển đổi cho iPhone 15 series tại iFanShop</p>
+                              <button type="button" class="btn btn-primary"><a href="auth.iphone.html">Mua ngay</a></button>
+                            </div>
+                          </div>
+                          <div class="card">
+                            <div class="card-body">
+                              <h6 class="card-title font-weight-bold">Hỗ trợ</h6>
+                              <p class="card-text">Nhận trợ giúp nhanh chóng, miễn phí từ các trợ lý thân thiện của chúng tôi.</p>
+                              <button type="button" class="btn btn-primary"><a href="auth.contact.html">Liên hệ chúng tôi</a></button>
+                            </div>
+                          </div>
+                        </div>
           </div>
 
         </div>
       </div>
     </div>
   </div>
-
-  <!-- <div class="container">
-  <div class="container mt-3">
-    <form id="profile_user">
-      <div>
-          <label for="uid">UID:</label>
-          <input type="text" id="uid" name="uid" required>
-      </div>
-      <div>
-          <label for="Username">Username:</label>
-          <input type="text" id="username" name="username" required>
-      </div>
-      <div>
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-      </div>
-      <div>
-          <label for="Password">Password:</label>
-          <input type="Password" id="password" name="Password" required>
-      </div>
-  </form>
-</div>
-</div> -->
-
   <div class="container">
     <footer class="py-5">
       <div class="row">
@@ -440,7 +354,7 @@
 <script type="module" src="js/checklogin.js"></script>
 <script type="module" src="js/get_image.js"></script>
 <!-- Module để đăng xuất người dùng và xoá cookies tránh bại lộ -->
-<script src="js/getdata.js"></script>
+<script src="js/import/import.data.userpage.js"></script>
 <script type="module" src="js/message.online.js"></script>
 
 </html>

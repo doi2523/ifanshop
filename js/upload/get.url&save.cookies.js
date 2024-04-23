@@ -102,15 +102,3 @@ function GetURLAvatar(){
 }
 // Gọi hàm GetURLAvatar() để nó chạy liên tục
 GetURLAvatar(); // Thực hiện mỗi giây (có thể điều chỉnh thời gian theo nhu cầu của bạn)
-function printAllCookies() {
-    // Tách các cookie thành mảng dựa trên dấu chấm phẩy và khoảng trắng
-    const cookiesArray = document.cookie.split('; ');
-
-    // Duyệt qua mảng các cookie và in ra từng cookie
-    cookiesArray.forEach(cookie => {
-        // Tách tên và giá trị của cookie
-        const [cookieName, cookieValue] = cookie.split('=');
-        // In ra tên và giá trị của cookie
-        console.log(`${cookieName}: ${decodeURIComponent(cookieValue)}`);
-    });
-}

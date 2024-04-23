@@ -27,13 +27,10 @@ console.log(URLProfile)
 
 const usernameElement = document.getElementById('txt-username');
 usernameElement.textContent = "@"+ usernameProfile;
-const filenameElement = document.getElementById('name-avatar');
-    filenameElement.textContent = filenameProfile;
     
 const uidd = document.getElementById('uid');
 const usernm = document.getElementById('username');
 const emaill = document.getElementById('email');
-const passwd = document.getElementById('password');
 const hotenn = document.getElementById('hoten');
 const sdtt = document.getElementById('sdt');
 const urlavatar = document.getElementById('url-avatar');
@@ -41,7 +38,6 @@ const urlavatar = document.getElementById('url-avatar');
 uidd.textContent = uidProfile;
 usernm.textContent= usernameProfile;
 emaill.textContent= emailProfile;
-passwd.textContent= passwordProfile;
 hotenn.textContent= hotenProfile;
 sdtt.textContent = sdtProfile;
 
@@ -51,7 +47,6 @@ sdtt.textContent = sdtProfile;
 document.getElementById("uid").value = uidProfile;
 document.getElementById("username").value = usernameProfile;
 document.getElementById("email").value = emailProfile;
-document.getElementById("password").value = passwordProfile;
 document.getElementById("hoten").value = hotenProfile;
 document.getElementById("sdt").value = sdtProfile;
 

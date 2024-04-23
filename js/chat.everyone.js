@@ -109,7 +109,16 @@ function GetMess() {
 function displayMessage(message) {
     const messages = document.getElementById('textchat-everyone');
     const li = document.createElement('li');
-    li.innerHTML = `<img src="${message.url}" alt="User Image" style="width: 50px; height: 50px; border-radius: 100%;"> ${message.name}: ${message.message} - ${message.time}`;
+    // li.innerHTML = `<img src="${message.url}" alt="User Image" style="width: 50px; height: 50px; border-radius: 100%;"> ${message.name}: ${message.message} - ${message.time}`;
+    li.innerHTML = `
+    <fieldset class="border p-2 mx-2 my-2">
+        <legend class="w-auto legend-small"><img src="${message.url}" alt="UserImage"
+                style="width: 50px; height: 50px; border-radius: 100%;"> ${message.name} </legend>
+        ${message.message}<br><br>
+        <p style="margin-bottom: -18px; float: right; background-color: #fff;">${message.time}</p>
+    </fieldset>
+    <hr>
+    `
     messages.appendChild(li);
         li.classList.add('message-item');
         // Loại bỏ phần cuộn mặc định

@@ -44,6 +44,7 @@ emaill.textContent= emailProfile;
 passwd.textContent= passwordProfile;
 hotenn.textContent= hotenProfile;
 sdtt.textContent = sdtProfile;
+urlavatar.textContent = URLProfile;
 
 
 

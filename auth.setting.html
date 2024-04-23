@@ -131,15 +131,6 @@
                           <div class="row">
                             <div class="col">
 
-                              <div class="row hide">
-                                <div class="col">
-                                  <div class="form-group">
-                                    <label>UID:</label><br>
-                                    <label class="form-control" for="uid" id="uid" name="uid"></label>
-                                  </div>
-                                </div>
-                              </div>
-
                               <div class="row">
                                 <div class="col">
                                   <div class="form-group">
@@ -148,39 +139,6 @@
                                   </div>
                                 </div>
                               </div>
-
-                              <div class="row hide">
-                                <div class="col">
-                                  <div class="form-group">
-                                    <label>Số điện thoại:</label><br>
-                                    <label class="form-control" id="sdt"></label>
-                                  </div>
-                                </div>
-                              </div>
-
-                              <div class="row">
-                                <!-- <div class="col">
-                            <div class="form-group">
-                              <label>Full Name</label>
-                              <input id="fullname" class="form-control" type="text" name="fullname">
-                            </div>
-                          </div> -->
-                                <div class="col hide">
-                                  <div class="form-group">
-                                    <label>Username:</label><br>
-                                    <label for="username" id="username" class="form-control"></label>
-                                  </div>
-                                </div>
-                              </div>
-                              <!-- <div class="row">
-                          <div class="col">
-                            <div class="form-group">
-                              <label>Email</label><br>
-                              <label for="email" id="email" class="form-control"></label>
-                            </div>
-                          </div>
-                        </div> -->
-
                               <div class="row">
                                 <div class="col">
                                   <div class="form-group">
@@ -198,53 +156,10 @@
                                   </div>
                                 </div>
                               </div>
-
-                              <div class="row hide">
-                                <div class="col">
-                                  <div class="form-group">
-                                    <label>Password</label><br>
-                                    <label for="password" id="password" class="form-control"></label>
-                                    <!-- <div class="input-group">
-                                <input class="form-control" type="password" id="password" name="password" required placeholder="--------">
-                                <div class="input-group-append">
-                                  <button class="btn btn-outline-secondary" type="button" id="togglePassword">
-                                    <i class="fas fa-eye-slash"></i>
-                                  </button>
-                                </div>
-                              </div> -->
                                   </div>
-                                </div>
+
                               </div>
-                              <script>
-                                const togglePasswordButton = document.getElementById('togglePassword');
-                                const passwordInput = document.getElementById('password');
 
-                                togglePasswordButton.addEventListener('click', function () {
-                                  const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-                                  passwordInput.setAttribute('type', type);
-
-                                  // Thay đổi icon giữa 'eye' và 'eye-slash'
-                                  this.querySelector('i').classList.toggle('fa-eye');
-                                  this.querySelector('i').classList.toggle('fa-eye-slash');
-                                });
-
-                              </script>
-                              <div class="row hide">
-                                <div class="col">
-                                  <div class="form-group">
-                                    <label>Tên file avatar:</label><br>
-                                    <label id="name-avatar" class="form-control"></label>
-                                  </div>
-                                </div>
-                              </div>
-                              <!-- <div class="row">
-                          <div class="col mb-3">
-                            <div class="form-group">
-                              <label>About</label>
-                              <textarea class="form-control" rows="5" placeholder="My Bio"></textarea>
-                            </div>
-                          </div>
-                        </div> -->
                             </div>
                           </div>
 
@@ -434,9 +349,10 @@
 <script src="js/script.js"></script>
 <!-- 2 module này kiểm tra xem có đăng nhập không nếu có thì lấy dữu liệu và lưu vào cookies -->
 <script type="module" src="js/checklogin.js"></script>
+
 <script type="module" src="js/checklogout&delete.js"></script>
 <script type="module" src="js/manage_user.js"></script>
 <script type="module" src="js/message.online.js"></script>
-<script src="js/getdata.js"></script>
+<script src="js/import/import.data.setting.js"></script>
 <script type="module" src="js/save&cookies.js"></script>
 </html>

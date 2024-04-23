@@ -27,8 +27,6 @@ console.log(URLProfile)
 
 const usernameElement = document.getElementById('txt-username');
 usernameElement.textContent = "@"+ usernameProfile;
-const filenameElement = document.getElementById('name-avatar');
-    filenameElement.textContent = filenameProfile;
     
 const uidd = document.getElementById('uid');
 const usernm = document.getElementById('username');
@@ -38,22 +36,12 @@ const hotenn = document.getElementById('hoten');
 const sdtt = document.getElementById('sdt');
 const urlavatar = document.getElementById('url-avatar');
 // Gán giá trị cho phần tử
-uidd.textContent = uidProfile;
-usernm.textContent= usernameProfile;
 emaill.textContent= emailProfile;
-passwd.textContent= passwordProfile;
 hotenn.textContent= hotenProfile;
-sdtt.textContent = sdtProfile;
 
 
 
 // Đẩy các giá trị vào các trường trong form để người dùng có thể sửa và tiếp tục update
-document.getElementById("uid").value = uidProfile;
-document.getElementById("username").value = usernameProfile;
-document.getElementById("email").value = emailProfile;
-document.getElementById("password").value = passwordProfile;
-document.getElementById("hoten").value = hotenProfile;
-document.getElementById("sdt").value = sdtProfile;
 
 function AddAvatar() {
     //Phương thức thêm ảnh vào trang thông qua url đã lấy từ cookie
