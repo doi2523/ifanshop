@@ -47,7 +47,7 @@ function GetGrid() {
             if (Object.hasOwnProperty.call(gridData, key)) {
                 const element = gridData[key];
                 // Thêm khóa chính vào dữ liệu trước khi hiển thị
-                element.key = key;
+                // element.key = key;
                 // Hiển thị mỗi phần tử trong gridData
                 displayGrid(element);
             }
@@ -73,9 +73,6 @@ function displayGrid(gridData) {
 
     cellNumber++; // Tăng giá trị của biến đếm
 }
-
-
-
 
 GetGrid();
 
