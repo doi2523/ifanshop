@@ -30,7 +30,7 @@ document.getElementById('addsp').addEventListener('submit', function(event) {
     AddSanPham();
   })
 
-  function AddSanPham(){
+function AddSanPham(){
     var idsanpham = document.getElementById('idsanpham').value;
     var soluong = document.getElementById('soluong').value;
     var tensanpham = document.getElementById('tensanpham').value;
@@ -255,48 +255,6 @@ function deleteProduct(productId) {
             alert('Lỗi khi xoá sản phẩm:', error);
         });
 }
-
-
-document.getElementById('getthongtin').addEventListener('click', function(event) {
-    event.preventDefault();
-    GetThongTin();
-})
-
-function GetThongTin(){
-    var grid = document.getElementById("number-grid").value;
-    var tensp = document.getElementById("tensp-insert").value;
-
-    console.log(grid + tensp)
-    const databaseRef = ref (database);
-
-    get(child(databaseRef, "sanpham/" + tensp))
-    .then((snapshot)=>{
-        var sanpham = [];
-        snapshot.forEach(childSnapshot => {
-            sanpham.push(childSnapshot.val());
-        });
-        console.log(sanpham)
-        const tenanh = sanpham[1];
-        const dunglg = sanpham[0];
-        const idsp = sanpham[4];
-        const namesp = sanpham[5];
-
-        console.log(tenanh);
-        const tentep= document.getElementById('tentep');
-        const getid= document.getElementById('getid');
-        const getname= document.getElementById('getname');
-        const getdl= document.getElementById('getdl');
-        tentep.textContent = tenanh;
-        getid.textContent = idsp;
-        getdl.textContent = dunglg;
-        getname.textContent = namesp;
-    })   
-    .catch((error) => {
-        alert('Lỗi:', error);
-    });
-}
-
-
 function formatCurrency(input) {
     // Xóa tất cả ký tự không phải số khỏi giá trị nhập vào
     var value = input.value.replace(/[^0-9]/g, '');
