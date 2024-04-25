@@ -108,4 +108,27 @@ document.addEventListener("DOMContentLoaded", function() {
   //   iconClickBtn.style.display = "block";
   //   boxChat.classList.add("hide");
 // });
-  
+document.addEventListener("DOMContentLoaded", function() {
+  var cartClickBtn = document.getElementById("iconcartclick");
+  var cartChat = document.getElementById("boxcart");
+  var cartcloseBtn = document.getElementById("closecart");
+
+  cartClickBtn.addEventListener("click", function() {
+    cartClickBtn.style.display = "none";
+    cartChat.classList.remove("hide");
+  });
+
+  cartcloseBtn.addEventListener("click", function() {
+    cartClickBtn.style.display = "block";
+    cartChat.classList.add("hide");
+  });
+
+  document.addEventListener("mousedown", function(event) {
+    if (!cartChat.contains(event.target) && event.target !== cartClickBtn) {
+      cartClickBtn.style.display = "block";
+      cartChat.classList.add("hide");
+    }
+  });
+
+ 
+});

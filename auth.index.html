@@ -1,215 +1,553 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>iFanShop | Home</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css"
+    />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="icon" href="images/marketplace.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+      integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <link rel="stylesheet" href="css/banner.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
 
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>iFanShop | Home</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-  <link rel="stylesheet" href="css/animate.css">
-  <link rel="icon" href="images/marketplace.png" type="image/x-icon">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-    integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" href="style.css" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
-    integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-  <link rel="stylesheet" href="css/banner.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-
-<body class="body-style">
-  <!-- Navbar -->
+  <body class="body-style">
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-        <a class="navbar-brand navbar-logo" href="auth.index.html"><img src="images/ifa.png" alt=""></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand navbar-logo" href="auth.index.html"
+          ><img src="images/ifa.png" alt=""
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item"> <a style="color: #007bff;"class="nav-link" href="auth.index.html">Trang chủ</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="auth.about.html">Giới thiệu</a> </li>
+            <li class="nav-item">
+              <a style="color: #007bff" class="nav-link" href="auth.index.html"
+                >Trang chủ</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="auth.about.html">Giới thiệu</a>
+            </li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
+              <a
+                class="nav-link dropdown-toggle"
+                href=""
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
                 Sản phẩm <i class="fa fa-regular fa-chevron-down"></i>
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="auth.iphone.html">iPhone</a></li>
-                <li><a class="dropdown-item" href="auth.macbook.html">Macbook</a></li>
+                <li>
+                  <a class="dropdown-item" href="auth.iphone.html">iPhone</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="auth.macbook.html">Macbook</a>
+                </li>
                 <li><a class="dropdown-item" href="auth.ipad.html">iPad</a></li>
-                <li><a class="dropdown-item" href="auth.accessory.html">Phụ kiện</a></li>
+                <li>
+                  <a class="dropdown-item" href="auth.accessory.html"
+                    >Phụ kiện</a
+                  >
+                </li>
               </ul>
             </li>
-            <li class="nav-item"> <a class="nav-link" href="auth.services.html">Dịch vụ</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="auth.giohang.html">Giỏ hàng</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="auth.contact.html">Liên hệ</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="auth.chat.html">Chat online</a> </li>
-            <li class="nav-item"> <a class="nav-link" href="auth.userpage.html" >Tài khoản</a> </li>
+            <li class="nav-item">
+              <a class="nav-link" href="auth.services.html">Dịch vụ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="auth.giohang.html">Giỏ hàng</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="auth.contact.html">Liên hệ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="auth.chat.html">Chat online</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="auth.userpage.html">Tài khoản</a>
+            </li>
           </ul>
         </div>
       </div>
     </nav>
-  <!-- End Navbar -->
-  <div class="container">
-    <div class="slider">
-      <button id="button-slide" type="button" class="slide-prev">&#10094;</button> <!-- Nút chuyển sang trước -->
-      <div class="slide-viewer">
-        <div class="slide-group">
-          <div class="slide slide-1">
-            <img id="image1" src="" alt="No two are the same" />
-          </div>
-          <div class="slide slide-2">
-            <img id="image2" src="" alt="Monsieur Mints" />
-          </div>
-          <div class="slide slide-3">
-            <img id="image3" src="" alt="The Flower Series" />
-          </div>
-          <div class="slide slide-4">
-            <img id="image4" src="" alt="Salt o' The Sea" />
-          </div>
-          <div class="slide slide-5">
-            <img id="image5" src="" alt="Salt o' The Sea" />
-          </div>
-          <div class="slide slide-6">
-            <img id="image6" src="" alt="Salt o' The Sea" />
-          </div>
-          <div class="slide slide-7">
-            <img id="image7" src="" alt="Salt o' The Sea" />
-          </div>
-        </div>
-        <button id="button-slide" type="button" class="slide-next">&#10095;</button> <!-- Nút chuyển sang sau -->
-      </div>
-      <div class="slide-buttons"></div>
-    </div>
-  </div>
-  <!-------Banner Start------->
-  <section class="banner" data-scroll-index='0'>
-    <div class="banner-overlay">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-sm-12">
-            <div class="banner-text">
-              <h2 class="white">Chào mừng đến với iFanShop</h2>
-              <h6 class="white">Cam kết, Đảm bảo, Uy tín <a href="index.html" target="_blank" rel="dofollow"
-                  class="weblink">iFanShop</a>.</h6>
-              <p class="banner-text white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur hendrerit
-                neque massa, sit amet tristique ante porta ut. In sodales et justo vel vulputate. Pellentesque habitant
-                morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-              <ul>
-                <li><a href="#"><img src="" class="wow fadeInUp" data-wow-delay="0.4s" />Xem thêm</a></li>
-                <li><a href="#"><img src="" class="wow fadeInUp" data-wow-delay="0.7s" />Mua Ngay</a></li>
-              </ul>
+    <!-- End Navbar -->
+    <div class="container">
+      <div class="slider">
+        <button id="button-slide" type="button" class="slide-prev">
+          &#10094;
+        </button>
+        <!-- Nút chuyển sang trước -->
+        <div class="slide-viewer">
+          <div class="slide-group">
+            <div class="slide slide-1">
+              <img id="image1" src="" alt="No two are the same" />
+            </div>
+            <div class="slide slide-2">
+              <img id="image2" src="" alt="Monsieur Mints" />
+            </div>
+            <div class="slide slide-3">
+              <img id="image3" src="" alt="The Flower Series" />
+            </div>
+            <div class="slide slide-4">
+              <img id="image4" src="" alt="Salt o' The Sea" />
+            </div>
+            <div class="slide slide-5">
+              <img id="image5" src="" alt="Salt o' The Sea" />
+            </div>
+            <div class="slide slide-6">
+              <img id="image6" src="" alt="Salt o' The Sea" />
+            </div>
+            <div class="slide slide-7">
+              <img id="image7" src="" alt="Salt o' The Sea" />
             </div>
           </div>
-          <div class="col-md-4 col-sm-12"> <img src="images/15prm.png" class="ip15prm" /> </div>
+          <button id="button-slide" type="button" class="slide-next">
+            &#10095;
+          </button>
+          <!-- Nút chuyển sang sau -->
         </div>
+        <div class="slide-buttons"></div>
       </div>
     </div>
-  </section>
 
-  <!-------Banner End------->
-
-
-  <!-------Download End------->
-  <section class="download section-padding">
     <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="sectioner-header text-center white">
-            <h3>Download Our App</h3>
-            <span class="line"></span>
-            <p class="white">Sed quis nisi nisi. Proin consectetur porttitor dui sit amet viverra. Fusce sit amet lorem
-              faucibus, vestibulum ante in, pharetra ante.</p>
+      <h1 class="pb-3" style="text-align: center">iPhone</h1>
+      <div class="container-grid">
+        <div class="item item1">
+          <div class="grid-item">
+            <div class="tag-voucher">
+              <img src="images/0-phantram.png" alt="" />
+            </div>
+            <a href="auth.iphone.html">
+              <div class="img-ip" id="img-sanpham">
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/iPhone%2F0022266_iphone-15-pro-max-256gb_240.png?alt=media&token=3e192c48-c49a-4873-a3c1-0ced9db0a526"
+                  alt=""
+                />
+              </div>
+            </a>
+            <div class="txt-name my-3" id="name-sanpham">
+              iPhone 15 pro max 256GB
+            </div>
+            <div class="giatien">
+              <span id="gia-uu-dai">30.000.000₫</span>
+              <span id="giagoc">34.000.000₫</span>
+              <span id="phan-tram">-15%</span>
+            </div>
           </div>
         </div>
-        <div class="col-md-12">
-          <div class="section-content text-center">
-            <ul>
-              <li><a href="#"><img src="images/appstore.png" class="wow fadeInUp" data-wow-delay="0.4s" /></a></li>
-              <li><a href="#"><img src="images/playstore.png" class="wow fadeInUp" data-wow-delay="0.7s" /></a></li>
+        <div class="item item2">
+          <div class="grid-item">
+            <div class="tag-voucher">
+              <img src="images/0-phantram.png" alt="" />
+            </div>
+            <a href="auth.iphone.html">
+              <div class="img-ip">
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/iPhone%2F0022263_iphone-15-pro-128gb_240.png?alt=media&token=3a594d72-8e27-4fb3-a01c-29e7927902bd"
+                  alt=""
+                />
+              </div>
+            </a>
+            <div class="iphone-15-pro my-3" id="ten-sanpham">
+              iPhone 15 pro 128GB
+            </div>
+            <div class="giatien">
+              <span id="gia-uu-dai">26.190.000₫</span>
+              <span id="giagoc">30.990.000₫</span>
+              <span id="phan-tram">-15%</span>
+            </div>
+          </div>
+        </div>
+        <div class="item item3">
+          <div class="grid-item">
+            <div class="tag-voucher">
+              <img src="images/0-phantram.png" alt="" />
+            </div>
+            <a href="auth.iphone.html">
+              <div class="img-ip">
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/iPhone%2F0009495_iphone-14-plus-128gb_240.png?alt=media&token=05c65d75-b545-4b03-97cc-b3f9c69fe4df"
+                  alt=""
+                />
+              </div>
+            </a>
+            <div class="txt-name my-3">iPhone 13</div>
+            <div class="giatien">
+              <span id="gia-uu-dai">19.890.000₫</span>
+              <span id="giagoc">24.990.000₫</span>
+              <span id="phan-tram">20%</span>
+            </div>
+          </div>
+        </div>
+        <div class="item item4">
+          <div class="grid-item">
+            <div class="tag-voucher">
+              <img src="images/0-phantram.png" alt="" />
+            </div>
+
+            <a href="auth.iphone.html">
+              <div class="img-ip">
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/iPhone%2F0020319_iphone-15-plus-512gb_240.webp?alt=media&token=3b00ed9c-26c6-43e8-b218-167a35d0c118"
+                  alt=""
+                />
+              </div>
+            </a>
+            <div class="txt-name my-3">iPhone 15 plus</div>
+            <div class="giatien">
+              <span id="gia-uu-dai">22.890.000₫</span>
+              <span id="giagoc">27.990.000₫</span>
+              <span id="phan-tram">-18%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center align-items-center">
+        <a href="auth.iphone.html"
+          ><button class="btn btn-primary">Xem thêm ></button></a
+        >
+      </div>
+    </div>
+
+    <div class="container mt-4">
+      <h1 class="pb-3" style="text-align: center">Macbook</h1>
+      <div class="container-grid">
+        <div class="item item1">
+          <div class="grid-item">
+            <div class="tag-voucher">
+              <img src="images/0-phantram.png" alt="" />
+            </div>
+            <a href="auth.macbook.html">
+              <div class="img-ip">
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/images%2F0000723_macbook-air-m1-2020-8gb-ram-256gb-ssd_240.png?alt=media&token=fc581324-9602-4527-9baf-513fb506c761"
+                  alt=""
+                />
+              </div>
+            </a>
+            <div class="txt-name my-4" id="name-sanpham">
+              Macbook air m1 2020
+            </div>
+            <div class="giatien">
+              <span id="gia-uu-dai">30.000.000₫</span>
+              <span id="giagoc">34.000.000₫</span>
+              <span id="phan-tram">-15%</span>
+            </div>
+          </div>
+        </div>
+        <div class="item item2">
+          <div class="grid-item">
+            <div class="tag-voucher">
+              <img src="images/0-phantram.png" alt="" />
+            </div>
+            <a href="auth.macbook.html">
+              <div class="img-ip pt-3">
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/images%2F0022520_macbook-pro-14-inch-m3-2023-8gb-ram-10-core-gpu-512gb-ssd_240.png?alt=media&token=04a5da84-e74b-4778-aad1-fde0c5ff883b"
+                  alt=""
+                />
+              </div>
+            </a>
+            <div class="txt-name my-3" id="ten-sanpham">
+              Macbook pro M3 2023
+            </div>
+            <div class="giatien">
+              <span id="gia-uu-dai">26.190.000₫</span>
+              <span id="giagoc">30.990.000₫</span>
+              <span id="phan-tram">-15%</span>
+            </div>
+          </div>
+        </div>
+        <div class="item item3">
+          <div class="grid-item">
+            <div class="tag-voucher">
+              <img src="images/0-phantram.png" alt="" />
+            </div>
+            <a href="auth.macbook.html">
+              <div class="img-ip pt-3">
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/images%2F0008043_macbook-pro-16-m1-pro-16-core16gb1tb_240.png?alt=media&token=ae5b9a26-e01d-4859-90f9-ae71e8483cf7"
+                  alt=""
+                />
+              </div>
+            </a>
+            <div class="txt-name my-3">Macbook pro M1</div>
+            <div class="giatien">
+              <span id="gia-uu-dai">19.890.000₫</span>
+              <span id="giagoc">24.990.000₫</span>
+              <span id="phan-tram">20%</span>
+            </div>
+          </div>
+        </div>
+        <div class="item item4">
+          <div class="grid-item">
+            <div class="tag-voucher">
+              <img src="images/0-phantram.png" alt="" />
+            </div>
+            <a href="auth.macbook.html">
+              <div class="img-ip">
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/images%2F0008682_macbook-pro-13-inch-m2-10-core-8gb-ram-256gb-ssd_240.png?alt=media&token=bad326d8-bd1b-426f-9ea7-9e7f800fcc9f"
+                  alt=""
+                />
+              </div>
+            </a>
+            <div class="txt-name my-3">Macbook pro M2</div>
+            <div class="giatien">
+              <span id="gia-uu-dai">22.890.000₫</span>
+              <span id="giagoc">27.990.000₫</span>
+              <span id="phan-tram">-18%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center align-items-center">
+        <a href="auth.iphone.html"
+          ><button class="btn btn-primary">Xem thêm ></button></a
+        >
+      </div>
+    </div>
+    <!-------Banner Start------->
+    <div class="container" style="padding: 30px">
+      <img
+        src="https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/images%2Fbanner.jpeg?alt=media&token=42021668-e8bb-46cf-9adc-60f08e8baf9b"
+        alt="No two are the same"
+      />
+    </div>
+    <!-------Banner End------->
+
+    <!-------Download End------->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-4">
+            <div class="logo-footer">
+              <img src="images/ifa1.png" alt="" />
+            </div>
+            <p class="text-justify">
+              Năm 2024, <a href="index.html">iFanShop</a> trở thành đại lý ủy
+              quyền của Apple. Chúng tôi phát triển chuỗi cửa hàng tiêu chuẩn và
+              Apple Mono Store nhằm mang đến trải nghiệm tốt nhất về sản phẩm và
+              dịch vụ của Apple cho người dùng Việt Nam.
+            </p>
+          </div>
+
+          <div class="col-xs-4 col-md-3">
+            <h6>Thông tin</h6>
+            <ul class="footer-links">
+              <li><a href="">Tin tức</a></li>
+              <li><a href="about.html">Giới thiệu</a></li>
+              <li><a href="">Check IMEI</a></li>
+              <li><a href="">Phương thức thanh toán</a></li>
+              <li><a href="">Bảo hành và sửa chữa</a></li>
+              <li><a href="">Đánh giá chất lượng, khiếu nại</a></li>
+              <li><a href="">Tra cứu hoá đơn điện tử</a></li>
+            </ul>
+          </div>
+
+          <div class="col-xs-4 col-md-3">
+            <h6>Chính sách</h6>
+            <ul class="footer-links">
+              <li><a href="">Thu cũ đổi mới</a></li>
+              <li><a href="">Giao hàng</a></li>
+              <li><a href="">Huỷ giao dịch</a></li>
+              <li><a href="">Đổi trả</a></li>
+              <li><a href="">Bảo hành</a></li>
+              <li><a href="">Dịch vụ</a></li>
+              <li><a href="">Giải quyết khiếu nại</a></li>
+              <li><a href="">Bảo mật thông tin</a></li>
+              <li><a href="">Hướng dẫn thanh toán</a></li>
+            </ul>
+          </div>
+
+          <div class="col-xs-4 col-md-2">
+            <h6>Chính sách</h6>
+            <ul class="footer-links">
+              <li><a href="">Thu cũ đổi mới</a></li>
+              <li><a href="">Giao hàng</a></li>
+              <li><a href="">Huỷ giao dịch</a></li>
+              <li><a href="">Đổi trả</a></li>
+              <li><a href="">Bảo hành</a></li>
+              <li><a href="">Dịch vụ</a></li>
+              <li><a href="">Giải quyết khiếu nại</a></li>
+              <li><a href="">Bảo mật thông tin</a></li>
+              <li><a href="">Hướng dẫn thanh toán</a></li>
+            </ul>
+          </div>
+        </div>
+        <hr />
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-sm-6 col-xs-12">
+            <p class="copyright-text">
+              Copyright &copy; 2024 All Rights Reserved by
+              <a href="auth.index.html">iFanShop</a>.
+            </p>
+          </div>
+
+          <div class="col-md-4 col-sm-6 col-xs-12">
+            <ul class="social-icons">
+              <li>
+                <img style="height: 40px" src="images/facebook.png" alt="" />
+              </li>
+              <li class="mx-2">
+                <img style="height: 40px" src="images/instagram.png" alt="" />
+              </li>
+              <li>
+                <img style="height: 40px" src="images/twitter.png" alt="" />
+              </li>
             </ul>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </footer>
+    <!-------Download End------->
 
-  <!-------Download End------->
-
-  <footer class="footer-copy">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-12">
-          <p>2024 &copy; Applight. Website Designed by <a href="" target="_blank" rel="dofollow">Doi teamwork</a></p>
+    <footer class="footer-copy">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <p>
+              2024 &copy; Applight. Website Designed by
+              <a href="" target="_blank" rel="dofollow">Doi teamwork</a>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-  </footer>
-  <!-- Ô chat online -->
-  <div>
-    <button class="fixed-div btn btn-primary" id="iconclick">
-      <i class="fas fa-comment-alt text-primary" style="font-size: 30px; margin-top: 5px; margin-left: -2px;"></i>
-    </button>
-    <div class="boxchat hide bg-primary" id="boxchat">
-      <div class="bannerchatbox">
-        <div class="logoboxchat border-right mx-2 pr-2" id="img-avatar-user">
-          <img id="user-avatar" src="images/user1.jpg" alt="">
-        </div>
-        <div class="titleboxchat">
-          <h7 class="text-white">iFanShop Xin chào, chúng tôi sẵn sàng hỗ trợ bạn</h7>
-          <span class="text-white" id="fullname"></span>
-        </div>
-        <div class="mx-2">
-          <button id="closebt" type="button" class="btn btn-lg btn-link text-decoration-none iconclose">
-            <ion-icon name="close-outline" style="font-size: 35px; color: #fff;"></ion-icon>
-          </button>
-        </div>
-      </div>
-      <hr>
-      <div class="chat">
-        <div>
-          <ul id="textchat"></ul>
-        </div>
-      </div>
-      <hr>
-      <div class="input-message form-group-boxchat">
-        <form action="" id="message-form" class="form-chat"> <!-- Đổi ID thành message-form -->
-          <input class="form-control" type="text" id="message-input" placeholder="Nhập" required style="width: 235px;">
-          <!-- Đổi ID thành message-input -->
-          <div class="d-flex">
-            <button type="submit" class="btn btn-outline-primary me-2 send-button" id="send">
-              <div class="d-flex">
-                Gửi
-                <ion-icon name="send-outline" style="font-size: 25px;"></ion-icon>
-              </div>
+    </footer>
+    <!-- Ô chat online -->
+    <div>
+      <button class="fixed-div btn btn-primary" id="iconclick">
+        <i
+          class="fas fa-comment-alt text-primary"
+          style="font-size: 30px; margin-top: 5px; margin-left: -2px"
+        ></i>
+      </button>
+      <div class="boxchat hide bg-primary" id="boxchat">
+        <div class="bannerchatbox">
+          <div class="logoboxchat border-right mx-2 pr-2" id="img-avatar-user">
+            <img id="user-avatar" src="images/user1.jpg" alt="" />
+          </div>
+          <div class="titleboxchat">
+            <h7 class="text-white"
+              >iFanShop Xin chào, chúng tôi sẵn sàng hỗ trợ bạn</h7
+            >
+            <span class="text-white" id="fullname"></span>
+          </div>
+          <div class="mx-2">
+            <button
+              id="closebt"
+              type="button"
+              class="btn btn-lg btn-link text-decoration-none iconclose"
+            >
+              <ion-icon
+                name="close-outline"
+                style="font-size: 35px; color: #fff"
+              ></ion-icon>
             </button>
           </div>
-        </form>
+        </div>
+        <hr />
+        <div class="chat">
+          <div>
+            <ul id="textchat"></ul>
+          </div>
+        </div>
+        <hr />
+        <div class="input-message form-group-boxchat">
+          <form action="" id="message-form" class="form-chat">
+            <!-- Đổi ID thành message-form -->
+            <input
+              class="form-control"
+              type="text"
+              id="message-input"
+              placeholder="Nhập"
+              required
+              style="width: 235px"
+            />
+            <!-- Đổi ID thành message-input -->
+            <div class="d-flex">
+              <button
+                type="submit"
+                class="btn btn-outline-primary me-2 send-button"
+                id="send"
+              >
+                <div class="d-flex">
+                  Gửi
+                  <ion-icon
+                    name="send-outline"
+                    style="font-size: 25px"
+                  ></ion-icon>
+                </div>
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-
     </div>
-  </div>
-</body>
+  </body>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-  integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-<!-- scrollIt js -->
-<script src="js/scrollIt.min.js"></script>
-<script src="js/wow.min.js"></script>
-<script src="js/script.js"></script>
-<!-- 2 module này kiểm tra xem có đăng nhập không nếu có thì lấy dữu liệu và lưu vào cookies -->
-<script type="module" src="js/get_image.js"></script>
-<script type="module" src="js/checklogin.js"></script>
-<script type="module" src="js/save&cookies.js"></script>
-<script src="js/banner.js"></script>
-<script type="module" src="js/message.online.js"></script>
-<script src="js/getdata.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+    integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <!-- scrollIt js -->
+  <script src="js/scrollIt.min.js"></script>
+  <script src="js/wow.min.js"></script>
+  <script src="js/script.js"></script>
+  <!-- 2 module này kiểm tra xem có đăng nhập không nếu có thì lấy dữu liệu và lưu vào cookies -->
+  <script type="module" src="js/get_image.js"></script>
+  <script type="module" src="js/checklogin.js"></script>
+  <script type="module" src="js/save&cookies.js"></script>
+  <script src="js/banner.js"></script>
+  <script type="module" src="js/message.online.js"></script>
+  <script src="js/getdata.js"></script>
 </html>

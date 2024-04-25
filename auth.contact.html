@@ -101,7 +101,7 @@
       
                   <div class="contact-info-content">
                     <h4>Email</h4>
-                    <p>ntamerrwael@gmail.com</p>
+                    <p>ifanshop@gmail.com</p>
                   </div>
                 </div>
               </div>
@@ -110,17 +110,17 @@
                 <form action="" id="contact-form">
                   <h2>Gửi tin nhắn</h2>
                   <div class="input-box">
-                    <input type="text" required="true" name="" oninput="handleInput(this)">
+                    <input id="hoten" type="text" required="true" name="" oninput="handleInput(this)">
                     <span>Họ và tên</span>
                   </div>
       
                   <div class="input-box">
-                    <input type="email" required="true" name="" oninput="handleInput(this)">
+                    <input id="email" type="email" required="true" name="" oninput="handleInput(this)">
                     <span>Email</span>
                   </div>
       
                   <div class="input-box">
-                    <textarea required="true" name="" oninput="handleInput(this)"></textarea>
+                    <textarea id="message" required="true" name="" oninput="handleInput(this)"></textarea>
                     <span>Nhập tin nhắn của bạn...</span>
                   </div>
       
@@ -144,7 +144,81 @@
 
 
 <!-------Download End------->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-4">
+        <div class="logo-footer">
+          <img src="images/ifa1.png" alt="">
+        </div>
+        <p class="text-justify">Năm 2024, <a href="index.html">iFanShop</a> trở thành đại lý ủy quyền của Apple. Chúng
+          tôi phát triển chuỗi cửa hàng tiêu chuẩn và Apple Mono Store nhằm mang đến trải nghiệm tốt nhất về sản phẩm và
+          dịch vụ của Apple cho người dùng Việt Nam.</p>
+      </div>
 
+      <div class="col-xs-4 col-md-3">
+        <h6>Thông tin</h6>
+        <ul class="footer-links">
+          <li><a href="">Tin tức</a></li>
+          <li><a href="about.html">Giới thiệu</a></li>
+          <li><a href="">Check IMEI</a></li>
+          <li><a href="">Phương thức thanh toán</a></li>
+          <li><a href="">Bảo hành và sửa chữa</a></li>
+          <li><a href="">Đánh giá chất lượng, khiếu nại</a></li>
+          <li><a href="">Tra cứu hoá đơn điện tử</a></li>
+        </ul>
+      </div>
+
+      <div class="col-xs-4 col-md-3">
+        <h6>Chính sách</h6>
+        <ul class="footer-links">
+          <li><a href="">Thu cũ đổi mới</a></li>
+          <li><a href="">Giao hàng</a></li>
+          <li><a href="">Huỷ giao dịch</a></li>
+          <li><a href="">Đổi trả</a></li>
+          <li><a href="">Bảo hành</a></li>
+          <li><a href="">Dịch vụ</a></li>
+          <li><a href="">Giải quyết khiếu nại</a></li>
+          <li><a href="">Bảo mật thông tin</a></li>
+          <li><a href="">Hướng dẫn thanh toán</a></li>
+        </ul>
+      </div>
+
+      <div class="col-xs-4 col-md-2">
+        <h6>Chính sách</h6>
+        <ul class="footer-links">
+          <li><a href="">Thu cũ đổi mới</a></li>
+          <li><a href="">Giao hàng</a></li>
+          <li><a href="">Huỷ giao dịch</a></li>
+          <li><a href="">Đổi trả</a></li>
+          <li><a href="">Bảo hành</a></li>
+          <li><a href="">Dịch vụ</a></li>
+          <li><a href="">Giải quyết khiếu nại</a></li>
+          <li><a href="">Bảo mật thông tin</a></li>
+          <li><a href="">Hướng dẫn thanh toán</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-6 col-xs-12">
+        <p class="copyright-text">Copyright &copy; 2024 All Rights Reserved by
+          <a href="auth.index.html">iFanShop</a>.
+        </p>
+      </div>
+
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <ul class="social-icons">
+          <li><img style="height: 40px;" src="images/facebook.png" alt=""></li>
+          <li class="mx-2"><img style="height: 40px;" src="images/instagram.png" alt=""></li>
+          <li><img style="height: 40px;" src="images/twitter.png" alt=""></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
 
 <!-------Download End------->
 
@@ -203,6 +277,8 @@
 
     </div>
   </div>
+
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
     integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
@@ -215,6 +291,7 @@
   <script src="js/contact.js"></script>
 <script type="module" src="js/checklogin.js"></script>
   <script type="module" src="js/message.online.js"></script>
+  <script type="module" src="js/insert/insert.data.contact.js"></script>
 </body>
 
 </html>

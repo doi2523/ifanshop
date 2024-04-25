@@ -66,42 +66,7 @@ function GetThongTin(){
         getdl.textContent = dunglg;
         getname.textContent = namesp;
 
-    //     update(ref(database, 'webiphone/' + idgrid),{
-    //     idsanpham: idsanpham,
-    //     tensanpham: tensanpham,
-    //     soluong: soluong,
-    //     dungluong: dungluong,
-    //     giagoc: giagoc,
-    //     giasale: giasale,
-    //     file: file.name
-    // })
     }
-        // console.log(sanpham)
-        // const tenanh = sanpham[1];
-        // const dunglg = sanpham[0];
-        // const idsp = sanpham[4];
-        // const namesp = sanpham[5];
-
-        // console.log(tenanh);
-        // const tentep= document.getElementById('tentep');
-        // const getid= document.getElementById('getid');
-        // const getname= document.getElementById('getname');
-        // const getdl= document.getElementById('getdl');
-        // tentep.textContent = tenanh;
-        // getid.textContent = idsp;
-        // getdl.textContent = dunglg;
-        // getname.textContent = namesp;
-
-    //     var idgrid = document.getElementById("number-grid").value;
-    //     set(ref(database, 'webiphone/' + idgrid),{
-    //     idsanpham: idsanpham,
-    //     tensanpham: tensanpham,
-    //     soluong: soluong,
-    //     dungluong: dungluong,
-    //     giagoc: giagoc,
-    //     giasale: giasale,
-    //     file: file.name
-    // })
     })   
     .catch((error) => {
         alert('Lỗi:', error);
