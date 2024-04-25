@@ -70,9 +70,8 @@
   </div>
 
 
-
-
-  <div class="product">
+  <div id="donhangweb"></div>
+  <!-- <div class="product">
     <div class="product-image">
       <img src="https://s.cdpn.io/3/dingo-dog-bones.jpg">
     </div>
@@ -90,27 +89,7 @@
       </button>
     </div>
     <div class="product-line-price">25.98</div>
-  </div>
-
-  <div class="product">
-    <div class="product-image">
-      <img src="https://s.cdpn.io/3/large-NutroNaturalChoiceAdultLambMealandRiceDryDogFood.png">
-    </div>
-    <div class="product-details">
-      <div class="product-title">Nutro™ Adult Lamb and Rice Dog Food</div>
-      <p class="product-description">Who doesn't like lamb and rice? We've all hit the halal cart at 3am while quasi-blackout after a night of binge drinking in Manhattan. Now it's your dog's turn!</p>
-    </div>
-    <div class="product-price">45.99</div>
-    <div class="product-quantity">
-      <input type="number" value="1" min="1">
-    </div>
-    <div class="product-removal">
-      <button class="remove-product">
-        Remove
-      </button>
-    </div>
-    <div class="product-line-price">45.99</div>
-  </div>
+  </div> -->
 
   <div class="totals">
     <div class="totals-item">
@@ -230,7 +209,47 @@
   </div>
 </footer>
 
+<!-- Ô giỏ hàng online -->
+<div>
+  <button class="iconcart btn btn-primary" id="iconcartclick">
+    <i class="fas fa-shopping-cart"></i>
+  </button>
+  <div class="boxcart hide bg-primary" id="boxcart">
+    <div class="bannerchatbox">
+      <div class="logoboxchat border-right mx-2 pr-2" id="img-avatar-user">
+        <img id="user-avatar" src="images/user1.jpg" alt="">
+      </div>
+      <div class="titleboxchat">
+        <h7 class="text-white">iFanShop</h7><br>
+        <span class="text-white">Giỏ hàng của bạn</span>
+      </div>
+      <div class="mx-2">
+        <button id="closecart" type="button" class="btn btn-lg btn-link text-decoration-none iconclose">
+          <ion-icon name="close-outline" style="font-size: 35px; color: #fff;"></ion-icon>
+        </button>
+      </div>
+    </div>
+    <hr>
+    <div class="chat">
+      <div>
+        <ul id="donhang"></ul>
+      </div>
+    </div>
+    <hr><br>
+    <div class="input-message form-group-boxchat">
+      <form action="" class="form-chat">
+        <div class="d-flex">
+          <button type="button" class="btn btn-outline-primary me-2 send-button">
+            <div class="d-flex">
+              Thanh toán ngay <ion-icon name="card-outline" style="font-size: 25px;"></ion-icon>
+            </div>
+          </button>
+        </div>
+      </form>
+    </div>
 
+  </div>
+</div>
 <!-- Ô chat online -->
 <div>
   <button class="fixed-div btn btn-primary" id="iconclick">
@@ -286,6 +305,7 @@
 <script src="js/giohang.js"></script>
 <script type="module" src="js/checklogin.js"></script>
 <script type="module" src="js/message.online.js"></script>
+<script type="module" src="js/import/import.data.iphone.js"></script>
 </body>
 
 </html>

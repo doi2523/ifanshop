@@ -110,6 +110,8 @@ div.querySelector('#add-cart').addEventListener('click', function() {
         dungluong: message.dungluong,
         url: message.urlpicture,
         giasale: message.giasale,
+        soluong: "",
+        color: "",
     }).then(() => {
         alert("Đã thêm vào giỏ hàng!")
         console.log("Giá trị đã được lưu vào cơ sở dữ liệu thành công!");
@@ -155,3 +157,45 @@ function displayDonhang(donhang) {
 
 };
 GetDonhang();
+
+function GetDonhangWeb() {
+    const database = getDatabase();
+    const databaseRef = ref(database, "donhang/" + uidProfile);
+
+    // Lắng nghe sự kiện child_added để nhận thông báo khi có tin nhắn mới được thêm vào
+    onChildAdded(databaseRef, (snapshot) => {
+        const donhangweb = snapshot.val();
+        displayDonhangWeb(donhangweb);
+    }, (error) => {
+        console.error("Error getting messages: ", error);
+    });
+}
+
+function displayDonhangWeb(donhangweb) {
+    const donhangwebs = document.getElementById('donhangweb');
+    const li = document.createElement('li');
+
+    li.innerHTML = `
+  <div class="product">
+    <div class="product-image">
+      <img src="${donhangweb.url}">
+    </div>
+    <div class="product-details">
+      <div class="product-title">${donhangweb.tensanpham}</div>
+      <p class="product-description">The best dog bones of all time. Holy crap. Your dog will be begging for these things! I got curious once and ate one myself. I'm a fan.</p>
+    </div>
+    <div class="product-price">${donhangweb.giasale}</div>
+    <div class="product-quantity">
+      <input type="number" value="2" min="1">
+    </div>
+    <div class="product-removal">
+      <button class="remove-product">
+        Remove
+      </button>
+    </div>
+    <div class="product-line-price">${donhangweb.giasale}</div>
+  </div>`;
+    donhangwebs.appendChild(li);
+
+};
+GetDonhangWeb();
