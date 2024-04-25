@@ -71,7 +71,6 @@ $(".slider").each(function () {
   // Append buttons to the slide-buttons container
   $(".slide-buttons").append(buttonArray);
 
-
   $(".slide-prev").on("click", function () {
     var newIndex = currentIndex === 0 ? $slides.length - 1 : currentIndex - 1;
     move(newIndex);
@@ -85,54 +84,26 @@ $(".slider").each(function () {
   advance();
 });
 
-
-
-
 // JavaScript
-window.addEventListener('resize', function() {
+window.addEventListener("resize", function () {
   if (window.innerWidth <= 768) {
-    document.getElementById('image1').src = 'images/313mb.png';
-    document.getElementById('image2').src = 'images/314mb.png';
-    document.getElementById('image3').src = 'images/315mb.png';
-    document.getElementById('image4').src = 'images/313mb.png';
+    document.getElementById("image1").src =
+      "https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/images%2F13t4mb.png?alt=media&token=60198939-13dd-461c-8e10-85c02e1e37d3";
+    document.getElementById("image2").src =
+      "https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/images%2F11t4mb.png?alt=media&token=85b1567e-b357-4fdc-909a-fe63aaba3ed0";
+    document.getElementById("image3").src =
+      "https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/images%2F315mb.png?alt=media&token=009bdf08-47ab-4791-a9b5-a2114b29682c";
+    // document.getElementById('image4').src = 'https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/images%2F314mb.png?alt=media&token=9f7ddd22-d948-453c-ba03-b284b9f6788a';
   } else {
-    document.getElementById('image1').src = 'images/315dm.png';
-    document.getElementById('image2').src = 'images/313dm.png';
-    document.getElementById('image3').src = 'images/314dm.png';
-    document.getElementById('image4').src = 'images/315dm.png';
+    document.getElementById("image1").src =
+      "https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/images%2F15t4dm.png?alt=media&token=93b777b4-01b8-49b2-a75f-8159343d35a1";
+    document.getElementById("image2").src =
+      "https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/images%2F13t4dm.png?alt=media&token=075b6610-e8ab-4ec5-b18a-85d9cafc271b";
+    document.getElementById("image3").src =
+      "https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/images%2F11t4dm.png?alt=media&token=e8986862-9fc7-4ec8-8e89-6846f3aa00c2";
+    // document.getElementById('image4').src = 'images/315dm.png';
   }
 });
 
 // Gọi hàm một lần để xác định hình ảnh ban đầu dựa trên kích thước màn hình hiện tại
-window.dispatchEvent(new Event('resize'));
-
-
-
-
-// Lấy tham chiếu tới nút "Thêm vào giỏ hàng"
-var addToCartButton = document.getElementById("add-to-cart-button");
-// Thêm sự kiện "click" cho nút "Thêm vào giỏ hàng"
-addToCartButton.addEventListener("click", addToCart);
-// Hàm xử lý khi nhấn vào nút "Thêm vào giỏ hàng"
-function addToCart() {
-    // Lấy thông tin sản phẩm từ các phần tử HTML
-    var productName = document.getElementById("name-sanpham").textContent;
-    var productPrice = document.getElementById("gia-uu-dai").textContent;
-    var imageElement = document.getElementById('0022266_iphone-15-pro-max-256gb_240');
-    var imageUrl = imageElement.getAttribute('src');
-    // Tạo một đối tượng chứa thông tin sản phẩm
-    var product = {
-        name: productName,
-        price: productPrice
-    };
-    // Thêm sản phẩm vào giỏ hàng (đây chỉ là một phần giả định)
-    console.log("Đường dẫn của ảnh là: " + imageUrl);
-
-    // Thông báo khi thêm sản phẩm thành công (có thể thay đổi tùy theo yêu cầu)
-    alert("Sản phẩm " + productName + productPrice + " đã được thêm vào giỏ hàng.");
-}
-// Hàm giả lập việc thêm sản phẩm vào giỏ hàng
-function addToCartFunction(product) {
-    // Viết mã xử lý thêm sản phẩm vào giỏ hàng ở đây
-    console.log("Thêm sản phẩm vào giỏ hàng:", product);
-}
+window.dispatchEvent(new Event("resize"));

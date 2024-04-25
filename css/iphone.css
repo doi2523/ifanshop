@@ -620,6 +620,9 @@ a {
   justify-content: center;
   margin-top: 10px;
 }
+.img-ip img{
+height: 200px;
+}
 .tag-voucher{
 }
 .tag-voucher img{
