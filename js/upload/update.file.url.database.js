@@ -41,15 +41,6 @@ const usernameProfile = getCookie("username_profile");
 const filenameProfile = getCookie("filename_profile");
 const avatarProfile = getCookie("url_profile");
 
-// console.log(uidProfile)
-// console.log(emailProfile);
-// console.log(hotenProfile);
-// console.log(passwordProfile);
-// console.log(sdtProfile);
-// console.log(usernameProfile);
-// console.log(filenameProfile);
-// console.log(avatarProfile)
-
 function UpdateThongtin(){
         const auth = getAuth();
         const user = auth.currentUser;

@@ -39,7 +39,6 @@ function UploadAvatar() {
     const file = fileInput.files[0]; // Lấy tệp từ trường input
 
     if (!file) {
-        // console.log('Vui lòng chọn một tệp.');
         // alert("Vui lòng chọn một tệp!")
         return;
     }
@@ -49,9 +48,6 @@ function UploadAvatar() {
     uploadBytes(storageRef, file)
         .then((snapshot) => {
             console.log('Tải ảnh lên thành công!');
-            // setTimeout(() => {
-            //     location.reload();
-            // }, 2000);
         })
         .catch((error) => {
             console.error('Lỗi khi tải ảnh lên:', error);

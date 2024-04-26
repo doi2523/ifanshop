@@ -41,17 +41,13 @@ function confirmDelete() {
         console.log("Người dùng đã hủy xóa tài khoản.");
     }
 }
-
-function deleteAccount() {
     // Thực hiện xóa tài khoản
-    console.log("Tài khoản đã được xóa!");
-
+function deleteAccount() {
     const auth = getAuth();
     const user = auth.currentUser;
 
     var uid = user.uid;
     var email = user.email;
-
     deleteUser(user).then(() => {
         // User deleted.
         console.log("Tài khoản ")
@@ -60,8 +56,6 @@ function deleteAccount() {
         // ...
         console.log("error")
     });
-
-    console.log(uid)
     remove(ref(database, "users/" + uid))
     .then(()=>{
         // alert("ok")

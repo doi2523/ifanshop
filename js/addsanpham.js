@@ -40,12 +40,6 @@ function AddSanPham(){
     const fileInput = document.getElementById('file');
     const file = fileInput.files[0];
 
-    // console.log(tensanpham)
-    // console.log(dungluong)
-    // console.log(giasale)
-    // console.log(giagoc)
-    // console.log(file.name)
-
     set(ref(database, 'sanpham/' + idsanpham),{
         idsanpham: idsanpham,
         tensanpham: tensanpham,

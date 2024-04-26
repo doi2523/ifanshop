@@ -46,7 +46,6 @@ const URLProfile = getCookie("url_profile");
 document.getElementById('update-passwd').addEventListener('submit', function(event) {
     // Ngăn chặn mặc định hành vi của biểu mẫu
     event.preventDefault();
-    
     // Lấy giá trị của trường email
     var email = emailProfile;
     // Gọi hàm ForgotPassword với email đã lấy được

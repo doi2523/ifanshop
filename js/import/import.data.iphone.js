@@ -81,15 +81,16 @@ function displayMessage(message) {
   const messages = document.getElementById("showiphone");
   const div = document.createElement("div");
 
-// Lấy giá gốc và giá sale từ message
-const giagoc = parseFloat(message.giagoc.replace(".", "").replace(".", "").replace(".", ""));
-const giasale = parseFloat(message.giasale.replace(".", "").replace(".", "").replace(".", ""));
+  // Lấy giá gốc và giá sale từ message
+  const giagoc = parseFloat(
+    message.giagoc.replace(".", "").replace(".", "").replace(".", "")
+  );
+  const giasale = parseFloat(
+    message.giasale.replace(".", "").replace(".", "").replace(".", "")
+  );
 
-// Tính phần trăm giảm giá
-const giamGia = ((1 - giasale / giagoc) * 100).toFixed(0);
-
-
-
+  // Tính phần trăm giảm giá
+  const giamGia = ((1 - giasale / giagoc) * 100).toFixed(0);
   div.innerHTML = `
         <div class="item item${itemCount}">
             <div class="grid-item">
@@ -119,9 +120,7 @@ const giamGia = ((1 - giasale / giagoc) * 100).toFixed(0);
   itemCount++; // Tăng biến đếm số lượng mục
 
   div.querySelector("#add-cart").addEventListener("click", function () {
-    // Lấy giá trị của ô đã bấm và in ra console
-    // console.log(message.urlpicture);
-
+    // Lấy giá trị của ô đã bấm
     // Tạo một tham chiếu con dựa trên user.uid
     const userCartRef = child(
       ref(database, "donhang/" + uidProfile),
@@ -151,7 +150,6 @@ const giamGia = ((1 - giasale / giagoc) * 100).toFixed(0);
         );
       });
   });
-    
 }
 GetiPhone();
 
@@ -212,7 +210,6 @@ function displayDonhang(donhang, newPostKey) {
   });
 }
 
-
 GetDonhang();
 function DeleteDonHang(newPostKey) {
   let productRef = ref(database, "donhang/" + uidProfile + "/" + newPostKey);
@@ -230,5 +227,3 @@ function displayTotal() {
   const tongtienElement = document.getElementById("tongtien");
   tongtienElement.textContent = totalAmount.toLocaleString() + "₫"; // Định dạng số tiền và thêm đơn vị đồng
 }
-
-

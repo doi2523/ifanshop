@@ -31,7 +31,6 @@ document.getElementById('getthongtin').addEventListener('click', function (event
 })
 
 function GetThongTin(){
-    // var grid = document.getElementById("number-grid").value;
     var tensp = document.getElementById("tensp-insert").value;
 
     console.log(tensp)
