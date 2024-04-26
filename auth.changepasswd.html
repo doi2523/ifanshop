@@ -1,401 +1,632 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>iFanShop</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="icon" href="images/marketplace.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-        integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css"
+    />
+    <link rel="stylesheet" href="css/animate.css" />
+    <link rel="icon" href="images/marketplace.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+      integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
-        integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+      integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"
+      rel="stylesheet"
+    />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
 
-<body class="body-style">
+  <body class="body-style">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand navbar-logo" href="auth.index.html"><img src="images/ifa.png" alt=""></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"> <a class="nav-link" href="auth.index.html">Trang chủ</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="auth.about.html">Giới thiệu</a> </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Sản phẩm <i class="fa fa-regular fa-chevron-down"></i>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="auth.iphone.html">iPhone</a></li>
-                            <li><a class="dropdown-item" href="auth.macbook.html">Macbook</a></li>
-                            <li><a class="dropdown-item" href="auth.ipad.html">iPad</a></li>
-                            <li><a class="dropdown-item" href="auth.accessory.html">Phụ kiện</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"> <a class="nav-link" href="auth.services.html">Dịch vụ</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="auth.giohang.html">Giỏ hàng</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="auth.contact.html">Liên hệ</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="auth.chat.html">Chat online</a> </li>
-                    <li class="nav-item"> <a class="nav-link" href="auth.userpage.html" style="color: #007bff;">Tài
-                            khoản</a>
-                    </li>
-                </ul>
-            </div>
+      <div class="container">
+        <a class="navbar-brand navbar-logo" href="auth.index.html"
+          ><img src="images/ifa.png" alt=""
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="auth.index.html">Trang chủ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="auth.about.html">Giới thiệu</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href=""
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Sản phẩm <i class="fa fa-regular fa-chevron-down"></i>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item" href="auth.iphone.html">iPhone</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="auth.macbook.html">Macbook</a>
+                </li>
+                <li><a class="dropdown-item" href="auth.ipad.html">iPad</a></li>
+                <li>
+                  <a class="dropdown-item" href="auth.accessory.html"
+                    >Phụ kiện</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="auth.services.html">Dịch vụ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="auth.giohang.html">Giỏ hàng</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="auth.contact.html">Liên hệ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="auth.chat.html">Chat online</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="auth.userpage.html"
+                style="color: #007bff"
+                >Tài khoản</a
+              >
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
     <!-- End Navbar -->
     <!-------Banner Start------->
-    <div class="container" style="padding-top: 150px;">
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-        <div class="container">
-            <div class="row flex-lg-nowrap">
-                <div class="col-12 col-lg-auto mb-3" style="width: 200px;">
-                    <div class="card p-2">
-                        <div class="e-navlist e-navlist--active-bg">
-                            <ul class="nav">
-                                <li class="nav-item"><a style="font-size: 17px;" class="nav-link px-2"
-                                        href="auth.userpage.html"><i class="fas fa-user"></i>
-                                        <span>Tài
-                                            khoản</span></a></li>
-                                <li class="nav-item"><a style="font-size: 17px;" class="nav-link px-2 active"
-                                        href="auth.changeuser.html"><i class="fas fa-edit"></i>
-                                        <span>Đổi
-                                            thông
-                                            tin</span></a></li>
-                                <li class="nav-item"><a style="font-size: 17px;" class="nav-link px-2"
-                                        href="auth.changeavatar.html"><i class="fas fa-image"></i>
-                                        <span>Đổi
-                                            Avatar</span></a></li>
-                                <li class="nav-item" style="display: flex; align-items: center;"><a
-                                        style="font-size: 17px;" class="nav-link px-2" href="auth.changepasswd.html">
-                                        <i class="fas fa-duotone fa-key"></i>
-                                        <span>Đổi
-                                            mật khẩu</span></a></li>
-                                <li class="nav-item"><a style="font-size: 17px;" class="nav-link px-2"
-                                        href="auth.setting.html"><i class="fas fa-gear"></i><span> Settings</span></a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="row">
-                        <div class="col mb-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="e-profile">
-                                        <div class="row">
-                                            <div class="col-12 col-sm-auto mb-3">
-                                                <div class="mx-auto avatar">
-                                                    <div id="imageContainer"
-                                                        class="d-flex justify-content-center align-items-center imgavt">
-                                                        <span
-                                                            style="color: rgb(166, 168, 170); font: bold 8pt Arial;">200x200</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div
-                                                class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
-                                                <div class="text-center text-sm-left mb-2 mb-sm-0">
-                                                    <h4 id="txt-username" class="pt-sm-2 pb-1 mb-0 text-nowrap">----
-                                                    </h4>
-                                                </div>
-                                                <div class="text-center text-sm-right">
-                                                    <span class="badge badge-secondary">user</span>
-                                                    <!-- <div class="text-muted"><small>Joined 09 Dec 2017</small></div> -->
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <ul class="nav nav-tabs">
-                                            <li class="nav-item"><a href="auth.userpage.html"
-                                                    class="active nav-link">Thông tin</a></li>
-                                        </ul>
-                                        <div class="tab-content pt-3">
-                                            <div class="tab-pane active">
-                                                <form id="update-passwd">
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <div class="row">
-                                                                <div class="col">
-                                                                    <div class="form-group">
-                                                                        <label>Email</label><br>
-
-                                                                        <div class="input-group">
-                                                                            <label for="email" id="email"
-                                                                                class="form-control"></label>
-                                                                            <div class="input-group-append hide">
-                                                                                <button id="xacminhemail"
-                                                                                    style="background-color: #007bff; color: #fff;"
-                                                                                    class="btn btn-outline-secondary"
-                                                                                    type="button">
-                                                                                    Xác minh Email
-                                                                                </button>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col d-flex justify-content-end">
-                                                            <button class="btn btn-primary" id="update"
-                                                                type="submit">Gửi mail để đổi mật khẩu</button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                                <div class="row">
-                                                    <div class="col">
-                                                        <div class="form-group">
-                                                            <label>Password</label><br>
-
-                                                            <div class="input-group">
-                                                                <label for="password" id="password"
-                                                                    class="form-control"></label>
-                                                                <div class="input-group-append">
-                                                                    <button class="btn btn-outline-secondary"
-                                                                        type="button" id="togglePassword">
-                                                                        <i class="fas fa-eye-slash"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <script>
-                                                    const togglePasswordButton = document.getElementById('togglePassword');
-                                                    const passwordInput = document.getElementById('password');
-
-                                                    togglePasswordButton.addEventListener('click', function () {
-                                                        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-                                                        passwordInput.setAttribute('type', type);
-
-                                                        // Thay đổi icon giữa 'eye' và 'eye-slash'
-                                                        this.querySelector('i').classList.toggle('fa-eye');
-                                                        this.querySelector('i').classList.toggle('fa-eye-slash');
-                                                    });
-
-                                                </script>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-3 mb-3">
-                            <div class="card">
-                                <div class="card-body">
-                                        <h6 class="card-title font-weight-bold">Mua hàng</h6>
-                                        <p class="card-text">Ưu đãi trả góp 0%, miễn phí chuyển đổi cho iPhone 15 series tại iFanShop</p>
-                                        <button type="button" class="btn btn-primary"><a href="auth.iphone.html">Mua ngay</a></button>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-body">
-                                    <h6 class="card-title font-weight-bold">Hỗ trợ</h6>
-                                    <p class="card-text">Nhận trợ giúp nhanh chóng, miễn phí từ các trợ lý thân thiện của chúng tôi.</p>
-                                    <button type="button" class="btn btn-primary"><a href="auth.contact.html">Liên hệ chúng tôi</a></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+    <div class="container" style="padding-top: 150px">
+      <link
+        href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+        rel="stylesheet"
+      />
+      <div class="container">
+        <div class="row flex-lg-nowrap">
+          <div class="col-12 col-lg-auto mb-3" style="width: 200px">
+            <div class="card p-2">
+              <div class="e-navlist e-navlist--active-bg">
+                <ul class="nav">
+                  <li class="nav-item">
+                    <a
+                      style="font-size: 17px"
+                      class="nav-link px-2"
+                      href="auth.userpage.html"
+                      ><i class="fas fa-user"></i> <span>Tài khoản</span></a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      style="font-size: 17px"
+                      class="nav-link px-2 active"
+                      href="auth.changeuser.html"
+                      ><i class="fas fa-edit"></i> <span>Đổi thông tin</span></a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      style="font-size: 17px"
+                      class="nav-link px-2"
+                      href="auth.changeavatar.html"
+                      ><i class="fas fa-image"></i> <span>Đổi Avatar</span></a
+                    >
+                  </li>
+                  <li
+                    class="nav-item"
+                    style="display: flex; align-items: center"
+                  >
+                    <a
+                      style="font-size: 17px"
+                      class="nav-link px-2"
+                      href="auth.changepasswd.html"
+                    >
+                      <i class="fas fa-duotone fa-key"></i>
+                      <span>Đổi mật khẩu</span></a
+                    >
+                  </li>
+                  <li class="nav-item">
+                    <a
+                      style="font-size: 17px"
+                      class="nav-link px-2"
+                      href="auth.setting.html"
+                      ><i class="fas fa-gear"></i><span> Settings</span></a
+                    >
+                  </li>
+                </ul>
+              </div>
             </div>
+          </div>
+
+          <div class="col">
+            <div class="row">
+              <div class="col mb-3">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="e-profile">
+                      <div class="row">
+                        <div class="col-12 col-sm-auto mb-3">
+                          <div class="mx-auto avatar">
+                            <div
+                              id="imageContainer"
+                              class="d-flex justify-content-center align-items-center imgavt"
+                            >
+                              <span
+                                style="
+                                  color: rgb(166, 168, 170);
+                                  font: bold 8pt Arial;
+                                "
+                                >200x200</span
+                              >
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="col d-flex flex-column flex-sm-row justify-content-between mb-3"
+                        >
+                          <div class="text-center text-sm-left mb-2 mb-sm-0">
+                            <h4
+                              id="txt-username"
+                              class="pt-sm-2 pb-1 mb-0 text-nowrap"
+                            >
+                              ----
+                            </h4>
+                          </div>
+                          <div class="text-center text-sm-right">
+                            <span class="badge badge-secondary">user</span>
+                            <!-- <div class="text-muted"><small>Joined 09 Dec 2017</small></div> -->
+                          </div>
+                        </div>
+                      </div>
+                      <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                          <a href="auth.userpage.html" class="active nav-link"
+                            >Thông tin</a
+                          >
+                        </li>
+                      </ul>
+                      <div class="tab-content pt-3">
+                        <div class="tab-pane active">
+                          <form id="update-passwd">
+                            <div class="row">
+                              <div class="col">
+                                <div class="row">
+                                  <div class="col">
+                                    <div class="form-group">
+                                      <label>Email</label><br />
+
+                                      <div class="input-group">
+                                        <label
+                                          for="email"
+                                          id="email"
+                                          class="form-control"
+                                        ></label>
+                                        <div class="input-group-append hide">
+                                          <button
+                                            id="xacminhemail"
+                                            style="
+                                              background-color: #007bff;
+                                              color: #fff;
+                                            "
+                                            class="btn btn-outline-secondary"
+                                            type="button"
+                                          >
+                                            Xác minh Email
+                                          </button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col d-flex justify-content-end">
+                                <button
+                                  class="btn btn-primary"
+                                  id="update"
+                                  type="submit"
+                                >
+                                  Gửi mail để đổi mật khẩu
+                                </button>
+                              </div>
+                            </div>
+                          </form>
+                          <div class="row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Password</label><br />
+
+                                <div class="input-group">
+                                  <label
+                                    for="password"
+                                    id="password"
+                                    class="form-control"
+                                  ></label>
+                                  <div class="input-group-append">
+                                    <button
+                                      class="btn btn-outline-secondary"
+                                      type="button"
+                                      id="togglePassword"
+                                    >
+                                      <i class="fas fa-eye-slash"></i>
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <script>
+                            const togglePasswordButton =
+                              document.getElementById("togglePassword");
+                            const passwordInput =
+                              document.getElementById("password");
+
+                            togglePasswordButton.addEventListener(
+                              "click",
+                              function () {
+                                const type =
+                                  passwordInput.getAttribute("type") ===
+                                  "password"
+                                    ? "text"
+                                    : "password";
+                                passwordInput.setAttribute("type", type);
+
+                                // Thay đổi icon giữa 'eye' và 'eye-slash'
+                                this.querySelector("i").classList.toggle(
+                                  "fa-eye"
+                                );
+                                this.querySelector("i").classList.toggle(
+                                  "fa-eye-slash"
+                                );
+                              }
+                            );
+                          </script>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-3 mb-3">
+                <div class="card">
+                  <div class="card-body">
+                    <h6 class="card-title font-weight-bold">Mua hàng</h6>
+                    <p class="card-text">
+                      Ưu đãi trả góp 0%, miễn phí chuyển đổi cho iPhone 15
+                      series tại iFanShop
+                    </p>
+                    <button type="button" class="btn btn-primary">
+                      <a href="auth.iphone.html">Mua ngay</a>
+                    </button>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h6 class="card-title font-weight-bold">Hỗ trợ</h6>
+                    <p class="card-text">
+                      Nhận trợ giúp nhanh chóng, miễn phí từ các trợ lý thân
+                      thiện của chúng tôi.
+                    </p>
+                    <button type="button" class="btn btn-primary">
+                      <a href="auth.contact.html">Liên hệ chúng tôi</a>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <div class="container">
-        <footer class="py-5">
-            <div class="row">
-                <div class="col-6 col-md-2 mb-3">
-                    <h5>Section</h5>
-                    <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
-                    </ul>
-                </div>
+      <footer class="py-5">
+        <div class="row">
+          <div class="col-6 col-md-2 mb-3">
+            <h5>Section</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary">Home</a>
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary"
+                  >Features</a
+                >
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary">Pricing</a>
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary">FAQs</a>
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary">About</a>
+              </li>
+            </ul>
+          </div>
 
-                <div class="col-6 col-md-2 mb-3">
-                    <h5>Section</h5>
-                    <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
-                    </ul>
-                </div>
+          <div class="col-6 col-md-2 mb-3">
+            <h5>Section</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary">Home</a>
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary"
+                  >Features</a
+                >
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary">Pricing</a>
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary">FAQs</a>
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary">About</a>
+              </li>
+            </ul>
+          </div>
 
-                <div class="col-6 col-md-2 mb-3">
-                    <h5>Section</h5>
-                    <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
-                    </ul>
-                </div>
+          <div class="col-6 col-md-2 mb-3">
+            <h5>Section</h5>
+            <ul class="nav flex-column">
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary">Home</a>
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary"
+                  >Features</a
+                >
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary">Pricing</a>
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary">FAQs</a>
+              </li>
+              <li class="nav-item mb-2">
+                <a href="#" class="nav-link p-0 text-body-secondary">About</a>
+              </li>
+            </ul>
+          </div>
 
-                <div class="col-md-5 offset-md-1 mb-3">
-                    <form>
-                        <h5>Đăng ký nhận thông báo mới nhất</h5>
-                        <p>Monthly digest of what's new and exciting from us.</p>
-                        <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-                            <label for="newsletter1" class="visually-hidden">Email address</label>
-                            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-                            <button class="btn btn-primary" type="button">Đăng ký</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+          <div class="col-md-5 offset-md-1 mb-3">
+            <form>
+              <h5>Đăng ký nhận thông báo mới nhất</h5>
+              <p>Monthly digest of what's new and exciting from us.</p>
+              <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                <label for="newsletter1" class="visually-hidden"
+                  >Email address</label
+                >
+                <input
+                  id="newsletter1"
+                  type="text"
+                  class="form-control"
+                  placeholder="Email address"
+                />
+                <button class="btn btn-primary" type="button">Đăng ký</button>
+              </div>
+            </form>
+          </div>
+        </div>
 
-            <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-                <p>© 2024 Company, Inc. All rights reserved.</p>
-                <ul class="list-unstyled d-flex">
-                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24">
-                                <use xlink:href="#twitter"></use>
-                            </svg></a></li>
-                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24">
-                                <use xlink:href="#instagram"></use>
-                            </svg></a></li>
-                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24">
-                                <use xlink:href="#facebook"></use>
-                            </svg></a></li>
-                </ul>
-            </div>
-        </footer>
+        <div
+          class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top"
+        >
+          <p>© 2024 Company, Inc. All rights reserved.</p>
+          <ul class="list-unstyled d-flex">
+            <li class="ms-3">
+              <a class="link-body-emphasis" href="#"
+                ><svg class="bi" width="24" height="24">
+                  <use xlink:href="#twitter"></use></svg
+              ></a>
+            </li>
+            <li class="ms-3">
+              <a class="link-body-emphasis" href="#"
+                ><svg class="bi" width="24" height="24">
+                  <use xlink:href="#instagram"></use></svg
+              ></a>
+            </li>
+            <li class="ms-3">
+              <a class="link-body-emphasis" href="#"
+                ><svg class="bi" width="24" height="24">
+                  <use xlink:href="#facebook"></use></svg
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </footer>
     </div>
 
     <!-- Ô giỏ hàng online -->
     <div>
-        <button class="iconcart btn btn-primary" id="iconcartclick">
-            <i class="fas fa-shopping-cart"></i>
-        </button>
-        <div class="boxcart hide bg-primary" id="boxcart">
-            <div class="bannerchatbox">
-                <div class="logoboxchat border-right mx-2 pr-2" id="img-avatar-user">
-                    <img id="user-avatar" src="images/user1.jpg" alt="">
-                </div>
-                <div class="titleboxchat">
-                    <h7 class="text-white">iFanShop</h7><br>
-                    <span class="text-white">Giỏ hàng của bạn</span>
-                </div>
-                <div class="mx-2">
-                    <button id="closecart" type="button" class="btn btn-lg btn-link text-decoration-none iconclose">
-                        <ion-icon name="close-outline" style="font-size: 35px; color: #fff;"></ion-icon>
-                    </button>
-                </div>
-            </div>
-            <hr>
-            <div class="chat">
-                <div>
-                    <ul id="donhang"></ul>
-                </div>
-            </div>
-            <hr><br>
-            <div class="input-message form-group-boxchat">
-                <form action="" class="form-chat">
-                    <div class="d-flex">
-                        <button type="button" class="btn btn-outline-primary me-2 send-button">
-                            <div class="d-flex">
-                                Thanh toán ngay <ion-icon name="card-outline" style="font-size: 25px;"></ion-icon>
-                            </div>
-                        </button>
-                    </div>
-                </form>
-            </div>
-    
+      <button class="iconcart btn btn-primary" id="iconcartclick">
+        <i class="fas fa-shopping-cart"></i>
+      </button>
+      <div class="boxcart hide bg-primary" id="boxcart">
+        <div class="bannerchatbox">
+          <div class="logoboxchat border-right mx-2 pr-2" id="img-avatar-user">
+            <img id="user-avatar" src="images/user1.jpg" alt="" />
+          </div>
+          <div class="titleboxchat">
+            <h7 class="text-white">iFanShop</h7><br />
+            <span class="text-white">Giỏ hàng của bạn</span>
+          </div>
+          <div class="mx-2">
+            <button
+              id="closecart"
+              type="button"
+              class="btn btn-lg btn-link text-decoration-none iconclose"
+            >
+              <ion-icon
+                name="close-outline"
+                style="font-size: 35px; color: #fff"
+              ></ion-icon>
+            </button>
+          </div>
         </div>
+        <hr />
+        <div class="chat">
+          <div>
+            <ul id="donhang"></ul>
+          </div>
+        </div>
+        <hr />
+        <br />
+        <div class="input-message form-group-boxchat">
+          <form action="" class="form-chat">
+            <div class="d-flex">
+              <button
+                type="button"
+                class="btn btn-outline-primary me-2 send-button"
+              >
+                <div class="d-flex">
+                  Thanh toán ngay
+                  <ion-icon
+                    name="card-outline"
+                    style="font-size: 25px"
+                  ></ion-icon>
+                </div>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
     <!-- Ô chat online -->
     <div>
-        <button class="fixed-div btn btn-primary" id="iconclick">
-            <i class="fas fa-comment-alt text-primary" style="font-size: 30px; margin-top: 5px; margin-left: -2px;"></i>
-        </button>
-        <div class="boxchat hide bg-primary" id="boxchat">
-            <div class="bannerchatbox">
-                <div class="logoboxchat border-right mx-2 pr-2" id="img-avatar-user">
-                    <img id="user-avatar" src="images/user1.jpg" alt="">
-                </div>
-                <div class="titleboxchat">
-                    <h7 class="text-white">iFanShop Xin chào, chúng tôi sẵn sàng hỗ trợ bạn</h7>
-                    <span class="text-white" id="fullname"></span>
-                </div>
-                <div class="mx-2">
-                    <button id="closebt" type="button" class="btn btn-lg btn-link text-decoration-none iconclose">
-                        <ion-icon name="close-outline" style="font-size: 35px; color: #fff;"></ion-icon>
-                    </button>
-                </div>
-            </div>
-            <hr>
-            <div class="chat">
-                <div>
-                    <ul id="textchat"></ul>
-                </div>
-            </div>
-            <hr>
-            <div class="input-message form-group-boxchat">
-                <form action="" id="message-form" class="form-chat"> <!-- Đổi ID thành message-form -->
-                    <input class="form-control" type="text" id="message-input" placeholder="Nhập" required
-                        style="width: 235px;">
-                    <!-- Đổi ID thành message-input -->
-                    <div class="d-flex">
-                        <button type="submit" class="btn btn-outline-primary me-2 send-button" id="send">
-                            <div class="d-flex">
-                                Gửi
-                                <ion-icon name="send-outline" style="font-size: 25px;"></ion-icon>
-                            </div>
-                        </button>
-                    </div>
-                </form>
-            </div>
-
+      <button class="fixed-div btn btn-primary" id="iconclick">
+        <i
+          class="fas fa-comment-alt text-primary"
+          style="font-size: 30px; margin-top: 5px; margin-left: -2px"
+        ></i>
+      </button>
+      <div class="boxchat hide bg-primary" id="boxchat">
+        <div class="bannerchatbox">
+          <div class="logoboxchat border-right mx-2 pr-2" id="img-avatar-user">
+            <img id="user-avatar" src="images/user1.jpg" alt="" />
+          </div>
+          <div class="titleboxchat">
+            <h7 class="text-white"
+              >iFanShop Xin chào, chúng tôi sẵn sàng hỗ trợ bạn</h7
+            >
+            <span class="text-white" id="fullname"></span>
+          </div>
+          <div class="mx-2">
+            <button
+              id="closebt"
+              type="button"
+              class="btn btn-lg btn-link text-decoration-none iconclose"
+            >
+              <ion-icon
+                name="close-outline"
+                style="font-size: 35px; color: #fff"
+              ></ion-icon>
+            </button>
+          </div>
         </div>
+        <hr />
+        <div class="chat">
+          <div>
+            <ul id="textchat"></ul>
+          </div>
+        </div>
+        <hr />
+        <div class="input-message form-group-boxchat">
+          <form action="" id="message-form" class="form-chat">
+            <!-- Đổi ID thành message-form -->
+            <input
+              class="form-control"
+              type="text"
+              id="message-input"
+              placeholder="Nhập"
+              required
+              style="width: 235px"
+            />
+            <!-- Đổi ID thành message-input -->
+            <div class="d-flex">
+              <button
+                type="submit"
+                class="btn btn-outline-primary me-2 send-button"
+                id="send"
+              >
+                <div class="d-flex">
+                  Gửi
+                  <ion-icon
+                    name="send-outline"
+                    style="font-size: 25px"
+                  ></ion-icon>
+                </div>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-</body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
     integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-<!-- scrollIt js -->
-<script src="js/scrollIt.min.js"></script>
-<script src="js/wow.min.js"></script>
-<script src="js/script.js"></script>
-<script src="js/hide_passwd.js"></script>
-<!-- 2 module này kiểm tra xem có đăng nhập không nếu có thì lấy dữu liệu và lưu vào cookies -->
-<script type="module" src="js/checklogin.js"></script>
-<script type="module" src="js/get_image.js"></script>
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <!-- scrollIt js -->
+  <script src="js/scrollIt.min.js"></script>
+  <script src="js/wow.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/hide_passwd.js"></script>
+  <!-- 2 module này kiểm tra xem có đăng nhập không nếu có thì lấy dữu liệu và lưu vào cookies -->
+  <script type="module" src="js/checklogin.js"></script>
+  <script type="module" src="js/get_image.js"></script>
 
-<script type="module" src="js/update_paswd.js"></script>
-<script type="module" src="js/message.online.js"></script>
+  <script type="module" src="js/update_paswd.js"></script>
+  <script type="module" src="js/message.online.js"></script>
 
-<script src="js/import/import.data.change.pwd.js"></script>
-<script type="module" src="js/import/import.data.iphone.js"></script>
-
+  <script src="js/import/import.data.change.pwd.js"></script>
+  <script type="module" src="js/import/import.data.iphone.js"></script>
 </html>
