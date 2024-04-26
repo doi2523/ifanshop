@@ -179,6 +179,32 @@
                         </div>
                       </div>
 
+                      <script>
+                        // Lấy tham chiếu đến input mật khẩu và nhập lại mật khẩu
+                        const passwordInput1 = document.getElementById("signup-password");
+                        const repeatPasswordInput = document.getElementById("repeat-passwd");
+
+                        // Thêm sự kiện "input" vào cả hai ô input để kiểm tra mật khẩu nhập lại
+                        passwordInput1.addEventListener("input", comparePasswords);
+                        repeatPasswordInput.addEventListener("input", comparePasswords);
+
+                        // Hàm so sánh giá trị của hai ô input mật khẩu
+                        function comparePasswords() {
+                          const password = passwordInput1.value; // Lấy giá trị mật khẩu từ ô input mật khẩu
+                          const repeatPassword = repeatPasswordInput.value; // Lấy giá trị nhập lại mật khẩu từ ô input nhập lại mật khẩu
+
+                          // Kiểm tra xem hai mật khẩu có giống nhau không
+                          if (password !== repeatPassword) {
+                            // Nếu hai mật khẩu không giống nhau, thiết lập thông báo lỗi
+                            repeatPasswordInput.setCustomValidity("Mật khẩu nhập lại không khớp.");
+                          } else {
+                            // Nếu hai mật khẩu giống nhau, xóa thông báo lỗi
+                            repeatPasswordInput.setCustomValidity("");
+                          }
+                        }
+                      </script>
+
+
                       <div class="form-check d-flex mb-5 mx-2">
                         <input class="form-check-input" type="checkbox" value="" id="form2Example3c" required/>
                         <label class="form-check-label" for="form2Example3">
@@ -291,6 +317,7 @@
   <script src="js/script.js"></script>
   <script src="js/re_pwd.js"></script>
   <script type="module" src="js/login.js"></script>
+  <script src="js/if.else.signup.js"></script>
   </script>
 </body>
 
