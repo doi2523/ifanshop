@@ -75,14 +75,14 @@ function displaySanpham(iphone) {
   let deleteBtn = document.createElement("button");
   deleteBtn.textContent = "Xoá";
   deleteBtn.setAttribute("data-name", iphone.idsanpham); // Lưu trữ tên của sản phẩm
-  deleteBtn.addEventListener('click', deleteSanPham);
+  deleteBtn.addEventListener("click", deleteSanPham);
   deleteBtn.classList.add("btn", "btn-primary", "btn-sm", "mx-2");
 
   // Tạo nút sửa
   let editBtn = document.createElement("button");
   editBtn.textContent = "Sửa";
   editBtn.setAttribute("data-name", iphone.idsanpham); // Lưu trữ tên của sản phẩm
-  editBtn.addEventListener('click', editSanPham);
+  editBtn.addEventListener("click", editSanPham);
   editBtn.classList.add("btn", "btn-primary", "btn-sm");
 
   // Thiết lập nội dung cho các ô <td>
@@ -127,14 +127,14 @@ function confirmDelete(productId) {
 }
 // Hàm xoá sản phẩm
 function deleteProduct(productId) {
-    let productRef = ref(database, "sanpham/" + productId);
-        // Xoá hàng chứa sản phẩm có ID tương ứng
-    const rowToDelete = event.target.closest("tr");
-    rowToDelete.remove();
+  let productRef = ref(database, "sanpham/" + productId);
+  // Xoá hàng chứa sản phẩm có ID tương ứng
+  const rowToDelete = event.target.closest("tr");
+  rowToDelete.remove();
   remove(productRef)
     .then(() => {
       // Sau khi xoá thành công, cập nhật giao diện người dùng
-    alert("Đã xoá sản phẩm có id: '" + productId + " '");
+      alert("Đã xoá sản phẩm có id: '" + productId + " '");
     })
     .catch((error) => {
       alert("Lỗi khi xoá sản phẩm:", error);
@@ -201,8 +201,10 @@ function editSanPham(event) {
 
   // Chuyển đổi các ô hiển thị thông tin thành các ô nhập để người dùng có thể sửa đổi
   let tdElements = row.querySelectorAll("td");
-  tdElements[1].innerHTML ='<input type="text" value="' + tdElements[1].innerHTML + '">';
-  tdElements[2].innerHTML ='<input type="text" value="' + tdElements[2].innerHTML + '">';
+  tdElements[1].innerHTML =
+    '<input type="text" value="' + tdElements[1].innerHTML + '">';
+  tdElements[2].innerHTML =
+    '<input type="text" value="' + tdElements[2].innerHTML + '">';
   tdElements[3].innerHTML =
     '<input type="text" value="' + tdElements[3].innerHTML + '">';
   tdElements[4].innerHTML =
@@ -214,7 +216,7 @@ function editSanPham(event) {
   // Tạo input để chọn tệp mới
   let fileInput = document.createElement("input");
   fileInput.setAttribute("type", "file");
-  tdElements[7].innerHTML = '';
+  tdElements[7].innerHTML = "";
   tdElements[7].appendChild(fileInput);
   // Thay đổi nút "Sửa" thành nút "Lưu"
   let saveButton = document.createElement("button");

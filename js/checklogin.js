@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
-import { getDatabase } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
+import { getDatabase, ref , update, } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
 import { getAuth, onAuthStateChanged, } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
@@ -24,12 +24,26 @@ import { getAuth, onAuthStateChanged, } from "https://www.gstatic.com/firebasejs
     const database = getDatabase(app);
     const auth = getAuth();
 const user = auth.currentUser;
-    
+ 
+        function getCookie(name) {
+            const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+            return cookieValue ? cookieValue.pop() : '';
+        }
+
+        // Sử dụng hàm để lấy giá trị từ cookies
+const uidProfile = getCookie("id_profile")
+        
 onAuthStateChanged(auth, (user) => {
-    if (user) { 
-        //Nếu người không đăng nhập
+    if (user) {
+        //Nếu người đăng nhập
+        update(ref(database, "users/" + uidProfile), {
+            userstatus: "online"
+        })
     } else {
         // User is signed out
+          update(ref(database, "users/" + uidProfile), {
+            userstatus: "offline",
+  });
         window.location.replace("login.html")
     }
 });
