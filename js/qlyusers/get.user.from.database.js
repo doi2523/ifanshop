@@ -63,12 +63,8 @@ let userId = getusers.key; // Hoặc sử dụng getusers.id hoặc getusers.ref
 // Tạo nút xoá
 let deleteBtn = document.createElement("button");
 deleteBtn.textContent = "Xoá";
-deleteBtn.setAttribute("data-name", getusers.email); // Sử dụng email hoặc một trường khác của người dùng
-deleteBtn.addEventListener("click", function (event) {
-  console.log(getusers.email);
-  let userId = event.target.getAttribute("data-name");
-  deleteCurrentUser(userId); // Truyền userId vào hàm deleteCurrentUser
-}); 
+// deleteBtn.setAttribute("data-name", getusers.iduser); // Sử dụng email hoặc một trường khác của người dùng
+// deleteBtn.addEventListener("click",deleteCurrentUser); // Truyền userId vào hàm deleteCurrentUser
 deleteBtn.classList.add("btn", "btn-primary", "btn-sm", "mx-2");
 
 
@@ -104,30 +100,3 @@ deleteBtn.classList.add("btn", "btn-primary", "btn-sm", "mx-2");
   showusers.appendChild(tr);
 }
 GetAll();
-
-function deleteCurrentUser(userId) {
-  // Kiểm tra userId có tồn tại không
-  if (!userId) {
-    console.error("Không thể lấy userId từ thuộc tính data-name.");
-    return;
-  }
-
-  // Xác nhận trước khi xoá người dùng
-  let confirmDelete = confirm("Bạn có chắc chắn muốn xoá người dùng này không?");
-  if (confirmDelete) {
-    // Xoá người dùng
-    deleteUser(userId)
-      .then(() => {
-        // Xoá thành công, cập nhật giao diện người dùng
-        alert("Đã xoá người dùng thành công!");
-        // Sau khi xoá thành công, cập nhật giao diện nếu cần
-        // Hoặc refresh trang để hiển thị các thay đổi ngay lập tức
-        // window.location.reload();
-      })
-      .catch((error) => {
-        // Xảy ra lỗi khi xoá người dùng
-        console.error("Lỗi khi xoá người dùng:", error);
-        alert("Đã xảy ra lỗi khi xoá người dùng!");
-      });
-  }
-}

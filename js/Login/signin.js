@@ -24,67 +24,6 @@
   const database = getDatabase(app);
   const auth = getAuth();
 
-
-document.getElementById('signup').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    var hoten = document.getElementById("signup-hoten").value;
-    var sdt = document.getElementById("signup-sdt").value;
-    var username = document.getElementById("signup-username").value;
-    var email = document.getElementById("signup-email").value;
-    var password = document.getElementById("signup-password").value;
-
-    createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed up 
-    const user = userCredential.user;
-
-    set(ref(database, 'users/' + user.uid),{
-        username : username,
-        email: email,
-        password: password,
-        hoten: hoten,
-        sdt: sdt,
-        last_login: "",
-        last_logout: "",
-        nameavatar: "",
-        urlavatar: "",
-        status: "",
-    })
-    alert('Đăng ký thành công!');
-    document.getElementById('signupMessage').innerText = 'Đăng ký thành công! Vui lòng đăng nhập!';
-    signupMessage.style.color = 'green';
-    setTimeout(function() {
-      window.location.href = 'login.html';
-            // window.location.reload();
-        }, 2000);
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-    alert('Đăng ký thất bại!');
-    document.getElementById('signupMessage').innerText = 'Email hoặc username đã được sử dụng!';
-    signupMessage.style.color = 'red';
-  });
-});
-///Ẩn hiện mật khảu ở ô đăng nhập
-document.getElementById('password-toggle-btn').addEventListener('click', function() {
-  var passwordInput = document.getElementById('login-password');
-  var icon = document.getElementById('password-toggle-icon');
-
-  if (passwordInput.type === "password") {
-    passwordInput.type = "text";
-    icon.classList.remove('fa-eye-slash');
-    icon.classList.add('fa-eye');
-  } else {
-    passwordInput.type = "password";
-    icon.classList.remove('fa-eye');
-    icon.classList.add('fa-eye-slash');
-  }
-});
-
 function SavaToCookies() {
     const user = auth.currentUser;
     const databaseRef = ref(database);
