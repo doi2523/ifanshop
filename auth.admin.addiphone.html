@@ -76,12 +76,32 @@
                                     class="badge bg-soft-primary text-primary rounded-pill d-inline-flex align-items-center ms-auto">6</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="auth.qlysanpham.html">
-                                <i class="bi bi-bookmarks sz"></i>
-                                <span class="sz">QLY sản phẩm</span>
-                            </a>
-                        </li>
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        <i class="bi bi-bookmarks sz"></i>
+        <span class="sz">QLY sản phẩm</span>
+    </a>
+    <ul class="dropdown-menu border" aria-labelledby="navbarDropdown" style="margin-left: 40px;">
+        <!-- Các mục menu trong dropdown menu -->
+        <li class="nav-item">
+            <a class="nav-link dropdown-item" href="auth.admin.qlyiphone.html">
+                <i class="bi bi-phone sz1"></i><span class="sz1">QLY iPhone</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link dropdown-item" href="#">
+                <i class="bi bi-laptop sz1"></i><span class="sz1">QLY Macbook</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link dropdown-item" href="#">
+                <i class="bi bi-tablet sz1"></i><span class="sz1">QLY iPad</span>
+            </a>
+        </li>
+        <!-- Thêm các mục menu khác tại đây nếu cần -->
+    </ul>
+</li>
                         <li class="nav-item">
                             <a class="nav-link" href="auth.qlyaccount.html">
                                 <i class="bi bi-people sz"></i>
@@ -118,7 +138,7 @@
                         <div class="row align-items-center">
                             <div class="col-sm-6 col-12 mb-4 mb-sm-0">
                                 <!-- Title -->
-                                <h1 class="h2 mb-0 ls-tight">Application</h1>
+                                <h1 class="h2 mb-0 ls-tight">QLY iPhone</h1>
                             </div>
                             <!-- Actions -->
                             <div class="col-sm-6 col-12 text-sm-end">
@@ -141,117 +161,20 @@
                         <!-- Nav -->
                         <ul class="nav nav-tabs mt-4 overflow-x border-0">
                             <li class="nav-item ">
-                                <a href="#" class="nav-link active">All files</a>
+                                <a href="auth.admin.qlyiphone.html" class="nav-link font-regular">Danh sách</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link font-regular">Shared</a>
+                                <a href="auth.admin.addiphone.html" class="nav-link active">Thêm sản phẩm</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link font-regular">File requests</a>
-                            </li>
+                            <!-- <li class="nav-item">
+                                                        <a href="#" class="nav-link font-regular">File requests</a>
+                                                    </li> -->
                         </ul>
                     </div>
                 </div>
             </header>
 
-            <h2 class="container mt-3">Form Web & id Grid</h2>
-            <div class="container mt-3">
-                <table>
-                    <tbody id="showgrid"></tbody>
-                </table>
-            </div>
-
-            <h2 class="container mt-3">Insert Sản phẩm vào Web</h2>
-
-            <div class="container mt-3">
-                <form id="insert" class="bg-dark text-light p-3">
-                    <div class="row">
-                        <div class="col">
-
-                            <div class="row">
-                                <div class="col">
-                                    <label for="">Nhập ID sản phẩm</label><br>
-                                    <input class="form-control" type="text" id="tensp-insert" required>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col d-flex justify-content-end">
-                                    <button class="btn btn-primary" id="getthongtin" type="submit">Lấy thông
-                                        tin</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <form action="" class="bg-dark text-light p-3">
-                    <div class="row">
-                        <div class="col">
-                            <label for="">Nhập Code muốn thao tác</label><br>
-                            <input class="form-control" type="text" id="number-grid" required>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col d-flex justify-content-end">
-                            <button class="btn btn-primary mx-2" id="insert-to-gird" type="submit">Thêm vào web</button>
-                            <button class="btn btn-primary" id="delete-to-gird" type="submit">Xoá</button>
-                        </div>
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col d-flex justify-content-end">
-                            <button class="btn btn-primary mx-2" id="update-to-gird" type="submit">Thay thế</button>
-                            <!-- <button class="btn btn-primary" id="delete-to-gird" type="button">Xoá</button> -->
-                        </div>
-                    </div>
-                </form>
-                <div class="border p-3">
-                    <div class="row">
-                        <div class="col">
-                            <label for="">ID</label><br>
-                            <label class="form-control" type="text" id="getid"></label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <label for="">Tên sản phẩm</label><br>
-                            <label class="form-control" type="text" id="getname"></label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <label for="">Dung lượng</label><br>
-                            <label class="form-control" type="text" id="getdl"></label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <label for="">Tên tệp</label><br>
-                            <label class="form-control" type="text" id="tentep"></label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <label for="">URL ảnh</label><br>
-                            <label class="form-control" type="text" id="urlanh"></label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <h2 class="container mt-3">PreView</h2>
-            <div class="container mt-3">
-                <table class="table table-striped">
-                    <thead>
-                        <th>STT</th>
-                        <th>Tên sản phẩm</th>
-                        <th>Dung lượng</th>
-                        <th>Giá gốc</th>
-                        <th>Giá ưu đãi</th>
-                        <th>Tên ảnh</th>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-            </div>
-
-            <h2 class="container mt-3 p-3">Upload thông tin</h2>
+            <h2 class="container mt-3 p-3">Thêm sản phẩm</h2>
             <form class="container border mt-3 p-3" id="addsp">
                 <div class="row">
                     <div class="col">
@@ -321,40 +244,7 @@
                     </div>
                 </div>
             </form>
-            <h2 class="container mt-3">File đã Upload</h2>
-            <div class="container mt-3">
-                <table id="" class="table table-striped table-dark small-table">
-                    <thead>
-                        <th>STT</th>
-                        <th>ID</th>
-                        <th>Tên sản phẩm</th>
-                        <th>Dung lượng</th>
-                        <th>Số lượng</th>
-                        <th>Giá sale</th>
-                        <th>Giá gốc</th>
-                        <th>Tên ảnh</th>
-                        <th>Xoá</th>
-                        <th>Sửa</th>
-                        <th>Copy ID</th>
-                    </thead>
-                    <tbody id="additem"></tbody>
-                </table>
-            </div>
-            <h2 class="container mt-3">Tất cả hình ảnh</h2>
-            <div class="container">
-                <table id="imageTable" class="table table-striped table-dark">
-                    <thead>
-                        <tr>
-                            <th scope="col">STT</th>
-                            <th scope="col">Tên</th>
-                            <th scope="col">Hình Ảnh</th>
-                            <th scope="col">Xoá</th>
-                        </tr>
-                    </thead>
-                    <tbody id="imageTableBody">
-                    </tbody>
-                </table>
-            </div>
+
         </div>
     </div>
 </body>
@@ -367,8 +257,8 @@
 <script type="module" src="js/checklogout&delete.js"></script>
 <script type="module" src="js/checklogin.js"></script>
 
-<script type="module" src="js/qlysanpham/upload.img.to.database.js"></script>
-<script type="module" src="js/qlysanpham/upload.data.to.database.js"></script>
+<script type="module" src="js/qlyiphone/upload.img.to.database.js"></script>
+<script type="module" src="js/qlyiphone/upload.data.to.database.js"></script>
 
 <!-- <script type="module" src="js/addsanpham.js"></script> -->
 <script type="module" src="js/insert/insert.iphone.js"></script>
