@@ -6,31 +6,44 @@
 
 /* Bootstrap Icons */
 @import url("https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.4.0/font/bootstrap-icons.min.css");
-.sz{
-    font-size: large;
-    padding-left: 20px;
+.sz {
+  font-size: large;
+  padding-left: 20px;
 }
-.gridbox{
-    width: 100px;
-    height: 100px;
+.gridbox {
+  width: 100px;
+  height: 100px;
 }
-.sz1{
-    font-size: large;
+.sz1 {
+  font-size: large;
 }
 .small-table {
-    font-size: 12px;
-    width: 40%;
-    /* Đặt kích thước chữ cho bảng */
-    /* Thêm các thuộc tính CSS khác tùy thuộc vào kích thước và kiểu của bảng bạn muốn */
+  font-size: 12px;
+  width: 40%;
+  /* Đặt kích thước chữ cho bảng */
+  /* Thêm các thuộc tính CSS khác tùy thuộc vào kích thước và kiểu của bảng bạn muốn */
 }
-          .btn-sm {
-              font-size: 14px;
-              /* Điều chỉnh kích thước chữ của nút */
-              padding: 5px 10px;
-              /* Điều chỉnh padding của nút */
-          }
-    
-          .image-thumbnail {
-              max-width: 70px;
-              max-height: 70px;
-          }
+.btn-sm {
+  font-size: 14px;
+  /* Điều chỉnh kích thước chữ của nút */
+  padding: 5px 10px;
+  /* Điều chỉnh padding của nút */
+}
+
+.image-thumbnail {
+  max-width: 70px;
+  max-height: 70px;
+}
+.image-avt{
+    max-width: 40px;
+    max-height: 40px;
+    border-radius: 100%;
+}
+    .custom-table {
+      width: 30%;
+      /* Đặt độ rộng của bảng là 100% của phần tử chứa nó */
+    }
+    .height-chat{
+      height: 500px;
+      position: relative;
+    }

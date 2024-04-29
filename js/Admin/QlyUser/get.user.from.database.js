@@ -26,7 +26,6 @@ const database = getDatabase(app);
 const auth = getAuth();
 
 
-
 var stdNo = 0;
 function GetAll() {
   const database = getDatabase();
@@ -34,15 +33,17 @@ function GetAll() {
 
   // Lắng nghe sự kiện child_added để nhận thông báo khi có tin nhắn mới được thêm vào
   onChildAdded(databaseRef,(snapshot) => {
-      const getusers = snapshot.val();
-      displayUses(getusers);
+    const getusers = snapshot.val();
+    const uid = snapshot.key;
+    console.log("All user data:", uid);
+    displayUses(getusers, uid);
     },
     (error) => {
       console.error("Error getting users: ", error);
     }
   );
 }
-function displayUses(getusers) {
+function displayUses(getusers, uid) {
   const showusers = document.getElementById("tbody1");
   const tr = document.createElement("tr"); // Thay đổi từ <li> thành <tr> để tạo hàng mới
 
@@ -56,16 +57,12 @@ function displayUses(getusers) {
   const td7 = document.createElement("td");
   const td8 = document.createElement("td");
 
-
-  // Lấy khóa chính (uid) từ đối tượng getusers
-let userId = getusers.key; // Hoặc sử dụng getusers.id hoặc getusers.ref.key tùy vào cấu trúc của dữ liệu
-
 // Tạo nút xoá
 let deleteBtn = document.createElement("button");
 deleteBtn.textContent = "Xoá";
 // deleteBtn.setAttribute("data-name", getusers.iduser); // Sử dụng email hoặc một trường khác của người dùng
 // deleteBtn.addEventListener("click",deleteCurrentUser); // Truyền userId vào hàm deleteCurrentUser
-deleteBtn.classList.add("btn", "btn-primary", "btn-sm", "mx-2");
+deleteBtn.classList.add("btn", "btn-primary", "btn-sm");
 
 
 
@@ -74,7 +71,14 @@ deleteBtn.classList.add("btn", "btn-primary", "btn-sm", "mx-2");
   editBtn.textContent = "Sửa";
   // editBtn.setAttribute("data-name", userr.uid); // Lưu trữ tên của sản phẩm
   // editBtn.addEventListener("click", editSanPham);
-  editBtn.classList.add("btn", "btn-primary", "btn-sm");
+  editBtn.classList.add("btn", "btn-primary", "btn-sm", "mx-2");
+
+    // Tạo nút sửa
+  let showBtn = document.createElement("button");
+  showBtn.textContent = "Xem thêm";
+  // shwBtn.setAttribute("data-name", userr.uid); // Lưu trữ tên của sản phẩm
+  // shwBtn.addEventListener("click", shwSanPham);
+  showBtn.classList.add("btn", "btn-primary", "btn-sm");
 
   // Thiết lập nội dung cho các ô <td>
   td1.textContent = ++stdNo;
@@ -84,8 +88,10 @@ deleteBtn.classList.add("btn", "btn-primary", "btn-sm", "mx-2");
   td5.textContent = getusers.email;
   td6.textContent = getusers.password;
   td7.textContent = getusers.userstatus;
-  td8.appendChild(deleteBtn);
-  td8.appendChild(editBtn);
+  // td8.textContent = uid;
+  // td8.appendChild(deleteBtn);
+  // td8.appendChild(editBtn);
+  td8.appendChild(showBtn);
 
   // Thêm các ô <td> vào hàng
   tr.appendChild(td1);

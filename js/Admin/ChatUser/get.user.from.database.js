@@ -1,7 +1,7 @@
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
-  import { getDatabase, ref, child, onValue, get, onChildAdded } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
+  import { getDatabase, ref, child, onValue, get, onChildAdded, push, set } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
   import { getAuth, deleteUser } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
@@ -42,7 +42,11 @@ function AddItemToList(uid, hoten, urlavatar, userstatus) {
     let chatButton = document.createElement("button");
     chatButton.textContent = "Chat";
     chatButton.classList.add("btn", "btn-primary", "btn-sm");
-chatButton.addEventListener("click", function() {
+    chatButton.addEventListener("click", function () {
+        // Xóa nội dung của phần tử chatInfo và textchat trước khi thêm mới
+        clearChatInfo();
+        clearTextChat();
+        DeleleData();
     // Xử lý khi nút "Chat" được nhấn
     // Lấy thông tin hình ảnh và tên người dùng
     let imageSrc = urlavatar;
@@ -54,7 +58,8 @@ chatButton.addEventListener("click", function() {
     let chatInfoHTML = `<img class="image-avt" src="${imageSrc}" alt="${userName}"> ${userName} [${userstatus}]`;
 
     // In hình ảnh và tên người dùng ra div chatInfo
-    document.getElementById("chatInfo").innerHTML = chatInfoHTML;
+        document.getElementById("chatInfo").innerHTML = chatInfoHTML;
+                localStorage.setItem("UserID", userid);
     GetMess(userid);
 });
 
@@ -67,6 +72,15 @@ chatButton.addEventListener("click", function() {
     
     // Thêm hàng vào bảng
     userList.appendChild(row);
+}
+
+// Hàm để xóa nội dung của phần tử chatInfo
+function clearChatInfo() {
+    document.getElementById("chatInfo").innerHTML = "";
+}
+// Hàm để xóa nội dung của phần tử textchat
+function clearTextChat() {
+    document.getElementById("textchat").innerHTML = "";
 }
 
 function GetMess(userid) {
@@ -87,8 +101,8 @@ function displayMessage(message) {
     const li = document.createElement('li');
     li.innerHTML = `
     <fieldset class="border p-2 mx-2 my-2">
-        <legend class="w-auto legend-small"><img src="${message.url}" alt="User Image"
-                style="width: 40px; height: 40px; border-radius: 100%;"> ${message.name} </legend>
+        <legend class="w-auto legend-small"><img class="image-avt" src="${message.url}" alt="User Image" border-radius: 100%;"> ${message.name} </legend>
+        <br>
         ${message.message}<br><br>
         <p style="margin-bottom: -18px; float: right; background-color: #fff;">${message.time}</p>
     </fieldset>
@@ -123,3 +137,61 @@ function GetAllDataOnce() {
 }
 
 GetAllDataOnce();
+//Function lấy dữ liệu từ cookies
+function getCookie(name) {
+  const cookieValue = document.cookie.match(
+    "(^|;)\\s*" + name + "\\s*=\\s*([^;]+)"
+  );
+  return cookieValue ? cookieValue.pop() : "";
+}
+
+// Sử dụng hàm để lấy giá trị từ cookies
+const uidProfile = getCookie("id_profile");
+const filenameProfile = getCookie("filename_profile");
+const avatarProfile = getCookie("url_profile");
+
+document.getElementById('sedmess').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var message = document.getElementById("txtchat").value;
+    console.log(message);
+    const database = getDatabase(app);
+    const messagesRef = ref(database, 'messages');
+      // Lấy dữ liệu từ localStorage
+    const UserID = localStorage.getItem("UserID");
+    const userMessagesRef = child(messagesRef, UserID); // Tạo nút con cho từng người dùng
+    const newMessageRef = push(userMessagesRef); // Tạo một khóa mới trong nút của người dùng
+    const id = newMessageRef.key; // Lấy khóa mới được tạo
+    let last_login_time = new Date();
+    let formattedDateTime = last_login_time.toLocaleString('vi-VN', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  });
+    set(newMessageRef, {
+        name: "Admin",
+        message: message,
+        time: formattedDateTime,
+        userid: UserID,
+        url: avatarProfile
+    }).then(() => {
+        // alert('Đã gửi tin nhắn thành công!');
+        document.getElementById("txtchat").value = "";
+    }).catch((error) => {
+        console.error('Error writing message to database: ', error);
+    });
+});
+function DeleleData() {
+          // Xoá dữ liệu từ localStorage sau khi sử dụng xong
+      try {
+        localStorage.removeItem("UserID");
+        console.log("Đã xoá thành công key 'UserID' từ localStorage.");
+        const UserID = localStorage.getItem("UserID");
+        console.log("URL ảnh từ localStorage:", UserID);
+      } catch (error) {
+        console.error("Lỗi khi xoá key 'UserID' từ localStorage:", error);
+      }
+}
