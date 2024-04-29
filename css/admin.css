@@ -34,16 +34,35 @@
   max-width: 70px;
   max-height: 70px;
 }
-.image-avt{
-    max-width: 40px;
-    max-height: 40px;
-    border-radius: 100%;
+.image-avt {
+  max-width: 40px;
+  max-height: 40px;
+  border-radius: 100%;
 }
-    .custom-table {
-      width: 30%;
-      /* Đặt độ rộng của bảng là 100% của phần tử chứa nó */
-    }
-    .height-chat{
-      height: 500px;
-      position: relative;
-    }
+.custom-table {
+  width: 30%;
+  /* Đặt độ rộng của bảng là 100% của phần tử chứa nó */
+}
+.height-chat {
+  height: 500px;
+  position: relative;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 5px;
+  /* Điều chỉnh khoảng cách giữa chấm và văn bản */
+}
+
+.dot-green {
+  background-color: green;
+  /* Màu xanh lá */
+}
+
+.dot-gray {
+  background-color: gray;
+  /* Màu xám */
+}
