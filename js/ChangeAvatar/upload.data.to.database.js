@@ -76,10 +76,10 @@ function UpdateThongTin() {
       } catch (error) {
         console.error("Lỗi khi xoá key 'avatarUrl' từ localStorage:", error);
       }
-      //   alert("Thông tin đã được cập nhật thành công! Vui lòng tải lại trang");
-      // setTimeout(() => {
-      //     window.location.reload();
-      // }, 2000);
+        alert("Thông tin đã được cập nhật thành công! Vui lòng tải lại trang");
+      setTimeout(() => {
+          window.location.reload();
+      }, 2000);
     })
 
     .catch((error) => {
