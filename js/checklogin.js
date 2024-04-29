@@ -41,9 +41,9 @@ onAuthStateChanged(auth, (user) => {
         })
     } else {
         // User is signed out
-          update(ref(database, "users/" + uidProfile), {
-            userstatus: "offline",
-  });
+//           update(ref(database, "users/" + uidProfile), {
+//             userstatus: "offline",
+//   });
         window.location.replace("login.html")
     }
 });

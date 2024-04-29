@@ -47,7 +47,6 @@ document.getElementById('signup').addEventListener('submit', function(event) {
         sdt: sdt,
         last_login: "",
         last_logout: "",
-        nameavatar: "",
         urlavatar: "",
     })
     alert('Đăng ký thành công!');
@@ -63,8 +62,8 @@ document.getElementById('signup').addEventListener('submit', function(event) {
     const errorCode = error.code;
     const errorMessage = error.message;
     // ..
-    alert('Đăng ký thất bại!');
-    document.getElementById('signupMessage').innerText = 'Email hoặc username đã được sử dụng!';
+    alert('Đăng ký thất bại Email đã được sử dụng!');
+    document.getElementById('signupMessage').innerText = 'Email chưa chính xác hoặc đã được sử dụng!';
     signupMessage.style.color = 'red';
   });
 });

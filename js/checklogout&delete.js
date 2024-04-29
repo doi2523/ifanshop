@@ -102,6 +102,9 @@ function AddLastLogout() {
   update(ref(database, "users/" + user.uid), {
     last_logout: formattedDateTime,
   });
+    update(ref(database, "users/" + user.uid), {
+    userstatus: "offline",
+  });
 
 }
 document.getElementById("logout").addEventListener("click", function (event) {
