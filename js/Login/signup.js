@@ -49,7 +49,6 @@ document.getElementById('signup').addEventListener('submit', function(event) {
         last_logout: "",
         nameavatar: "",
         urlavatar: "",
-        status: "",
     })
     alert('Đăng ký thành công!');
     document.getElementById('signupMessage').innerText = 'Đăng ký thành công! Vui lòng đăng nhập!';
