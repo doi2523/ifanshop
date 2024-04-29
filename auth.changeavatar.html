@@ -111,10 +111,11 @@
                                                 <div class="text-center text-sm-left mb-2 mb-sm-0">
                                                     <h4 id="txt-username" class="pt-sm-2 pb-1 mb-0 text-nowrap">----
                                                     </h4>
+                                                    <form id="update-profile">
                                                     <div class="mt-2">
                                                         <!-- Input ẩn để chọn file -->
                                                         <input type="file" id="file-input" style="display: none;"
-                                                            accept="image/*">
+                                                            accept="image/*" required name="avatar">
                                                         <!-- Nút "Change Photo" -->
                                                         <button class="btn btn-primary" type="button"
                                                             onclick="document.getElementById('file-input').click();">
@@ -146,7 +147,7 @@
                                         </ul>
                                         <div class="tab-content pt-3">
                                             <div class="tab-pane active">
-                                                <form id="update-profile">
+                                                
                                                     <div class="row">
                                                         <div class="col">
 
@@ -163,24 +164,8 @@
                                                         </div>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="col">
-                                                            <div class="form-group">
-                                                                <label>Tên file avatar:</label><br>
-                                                                <label id="name-avatar" class="form-control"></label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col">
-                                                            <div class="form-group">
-                                                                <label>URL file avatar:</label><br>
-                                                                <label id="url-avatar" class="form-control"></label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row hide">
                                                         <div class="col d-flex justify-content-end">
-                                                            <button class="btn btn-primary" id="update_thongtin"
+                                                            <button class="btn btn-primary" id="upload_avatar"
                                                                 type="submit">Cập nhật</button>
                                                         </div>
                                                     </div>
@@ -377,17 +362,19 @@
 <script src="js/scrollIt.min.js"></script>
 <script src="js/wow.min.js"></script>
 <script src="js/script.js"></script>
-<script src="js/hide_passwd.js"></script>
 <!-- 2 module này kiểm tra xem có đăng nhập không nếu có thì lấy dữu liệu và lưu vào cookies -->
 <script type="module" src="js/checklogin.js"></script>
-<script type="module" src="js/upload/get.url&save.cookies.js"></script>
+<script type="module" src="js/ChangeAvatar/upload.file.js"></script>
+<script type="module" src="js/ChangeAvatar/upload.img.to.database.js"></script>
+<!-- <script type="module" src="js/upload/get.url&save.cookies.js"></script> -->
+<script type="module" src="js/ChangeAvatar/upload.data.to.database.js"></script>
+<script type="module" src="js/ChangeAvatar/import.img.to.web.js"></script>
 
-<script type="module" src="js/upload/upload.name.img.user.js"></script>
-<script type="module" src="js/upload/update.file.url.database.js"></script>
-<script type="module" src="js/upload/upload.img.to.database.js"></script>
+<!-- <script type="module" src="js/upload/update.file.url.database.js"></script> -->
+
 <!-- <script type="module" src="js/update_thongtin.js"></script> -->
 <script type="module" src="js/message.online.js"></script>
-<script src="js/import/import.data.change.avatar.js"></script>
-<script type="module" src="js/import/import.data.iphone.js"></script>
+<!-- <script src="js/import/import.data.change.avatar.js"></script> -->
+<!-- <script type="module" src="js/import/import.data.iphone.js"></script> -->
 
 </html>

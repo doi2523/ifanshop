@@ -42,28 +42,45 @@ const auth = getAuth();
 const firebaseApp = getApp();
 
 // Lắng nghe sự kiện khi người dùng nhấn nút submit trong form
-document.getElementById("addsp").addEventListener("submit", function (event) {
-  event.preventDefault();
-  UploadImageAndGetURL();
-});
+document
+  .getElementById("update-profile")
+  .addEventListener("submit", function (event) {
+    event.preventDefault(); // Ngăn chặn việc tải lại trang
+    UploadImageAndGetURL();
+  });
+
 function UploadImageAndGetURL() {
-  const fileInput = document.getElementById("file"); // Lấy tham chiếu đến ô input chứa file
-  const file = fileInput.files[0]; // Lấy tệp từ ô input
+  const fileInput = document.getElementById("file-input");
+  const file = fileInput.files[0]; // Lấy tệp từ trường input
   if (!file) {
     console.log("Vui lòng chọn một tệp.");
     return;
   }
   let rowCount = 0;
   const storage = getStorage();
-  const storageRef = ref(storage, "iPhone/" + file.name);
+  const storageRef = ref(storage, "Avatar/" + file.name);
   uploadBytes(storageRef, file).then((snapshot) => {
     console.log("Tải ảnh lên thành công!");
-    const imageRef = ref(storage, "iPhone/" + file.name);
-  getDownloadURL(imageRef)
+    const imageRef = ref(storage, "Avatar/" + file.name);
+    getDownloadURL(imageRef)
       .then((url) => {
         console.log("URL của ảnh:", url);
         // Lưu URL vào localStorage
-        localStorage.setItem("imageUrl", url);
+        localStorage.setItem("avatarUrl", url);
+        //Cập nhật giá trị của tên file trong cookies
+        function updateCookieWithurl(url) {
+          // Kiểm tra xem url có tồn tại không
+          if (url) {
+            // Cập nhật giá trị của cookie url_profile thành url
+            document.cookie = "url_profile=" + url;
+            console.log(url);
+            // alert('Tải lên thành công!');
+          } else {
+            console.error("Không có tên tệp được cung cấp.");
+          }
+        }
+        // Gọi hàm để cập nhật giá trị mới cho url_profile
+        updateCookieWithurl(url);
       })
       .catch((error) => {
         console.error("Lỗi khi lấy URL ảnh:", error);

@@ -110,7 +110,7 @@ document.getElementById('file-input').addEventListener('change', function () {
         .then(() => {
             // Sau khi cập nhật thành công, gọi hàm để cập nhật giao diện người dùng
             updateLabel(fileName);
-            window.location.reload();
+            // window.location.reload();
         })
         .catch((error) => {
             console.error("Error updating user data:", error);

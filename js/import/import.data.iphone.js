@@ -192,7 +192,7 @@ function displayDonhang(donhang, newPostKey) {
   totalAmount += parseFloat(donhang.giasale) * parseInt(donhang.soluong);
 
   // Hiển thị tổng giá trị lên giao diện
-  displayTotal();
+  // displayTotal();
   donhangs.appendChild(li);
 
   // Lấy tham chiếu đến nút "delete"
