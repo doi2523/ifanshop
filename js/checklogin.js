@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
-import { getDatabase, ref , update, } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
+import { getDatabase, ref , update, child, get } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
 import { getAuth, onAuthStateChanged, } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
@@ -36,9 +36,10 @@ const uidProfile = getCookie("id_profile")
 onAuthStateChanged(auth, (user) => {
     if (user) {
         //Nếu người đăng nhập
-        update(ref(database, "users/" + uidProfile), {
-            userstatus: "online"
-        })
+        // update(ref(database, "users/" + uidProfile), {
+        //     userstatus: "online"
+        // })
+        SavaToCookies();
     } else {
         // User is signed out
 //           update(ref(database, "users/" + uidProfile), {
@@ -47,3 +48,51 @@ onAuthStateChanged(auth, (user) => {
         window.location.replace("login.html")
     }
 });
+
+function SavaToCookies() {
+    const user = auth.currentUser;
+    const databaseRef = ref(database);
+    const userRef = child(databaseRef, "users/" + user.uid);
+    get(userRef)
+    .then((snapshot) => {
+    if (snapshot.exists()) {
+        const userData = snapshot.val();
+
+        const email_profile = userData.email;
+        const hoten_profile = userData.hoten;
+        const password_profile = userData.password;
+        const sdt_profile = userData.sdt;
+        const username_profile = userData.username;
+        const filename_profile = userData.nameavatar;
+        const id_profile = user.uid;
+        const url_profile = userData.urlavatar //Lấy giá trị của urlavatar
+        const last_login = userData.last_login;
+        const last_logout = userData.last_logout;
+
+
+        console.log("Email:", email_profile);
+        console.log("Password:", password_profile);
+        console.log("Họ tên:", hoten_profile);
+        console.log("Số điện thoại:", sdt_profile);
+        console.log("Last login:", last_login);
+        console.log("Last logout:", last_logout);
+        console.log("Tên avatar:", filename_profile);
+        console.log("URL avatar:", url_profile);
+        console.log("UID:", id_profile);
+        console.log("Username:", username_profile);
+      
+        const values = {
+          id_profile,
+          email_profile,
+          hoten_profile,
+          password_profile,
+          sdt_profile,
+          username_profile,
+          filename_profile,
+          url_profile,
+        };
+        Object.keys(values).forEach(key => {
+          document.cookie = `${key}=${values[key]}`;
+        });
+    } })  
+}

@@ -40,7 +40,7 @@ const firebaseApp = getApp();
 
 document.getElementById("addsp").addEventListener("submit", function (event) {
   event.preventDefault();
-  setTimeout(AddSanPham, 500);
+  setTimeout(AddSanPham, 1000);
 });
 
 function AddSanPham() {
@@ -75,6 +75,7 @@ function AddSanPham() {
       } catch (error) {
         console.error("Lỗi khi xoá key 'imageUrl' từ localStorage:", error);
       }
+      console.log("OK")
     alert("Thêm sản phẩm '" + tensanpham + "' thành công!");
       resetInputs();
     })

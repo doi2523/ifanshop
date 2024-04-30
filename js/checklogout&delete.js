@@ -75,10 +75,10 @@ function printAllCookies() {
 function Logout() {
   signOut(auth)
     .then(() => {
-      // alert("Đăng xuất thành công!");
+      alert("Đăng xuất thành công!");
       // Sign-out successful.
       // setTimeout(function() {
-      //     window.location.href = 'login.html';
+          window.location.href = 'login.html';
       // }, 2000);
     })
     .catch((error) => {
@@ -118,3 +118,12 @@ document.getElementById("logout").addEventListener("click", function (event) {
   alert("Bạn đã đăng xuất thành công!");
   // Ví dụ: Redirect hoặc thực hiện các thao tác đăng xuất khác
 });
+// Bắt sự kiện trước khi người dùng rời đi
+// window.addEventListener("beforeunload", function(event) {
+//   // Gọi hàm Logout khi người dùng rời đi
+//   printAllCookies();
+//   deleteAllCookies();
+//   deleteAllCookiess();
+//   AddLastLogout();
+//   Logout();
+// });
