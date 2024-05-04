@@ -70,18 +70,20 @@ function displaySanpham(iphone) {
   const td9 = document.createElement("td");
 
 // Tạo nút xoá
+// let deleteBtn = document.createElement("button");
+// deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
+// deleteBtn.setAttribute("data-name", iphone.idsanpham); // Lưu trữ tên của sản phẩm
+// deleteBtn.addEventListener("click", deleteSanPham);
+// deleteBtn.classList.add("btn", "btn-danger", "btn-sm", "mx-2");
+
 let deleteBtn = document.createElement("button");
 deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
-deleteBtn.setAttribute("data-name", iphone.idsanpham); // Lưu trữ tên của sản phẩm
-deleteBtn.addEventListener("click", deleteSanPham);
 deleteBtn.classList.add("btn", "btn-danger", "btn-sm", "mx-2");
-
-  // // Tạo nút sửa
-  // let editBtn = document.createElement("button");
-  // editBtn.innerHTML = '<i class="fas fa-edit"></i>';
-  // editBtn.setAttribute("data-id", iphone.idsanpham); // Lưu trữ tên của sản phẩm
-  // editBtn.addEventListener("click", editSanPham);
-  // editBtn.classList.add("btn", "btn-primary", "btn-sm");
+// Thêm sự kiện click vào nút xoá
+deleteBtn.addEventListener("click", function () {
+  let productId = iphone.idsanpham; // Lấy ID của sản phẩm
+  confirmDelete(productId); // Gọi hàm hiển thị cảnh báo xác nhận xoá
+});
 
   let editBtn = document.createElement("button");
   editBtn.innerHTML = '<i class="fas fa-edit"></i>';
@@ -127,11 +129,7 @@ deleteBtn.classList.add("btn", "btn-danger", "btn-sm", "mx-2");
 }
 GetAll();
 
-// Hàm xử lý khi người dùng nhấn nút xoá sản phẩm
-function deleteSanPham(event) {
-  let productId = event.target.getAttribute("data-name");
-  confirmDelete(productId); // Gọi hàm hiển thị cảnh báo xác nhận
-}
+// Hàm xác nhận xoá sản phẩm
 function confirmDelete(productId) {
   let confirmation = window.confirm("Bạn có chắc chắn muốn xoá sản phẩm này?");
   if (confirmation) {
@@ -140,6 +138,7 @@ function confirmDelete(productId) {
     console.log("Người dùng đã hủy bỏ thao tác xoá sản phẩm."); // Nếu chọn "Cancel", không làm gì cả
   }
 }
+
 // Hàm xoá sản phẩm
 function deleteProduct(productId) {
   let productRef = ref(database, "sanpham/" + productId);
