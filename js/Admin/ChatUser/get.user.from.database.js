@@ -71,6 +71,7 @@ function AddItemToList(uid, hoten, urlavatar, userstatus) {
 
     // In hình ảnh và tên người dùng ra div chatInfo
     document.getElementById("chatInfo").innerHTML = chatInfoHTML;
+    //Luu vao Local
     localStorage.setItem("UserID", userid);
     GetMess(userid);
   });
@@ -98,9 +99,7 @@ function GetMess(userid) {
   const databaseRef = ref(database, "messages/" + userid);
 
   // Lắng nghe sự kiện child_added để nhận thông báo khi có tin nhắn mới được thêm vào
-  onChildAdded(
-    databaseRef,
-    (snapshot) => {
+  onChildAdded(databaseRef,(snapshot) => {
       const message = snapshot.val();
       displayMessage(message);
     },
@@ -175,6 +174,7 @@ document.getElementById("sedmess").addEventListener("submit", function (event) {
   const messagesRef = ref(database, "messages");
   // Lấy dữ liệu từ localStorage
   const UserID = localStorage.getItem("UserID");
+
   const userMessagesRef = child(messagesRef, UserID); // Tạo nút con cho từng người dùng
   const newMessageRef = push(userMessagesRef); // Tạo một khóa mới trong nút của người dùng
   const id = newMessageRef.key; // Lấy khóa mới được tạo

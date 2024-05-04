@@ -210,33 +210,45 @@
                         </div>
                         <div class="form-group">
                             <label for="giasale">Giá sale:</label><br>
-                            <input class="form-control amountInput" type="number" id="giasale" name="text1" required>
+                            <input class="form-control amountInput" type="text" id="giasale" name="text1" required>
                         </div>
                         <div class="form-group">
                             <label for="giagoc">Giá gốc:</label><br>
-                            <input class="form-control amountInput" type="number" id="giagoc" name="number2" required>
+                            <input class="form-control amountInput" type="text" id="giagoc" name="number2" required>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="file">Chọn tệp:</label><br>
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input form-control" id="file" name="file" required>
+                                <input type="file" class="custom-file-input form-control" id="file" name="file">
                             </div>
                         </div>                        
                         <div class="form-group mt-4">
-                            <label for="file">Hình ảnh đã chọn:</label><br>
-                            <div id="selectedImage" style="width: auto; height: 150px;"></div>
-                        </div>
-                        <!-- <div class="form-group text-right mt-3">
-                            <button class="btn btn-primary" id="add" type="submit">Tải lên</button>
-                        </div> -->                  
-                </div>                
+                            <div class="row">
+                                <div class="col">
+                                    <label for="file">Ảnh trước đó:</label><br>
+                                    <div id="showimg" style="width: auto; height: 150px;"></div>
+                                </div>
+                                <div class="col">
+                                    <label for="file">Ảnh mới:</label><br>
+                                    <div id="selectedImage" style="width: auto; height: 150px;"></div>
+                                </div>
+                            </div>
+                        </div>              
+                    </div>                
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group text-right d-flex justify-content-end">
+                        <button class="btn btn-primary" type="button" id="huy">Huỷ</button>
+                    </div>
+                </div>
             </div>
                 <div class="row">
                     <div class="col">
                         <div class="form-group text-right d-flex justify-content-end">
-                            <button class="btn btn-primary" type="submit">Tải lên</button>
+                            <button class="btn btn-primary" type="submit">Cập nhật</button>
                         </div>
                     </div>
                 </div>
@@ -267,8 +279,8 @@
 <script type="module" src="js/checklogout&delete.js"></script>
 <script type="module" src="js/checklogin.js"></script>
 <script src="js/Time/time.js"></script>
-<script type="module" src="js/Admin/Qlyiphone/upload.img.to.database.js"></script>
-<script type="module" src="js/Admin/Qlyiphone/upload.data.to.database.js"></script>
+<script type="module" src="js/Admin/Qlyiphone/Update/upload.img.database.js"></script>
+<script type="module" src="js/Admin/Qlyiphone/Update/upload.data.to.database.js"></script>
 
 <!-- <script type="module" src="js/addsanpham.js"></script> -->
 <!-- <script type="module" src="js/insert/insert.iphone.js"></script>

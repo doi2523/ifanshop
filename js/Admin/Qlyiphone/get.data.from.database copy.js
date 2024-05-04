@@ -45,7 +45,9 @@ function GetAll() {
   const databaseRef = ref(database, "sanpham");
 
   // Lắng nghe sự kiện child_added để nhận thông báo khi có tin nhắn mới được thêm vào
-  onChildAdded(databaseRef,(snapshot) => {
+  onChildAdded(
+    databaseRef,
+    (snapshot) => {
       const iphone = snapshot.val();
       displaySanpham(iphone);
     },
@@ -76,29 +78,12 @@ deleteBtn.setAttribute("data-name", iphone.idsanpham); // Lưu trữ tên của 
 deleteBtn.addEventListener("click", deleteSanPham);
 deleteBtn.classList.add("btn", "btn-danger", "btn-sm", "mx-2");
 
-  // // Tạo nút sửa
-  // let editBtn = document.createElement("button");
-  // editBtn.innerHTML = '<i class="fas fa-edit"></i>';
-  // editBtn.setAttribute("data-id", iphone.idsanpham); // Lưu trữ tên của sản phẩm
-  // editBtn.addEventListener("click", editSanPham);
-  // editBtn.classList.add("btn", "btn-primary", "btn-sm");
-
+  // Tạo nút sửa
   let editBtn = document.createElement("button");
   editBtn.innerHTML = '<i class="fas fa-edit"></i>';
+  editBtn.setAttribute("data-name", iphone.idsanpham); // Lưu trữ tên của sản phẩm
+  editBtn.addEventListener("click", editSanPham);
   editBtn.classList.add("btn", "btn-primary", "btn-sm");
-  editBtn.addEventListener("click", function () {
-
-    let data_id = iphone.idsanpham;
-    //Luu vao Local
-    console.log(data_id)
-    localStorage.setItem("idsanpham_sua", data_id);
-    // GetMess(userid);
-    if (data_id) {
-      window.location.href = "auth.admin.suasanpham.html";
-  } else {
-      console.error("Không có giá trị productId để lưu vào localStorage.");
-  }
-  });
 
   // Thiết lập nội dung cho các ô <td>
   td1.textContent = ++stdNo;
@@ -156,71 +141,88 @@ function deleteProduct(productId) {
     });
 }
 
-// // Hàm lưu sản phẩm sau khi sửa trực tiếp trên bảng
-// function saveSanPham(event) {
-//   let productId = event.target.getAttribute("data-name");
+// Hàm lưu sản phẩm sau khi sửa trực tiếp trên bảng
+function saveSanPham(event) {
+  let productId = event.target.getAttribute("data-name");
 
-//   // Tìm hàng trong bảng chứa thông tin sản phẩm cần lưu
-//   let row = event.target.closest("tr");
+  // Tìm hàng trong bảng chứa thông tin sản phẩm cần lưu
+  let row = event.target.closest("tr");
 
-//   // Lấy giá trị mới từ các ô nhập
-//   // let newidsanpham = row.querySelectorAll('input')[0].value;
-//   let newTenSanPham = row.querySelectorAll("input")[0].value;
-//   let newDungLuong = row.querySelectorAll("input")[1].value;
-//   let newSoLuong = row.querySelectorAll("input")[2].value;
-//   let newGiaSale = row.querySelectorAll("input")[3].value;
-//   let newGiaGoc = row.querySelectorAll("input")[4].value;
-//   let newFile = row.querySelectorAll("input")[5].value;
+  // Lấy giá trị mới từ các ô nhập
+  // let newidsanpham = row.querySelectorAll('input')[0].value;
+  let newTenSanPham = row.querySelectorAll("input")[0].value;
+  let newDungLuong = row.querySelectorAll("input")[1].value;
+  let newSoLuong = row.querySelectorAll("input")[2].value;
+  let newGiaSale = row.querySelectorAll("input")[3].value;
+  let newGiaGoc = row.querySelectorAll("input")[4].value;
+  let newFile = row.querySelectorAll("input")[5].value;
 
-//   // Cập nhật dữ liệu vào cơ sở dữ liệu Firebase
-//   let productRef = ref(database, "sanpham/" + productId);
-//   update(productRef, {
-//     tensanpham: newTenSanPham,
-//     dungluong: newDungLuong,
-//     soluong: newSoLuong,
-//     giasale: newGiaSale,
-//     giagoc: newGiaGoc,
-//     file: newFile,
-//   })
-//     .then(() => {
-//       // console.log('Đã cập nhật sản phẩm có tên:', productId);
-//       alert("Đã cập nhật sản phẩm '" + newTenSanPham + "' thành công!");
-//       // Cập nhật lại giao diện bảng sau khi cập nhật dữ liệu thành công
-//       row.querySelectorAll("td")[1].innerHTML = productId;
-//       row.querySelectorAll("td")[2].innerHTML = newTenSanPham;
-//       row.querySelectorAll("td")[3].innerHTML = newDungLuong;
-//       row.querySelectorAll("td")[4].innerHTML = newSoLuong;
-//       row.querySelectorAll("td")[5].innerHTML = newGiaSale;
-//       row.querySelectorAll("td")[6].innerHTML = newGiaGoc;
-//       row.querySelectorAll("td")[7].innerHTML = newFile;
+  // Cập nhật dữ liệu vào cơ sở dữ liệu Firebase
+  let productRef = ref(database, "sanpham/" + productId);
+  update(productRef, {
+    tensanpham: newTenSanPham,
+    dungluong: newDungLuong,
+    soluong: newSoLuong,
+    giasale: newGiaSale,
+    giagoc: newGiaGoc,
+    file: newFile,
+  })
+    .then(() => {
+      // console.log('Đã cập nhật sản phẩm có tên:', productId);
+      alert("Đã cập nhật sản phẩm '" + newTenSanPham + "' thành công!");
+      // Cập nhật lại giao diện bảng sau khi cập nhật dữ liệu thành công
+      row.querySelectorAll("td")[1].innerHTML = productId;
+      row.querySelectorAll("td")[2].innerHTML = newTenSanPham;
+      row.querySelectorAll("td")[3].innerHTML = newDungLuong;
+      row.querySelectorAll("td")[4].innerHTML = newSoLuong;
+      row.querySelectorAll("td")[5].innerHTML = newGiaSale;
+      row.querySelectorAll("td")[6].innerHTML = newGiaGoc;
+      row.querySelectorAll("td")[7].innerHTML = newFile;
 
-//       // Thay đổi nút "Lưu" thành nút "Sửa"
-//       let editButton = document.createElement("button");
-//       editButton.textContent = "Sửa";
-//       editButton.setAttribute("data-name", productId);
-//       editButton.addEventListener("click", editSanPham);
-//       editButton.classList.add("btn", "btn-primary", "btn-sm");
-//       event.target.replaceWith(editButton);
-//     })
-//     .catch((error) => {
-//       console.error("Lỗi khi cập nhật sản phẩm:", error);
-//     });
-// }
-
-function editSanPham(event) {
-  let productId = event.target.getAttribute("data-id");
-
-  // Lưu giá trị mới vào localStorage
-  localStorage.setItem("idsanpham_sua", productId);
-  console.log(productId)
-  // Chuyển hướng người dùng đến trang khác nếu có giá trị trong localStorage
-  if (productId) {
-      window.location.href = "auth.admin.suasanpham.html";
-  } else {
-      console.error("Không có giá trị productId để lưu vào localStorage.");
-  }
+      // Thay đổi nút "Lưu" thành nút "Sửa"
+      let editButton = document.createElement("button");
+      editButton.textContent = "Sửa";
+      editButton.setAttribute("data-name", productId);
+      editButton.addEventListener("click", editSanPham);
+      editButton.classList.add("btn", "btn-primary", "btn-sm");
+      event.target.replaceWith(editButton);
+    })
+    .catch((error) => {
+      console.error("Lỗi khi cập nhật sản phẩm:", error);
+    });
 }
 
+// Hàm sửa sản phẩm trực tiếp trên bảng
+function editSanPham(event) {
+  let productId = event.target.getAttribute("data-name");
 
+  // Tìm hàng trong bảng chứa thông tin sản phẩm cần sửa
+  let row = event.target.closest("tr");
 
-
+  // Chuyển đổi các ô hiển thị thông tin thành các ô nhập để người dùng có thể sửa đổi
+  let tdElements = row.querySelectorAll("td");
+  tdElements[1].innerHTML =
+    '<input type="text" value="' + tdElements[1].innerHTML + '">';
+  tdElements[2].innerHTML =
+    '<input type="text" value="' + tdElements[2].innerHTML + '">';
+  tdElements[3].innerHTML =
+    '<input type="text" value="' + tdElements[3].innerHTML + '">';
+  tdElements[4].innerHTML =
+    '<input type="text" value="' + tdElements[4].innerHTML + '">';
+  tdElements[5].innerHTML =
+    '<input type="text" value="' + tdElements[5].innerHTML + '">';
+  tdElements[6].innerHTML =
+    '<input type="text" value="' + tdElements[6].innerHTML + '">';
+  // Tạo input để chọn tệp mới
+  let fileInput = document.createElement("input");
+  fileInput.setAttribute("type", "file");
+  tdElements[7].innerHTML = "";
+  tdElements[7].appendChild(fileInput);
+  // Thay đổi nút "Sửa" thành nút "Lưu"
+  let saveButton = document.createElement("button");
+  saveButton.textContent = "Lưu";
+  saveButton.setAttribute("data-name", productId);
+  saveButton.addEventListener("click", saveSanPham);
+  saveButton.classList.add("btn", "btn-primary", "btn-sm");
+  event.target.replaceWith(saveButton);
+}
