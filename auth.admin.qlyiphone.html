@@ -22,97 +22,101 @@
   <!-- Dashboard -->
   <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
     <!-- Vertical Navbar -->
-    <nav
-      class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg"
-      id="navbarVertical">
-      <div class="container-fluid">
+    <nav class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg"
+    id="navbarVertical">
+    <div class="container-fluid">
         <!-- Nút Toggler -->
         <button class="navbar-toggler ms-2" type="button" data-toggle="collapse" data-target="#sidebarCollapse"
-          aria-controls="sidebarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+            aria-controls="sidebarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
         <!-- Brand -->
         <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
-          <img src="images/ifa.png" alt="" />
+            <img src="images/ifa.png" alt="">
         </a>
         <!-- Collapse -->
         <div class="collapse navbar-collapse" id="sidebarCollapse">
-          <!-- Navigation -->
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="auth.admin.html">
-                <i class="bi bi-house sz"></i>
-                <span class="sz">Bảng điều khiển</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="auth.analytics.html">
-                <i class="bi bi-bar-chart sz"></i>
-                <span class="sz">Phân tích</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="auth.messadmin.html">
-                <i class="bi bi-chat sz"></i>
-                <span class="sz">Tin nhắn</span>
-                <span
-                  class="badge bg-soft-primary text-primary rounded-pill d-inline-flex align-items-center ms-auto">6</span>
-              </a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                <i class="bi bi-bookmarks sz"></i>
-                <span class="sz">QLY sản phẩm</span>
-              </a>
-              <ul class="dropdown-menu border" aria-labelledby="navbarDropdown" style="margin-left: 40px">
-                <!-- Các mục menu trong dropdown menu -->
+            <!-- Navigation -->
+            <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-link dropdown-item" href="auth.admin.qlyiphone.html">
-                    <i class="bi bi-phone sz1"></i><span class="sz1">QLY iPhone</span>
-                  </a>
+                    <a class="nav-link" href="auth.admin.html">
+                        <i class="bi bi-house sz"></i>
+                        <span class="sz">Bảng điều khiển</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link dropdown-item" href="auth.admin.qlymacbook.html">
-                    <i class="bi bi-laptop sz1"></i><span class="sz1">QLY Macbook</span>
-                  </a>
+                    <a class="nav-link" href="auth.analytics.html">
+                        <i class="bi bi-bar-chart sz"></i>
+                        <span class="sz">Phân tích</span>
+                    </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link dropdown-item" href="#">
-                    <i class="bi bi-tablet sz1"></i><span class="sz1">QLY iPad</span>
-                  </a>
+                    <a class="nav-link" href="auth.qlymessage.html">
+                        <i class="bi bi-chat sz"></i>
+                        <span class="sz">QLY phản hồi</span>
+                        <span
+                        class="badge bg-soft-primary text-primary rounded-pill d-inline-flex align-items-center ms-auto">6</span>
+                    </a>
                 </li>
-                <!-- Thêm các mục menu khác tại đây nếu cần -->
-              </ul>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="auth.qlyaccount.html">
-                <i class="bi bi-people sz"></i>
-                <span class="sz">Người dùng</span>
-              </a>
-            </li>
-          </ul>
-          <!-- Push content down -->
-          <div class="mt-auto"></div>
-          <!-- User (md) -->
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="auth.userpage.html">
-                <i class="bi bi-person-square sz"></i>
-                <span class="sz">Tài khoản</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="logout">
-                <i class="bi bi-box-arrow-left sz"></i>
-                <span class="sz">Đăng xuất</span>
-              </a>
-            </li>
-          </ul>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="auth.qlydanhgia.html">
+                        <i class="bi bi-star sz"></i>
+                        <span class="sz">QLY đánh giá</span>
+                    </a>
+                </li> -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="bi bi-bookmarks sz"></i>
+                        <span class="sz">QLY sản phẩm</span>
+                    </a>
+                    <ul class="dropdown-menu border" aria-labelledby="navbarDropdown" style="margin-left: 40px">
+                        <!-- Các mục menu trong dropdown menu -->
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-item" href="auth.admin.qlyiphone.html">
+                                <i class="bi bi-phone sz1"></i><span class="sz1">QLY iPhone</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-item" href="#">
+                                <i class="bi bi-laptop sz1"></i><span class="sz1">QLY Macbook</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-item" href="#">
+                                <i class="bi bi-tablet sz1"></i><span class="sz1">QLY iPad</span>
+                            </a>
+                        </li>
+                        <!-- Thêm các mục menu khác tại đây nếu cần -->
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="auth.qlyaccount.html">
+                        <i class="bi bi-people sz"></i>
+                        <span class="sz">QLY người dùng</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- Push content down -->
+            <div class="mt-auto"></div>
+            <!-- User (md) -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="auth.userpage.html">
+                        <i class="bi bi-person-square sz"></i>
+                        <span class="sz">Tài khoản</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="logout">
+                        <i class="bi bi-box-arrow-left sz"></i>
+                        <span class="sz">Đăng xuất</span>
+                    </a>
+                </li>
+            </ul>
         </div>
-      </div>
-    </nav>
+    </div>
+</nav>
     <!-- Main content -->
     <div class="h-screen flex-grow-1 overflow-y-lg-auto">
       <!-- Header -->

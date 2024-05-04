@@ -103,16 +103,16 @@ document.getElementById('signin').addEventListener('submit', function(event) {
       });
     
     SavaToCookies();  
-            update(ref(database, "users/" + user.uid), {
-            userstatus: "online"
-        })
   if (email === 'admin@gmail.com' && password === '123456') {
       document.getElementById('loginMessage').innerText = 'Đăng nhập thành công! Vui lòng đợi!';
       loginMessage.style.color = 'green';        // Đợi 2 giây trước khi tải lại trang
       setTimeout(function() {
         window.location.href = 'auth.admin.html';
       }, 3000);
-      alert('Chào mừng admin!');      
+      alert('Chào mừng admin!');  
+      update(ref(database, "users/" + user.uid), {
+        userstatus: "online"
+      })    
       }
   else {
     document.getElementById('loginMessage').innerText = 'Đăng nhập thành công! Vui lòng đợi!'; 
@@ -120,7 +120,10 @@ document.getElementById('signin').addEventListener('submit', function(event) {
       setTimeout(function() {
         window.location.href = 'auth.index.html';
       }, 3000); 
-    alert("Chào mừng '"+user.email +"' đăng nhập")
+    alert("Chào mừng '"+user.email +"' đăng nhập");
+    update(ref(database, "users/" + user.uid), {
+      userstatus: "online"
+    })
     }
   
   // ...

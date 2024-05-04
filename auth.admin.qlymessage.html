@@ -5,11 +5,11 @@
 <link rel="icon" href="images/marketplace.png" type="image/x-icon">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
     integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
 <link rel="stylesheet" href="css/admin.css">
 </head>
 
@@ -47,16 +47,22 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="auth.messadmin.html">
+                            <a class="nav-link" href="auth.qlymessage.html">
                                 <i class="bi bi-chat sz"></i>
-                                <span class="sz">Tin nhắn</span>
+                                <span class="sz">QLY phản hồi</span>
                                 <span
-                                    class="badge bg-soft-primary text-primary rounded-pill d-inline-flex align-items-center ms-auto">6</span>
+                                class="badge bg-soft-primary text-primary rounded-pill d-inline-flex align-items-center ms-auto">6</span>
                             </a>
                         </li>
+                        <!-- <li class="nav-item">
+                            <a class="nav-link" href="auth.qlydanhgia.html">
+                                <i class="bi bi-star sz"></i>
+                                <span class="sz">QLY đánh giá</span>
+                            </a>
+                        </li> -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
                                 <i class="bi bi-bookmarks sz"></i>
                                 <span class="sz">QLY sản phẩm</span>
                             </a>
@@ -83,7 +89,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="auth.qlyaccount.html">
                                 <i class="bi bi-people sz"></i>
-                                <span class="sz">Người dùng</span>
+                                <span class="sz">QLY người dùng</span>
                             </a>
                         </li>
                     </ul>
@@ -117,7 +123,7 @@
                         <div class="row align-items-center">
                             <div class="col-sm-6 col-12 mb-4 mb-sm-0">
                                 <!-- Title -->
-                                <h1 class="h2 mb-0 ls-tight">Application</h1>
+                                <h1 class="h2 mb-0 ls-tight">QLY Phản hồi</h1>
                             </div>
                             <!-- Actions -->
                             <div class="col-sm-6 col-12 text-sm-end">
@@ -140,13 +146,13 @@
                         <!-- Nav -->
                         <ul class="nav nav-tabs mt-4 overflow-x border-0">
                             <li class="nav-item ">
-                                <a href="auth.messadmin.html" class="nav-link font-regular">Chat</a>
+                                <a href="auth.qlymessage.html" class="nav-link active">Chat</a>
                             </li>
                             <li class="nav-item">
-                                <a href="auth.admin.message.everyone.html" class="nav-link font-regular">Chat everyone</a>
+                                <a href="auth.admin.qlymessage.html" class="nav-link font-regular">QLY Message</a>
                             </li>
                             <li class="nav-item">
-                                <a href="auth.admin.qlymessage.html" class="nav-link active">QLY Message</a>
+                                <a href="auth.qlydanhgia.html" class="nav-link font-regular">QLY đánh giá</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link font-regular" href="#"><span id="datetime"></span></a>
@@ -156,36 +162,18 @@
                 </div>
             </header>
             <!-- Main -->
-            <div class="container mt-3 d-flex flex-row">
-                <div class="custom-table-container mr-3">
-                    <table class="table table-sm custom-table border">
-                        <thead>
-                            <th>User</th>
-                            <th>Trạng thái</th>
-                            <th>Chat</th>
-                        </thead>
-                        <tbody id="userList"></tbody>
-                    </table>
-                </div>
-                <div class="container border height-chat d-flex flex-column p-4">
-                    <div id="chatInfo" class="mt-3"></div>
-                    <hr>
-                    <div style="overflow-y: auto;">
-                        <ul id="textchat"></ul>
-                    </div>
-                    <div class="mt-auto input-fixed">
-                        <div class="row">
-                            <div>
-                                <form class="col d-flex justify-content-between align-items-end" action="" id="sedmess">
-                                    <input type="text" class="form-control" id="txtchat" required>
-                                    <button class="btn btn-primary" type="submit">Gửi <i
-                                            class="bi bi-arrow-right"></i></button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div class="container mt-3 d-flex flex-row">
+    <div class="custom-table-container mr-3">
+        <table class="table table-sm custom-table border">
+            <thead>
+                <th>User</th>
+                <th>Trạng thái</th>
+                <th>Tuỳ chọn</th>
+            </thead>
+            <tbody id="userList"></tbody>
+        </table>
+    </div>
+</div>
 
 
 

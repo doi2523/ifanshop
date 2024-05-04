@@ -1,23 +1,16 @@
-<!DOCTYPE html>
-<html lang="es" dir="ltr">
+<meta charset="utf-8">
+<title>Admin | Messages</title>
 
-<head>
-
-    <meta charset="utf-8">
-    <title>Admin</title>
-
-    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
-    <link rel="icon" href="images/marketplace.png" type="image/x-icon">
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-        integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-                integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-                crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/admin.css">
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+<link rel="icon" href="images/marketplace.png" type="image/x-icon">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+    integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+<link rel="stylesheet" href="css/admin.css">
 </head>
 
 <body>
@@ -120,6 +113,7 @@
                 </div>
             </div>
         </nav>
+
         <!-- Main content -->
         <div class="h-screen flex-grow-1 overflow-y-lg-auto">
             <!-- Header -->
@@ -129,7 +123,7 @@
                         <div class="row align-items-center">
                             <div class="col-sm-6 col-12 mb-4 mb-sm-0">
                                 <!-- Title -->
-                                <h1 class="h2 mb-0 ls-tight">Application</h1>
+                                <h1 class="h2 mb-0 ls-tight">QLY Phản hồi</h1>
                             </div>
                             <!-- Actions -->
                             <div class="col-sm-6 col-12 text-sm-end">
@@ -152,24 +146,55 @@
                         <!-- Nav -->
                         <ul class="nav nav-tabs mt-4 overflow-x border-0">
                             <li class="nav-item ">
-                                <a href="#" class="nav-link active">All files</a>
+                                <a href="auth.qlymessage.html" class="nav-link active">Chat</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link font-regular">Shared</a>
+                                <a href="auth.admin.qlymessage.html" class="nav-link font-regular">QLY Message</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link font-regular">File requests</a>
+                                <a href="auth.qlydanhgia.html" class="nav-link font-regular">QLY đánh giá</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link font-regular" href="#"><span id="datetime"></span></a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </header>
             <!-- Main -->
-            <iframe
-                src="https://analytics.google.com/analytics/web/?authuser=0#/p434931265/reports/intelligenthome?params=_u..nav%3Dmaui"
-                width="600" height="400" frameborder="0"></iframe>
+<div class="container mt-3 d-flex flex-row">
+    <div class="custom-table-container mr-3">
+        <table class="table table-sm custom-table border">
+            <thead>
+                <th>User</th>
+                <th>Trạng thái</th>
+                <th>Chat</th>
+            </thead>
+            <tbody id="userList"></tbody>
+        </table>
+    </div>
+    <div class="container border height-chat d-flex flex-column p-4 bg-dark">
+        <div id="chatInfo" class="mt-3"></div>
+        <hr>
+        <div style="overflow-y: auto;" class="bg-dark">
+            <ul id="textchat"></ul>
+        </div>
+        <div class="mt-auto input-fixed">
+            <div class="row">
+                <div >
+                    <form class="col d-flex justify-content-between align-items-end" action="" id="sedmess">
+                    <input type="text" class="form-control" id="txtchat" required>
+                    <button class="btn btn-primary" type="submit">Gửi <i class="bi bi-arrow-right"></i></button>
+                </form>
+                </div>
+            </div>
         </div>
     </div>
+</div>
+
+
+
+
 </body>
 <!-- Bootstrap JS và Popper.js -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -178,6 +203,7 @@
 <script src="js/admin.js"></script>
 <script type="module" src="js/checklogin.js"></script>
 <script type="module" src="js/checklogout&delete.js"></script>
-<script type="module" src="js/analytics.js"></script>
+<!-- <script type="module" src="js/message.admin.js"></script> -->
+<script type="module" src="js/Admin/ChatUser/get.user.from.database.js"></script>
 
 </html>
