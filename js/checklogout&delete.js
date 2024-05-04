@@ -118,6 +118,20 @@ document.getElementById("logout").addEventListener("click", function (event) {
   alert("Bạn đã đăng xuất thành công!");
   // Ví dụ: Redirect hoặc thực hiện các thao tác đăng xuất khác
 });
+
+// Tính toán thời gian mỗi ngày trong milliseconds
+var oneDayInMillis = 24 * 60 * 60 * 1000;
+
+// Thiết lập setInterval để chạy hàm kiểm tra và đăng xuất mỗi ngày
+setInterval(function() {
+  deleteAllCookies();
+  deleteAllCookiess();
+  AddLastLogout();
+  Logout();
+}, oneDayInMillis); // Kiểm tra mỗi ngày
+
+
+
 // Bắt sự kiện trước khi người dùng rời đi
 // window.addEventListener("beforeunload", function(event) {
 //   // Gọi hàm Logout khi người dùng rời đi

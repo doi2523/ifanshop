@@ -26,9 +26,19 @@ console.log(URLProfile)
 
 
 const usernameElement = document.getElementById('txt-username');
-usernameElement.textContent = "@"+ usernameProfile;
+if (usernameElement) {
+    usernameElement.innerText = "@" + usernameProfile;
+} else {
+    console.error("Không tìm thấy phần tử có id 'txt-username'.");
+}
+
 const filenameElement = document.getElementById('name-avatar');
-    filenameElement.textContent = filenameProfile;
+if (filenameElement) {
+    filenameElement.innerText = filenameProfile;
+} else {
+    console.error("Không tìm thấy phần tử có id 'name-avatar'.");
+}
+
     
 const uidd = document.getElementById('uid');
 const usernm = document.getElementById('username');

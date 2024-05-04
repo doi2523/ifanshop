@@ -25,6 +25,10 @@
             max-width: 100px;
             max-height: 100px;
         }
+        .img-fluid{
+            max-width: 200px;
+            max-height: 250px;
+        }
     </style>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
@@ -175,75 +179,64 @@
             </header>
 
             <h2 class="container mt-3 p-3">Thêm sản phẩm</h2>
-            <form class="container border mt-3 p-3" id="addsp">
+            <form class="container border mt-3 p-4" id="addsp">
                 <div class="row">
-                    <div class="col">
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label>ID sản phẩm:</label><br>
-                                    <input class="form-control" type="text" id="idsanpham" name="text1" required>
-                                </div>
-                            </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="idsanpham">ID sản phẩm:</label><br>
+                            <input class="form-control" type="text" id="idsanpham" name="text1" required>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label>Tên sản phẩm:</label><br>
-                                    <input class="form-control" type="text" id="tensanpham" name="text1" required>
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label for="tensanpham">Tên sản phẩm:</label><br>
+                            <input class="form-control" type="text" id="tensanpham" name="text1" required>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label>Dung lượng:</label><br>
-                                    <input class="form-control" type="text" id="dungluong" name="text2" required>
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label for="dungluong">Dung lượng:</label><br>
+                            <input class="form-control" type="text" id="dungluong" name="text2" required>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label>Số lượng:</label><br>
-                                    <input class="form-control" type="text" id="soluong" name="text2" required>
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label for="soluong">Số lượng:</label><br>
+                            <input class="form-control" type="text" id="soluong" name="text2" required>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label>Giá sale:</label><br>
-                                    <input class="form-control" class="amountInput" oninput="formatCurrency(this)"
-                                        type="number" id="giasale" name="text1" required>
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label for="giasale">Giá sale:</label><br>
+                            <input class="form-control amountInput" oninput="formatCurrency(this)" type="number" id="giasale" name="text1" required>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label>Giá gốc:</label><br>
-                                    <input class="form-control" class="amountInput" oninput="formatCurrency(this)"
-                                        type="number" id="giagoc" name="number2" required>
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <label for="giagoc">Giá gốc:</label><br>
+                            <input class="form-control amountInput" oninput="formatCurrency(this)" type="number" id="giagoc" name="number2" required>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="form-group">
-                                    <label>Hình ảnh:</label><br>
-                                    <input class="form-control" type="file" id="file" name="file" required>
-                                </div>
-                            </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="file">Chọn tệp:</label><br>
+                            <input class="form-control" type="file" id="file" name="file" required>
                         </div>
-                        <div class="row mt-3">
-                            <div class="col d-flex justify-content-end">
-                                <button class="btn btn-primary" id="add" type="submit">Tải lên</button>
-                            </div>
+                        <div class="form-group">
+                            <label for="file">Hình ảnh đã chọn:</label><br>
+                            <div id="selectedImage" style="width: auto; height: 150px;"></div>
                         </div>
+                        <!-- <div class="form-group text-right mt-3">
+                            <button class="btn btn-primary" id="add" type="submit">Tải lên</button>
+                        </div> -->
+                    </div>
+                    <div class="form-group text-right mt-3">
+                        <button class="btn btn-primary" id="add" type="submit">Tải lên</button>
                     </div>
                 </div>
             </form>
+        
+            <script>
+                document.getElementById('file').addEventListener('change', function(event) {
+                    const selectedFile = event.target.files[0];
+                    const imageURL = URL.createObjectURL(selectedFile);
+                    const imageElement = document.createElement('img');
+                    imageElement.src = imageURL;
+                    imageElement.classList.add('img-fluid'); // Thêm lớp 'img-fluid' cho hình ảnh (Bootstrap)
+                    document.getElementById('selectedImage').innerHTML = '';
+                    document.getElementById('selectedImage').appendChild(imageElement);
+                });
+            </script>
 
         </div>
     </div>
