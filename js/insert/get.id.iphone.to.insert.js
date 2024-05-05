@@ -46,9 +46,7 @@ import {
     const databaseRef = ref(database, "sanpham");
   
     // Lắng nghe sự kiện value để nhận tất cả dữ liệu khi nó thay đổi hoặc được tải lên ban đầu
-    onValue(
-      databaseRef,
-      (snapshot) => {
+    onValue(databaseRef,(snapshot) => {
         // Reset giá trị của biến đếm khi có thay đổi dữ liệu
         cellNumber = 1;
   
@@ -77,18 +75,53 @@ import {
     const showgrid = document.getElementById("showid");
     let tr = showgrid.lastElementChild; // Lấy thẻ tr cuối cùng trong showgrid
     if (!tr || tr.children.length === 4) {
-      // Nếu không có thẻ tr hoặc thẻ tr hiện tại đã có 4 cột
-      tr = document.createElement("tr"); // Tạo một thẻ tr mới
-      showgrid.appendChild(tr); // Thêm thẻ tr mới vào showgrid
+        // Nếu không có thẻ tr hoặc thẻ tr hiện tại đã có 4 cột
+        tr = document.createElement("tr"); // Tạo một thẻ tr mới
+        showgrid.appendChild(tr); // Thêm thẻ tr mới vào showgrid
     }
-  
+
     // Tạo một thẻ td chứa dữ liệu và thêm vào thẻ tr
     const td = document.createElement("td");
-    td.className = "border text-left";
-    td.innerHTML = `Stt: ${cellNumber} <p>id: ${gridData.idsanpham}</p>`;
+    td.className = "border col p-4";
+    td.innerHTML = `Stt: ${cellNumber} <p>${gridData.idsanpham}</p>`;
     tr.appendChild(td); // Thêm thẻ td vào thẻ tr
-  
+
+    // Tạo một nút button "Copy" và gán hàm xử lý sự kiện click
+    const copyButton = document.createElement("button");
+    copyButton.innerHTML = '<i class="bi bi-clipboard"></i>'; // Thêm biểu tượng sao chép từ Bootstrap
+    copyButton.className = "btn btn-primary btn-sm"; // Thêm class "btn" và "btn-primary" của Bootstrap
+    copyButton.addEventListener("click", function() {
+        const idContent = gridData.idsanpham; // Nội dung cần sao chép
+        navigator.clipboard.writeText(idContent) // Sao chép nội dung vào clipboard
+            .then(() => {
+                console.log("Đã sao chép ID: ", idContent);
+                // Thêm thông báo hoặc hiệu ứng khi sao chép thành công nếu cần
+            // Đẩy giá trị đã copy vào ô input
+            document.getElementById('idsanpham').value = idContent;
+            })
+            .catch(err => {
+                console.error("Lỗi khi sao chép: ", err);
+                // Xử lý lỗi khi không thể sao chép
+            });
+    });
+    td.appendChild(copyButton); // Thêm nút "Copy" vào thẻ td
+
     cellNumber++; // Tăng giá trị của biến đếm
-  }
+}
+
   
   GetGrid();
+  // Hàm sao chép ID sản phẩm vào clipboard
+function copyProductId(event) {
+  let productId = event.target.getAttribute("data-name");
+  navigator.clipboard
+    .writeText(productId)
+    .then(() => {
+      console.log("Đã sao chép ID sản phẩm thành công: " + productId);
+      alert("Đã sao chép ID sản phẩm thành công: " + productId);
+    })
+    .catch((err) => {
+      console.error("Lỗi khi sao chép ID sản phẩm: ", err);
+      alert("Đã xảy ra lỗi khi sao chép ID sản phẩm");
+    });
+}

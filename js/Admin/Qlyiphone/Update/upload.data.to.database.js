@@ -56,8 +56,8 @@ function GetToUpdate() {
       const userData = snapshot.val();
 
       const edit_idsanpham = userData.idsanpham;
-      const edit_soluong = userData.tensanpham;
-      const edit_tensp = userData.soluong;
+      const edit_soluong = userData.soluong;
+      const edit_tensp = userData.tensanpham;
       const edit_dungluong = userData.dungluong;
       const edit_giagoc = userData.giagoc;
       const edit_giasale = userData.giasale;

@@ -63,9 +63,7 @@ function GetiPhone() {
   const databaseRef = ref(database, "webiphone");
 
   // Lắng nghe sự kiện child_added để nhận thông báo khi có tin nhắn mới được thêm vào
-  onChildAdded(
-    databaseRef,
-    (snapshot) => {
+  onChildAdded(databaseRef,(snapshot) => {
       const message = snapshot.val();
       displayMessage(message);
     },
@@ -91,6 +89,7 @@ function displayMessage(message) {
 
   // Tính phần trăm giảm giá
   const giamGia = ((1 - giasale / giagoc) * 100).toFixed(0);
+  console.log(message.idsanpham)
   div.innerHTML = `
         <div class="item item${itemCount}">
             <div class="grid-item">
