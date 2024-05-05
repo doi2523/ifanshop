@@ -40,6 +40,18 @@ const database = getDatabase(app);
 const auth = getAuth();
 const firebaseApp = getApp();
 
+
+  //Function lấy dữ liệu từ cookies
+  function getCookie(name) {
+    const cookieValue = document.cookie.match(
+      "(^|;)\\s*" + name + "\\s*=\\s*([^;]+)"
+    );
+    return cookieValue ? cookieValue.pop() : "";
+  }
+  
+  // Sử dụng hàm để lấy giá trị từ cookies
+  const uidProfile = getCookie("id_profile");
+
 let itemCount = 1; // Biến đếm số lượng mục
 
 function GetiPhone() {
@@ -126,5 +138,114 @@ const formattedGiaGoc = giagocc.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
     </div>`;
     showweb.appendChild(div);
     itemCount++; // Tăng biến đếm số lượng mục
+
+    div.querySelector("#add-cart").addEventListener("click", function () {
+        // Lấy giá trị của ô đã bấm
+        // Tạo một tham chiếu con dựa trên user.uid
+        const userCartRef = child(
+          ref(database, "donhang/" + uidProfile),
+          "new_post_key"
+        );
+    
+        // Tạo một key mới và đẩy giá trị vào cơ sở dữ liệu
+        const newPostRef = push(userCartRef);
+        const newPostKey = newPostRef.key;
+        // Lưu giá trị vào database với key mới
+        set(ref(database, "donhang/" + uidProfile + "/" + newPostKey), {
+          tensanpham: listiphone.tensanpham,
+          dungluong: listiphone.dungluong,
+          url: listiphone.picture,
+          giasale: listiphone.giasale,
+          soluong: "1",
+          color: "",
+        })
+          .then(() => {
+            alert("Đã thêm vào giỏ hàng!");
+            console.log("Giá trị đã được lưu vào cơ sở dữ liệu thành công!");
+          })
+          .catch((error) => {
+            console.error(
+              "Đã xảy ra lỗi khi lưu giá trị vào cơ sở dữ liệu:",
+              error
+            );
+          });
+      });
 }
 GetiPhone();
+
+function GetDonhang() {
+    const database = getDatabase();
+    const databaseRef = ref(database, "donhang/" + uidProfile);
+  
+    // Lắng nghe sự kiện child_added để nhận thông báo khi có tin nhắn mới được thêm vào
+    onChildAdded(
+      databaseRef,
+      (snapshot) => {
+        const donhang = snapshot.val();
+        displayDonhang(donhang, snapshot.key);
+      },
+      (error) => {
+        console.error("Error getting messages: ", error);
+      }
+    );
+  }
+  // Khởi tạo biến tổng giá trị
+  let totalAmount = 0;
+  
+  // Hàm hiển thị thông tin của đơn hàng và cập nhật tổng giá trị
+  function displayDonhang(donhang, newPostKey) {
+    const donhangs = document.getElementById("donhang");
+    const li = document.createElement("li");
+    const giatien = donhang.giasale;
+// Định dạng giá trị theo chuỗi có dấu chấm ngăn cách mỗi 3 chữ số
+    const formattedGiaTien = giatien.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    li.innerHTML = `
+      <div class="d-flex p-3">
+        <img src="${donhang.url}" alt="" style="height: 80px; margin-top: 25px;">
+        <div class="p-3">
+          <h6>Name: ${donhang.tensanpham}</h6>
+          <span>Giá tiền: ${formattedGiaTien}₫</span><br>
+          <span>Số lượng: ${donhang.soluong}</span><br>
+          <button id="delete" type="button" class="btn btn-outline-primary me-2 send-button">Xoá</button>
+        </div>
+      </div><hr>`;
+  
+    // Thêm giá trị của sản phẩm này vào tổng giá trị
+    totalAmount += parseFloat(donhang.giasale) * parseInt(donhang.soluong);
+  
+    // Hiển thị tổng giá trị lên giao diện
+    // displayTotal();
+    donhangs.appendChild(li);
+  
+    // Lấy tham chiếu đến nút "delete"
+    const deleteButton = li.querySelector("#delete");
+    // Thêm sự kiện click cho nút "delete"
+    deleteButton.addEventListener("click", function () {
+      donhangs.removeChild(li);
+      // Xoá phần tử khỏi cơ sở dữ liệu khi nút "delete" được nhấn và truyền newPostKey
+      DeleteDonHang(newPostKey);
+      // Cập nhật lại tổng giá trị sau khi sản phẩm được xoá
+      totalAmount -= parseFloat(donhang.giasale) * parseInt(donhang.soluong);
+      // Hiển thị tổng giá trị mới lên giao diện
+      displayTotal();
+      // Thực hiện các xử lý khác liên quan đến việc xoá dữ liệu khỏi cơ sở dữ liệu hoặc làm bất kỳ việc gì bạn cần ở đây
+    });
+  }
+  
+  GetDonhang();
+  function DeleteDonHang(newPostKey) {
+    let productRef = ref(database, "donhang/" + uidProfile + "/" + newPostKey);
+    remove(productRef)
+      .then(() => {
+        alert("Đã xoá sản phẩm khỏi giỏ hàng");
+        // Sau khi xoá thành công, bạn có thể cập nhật giao diện người dùng nếu cần
+      })
+      .catch((error) => {
+        alert("Lỗi khi xoá sản phẩm:", error);
+      });
+  }
+    // Hàm hiển thị tổng giá trị lên giao diện
+    function displayTotal() {
+        const tongtienElement = document.getElementById("tongtien");
+        tongtienElement.textContent = totalAmount.toLocaleString() + "₫"; // Định dạng số tiền và thêm đơn vị đồng
+      }
