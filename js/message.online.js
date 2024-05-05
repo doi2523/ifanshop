@@ -55,54 +55,6 @@ if (fullname) {
     fullname.textContent = hotenProfile;
 }
 
-
-// document.getElementById('message-form').addEventListener('submit', function(event) {
-//     event.preventDefault();
-//     const auth = getAuth();
-//     const user = auth.currentUser;
-//     const uid = user.uid;
-
-//     var message = document.getElementById("message-input").value; // Sửa đổi ở đây
-//     console.log(message);
-//     var name = hotenProfile; // Sử dụng giá trị hoten_profile ở đây
-//     const database = getDatabase(app);
-//     const messagesRef = ref(database, 'messages');
-//     const newMessageRef = push(messagesRef); // Tạo một khóa mới trong nút "messages"
-//     const id = newMessageRef.key; // Lấy khóa mới được tạo
-
-//     set(newMessageRef, {
-//         name: name,
-//         message: message,
-//         userid: uid
-//     }).then(() => {
-//         alert('Đã gửi tin nhắn thành công!');
-//         document.getElementById("message-input").value = ""; // Sửa đổi ở đây
-//     }).catch((error) => {
-//         console.error('Error writing message to database: ', error);
-//     });
-// });
-
-
-// function GetMess() {
-//     const database = getDatabase();
-//     const databaseRef = ref(database, "messages");
-
-//     // Lắng nghe sự kiện child_added để nhận thông báo khi có tin nhắn mới được thêm vào
-//     onChildAdded(databaseRef, (snapshot) => {
-//         const message = snapshot.val();
-//         displayMessage(message);
-//     }, (error) => {
-//         console.error("Error getting messages: ", error);
-//     });
-// }
-
-// function displayMessage(message) {
-//     const messages = document.getElementById('textchat');
-//     const li = document.createElement('li');
-//     li.innerText = `${message.name}: ${message.message}`;
-//     messages.appendChild(li);
-// }
-
 function SetAvatar() {
 var userAvatar = document.getElementById('user-avatar');
 

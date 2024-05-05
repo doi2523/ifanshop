@@ -83,9 +83,9 @@ function displayDonhangWeb(donhangweb) {
       <div class="product-title">${donhangweb.tensanpham}</div>
       <p class="product-description">The best dog bones of all time. Holy crap. Your dog will be begging for these things! I got curious once and ate one myself. I'm a fan.</p>
     </div>
-    <div class="product-price">${donhangweb.giasale}</div>
+    <div class="product-price">${donhangweb.giasale}₫</div>
     <div class="product-quantity">
-      <input type="number" value="2" min="1">
+      <input type="number" value="${donhangweb.soluong}" min="1">
     </div>
     <div class="product-removal">
       <button class="remove-product">

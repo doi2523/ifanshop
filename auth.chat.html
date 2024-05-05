@@ -16,7 +16,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="css/banner.css">
+    <link rel="stylesheet" href="css/rate.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -56,25 +58,56 @@
         </div>
     </nav>
     <!-- End Navbar -->
-
-    <div class="container" style="padding: 100px;">
-        <div>
-            <ul id="textchat-everyone"></ul>
+<!-- overflow-y-lg-auto -->
+<div class="container" style="padding-top: 100px;">
+    <div class="row">
+        <!-- Cột bên trái -->
+        <div class="col-md-3">
+            <!-- Nội dung của cột bên trái -->
+            <h1>De trong ow day</h1>
         </div>
-        <form action="" id="message-form-everyone" class="form-chat"> <!-- Đổi ID thành message-form -->
-            <input class="form-control" type="text" id="message-input-everyone" placeholder="Nhập" required
-                style="width: 235px;">
-            <!-- Đổi ID thành message-input -->
-            <div class="d-flex">
-                <button type="submit" class="btn btn-outline-primary me-2 send-button" id="send">
-                    <div class="d-flex">
-                        Gửi
-                        <ion-icon name="send-outline" style="font-size: 25px;"></ion-icon>
+        
+        <!-- Cột giữa -->
+        <div class="col-md-6 border">
+            <div class="container-fluid">
+                <div class="row justify-content-center align-items-center"> <!-- Thêm class justify-content-center và align-items-center để căn giữa theo dọc -->
+                    <!-- Phần tử thứ nhất -->
+                    <div class="col-auto">
+                        <div id="avt-1"></div>
                     </div>
-                </button>
+                    <!-- Phần tử thứ hai -->
+                    <div class="col">
+                        <span class="form-control" type="text" id="rate-input" placeholder="Nhập" required>
+                    </div>
+                </div>
+                <p><hr></p>
+            </div>     
+            <div>
+            </div>       
+            <form action="" id="message-form-everyone" class="form-chat overflow-auto">
+
+                <!-- <div class="d-flex">
+                    <button type="submit" class="btn btn-outline-primary me-2 send-button" id="send">
+                        <div class="d-flex">
+                            Gửi
+                            <ion-icon name="send-outline" style="font-size: 25px;"></ion-icon>
+                        </div>
+                    </button>
+                </div> -->
+            </form>
+            <div class="list-group mt-3">
+                <ul id="textchat-everyone" class="list-group-flush"></ul>
             </div>
-        </form>
+        </div>
+        
+        <!-- Cột bên phải -->
+        <div class="col-md-3">
+            <h1>De trong o day</h1>
+        </div>
     </div>
+</div>
+
+    
 <footer class="site-footer">
     <div class="container">
         <div class="row">
@@ -162,7 +195,38 @@
     </div>
 </footer>
 
+<div class="fixed-form hide">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h4 class="card-title mb-0">Tạo bài viết</h4>
+                <button id="close-form" type="button" class="btn btn-sm" style="border-radius: 100%; width: 40px; height: 40px;">
+                    <ion-icon name="close-outline" style="font-size: 25px; margin-top: 3px; margin-left: -2px;"></ion-icon>
+                </button>
+            </div>      
+            <div class="container-fluid m-2 row">
+                <div id="avt-form"></div>
+                <h6 for="exampleInputName" class="form-label" id="name-form"></h6>
+            </div>
+            <div class="card-body ">
+                <form id="sendrate">
+                    <div class="mb-3">
+                        <textarea class="form-control" id="txt-form" placeholder="Bạn đang nghĩ gì?" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword" class="form-label">Hình ảnh</label>
+                        <input type="file" class="form-control" id="file-form" placeholder="Nhập mật khẩu" required>
+                    </div>
+                    <div class="d-flex justify-content-end"> <!-- Sử dụng lớp d-flex và justify-content-end để căn chỉnh sang bên phải -->
+                        <button type="submit" class="btn btn-primary">Đăng</button>
+                    </div>
+                </form>                
+            </div>
+        </div>
+    </div>
+</div>
 
+<div id="background-dark"></div>
 <!-- Ô giỏ hàng online -->
 <div>
     <button class="iconcart btn btn-primary" id="iconcartclick">
@@ -261,11 +325,14 @@
 <script src="js/wow.min.js"></script>
 <script src="js/script.js"></script>
 <!-- 2 module này kiểm tra xem có đăng nhập không nếu có thì lấy dữu liệu và lưu vào cookies -->
-<script type="module" src="js/get_image.js"></script>
 <script type="module" src="js/checklogin.js"></script>
 <script src="js/banner.js"></script>
 <script type="module" src="js/message.online.js"></script>
-<script type="module" src="js/chat.everyone.js"></script>
-<script src="js/getdata.js"></script>
-<script type="module" src="js/import/import.data.iphone.js"></script>
+<!-- <script type="module" src="js/chat.everyone.js"></script> -->
+<script src="js/Admin/Rate/hienthi.js"></script>
+<script type="module" src="js/Admin/Giohang/giohang.js"></script>
+<!-- <script type="module" src="js/import/import.data.iphone.js"></script> -->
+<script type="module" src="js/Admin/Rate/upload.img.rate.js"></script>
+<script type="module" src="js/Admin/Rate/upload.data.rate.js"></script>
+<script type="module" src="js/Admin/Rate/get.data.rate.js"></script>
 </html>

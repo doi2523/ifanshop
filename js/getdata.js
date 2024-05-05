@@ -102,4 +102,3 @@ function printAllCookies() {
     
     // Thay đổi thuộc tính src của thẻ img thành URL mới
     userAvatar.src = newImageUrl;
-

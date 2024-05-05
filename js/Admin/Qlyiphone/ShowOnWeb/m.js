@@ -228,3 +228,36 @@ import {
     tongtienElement.textContent = totalAmount.toLocaleString() + "₫"; // Định dạng số tiền và thêm đơn vị đồng
   }
   
+
+  rateInput.addEventListener('click', function() {
+    // Xóa lớp 'hide' để hiển thị phần tử
+    fixedForm.classList.remove('hide');
+                // Thêm lớp 'dark-mode' vào thẻ body
+                
+});
+// Lấy nút đóng form
+const closeButton = document.getElementById('close-form');
+
+// Thêm sự kiện click cho nút đóng form
+closeButton.addEventListener('click', function() {
+    // Lấy phần tử cần ẩn
+    const fixedForm = document.querySelector('.fixed-form');
+    // Thêm lớp 'hide' vào phần tử
+    fixedForm.classList.add('hide');
+    backgroundDark.classList.remove('dark-mode');
+});
+// Thêm sự kiện click cho phần tử document
+document.addEventListener('click', function(event) {
+    // Lấy phần tử đã bấm chuột
+    const targetElement = event.target;
+
+    // Kiểm tra xem phần tử đã bấm có phải là form hay không
+    const isFormClicked = targetElement.closest('.fixed-form');
+    
+    // Nếu không phải là form, ẩn đi form và background-dark
+    if (!isFormClicked) {
+        const fixedForm = document.querySelector('.fixed-form');
+        fixedForm.classList.add('hide');
+        backgroundDark.classList.remove('dark-mode');
+    }
+});

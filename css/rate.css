@@ -1,0 +1,76 @@
+.fixed-form {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: auto;
+  margin: auto;
+  z-index: 1050;
+  border: none;
+  outline: none;
+  /* cursor: pointer; */
+  border-radius: 1%;
+  width: 500px;
+  height: 450px;
+  /* background-color: blue; */
+}
+.fixed-form .container {
+  display: flex;
+  justify-content: center;
+}
+.fixed-form .col {
+  display: flex;
+  justify-content: flex-end;
+}
+.fixed-form .row {
+  align-items: center;
+}
+.image-form {
+  max-width: 70px;
+  max-height: 70px;
+  border-radius: 100%;
+}
+.dark-mode {
+  background-color: #1111118c; /* Màu nền tối hơn */
+  color: #eee; /* Màu chữ tương phản */
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1040;
+  width: 2000px;
+  height: 2000px;
+}
+/* CSS cho ô input */
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px; /* Bo góc */
+  transition: border-color 0.3s ease; /* Hiệu ứng chuyển đổi màu border */
+}
+
+/* CSS cho ô input khi hover */
+.form-control:hover {
+  border-color: #007bff; /* Màu border khi hover */
+}
+
+/* CSS cho ô input khi focus */
+.form-control:hover {
+  border-color: #007bff; /* Màu border khi focus */
+  outline: none; /* Loại bỏ viền khi focus */
+  box-shadow: 0 0 5px #007bff; /* Đổ bóng khi focus */
+  cursor: pointer;
+}
+.class-img-rate{
+    width: 150px; 
+    height: 200px;
+    border-radius: 5%;
+}
+.class-img-avt{
+    width: 50px; 
+    height: 50px;
+    border-radius: 100%;
+}
