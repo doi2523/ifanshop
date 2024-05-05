@@ -75,7 +75,7 @@ deleteBtn.classList.add("btn", "btn-primary", "btn-sm");
 
     // Tạo nút sửa
   let showBtn = document.createElement("button");
-  showBtn.textContent = "Xem thêm";
+  showBtn.innerHTML = '<i class="fas fa-ellipsis-h"></i>';
   // shwBtn.setAttribute("data-name", userr.uid); // Lưu trữ tên của sản phẩm
   // shwBtn.addEventListener("click", shwSanPham);
   showBtn.classList.add("btn", "btn-primary", "btn-sm");

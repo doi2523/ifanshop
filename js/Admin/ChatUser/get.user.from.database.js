@@ -38,7 +38,7 @@ const database = getDatabase(app);
 const auth = getAuth();
 
 var userList = document.getElementById("userList");
-function AddItemToList(uid, hoten, urlavatar, userstatus) {
+function AddItemToList(uid, hoten, urlavatar, userstatus, messageCount) {
   // Tạo một hàng mới trong bảng
   let row = document.createElement("tr");
   // Tạo một ô cho hình ảnh
@@ -48,11 +48,14 @@ function AddItemToList(uid, hoten, urlavatar, userstatus) {
   let infoCell = document.createElement("td");
   let statusDotClass =
     userstatus === "online" ? "dot dot-green" : "dot dot-gray";
-  infoCell.innerHTML = `${userstatus} <span class="${statusDotClass}"></span>`;
+  infoCell.innerHTML = `${userstatus} <span class="${statusDotClass}"></span> `;
+  ///
+  let numberCell = document.createElement("td");
+  numberCell.innerHTML = `${messageCount}`;
   // Tạo một ô cho nút "Chat"
   let chatCell = document.createElement("td");
   let chatButton = document.createElement("button");
-  chatButton.textContent = "Chat";
+  chatButton.innerHTML = '<i class="fas fa-comment"></i>';
   chatButton.classList.add("btn", "btn-primary", "btn-sm");
   chatButton.addEventListener("click", function () {
     // Xóa nội dung của phần tử chatInfo và textchat trước khi thêm mới
@@ -63,9 +66,7 @@ function AddItemToList(uid, hoten, urlavatar, userstatus) {
     // Lấy thông tin hình ảnh và tên người dùng
     let imageSrc = urlavatar;
     let userName = hoten;
-    let Satus = userstatus;
     let userid = uid;
-
     // Tạo HTML cho hình ảnh và tên người dùng
     let chatInfoHTML = `<img class="image-avt" src="${imageSrc}" alt="${userName}"> ${userName} [${userstatus}]`;
 
@@ -78,8 +79,10 @@ function AddItemToList(uid, hoten, urlavatar, userstatus) {
   chatCell.appendChild(chatButton);
   // Thêm các ô vào hàng
   row.appendChild(imgCell);
-  row.appendChild(infoCell);
+  row.appendChild(infoCell);  
+  row.appendChild(numberCell)
   row.appendChild(chatCell);
+
 
   // Thêm hàng vào bảng
   userList.appendChild(row);
@@ -142,9 +145,27 @@ function GetAllDataOnce() {
         const urlavatar = childSnapshot.val().urlavatar;
         const hoten = childSnapshot.val().hoten; // Assuming "hoten" is a direct child of the snapshot
         userData.push({ uid, hoten, urlavatar, userstatus });
+
+        // Đếm số lượng tin nhắn cho mỗi người dùng
+        const messagesRef = ref(database, "messages");
+        const userMessagesRef = child(messagesRef, uid); // Tham chiếu tới nút con của mỗi người dùng
+        get(userMessagesRef)
+          .then((messageSnapshot) => {
+            // Sử dụng forEach để lặp qua mỗi tin nhắn và đếm số lượng
+            let messageCount = 0;
+            messageSnapshot.forEach((childSnapshot) => {
+              messageCount++; // Tăng số lượng cho mỗi tin nhắn được lặp qua
+            });
+            userData.push({ uid, hoten, urlavatar, userstatus, messageCount });
+            console.log(messageCount)
+            AddItemToList(uid, hoten, urlavatar, userstatus, messageCount);
+
+          })
+          .catch((error) => {
+            console.error("Lỗi khi đếm số lượng tin nhắn cho người dùng", uid, ":", error);
+          });        
       });
-      console.log("All user data:", userData);
-      AddAllItemsToList(userData);
+      // AddAllItemsToList(userData);
     })
     .catch((error) => {
       console.error("Error fetching user data:", error);
