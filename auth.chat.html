@@ -17,6 +17,10 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
     <link rel="stylesheet" href="css/banner.css">
     <link rel="stylesheet" href="css/rate.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,12 +63,12 @@
     </nav>
     <!-- End Navbar -->
 <!-- overflow-y-lg-auto -->
-<div class="container" style="padding-top: 100px;">
+<div class="container">
     <div class="row">
         <!-- Cột bên trái -->
         <div class="col-md-3">
             <!-- Nội dung của cột bên trái -->
-            <h1>De trong ow day</h1>
+            <h1>De trong ow day</h1>     
         </div>
         
         <!-- Cột giữa -->
@@ -84,19 +88,15 @@
             </div>     
             <div>
             </div>       
-            <form action="" id="message-form-everyone" class="form-chat overflow-auto">
+            <!-- <div class="col-md-9 border">                            
+                <div class="list-group mt-3">
 
-                <!-- <div class="d-flex">
-                    <button type="submit" class="btn btn-outline-primary me-2 send-button" id="send">
-                        <div class="d-flex">
-                            Gửi
-                            <ion-icon name="send-outline" style="font-size: 25px;"></ion-icon>
-                        </div>
-                    </button>
-                </div> -->
-            </form>
+                </div>
+            </div> -->
+                <!-- Input checkbox được ẩn -->
+            <div id="show-rate" class="list-group-flush"></div>
             <div class="list-group mt-3">
-                <ul id="textchat-everyone" class="list-group-flush"></ul>
+                
             </div>
         </div>
         
@@ -194,7 +194,7 @@
         </div>
     </div>
 </footer>
-
+<!-- Phần them baì đánh giá -->
 <div class="fixed-form hide">
     <div class="container-fluid">
         <div class="card">
@@ -213,6 +213,13 @@
                     <div class="mb-3">
                         <textarea class="form-control" id="txt-form" placeholder="Bạn đang nghĩ gì?" required></textarea>
                     </div>
+                    <div class="rating">
+                        <span data-value="5">&#9733;</span>
+                        <span data-value="4">&#9733;</span>
+                        <span data-value="3">&#9733;</span>
+                        <span data-value="2">&#9733;</span>
+                        <span data-value="1">&#9733;</span>
+                      </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword" class="form-label">Hình ảnh</label>
                         <input type="file" class="form-control" id="file-form" placeholder="Nhập mật khẩu" required>
@@ -229,7 +236,7 @@
 <div id="background-dark"></div>
 <!-- Ô giỏ hàng online -->
 <div>
-    <button class="iconcart btn btn-primary" id="iconcartclick">
+    <button class="iconcart btn btn-primary" id="iconcartclick" style="border-radius: 100%;">
         <i class="fas fa-shopping-cart"></i>
     </button>
     <div class="boxcart hide bg-primary" id="boxcart">
@@ -269,7 +276,7 @@
     </div>
 </div>
     <div>
-        <button class="fixed-div btn btn-primary" id="iconclick">
+        <button class="fixed-div btn btn-primary" id="iconclick" style="border-radius: 100%;">
             <i class="fas fa-comment-alt text-primary" style="font-size: 30px; margin-top: 5px; margin-left: -2px;"></i>
         </button>
         <div class="boxchat hide bg-primary" id="boxchat">
@@ -331,6 +338,7 @@
 <!-- <script type="module" src="js/chat.everyone.js"></script> -->
 <script src="js/Admin/Rate/hienthi.js"></script>
 <script type="module" src="js/Admin/Giohang/giohang.js"></script>
+<script src="js/User/Rating/rating.js"></script>
 <!-- <script type="module" src="js/import/import.data.iphone.js"></script> -->
 <script type="module" src="js/Admin/Rate/upload.img.rate.js"></script>
 <script type="module" src="js/Admin/Rate/upload.data.rate.js"></script>

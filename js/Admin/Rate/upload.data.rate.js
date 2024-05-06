@@ -63,7 +63,9 @@ function AddSanPham() {
   const fileInput = document.getElementById("file-form");
   const file = fileInput.files[0];
   // Lấy dữ liệu từ localStorage
+
   const imageUrl = localStorage.getItem("imageUrl");
+  const ratingValue = localStorage.getItem("ratingValue");
   // Thêm dữ liệu mới với key tự động được tạo ra bằng phương thức push()
   const newPostRef = push(ref(database, "Rate"));
   const newPostKey = newPostRef.key;
@@ -72,11 +74,13 @@ function AddSanPham() {
     textarea: textarea,
     picture: imageUrl,
     profile: URLProfile,
+    star: ratingValue
   })
     .then(() => {
       // Xoá dữ liệu từ localStorage sau khi sử dụng xong
       try {
         localStorage.removeItem("imageUrl");
+        localStorage.removeItem("ratingValue");
         console.log("Đã xoá thành công key 'imageUrl' từ localStorage.");
         const imageUrl = localStorage.getItem("imageUrl");
         console.log("URL ảnh từ localStorage:", imageUrl);
