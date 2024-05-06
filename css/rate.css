@@ -110,6 +110,10 @@
   object-fit: cover; /* Đảm bảo hình ảnh đầy đủ kích thước trong khung */
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Đổ bóng cho hình ảnh */
 }
+.overflow-container {
+  max-height: 600px; /* Đặt chiều cao cố định */
+  overflow-y: auto; /* Hiển thị thanh cuộn khi nội dung vượt quá chiều cao */
+}
 
 
 .rating {

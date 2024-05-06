@@ -92,31 +92,25 @@
         <!-- Cột giữa -->
         <div class="col-md-6 border">
             <div class="container-fluid">
-                <div class="row justify-content-center align-items-center"> <!-- Thêm class justify-content-center và align-items-center để căn giữa theo dọc -->
+                <div class="row justify-content-center align-items-center">
                     <!-- Phần tử thứ nhất -->
                     <div class="col-auto">
                         <div id="avt-1"></div>
                     </div>
                     <!-- Phần tử thứ hai -->
                     <div class="col">
-                        <span class="form-control" type="text" id="rate-input" placeholder="Nhập" required>
+                        <input class="form-control" type="text" id="rate-input" placeholder="Nhập" required>
                     </div>
                 </div>
                 <p><hr></p>
-            </div>     
-            <div>
-            </div>       
-            <!-- <div class="col-md-9 border">                            
-                <div class="list-group mt-3">
-
-                </div>
-            </div> -->
-                <!-- Input checkbox được ẩn -->
-            <div id="show-rate" class="list-group-flush"></div>
-            <div class="list-group mt-3">
-                
             </div>
+            <!-- Phần tử chứa danh sách đánh giá với overflow -->
+            <div class="overflow-container">
+                <div id="show-rate" class="list-group-flush"></div>
+            </div>
+            <div class="list-group mt-3"></div>
         </div>
+        
         
         <!-- Cột bên phải -->
         <div class="col-md-3">
