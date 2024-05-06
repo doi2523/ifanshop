@@ -89,7 +89,7 @@ import {
             <h6>Name: ${donhang.tensanpham}</h6>
             <span>Giá tiền: ${formattedGiaTien}₫</span><br>
             <span>Số lượng: ${donhang.soluong}</span><br>
-            <button id="delete" type="button" class="btn btn-outline-primary me-2 send-button">Xoá</button>
+            <button id="delete" type="button" class="btn btn-danger me-2 d-flex ms-auto"><i class="fas fa-trash-alt"></i></button>
           </div>
         </div><hr>`;
   
@@ -111,6 +111,7 @@ import {
       totalAmount -= parseFloat(donhang.giasale) * parseInt(donhang.soluong);
       // Hiển thị tổng giá trị mới lên giao diện
       displayTotal();
+      // GetDonhang();
       // Thực hiện các xử lý khác liên quan đến việc xoá dữ liệu khỏi cơ sở dữ liệu hoặc làm bất kỳ việc gì bạn cần ở đây
     });
   }

@@ -189,6 +189,11 @@ function ShowOnWeb(listiphone) {
             alert("Đã thêm vào giỏ hàng!");
             console.log("Giá trị đã được lưu vào cơ sở dữ liệu thành công!");
             displayTotal();
+            window.onload = function() {
+              // Tải lại trang sau khi trang đã được tải hoàn toàn
+              location.reload();
+          };
+          
           })
           .catch((error) => {
             console.error(
@@ -202,84 +207,84 @@ function ShowOnWeb(listiphone) {
 }
 GetiPhone();
 
-function GetDonhang() {
-  const database = getDatabase();
-  const databaseRef = ref(database, "donhang/" + uidProfile);
+// function GetDonhang() {
+//   const database = getDatabase();
+//   const databaseRef = ref(database, "donhang/" + uidProfile);
 
-  // Lắng nghe sự kiện child_added để nhận thông báo khi có tin nhắn mới được thêm vào
-  onChildAdded(
-    databaseRef,
-    (snapshot) => {
-      const donhang = snapshot.val();
-      displayDonhang(donhang, snapshot.key);
-      displayTotal();
-    },
-    (error) => {
-      console.error("Error getting messages: ", error);
-    }
-  );
-}
-// Khởi tạo biến tổng giá trị
-let totalAmount = 0;
+//   // Lắng nghe sự kiện child_added để nhận thông báo khi có tin nhắn mới được thêm vào
+//   onChildAdded(
+//     databaseRef,
+//     (snapshot) => {
+//       const donhang = snapshot.val();
+//       displayDonhang(donhang, snapshot.key);
+//       displayTotal();
+//     },
+//     (error) => {
+//       console.error("Error getting messages: ", error);
+//     }
+//   );
+// }
+// // Khởi tạo biến tổng giá trị
+// let totalAmount = 0;
 
-// Hàm hiển thị thông tin của đơn hàng và cập nhật tổng giá trị
-function displayDonhang(donhang, newPostKey) {
-  const donhangs = document.getElementById("donhang");
-  // donhangs.innerHTML = "";
-  const li = document.createElement("li");
-  const giatien = donhang.giasale;
-  // Định dạng giá trị theo chuỗi có dấu chấm ngăn cách mỗi 3 chữ số
-  const formattedGiaTien = giatien
-    .toString()
-    .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  li.innerHTML = `
-      <div class="d-flex p-3">
-        <img src="${donhang.url}" alt="" style="height: 80px; margin-top: 25px;">
-        <div class="p-3">
-          <h6>Name: ${donhang.tensanpham}</h6>
-          <span>Giá tiền: ${formattedGiaTien}₫</span><br>
-          <span>Số lượng: ${donhang.soluong}</span><br>
-          <button id="delete" type="button" class="btn btn-outline-primary me-2 send-button">Xoá</button>
-        </div>
-      </div><hr>`;
+// // Hàm hiển thị thông tin của đơn hàng và cập nhật tổng giá trị
+// function displayDonhang(donhang, newPostKey) {
+//   const donhangs = document.getElementById("donhang");
+//   // donhangs.innerHTML = "";
+//   const li = document.createElement("li");
+//   const giatien = donhang.giasale;
+//   // Định dạng giá trị theo chuỗi có dấu chấm ngăn cách mỗi 3 chữ số
+//   const formattedGiaTien = giatien
+//     .toString()
+//     .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+//   li.innerHTML = `
+//       <div class="d-flex p-3">
+//         <img src="${donhang.url}" alt="" style="height: 80px; margin-top: 25px;">
+//         <div class="p-3">
+//           <h6>Name: ${donhang.tensanpham}</h6>
+//           <span>Giá tiền: ${formattedGiaTien}₫</span><br>
+//           <span>Số lượng: ${donhang.soluong}</span><br>
+//           <button id="delete" type="button" class="btn btn-outline-primary me-2 send-button">Xoá</button>
+//         </div>
+//       </div><hr>`;
 
-  // Thêm giá trị của sản phẩm này vào tổng giá trị
-  totalAmount += parseFloat(donhang.giasale) * parseInt(donhang.soluong);
+//   // Thêm giá trị của sản phẩm này vào tổng giá trị
+//   totalAmount += parseFloat(donhang.giasale) * parseInt(donhang.soluong);
 
-  // Hiển thị tổng giá trị lên giao diện
-  // displayTotal();
-  donhangs.appendChild(li);
+//   // Hiển thị tổng giá trị lên giao diện
+//   // displayTotal();
+//   donhangs.appendChild(li);
 
-  // Lấy tham chiếu đến nút "delete"
-  const deleteButton = li.querySelector("#delete");
-  // Thêm sự kiện click cho nút "delete"
-  deleteButton.addEventListener("click", function () {
-    donhangs.removeChild(li);
-    // Xoá phần tử khỏi cơ sở dữ liệu khi nút "delete" được nhấn và truyền newPostKey
-    DeleteDonHang(newPostKey);
-    // Cập nhật lại tổng giá trị sau khi sản phẩm được xoá
-    totalAmount -= parseFloat(donhang.giasale) * parseInt(donhang.soluong);
-    // Hiển thị tổng giá trị mới lên giao diện
-    displayTotal();
-    // Thực hiện các xử lý khác liên quan đến việc xoá dữ liệu khỏi cơ sở dữ liệu hoặc làm bất kỳ việc gì bạn cần ở đây
-  });
-}
+//   // Lấy tham chiếu đến nút "delete"
+//   const deleteButton = li.querySelector("#delete");
+//   // Thêm sự kiện click cho nút "delete"
+//   deleteButton.addEventListener("click", function () {
+//     donhangs.removeChild(li);
+//     // Xoá phần tử khỏi cơ sở dữ liệu khi nút "delete" được nhấn và truyền newPostKey
+//     DeleteDonHang(newPostKey);
+//     // Cập nhật lại tổng giá trị sau khi sản phẩm được xoá
+//     totalAmount -= parseFloat(donhang.giasale) * parseInt(donhang.soluong);
+//     // Hiển thị tổng giá trị mới lên giao diện
+//     displayTotal();
+//     // Thực hiện các xử lý khác liên quan đến việc xoá dữ liệu khỏi cơ sở dữ liệu hoặc làm bất kỳ việc gì bạn cần ở đây
+//   });
+// }
 
-GetDonhang();
-function DeleteDonHang(newPostKey) {
-  let productRef = ref(database, "donhang/" + uidProfile + "/" + newPostKey);
-  remove(productRef)
-    .then(() => {
-      alert("Đã xoá sản phẩm khỏi giỏ hàng");
-      // Sau khi xoá thành công, bạn có thể cập nhật giao diện người dùng nếu cần
-    })
-    .catch((error) => {
-      alert("Lỗi khi xoá sản phẩm:", error);
-    });
-}
-// Hàm hiển thị tổng giá trị lên giao diện
-function displayTotal() {
-  const tongtienElement = document.getElementById("tongtien");
-  tongtienElement.textContent = totalAmount.toLocaleString() + "₫"; // Gán giá trị mới cho nội dung của phần tử
-}
-displayTotal();
+// GetDonhang();
+// function DeleteDonHang(newPostKey) {
+//   let productRef = ref(database, "donhang/" + uidProfile + "/" + newPostKey);
+//   remove(productRef)
+//     .then(() => {
+//       alert("Đã xoá sản phẩm khỏi giỏ hàng");
+//       // Sau khi xoá thành công, bạn có thể cập nhật giao diện người dùng nếu cần
+//     })
+//     .catch((error) => {
+//       alert("Lỗi khi xoá sản phẩm:", error);
+//     });
+// }
+// // Hàm hiển thị tổng giá trị lên giao diện
+// function displayTotal() {
+//   const tongtienElement = document.getElementById("tongtien");
+//   tongtienElement.textContent = totalAmount.toLocaleString() + "₫"; // Gán giá trị mới cho nội dung của phần tử
+// }
+// displayTotal();
