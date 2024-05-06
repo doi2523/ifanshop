@@ -76,7 +76,7 @@ function displayMessage(listdata) {
             ${listdata.people}
         </div>
         <button id="delete-rate" class="btn btn-primary btn-sm delete-button ms-auto">
-            <i class="fas fa-share-alt"></i>
+            <i class="fas fa-share-alt"></i> Share
         </button>
     </legend>
     <hr>
