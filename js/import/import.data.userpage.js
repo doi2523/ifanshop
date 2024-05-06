@@ -15,14 +15,14 @@ const filenameProfile = getCookie("filename_profile");
 const URLProfile = getCookie("url_profile");
 
 // Sử dụng các giá trị đã lấy được từ cookies
-console.log(uidProfile)
-console.log(emailProfile);
-console.log(hotenProfile);
-console.log(passwordProfile);
-console.log(sdtProfile);
-console.log(usernameProfile);
-console.log(filenameProfile);
-console.log(URLProfile)
+// console.log(uidProfile)
+// console.log(emailProfile);
+// console.log(hotenProfile);
+// console.log(passwordProfile);
+// console.log(sdtProfile);
+// console.log(usernameProfile);
+// console.log(filenameProfile);
+// console.log(URLProfile)
 
 
 const usernameElement = document.getElementById('txt-username');
@@ -66,19 +66,19 @@ imageContainer.appendChild(img);
 }
 AddAvatar();
 
-function printAllCookies() {
-    // Tách các cookie thành mảng dựa trên dấu chấm phẩy và khoảng trắng
-    const cookiesArray = document.cookie.split('; ');
+// function printAllCookies() {
+//     // Tách các cookie thành mảng dựa trên dấu chấm phẩy và khoảng trắng
+//     const cookiesArray = document.cookie.split('; ');
 
-    // Duyệt qua mảng các cookie và in ra từng cookie
-    cookiesArray.forEach(cookie => {
-        // Tách tên và giá trị của cookie
-        const [cookieName, cookieValue] = cookie.split('=');
-        // In ra tên và giá trị của cookie
-        console.log(`${cookieName}: ${decodeURIComponent(cookieValue)}`);
-    });
-}
-        printAllCookies();
+//     // Duyệt qua mảng các cookie và in ra từng cookie
+//     cookiesArray.forEach(cookie => {
+//         // Tách tên và giá trị của cookie
+//         const [cookieName, cookieValue] = cookie.split('=');
+//         // In ra tên và giá trị của cookie
+//         console.log(`${cookieName}: ${decodeURIComponent(cookieValue)}`);
+//     });
+// }
+//         printAllCookies();
     // Lấy thẻ img có id là "user-avatar"
     var userAvatar = document.getElementById("user-avatar");
     

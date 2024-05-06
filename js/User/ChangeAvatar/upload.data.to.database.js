@@ -55,7 +55,7 @@ document
   .getElementById("update-profile")
   .addEventListener("submit", function (event) {
     event.preventDefault(); // Ngăn chặn việc tải lại trang
-    setTimeout(UpdateThongTin, 1000);
+    setTimeout(UpdateThongTin, 2000);
   });
 
 function UpdateThongTin() {
@@ -68,14 +68,14 @@ function UpdateThongTin() {
     .then(() => {
       console.log("ok");
       // Xoá dữ liệu từ localStorage sau khi sử dụng xong
-      try {
-        localStorage.removeItem("avatarUrl");
-        console.log("Đã xoá thành công key 'avatarUrl' từ localStorage.");
-        const avatarUrl = localStorage.getItem("avatarUrl");
-        console.log("URL ảnh từ localStorage:", avatarUrl);
-      } catch (error) {
-        console.error("Lỗi khi xoá key 'avatarUrl' từ localStorage:", error);
-      }
+      // try {
+      //   localStorage.removeItem("avatarUrl");
+      //   console.log("Đã xoá thành công key 'avatarUrl' từ localStorage.");
+      //   const avatarUrl = localStorage.getItem("avatarUrl");
+      //   console.log("URL ảnh từ localStorage:", avatarUrl);
+      // } catch (error) {
+      //   console.error("Lỗi khi xoá key 'avatarUrl' từ localStorage:", error);
+      // }
         alert("Thông tin đã được cập nhật thành công! Vui lòng tải lại trang");
       setTimeout(() => {
           window.location.reload();

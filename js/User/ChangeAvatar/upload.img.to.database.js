@@ -66,6 +66,7 @@ function UploadImageAndGetURL() {
       .then((url) => {
         console.log("URL của ảnh:", url);
         // Lưu URL vào localStorage
+        localStorage.removeItem("avatarUrl");
         localStorage.setItem("avatarUrl", url);
         //Cập nhật giá trị của tên file trong cookies
         function updateCookieWithurl(url) {

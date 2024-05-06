@@ -272,7 +272,7 @@
                               </div>
                             </div>
                           </form>
-                          <div class="row">
+                          <div class="row" style="display: none;">
                             <div class="col">
                               <div class="form-group">
                                 <label>Password</label><br />
@@ -296,32 +296,6 @@
                               </div>
                             </div>
                           </div>
-                          <script>
-                            const togglePasswordButton =
-                              document.getElementById("togglePassword");
-                            const passwordInput =
-                              document.getElementById("password");
-
-                            togglePasswordButton.addEventListener(
-                              "click",
-                              function () {
-                                const type =
-                                  passwordInput.getAttribute("type") ===
-                                  "password"
-                                    ? "text"
-                                    : "password";
-                                passwordInput.setAttribute("type", type);
-
-                                // Thay đổi icon giữa 'eye' và 'eye-slash'
-                                this.querySelector("i").classList.toggle(
-                                  "fa-eye"
-                                );
-                                this.querySelector("i").classList.toggle(
-                                  "fa-eye-slash"
-                                );
-                              }
-                            );
-                          </script>
                         </div>
                       </div>
                     </div>
@@ -361,251 +335,97 @@
       </div>
     </div>
 
-    <div class="container">
-      <footer class="py-5">
-        <div class="row">
-          <div class="col-6 col-md-2 mb-3">
-            <h5>Section</h5>
-            <ul class="nav flex-column">
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-body-secondary">Home</a>
-              </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-body-secondary"
-                  >Features</a
-                >
-              </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-body-secondary">Pricing</a>
-              </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-body-secondary">FAQs</a>
-              </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-body-secondary">About</a>
-              </li>
-            </ul>
-          </div>
 
-          <div class="col-6 col-md-2 mb-3">
-            <h5>Section</h5>
-            <ul class="nav flex-column">
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-body-secondary">Home</a>
-              </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-body-secondary"
-                  >Features</a
-                >
-              </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-body-secondary">Pricing</a>
-              </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-body-secondary">FAQs</a>
-              </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-body-secondary">About</a>
-              </li>
-            </ul>
+      <!-- Ô giỏ hàng online -->
+      <div class="container">
+        <button class="iconcart btn btn-primary" id="iconcartclick">
+          <i class="fas fa-shopping-cart" style="font-size: 30px; margin-top: 5px; margin-left: -2px;"></i>
+        </button>
+        <div class="boxcart hide bg-primary" id="boxcart">
+          <div class="bannerchatbox">
+            <div class="logoboxchat border-right mx-2 pr-2" id="img-avatar-user">
+              <img id="user-avatar" src="images/user1.jpg" alt="">
+            </div>
+            <div class="titleboxchat">
+              <h7 class="text-white">iFanShop</h7><br>
+              <span class="text-white">Giỏ hàng của bạn</span>
+            </div>
+            <div class="mx-2">
+              <button id="closecart" type="button" class="btn btn-lg btn-link text-decoration-none iconclose">
+                <ion-icon name="close-outline" style="font-size: 35px; color: #fff;"></ion-icon>
+              </button>
+            </div>
           </div>
-
-          <div class="col-6 col-md-2 mb-3">
-            <h5>Section</h5>
-            <ul class="nav flex-column">
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-body-secondary">Home</a>
-              </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-body-secondary"
-                  >Features</a
-                >
-              </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-body-secondary">Pricing</a>
-              </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-body-secondary">FAQs</a>
-              </li>
-              <li class="nav-item mb-2">
-                <a href="#" class="nav-link p-0 text-body-secondary">About</a>
-              </li>
-            </ul>
+          <hr>
+          <div class="chat">
+            <div>
+              <ul id="donhang"></ul>
+            </div>
           </div>
-
-          <div class="col-md-5 offset-md-1 mb-3">
-            <form>
-              <h5>Đăng ký nhận thông báo mới nhất</h5>
-              <p>Monthly digest of what's new and exciting from us.</p>
-              <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-                <label for="newsletter1" class="visually-hidden"
-                  >Email address</label
-                >
-                <input
-                  id="newsletter1"
-                  type="text"
-                  class="form-control"
-                  placeholder="Email address"
-                />
-                <button class="btn btn-primary" type="button">Đăng ký</button>
+          <hr><br>
+          <div>
+            <label>Thành tiền:</label>
+            <span style="float: right;" id="tongtien" ></span>
+          </div>
+          <div class="input-message form-group-boxchat">
+            <form action="" class="form-chat">
+              <div class="d-flex">
+                <button type="button" class="btn btn-outline-primary me-2 send-button">
+                  <div class="d-flex">
+                    Thanh toán ngay <ion-icon name="card-outline" style="font-size: 25px;"></ion-icon>
+                  </div>
+                </button>
               </div>
             </form>
           </div>
-        </div>
 
-        <div
-          class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top"
-        >
-          <p>© 2024 Company, Inc. All rights reserved.</p>
-          <ul class="list-unstyled d-flex">
-            <li class="ms-3">
-              <a class="link-body-emphasis" href="#"
-                ><svg class="bi" width="24" height="24">
-                  <use xlink:href="#twitter"></use></svg
-              ></a>
-            </li>
-            <li class="ms-3">
-              <a class="link-body-emphasis" href="#"
-                ><svg class="bi" width="24" height="24">
-                  <use xlink:href="#instagram"></use></svg
-              ></a>
-            </li>
-            <li class="ms-3">
-              <a class="link-body-emphasis" href="#"
-                ><svg class="bi" width="24" height="24">
-                  <use xlink:href="#facebook"></use></svg
-              ></a>
-            </li>
-          </ul>
-        </div>
-      </footer>
-    </div>
-
-    <!-- Ô giỏ hàng online -->
-    <div>
-      <button class="iconcart btn btn-primary" id="iconcartclick">
-        <i class="fas fa-shopping-cart"></i>
-      </button>
-      <div class="boxcart hide bg-primary" id="boxcart">
-        <div class="bannerchatbox">
-          <div class="logoboxchat border-right mx-2 pr-2" id="img-avatar-user">
-            <img id="user-avatar" src="images/user1.jpg" alt="" />
-          </div>
-          <div class="titleboxchat">
-            <h7 class="text-white">iFanShop</h7><br />
-            <span class="text-white">Giỏ hàng của bạn</span>
-          </div>
-          <div class="mx-2">
-            <button
-              id="closecart"
-              type="button"
-              class="btn btn-lg btn-link text-decoration-none iconclose"
-            >
-              <ion-icon
-                name="close-outline"
-                style="font-size: 35px; color: #fff"
-              ></ion-icon>
-            </button>
-          </div>
-        </div>
-        <hr />
-        <div class="chat">
-          <div>
-            <ul id="donhang"></ul>
-          </div>
-        </div>
-        <hr />
-        <br />
-        <div class="input-message form-group-boxchat">
-          <form action="" class="form-chat">
-            <div class="d-flex">
-              <button
-                type="button"
-                class="btn btn-outline-primary me-2 send-button"
-              >
-                <div class="d-flex">
-                  Thanh toán ngay
-                  <ion-icon
-                    name="card-outline"
-                    style="font-size: 25px"
-                  ></ion-icon>
-                </div>
-              </button>
-            </div>
-          </form>
         </div>
       </div>
-    </div>
-    <!-- Ô chat online -->
-    <div>
-      <button class="fixed-div btn btn-primary" id="iconclick">
-        <i
-          class="fas fa-comment-alt text-primary"
-          style="font-size: 30px; margin-top: 5px; margin-left: -2px"
-        ></i>
-      </button>
-      <div class="boxchat hide bg-primary" id="boxchat">
-        <div class="bannerchatbox">
-          <div class="logoboxchat border-right mx-2 pr-2" id="img-avatar-user">
-            <img id="user-avatar" src="images/user1.jpg" alt="" />
-          </div>
-          <div class="titleboxchat">
-            <h7 class="text-white"
-              >iFanShop Xin chào, chúng tôi sẵn sàng hỗ trợ bạn</h7
-            >
-            <span class="text-white" id="fullname"></span>
-          </div>
-          <div class="mx-2">
-            <button
-              id="closebt"
-              type="button"
-              class="btn btn-lg btn-link text-decoration-none iconclose"
-            >
-              <ion-icon
-                name="close-outline"
-                style="font-size: 35px; color: #fff"
-              ></ion-icon>
-            </button>
-          </div>
-        </div>
-        <hr />
-        <div class="chat">
-          <div>
-            <ul id="textchat"></ul>
-          </div>
-        </div>
-        <hr />
-        <div class="input-message form-group-boxchat">
-          <form action="" id="message-form" class="form-chat">
-            <!-- Đổi ID thành message-form -->
-            <input
-              class="form-control"
-              type="text"
-              id="message-input"
-              placeholder="Nhập"
-              required
-              style="width: 235px"
-            />
-            <!-- Đổi ID thành message-input -->
-            <div class="d-flex">
-              <button
-                type="submit"
-                class="btn btn-outline-primary me-2 send-button"
-                id="send"
-              >
-                <div class="d-flex">
-                  Gửi
-                  <ion-icon
-                    name="send-outline"
-                    style="font-size: 25px"
-                  ></ion-icon>
-                </div>
+      <!-- Ô chat online -->
+      <div class="container">
+        <button class="fixed-div btn btn-primary" id="iconclick">
+          <i class="fas fa-comment-alt text-primary" style="font-size: 30px; margin-top: 5px; margin-left: -2px;"></i>
+        </button>
+        <div class="boxchat hide bg-primary" id="boxchat">
+          <div class="bannerchatbox">
+            <div class="logoboxchat border-right mx-2 pr-2" id="img-avatar-user">
+              <img id="user-avatar" src="images/user1.jpg" alt="">
+            </div>
+            <div class="titleboxchat">
+              <h7 class="text-white">iFanShop Xin chào, chúng tôi sẵn sàng hỗ trợ bạn</h7>
+              <span class="text-white" id="fullname"></span>
+            </div>
+            <div class="mx-2">
+              <button id="closebt" type="button" class="btn btn-lg btn-link text-decoration-none iconclose">
+                <ion-icon name="close-outline" style="font-size: 35px; color: #fff;"></ion-icon>
               </button>
             </div>
-          </form>
+          </div>
+          <hr>
+          <div class="chat">
+            <div>
+              <ul id="textchat"></ul>
+            </div>
+          </div>
+          <hr>
+          <div class="input-message form-group-boxchat">
+            <form action="" id="message-form" class="form-chat"> <!-- Đổi ID thành message-form -->
+              <input class="form-control" type="text" id="message-input" placeholder="Nhập" required
+                style="width: 235px;">
+              <!-- Đổi ID thành message-input -->
+              <div class="d-flex">
+                <button type="submit" class="btn btn-outline-primary me-2 send-button" id="send">
+                  <div class="d-flex">
+                    Gửi
+                    <ion-icon name="send-outline" style="font-size: 25px;"></ion-icon>
+                  </div>
+                </button>
+              </div>
+            </form>
+          </div>
+
         </div>
       </div>
-    </div>
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script
@@ -622,11 +442,10 @@
   <script src="js/hide_passwd.js"></script>
   <!-- 2 module này kiểm tra xem có đăng nhập không nếu có thì lấy dữu liệu và lưu vào cookies -->
   <script type="module" src="js/checklogin.js"></script>
-  <script type="module" src="js/get_image.js"></script>
 
   <script type="module" src="js/update_paswd.js"></script>
   <script type="module" src="js/message.online.js"></script>
 
   <script src="js/import/import.data.change.pwd.js"></script>
-  <script type="module" src="js/import/import.data.iphone.js"></script>
+  <script type="module" src="js/User/Giohang/hienthi.sanpham.js"></script>
 </html>

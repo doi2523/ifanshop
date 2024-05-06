@@ -80,16 +80,16 @@ function SavaToCookies() {
       const last_login = userData.last_login;
       const last_logout = userData.last_logout;
 
-      console.log("Email:", email_profile);
-      console.log("Password:", password_profile);
-      console.log("Họ tên:", hoten_profile);
-      console.log("Số điện thoại:", sdt_profile);
-      console.log("Last login:", last_login);
-      console.log("Last logout:", last_logout);
-      console.log("Tên avatar:", filename_profile);
-      console.log("URL avatar:", url_profile);
-      console.log("UID:", id_profile);
-      console.log("Username:", username_profile);
+      // console.log("Email:", email_profile);
+      // console.log("Password:", password_profile);
+      // console.log("Họ tên:", hoten_profile);
+      // console.log("Số điện thoại:", sdt_profile);
+      // console.log("Last login:", last_login);
+      // console.log("Last logout:", last_logout);
+      // console.log("Tên avatar:", filename_profile);
+      // console.log("URL avatar:", url_profile);
+      // console.log("UID:", id_profile);
+      // console.log("Username:", username_profile);
 
       const values = {
         id_profile,

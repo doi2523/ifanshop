@@ -209,91 +209,96 @@
   </div>
 </footer>
 
-<!-- Ô giỏ hàng online -->
-<div>
-  <button class="iconcart btn btn-primary" id="iconcartclick">
-    <i class="fas fa-shopping-cart"></i>
-  </button>
-  <div class="boxcart hide bg-primary" id="boxcart">
-    <div class="bannerchatbox">
-      <div class="logoboxchat border-right mx-2 pr-2" id="img-avatar-user">
-        <img id="user-avatar" src="images/user1.jpg" alt="">
-      </div>
-      <div class="titleboxchat">
-        <h7 class="text-white">iFanShop</h7><br>
-        <span class="text-white">Giỏ hàng của bạn</span>
-      </div>
-      <div class="mx-2">
-        <button id="closecart" type="button" class="btn btn-lg btn-link text-decoration-none iconclose">
-          <ion-icon name="close-outline" style="font-size: 35px; color: #fff;"></ion-icon>
+      <!-- Ô giỏ hàng online -->
+      <div class="container">
+        <button class="iconcart btn btn-primary" id="iconcartclick">
+          <i class="fas fa-shopping-cart" style="font-size: 30px; margin-top: 5px; margin-left: -2px;"></i>
         </button>
-      </div>
-    </div>
-    <hr>
-    <div class="chat">
-      <div>
-        <ul id="donhang"></ul>
-      </div>
-    </div>
-    <hr><br>
-    <div class="input-message form-group-boxchat">
-      <form action="" class="form-chat">
-        <div class="d-flex">
-          <button type="button" class="btn btn-outline-primary me-2 send-button">
-            <div class="d-flex">
-              Thanh toán ngay <ion-icon name="card-outline" style="font-size: 25px;"></ion-icon>
+        <div class="boxcart hide bg-primary" id="boxcart">
+          <div class="bannerchatbox">
+            <div class="logoboxchat border-right mx-2 pr-2" id="img-avatar-user">
+              <img id="user-avatar" src="images/user1.jpg" alt="">
             </div>
-          </button>
-        </div>
-      </form>
-    </div>
+            <div class="titleboxchat">
+              <h7 class="text-white">iFanShop</h7><br>
+              <span class="text-white">Giỏ hàng của bạn</span>
+            </div>
+            <div class="mx-2">
+              <button id="closecart" type="button" class="btn btn-lg btn-link text-decoration-none iconclose">
+                <ion-icon name="close-outline" style="font-size: 35px; color: #fff;"></ion-icon>
+              </button>
+            </div>
+          </div>
+          <hr>
+          <div class="chat">
+            <div>
+              <ul id="donhang"></ul>
+            </div>
+          </div>
+          <hr><br>
+          <div>
+            <label>Thành tiền:</label>
+            <span style="float: right;" id="tongtien" ></span>
+          </div>
+          <div class="input-message form-group-boxchat">
+            <form action="" class="form-chat">
+              <div class="d-flex">
+                <button type="button" class="btn btn-outline-primary me-2 send-button">
+                  <div class="d-flex">
+                    Thanh toán ngay <ion-icon name="card-outline" style="font-size: 25px;"></ion-icon>
+                  </div>
+                </button>
+              </div>
+            </form>
+          </div>
 
-  </div>
-</div>
-<!-- Ô chat online -->
-<div>
-  <button class="fixed-div btn btn-primary" id="iconclick">
-    <i class="fas fa-comment-alt text-primary" style="font-size: 30px; margin-top: 5px; margin-left: -2px;"></i>
-  </button>
-  <div class="boxchat hide bg-primary" id="boxchat">
-    <div class="bannerchatbox">
-      <div class="logoboxchat border-right mx-2 pr-2" id="img-avatar-user">
-        <img id="user-avatar" src="images/user1.jpg" alt="">
+        </div>
       </div>
-      <div class="titleboxchat">
-        <h7 class="text-white">iFanShop Xin chào, chúng tôi sẵn sàng hỗ trợ bạn</h7>
-        <span class="text-white" id="fullname"></span>
-      </div>
-      <div class="mx-2">
-        <button id="closebt" type="button" class="btn btn-lg btn-link text-decoration-none iconclose">
-          <ion-icon name="close-outline" style="font-size: 35px; color: #fff;"></ion-icon>
+      <!-- Ô chat online -->
+      <div class="container">
+        <button class="fixed-div btn btn-primary" id="iconclick">
+          <i class="fas fa-comment-alt text-primary" style="font-size: 30px; margin-top: 5px; margin-left: -2px;"></i>
         </button>
-      </div>
-    </div>
-    <hr>
-    <div class="chat">
-      <div>
-        <ul id="textchat"></ul>
-      </div>
-    </div>
-    <hr>
-    <div class="input-message form-group-boxchat">
-      <form action="" id="message-form" class="form-chat"> <!-- Đổi ID thành message-form -->
-        <input class="form-control" type="text" id="message-input" placeholder="Nhập" required style="width: 235px;">
-        <!-- Đổi ID thành message-input -->
-        <div class="d-flex">
-          <button type="submit" class="btn btn-outline-primary me-2 send-button" id="send">
-            <div class="d-flex">
-              Gửi
-              <ion-icon name="send-outline" style="font-size: 25px;"></ion-icon>
+        <div class="boxchat hide bg-primary" id="boxchat">
+          <div class="bannerchatbox">
+            <div class="logoboxchat border-right mx-2 pr-2" id="img-avatar-user">
+              <img id="user-avatar" src="images/user1.jpg" alt="">
             </div>
-          </button>
-        </div>
-      </form>
-    </div>
+            <div class="titleboxchat">
+              <h7 class="text-white">iFanShop Xin chào, chúng tôi sẵn sàng hỗ trợ bạn</h7>
+              <span class="text-white" id="fullname"></span>
+            </div>
+            <div class="mx-2">
+              <button id="closebt" type="button" class="btn btn-lg btn-link text-decoration-none iconclose">
+                <ion-icon name="close-outline" style="font-size: 35px; color: #fff;"></ion-icon>
+              </button>
+            </div>
+          </div>
+          <hr>
+          <div class="chat">
+            <div>
+              <ul id="textchat"></ul>
+            </div>
+          </div>
+          <hr>
+          <div class="input-message form-group-boxchat">
+            <form action="" id="message-form" class="form-chat"> <!-- Đổi ID thành message-form -->
+              <input class="form-control" type="text" id="message-input" placeholder="Nhập" required
+                style="width: 235px;">
+              <!-- Đổi ID thành message-input -->
+              <div class="d-flex">
+                <button type="submit" class="btn btn-outline-primary me-2 send-button" id="send">
+                  <div class="d-flex">
+                    Gửi
+                    <ion-icon name="send-outline" style="font-size: 25px;"></ion-icon>
+                  </div>
+                </button>
+              </div>
+            </form>
+          </div>
 
-  </div>
-</div>
+        </div>
+      </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script> 
 <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script> 
@@ -306,7 +311,7 @@
 <script type="module" src="js/checklogin.js"></script>
 <script type="module" src="js/message.online.js"></script>
 <script type="module" src="js/import/import.data.iphone.js"></script>
-<script type="module" src="js/import/import.data.giohang.js"></script>
+<script type="module" src="js/User/Giohang/hienthi.sanpham.js"></script>
 </body>
 
 </html>
