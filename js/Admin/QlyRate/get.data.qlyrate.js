@@ -82,7 +82,14 @@ function displayMessage(listdata, key) {
     </legend>
     <hr>
     <p class="mb-0">${listdata.textarea}</p>
+    <div class="mt-3" id="starContainer"></div>
     <img src="${listdata.picture}" alt="UserImage" class="class-img-rate mt-3">
+    <div class="mt-3">
+    <button class="btn btn-sm btn-primary me-2"><span id="total-like">77 </span><i class="fas fa-thumbs-up"></i> Like</button>
+    <button class="btn btn-sm btn-danger me-2"><span id="total-dislike">1 </span><i class="fas fa-thumbs-down"></i> Dislike</button>
+    <button class="btn btn-sm btn-secondary"><span id="total-comment">0 </span><i class="fas fa-comment"></i> Comment</button>
+    <button class="btn btn-sm btn-primary"><i class="fas fa-flag"></i> Report</button>
+</div>
 </fieldset>
     <hr>
     `
@@ -99,6 +106,28 @@ function displayMessage(listdata, key) {
         // Xử lý xoá ô dựa trên key
         // yourDeleteFunction(key);
     });
+        // Lấy số sao từ dữ liệu
+        const rating = listdata.star;
+
+        // Kiểm tra nếu có số sao
+        if (rating !== undefined) {
+            // Lấy thẻ div có id là "starContainer"
+            const starContainer = div.querySelector("#starContainer");
+    
+            // Tạo và chèn các thẻ sao vào trong thẻ div
+            for (let i = 0; i < 5; i++) {
+                const starElement = document.createElement("i");
+                starElement.classList.add("fas", "fa-star", "text-warning");
+    
+                // Kiểm tra xem sao nào phải tối màu
+                if (i >= rating) {
+                    starElement.classList.remove("fas");
+                    starElement.classList.add("far");
+                }
+    
+                starContainer.appendChild(starElement);
+            }
+        }
 }
 GetData();
 

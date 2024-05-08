@@ -99,7 +99,10 @@
                     </div>
                     <!-- Phần tử thứ hai -->
                     <div class="col">
-                        <label class="form-control" type="text" id="rate-input" placeholder="Nhập" required>
+                        <label class="form-control" type="text" id="rate-input" placeholder="Nhập" required style="  width: 100%;
+                        padding: 10px;
+                        border: 1px solid #ccc;
+                        border-radius: 20px;">
                     </div>
                 </div>
                 <p><hr></p>
@@ -303,7 +306,7 @@
       </div>
       <!-- Ô chat online -->
       <div class="container">
-        <button class="fixed-div btn btn-primary" id="iconclick">
+        <button class="fixed-div btn btn-primary rounded" id="iconclick">
           <i class="fas fa-comment-alt text-primary" style="font-size: 30px; margin-top: 5px; margin-left: -2px;"></i>
         </button>
         <div class="boxchat hide bg-primary" id="boxchat">
@@ -329,12 +332,12 @@
           </div>
           <hr>
           <div class="input-message form-group-boxchat">
-            <form action="" id="message-form" class="form-chat"> <!-- Đổi ID thành message-form -->
+            <form action="" id="message-form" class="form-chat mt-1"> <!-- Đổi ID thành message-form -->
               <input class="form-control" type="text" id="message-input" placeholder="Nhập" required
                 style="width: 235px;">
               <!-- Đổi ID thành message-input -->
               <div class="d-flex">
-                <button type="submit" class="btn btn-outline-primary me-2 send-button" id="send">
+                <button type="submit" class="btn btn-primary me-2 send-button" id="send">
                   <div class="d-flex">
                     Gửi
                     <ion-icon name="send-outline" style="font-size: 25px;"></ion-icon>

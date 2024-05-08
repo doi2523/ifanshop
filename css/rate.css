@@ -45,10 +45,6 @@
 }
 /* CSS cho ô input */
 .form-control {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 20px; /* Bo góc */
   transition: border-color 0.3s ease; /* Hiệu ứng chuyển đổi màu border */
 }
 
