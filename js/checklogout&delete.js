@@ -148,6 +148,7 @@ function AlertSuccess(){
   });
   Toast.fire({
     icon: "success",
-    title: "Đăng xuất thành công!"
+    title: "Đăng xuất thành công!",
+    color: "#716add",
   });
 }
