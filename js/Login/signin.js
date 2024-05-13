@@ -102,14 +102,15 @@ document.getElementById('signin').addEventListener('submit', function(event) {
           console.error('Lỗi khi cập nhật thời gian đăng nhập:', error);
       });
     
-    SavaToCookies();  
+    SavaToCookies();
+    AlertSuccess(); 
   if (email === 'admin@gmail.com' && password === '123456') {
       document.getElementById('loginMessage').innerText = 'Đăng nhập thành công! Vui lòng đợi!';
       loginMessage.style.color = 'green';        // Đợi 2 giây trước khi tải lại trang
       setTimeout(function() {
         window.location.href = 'auth.admin.html';
       }, 3000);
-      alert('Chào mừng admin!');  
+      // alert('Chào mừng admin!');  
       update(ref(database, "users/" + user.uid), {
         userstatus: "online"
       })    
@@ -120,7 +121,7 @@ document.getElementById('signin').addEventListener('submit', function(event) {
       setTimeout(function() {
         window.location.href = 'auth.index.html';
       }, 3000); 
-    alert("Chào mừng '"+user.email +"' đăng nhập");
+    // alert("Chào mừng '"+user.email +"' đăng nhập");
     update(ref(database, "users/" + user.uid), {
       userstatus: "online"
     })
@@ -132,7 +133,8 @@ document.getElementById('signin').addEventListener('submit', function(event) {
   const errorCode = error.code;
   const errorMessage = error.message;
   //alert('Đăng nhập thất bại!');
-  document.getElementById('loginMessage').innerText = 'Tên người dùng hoặc mật khẩu không đúng!';
+  AlertError();
+  document.getElementById('loginMessage').innerText = 'Tài khoản hoặc mật khẩu không đúng!';
   loginMessage.style.color = 'red';
 });
 
@@ -141,4 +143,28 @@ let ForgotPasswd = () =>{
 }
 });
 
-
+function AlertSuccess(){
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      // toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+  Toast.fire({
+    icon: "success",
+    title: "Đăng nhập thành công"
+  });
+}
+function AlertError(){
+  Swal.fire({
+    icon: "error",
+    title: "Oops...",
+    text: "Tài khoản hoặc mật khẩu không đúng!",
+    // footer: '<a href="#">Why do I have this issue?</a>'
+  });
+}

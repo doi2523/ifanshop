@@ -155,56 +155,25 @@ function deleteProduct(productId) {
     });
 }
 
-// // Hàm lưu sản phẩm sau khi sửa trực tiếp trên bảng
-// function saveSanPham(event) {
-//   let productId = event.target.getAttribute("data-name");
-
-//   // Tìm hàng trong bảng chứa thông tin sản phẩm cần lưu
-//   let row = event.target.closest("tr");
-
-//   // Lấy giá trị mới từ các ô nhập
-//   // let newidsanpham = row.querySelectorAll('input')[0].value;
-//   let newTenSanPham = row.querySelectorAll("input")[0].value;
-//   let newDungLuong = row.querySelectorAll("input")[1].value;
-//   let newSoLuong = row.querySelectorAll("input")[2].value;
-//   let newGiaSale = row.querySelectorAll("input")[3].value;
-//   let newGiaGoc = row.querySelectorAll("input")[4].value;
-//   let newFile = row.querySelectorAll("input")[5].value;
-
-//   // Cập nhật dữ liệu vào cơ sở dữ liệu Firebase
-//   let productRef = ref(database, "sanpham/" + productId);
-//   update(productRef, {
-//     tensanpham: newTenSanPham,
-//     dungluong: newDungLuong,
-//     soluong: newSoLuong,
-//     giasale: newGiaSale,
-//     giagoc: newGiaGoc,
-//     file: newFile,
-//   })
-//     .then(() => {
-//       // console.log('Đã cập nhật sản phẩm có tên:', productId);
-//       alert("Đã cập nhật sản phẩm '" + newTenSanPham + "' thành công!");
-//       // Cập nhật lại giao diện bảng sau khi cập nhật dữ liệu thành công
-//       row.querySelectorAll("td")[1].innerHTML = productId;
-//       row.querySelectorAll("td")[2].innerHTML = newTenSanPham;
-//       row.querySelectorAll("td")[3].innerHTML = newDungLuong;
-//       row.querySelectorAll("td")[4].innerHTML = newSoLuong;
-//       row.querySelectorAll("td")[5].innerHTML = newGiaSale;
-//       row.querySelectorAll("td")[6].innerHTML = newGiaGoc;
-//       row.querySelectorAll("td")[7].innerHTML = newFile;
-
-//       // Thay đổi nút "Lưu" thành nút "Sửa"
-//       let editButton = document.createElement("button");
-//       editButton.textContent = "Sửa";
-//       editButton.setAttribute("data-name", productId);
-//       editButton.addEventListener("click", editSanPham);
-//       editButton.classList.add("btn", "btn-primary", "btn-sm");
-//       event.target.replaceWith(editButton);
-//     })
-//     .catch((error) => {
-//       console.error("Lỗi khi cập nhật sản phẩm:", error);
-//     });
-// }
+function AlertConfirm(){
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        title: "Deleted!",
+        text: "Your file has been deleted.",
+        icon: "success"
+      });
+    }
+  });
+}
 
 function editSanPham(event) {
   let productId = event.target.getAttribute("data-id");

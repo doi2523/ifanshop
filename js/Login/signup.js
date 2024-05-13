@@ -50,7 +50,8 @@ document.getElementById('signup').addEventListener('submit', function(event) {
       urlavatar: "",
         role: "user"
     })
-    alert('Đăng ký thành công!');
+    // alert('Đăng ký thành công!');
+    AlertSuccess()
     document.getElementById('signupMessage').innerText = 'Đăng ký thành công! Vui lòng đăng nhập!';
     signupMessage.style.color = 'green';
     setTimeout(function() {
@@ -63,8 +64,34 @@ document.getElementById('signup').addEventListener('submit', function(event) {
     const errorCode = error.code;
     const errorMessage = error.message;
     // ..
-    alert('Đăng ký thất bại Email đã được sử dụng!');
+    // alert('Đăng ký thất bại Email đã được sử dụng!');
+    AlertError();
     document.getElementById('signupMessage').innerText = 'Email chưa chính xác hoặc đã được sử dụng!';
     signupMessage.style.color = 'red';
   });
 });
+function AlertSuccess(){
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+  Toast.fire({
+    icon: "success",
+    title: "Đăng ký thành công!"
+  });
+}
+function AlertError(){
+  Swal.fire({
+    icon: "error",
+    title: "Oops...",
+    text: "Something went wrong!",
+    // footer: '<a href="#">Why do I have this issue?</a>'
+  });
+}
