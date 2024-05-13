@@ -70,3 +70,6 @@
           list-style-type: none;
           /* Loại bỏ loại ký hiệu mặc định (trong trường hợp này là dấu chấm) */
         }
+        a{
+          cursor: pointer;
+        }
