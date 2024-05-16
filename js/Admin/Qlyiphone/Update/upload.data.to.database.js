@@ -134,10 +134,14 @@ function UpdateSanPham() {
       } catch (error) {
         console.error("Lỗi khi xoá key 'imageUrl' từ localStorage:", error);
       }
-      console.log("OK");
-      alert("Cập nhật sản phẩm '" + tensanpham + "' thành công!");
-      resetInputs();
-      window.location.href = "auth.admin.qlyiphone.html";
+      // console.log("OK");
+      AlertSuccess(tensanpham);
+      // alert("Cập nhật sản phẩm '" + tensanpham + "' thành công!");
+      setTimeout(function() {
+        resetInputs();
+        window.location.href = "auth.admin.qlyiphone.html";
+      }, 3000); // 3000 milliseconds = 3 seconds
+      
     })
     .catch((error) => {
       alert("Đã xảy ra lỗi" + error.message);
@@ -155,4 +159,22 @@ function resetInputs() {
   // Làm mới giá trị của ô input chứa file (nếu có)
   const fileInput = document.getElementById("file");
   fileInput.value = null;
+}
+function AlertSuccess(tensanpham){
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      // toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+  Toast.fire({
+    icon: "success",
+    title: "Cập nhật sản phẩm '" + tensanpham + "' thành công!",
+    color: "#716add",
+  });
 }

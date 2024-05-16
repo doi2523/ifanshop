@@ -28,7 +28,7 @@ import { getAuth, deleteUser } from "https://www.gstatic.com/firebasejs/10.10.0/
 const deleteButton = document.getElementById('delete_acc');
 deleteButton.addEventListener('click', function(event) {
         event.preventDefault(); // Ngăn chặn hành vi mặc định của sự kiện click
-        confirmDelete();
+        Alert();
     });
 
 function confirmDelete() {
@@ -50,7 +50,7 @@ function deleteAccount() {
     var email = user.email;
     deleteUser(user).then(() => {
         // User deleted.
-        console.log("Tài khoản ")
+        // console.log("Tài khoản ")
     }).catch((error) => {
         // An error ocurred
         // ...
@@ -59,9 +59,30 @@ function deleteAccount() {
     remove(ref(database, "users/" + uid))
     .then(()=>{
         // alert("ok")
-        alert("Đã xoá tài khoản " + email + " thành công!");
+        // alert("Đã xoá tài khoản " + email + " thành công!");
     })
     .catch((error)=>{
         // alert("no")
     })
 }
+function Alert(){
+    Swal.fire({
+        title: "Xác nhận?",
+        text: "Bạn có chắc chắn xoá tài khoản không :((",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Đồng ý!",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: "Xoá thành công!",
+            text: "Bạn đã xoá tài khoản thành công!",
+            icon: "success",
+            color: "#716add",
+          });
+          deleteAccount();
+        }
+      });
+  }

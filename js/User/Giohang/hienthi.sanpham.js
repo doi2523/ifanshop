@@ -98,11 +98,9 @@ import {
   
     // Thêm giá trị của sản phẩm này vào tổng giá trị
     totalAmount += parseFloat(donhang.giasale) * parseInt(donhang.soluong);
-  
     // Hiển thị tổng giá trị lên giao diện
     // displayTotal();
     donhangs.appendChild(div);
-  
     // Lấy tham chiếu đến nút "delete"
     const deleteButton = div.querySelector("#delete");
     // Thêm sự kiện click cho nút "delete"
@@ -146,7 +144,7 @@ import {
       timer: 3000,
       timerProgressBar: true,
       didOpen: (toast) => {
-        toast.onmouseenter = Swal.stopTimer;
+        // toast.onmouseenter = Swal.stopTimer;
         toast.onmouseleave = Swal.resumeTimer;
       }
     });

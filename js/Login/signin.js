@@ -159,7 +159,6 @@ function AlertSuccess(){
     icon: "success",
     title: "Đăng nhập thành công",
     color: "#716add",
-    // background: "linear-gradient(135deg, #ff6b6b, #ffa8a8)"
   });
 }
 function AlertError(){

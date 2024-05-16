@@ -40,7 +40,7 @@ const firebaseApp = getApp();
 
 document.getElementById("addsp").addEventListener("submit", function (event) {
   event.preventDefault();
-  setTimeout(AddSanPham, 1000);
+  setTimeout(AddSanPham, 2000);
 });
 
 function AddSanPham() {
@@ -76,7 +76,9 @@ function AddSanPham() {
         console.error("Lỗi khi xoá key 'imageUrl' từ localStorage:", error);
       }
       console.log("OK");
-      alert("Thêm sản phẩm '" + tensanpham + "' thành công!");
+      AlertSuccess(tensanpham);
+
+      // alert("Thêm sản phẩm '" + tensanpham + "' thành công!");
       resetInputs();
     })
     .catch((error) => {
@@ -103,4 +105,22 @@ function resetInputs() {
 
   // Gán giá trị mới cho thuộc tính src của thẻ <img>
   imgElement.src = newImageUrl;
+}
+function AlertSuccess(tensanpham){
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      // toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+  Toast.fire({
+    icon: "success",
+    title: "Cập nhật sản phẩm '" + tensanpham + "' thành công!",
+    color: "#716add",
+  });
 }

@@ -82,7 +82,7 @@ deleteBtn.classList.add("btn", "btn-danger", "btn-sm", "mx-2");
 // Thêm sự kiện click vào nút xoá
 deleteBtn.addEventListener("click", function () {
   let productId = iphone.idsanpham; // Lấy ID của sản phẩm
-  confirmDelete(productId); // Gọi hàm hiển thị cảnh báo xác nhận xoá
+  confirmDelete(productId) // Gọi hàm hiển thị cảnh báo xác nhận xoá
 });
 
   let editBtn = document.createElement("button");
@@ -147,18 +147,19 @@ function deleteProduct(productId) {
   rowToDelete.remove();
   remove(productRef)
     .then(() => {
+      AlertSuccess(productId);
       // Sau khi xoá thành công, cập nhật giao diện người dùng
-      alert("Đã xoá sản phẩm có id: '" + productId + " '");
+      // alert("Đã xoá sản phẩm có id: '" + productId + " '");
     })
     .catch((error) => {
       alert("Lỗi khi xoá sản phẩm:", error);
     });
 }
 
-function AlertConfirm(){
+function AlertConfirm(productId){
   Swal.fire({
     title: "Are you sure?",
-    text: "You won't be able to revert this!",
+    text: "Bạn có chắc xoá sản phẩm này!",
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
@@ -167,14 +168,32 @@ function AlertConfirm(){
   }).then((result) => {
     if (result.isConfirmed) {
       Swal.fire({
-        title: "Deleted!",
-        text: "Your file has been deleted.",
+        title: "Xoá thành công!",
+        text: "Sản phẩm này đã được xoá thành công.",
         icon: "success"
       });
+      deleteProduct(productId);
     }
   });
 }
-
+function AlertSuccess(productId){
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      // toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+  Toast.fire({
+    icon: "success",
+    title: "Sản phẩm '" +productId+"' đã được xoá thành công!",
+    color: "#716add",
+  });
+}
 function editSanPham(event) {
   let productId = event.target.getAttribute("data-id");
 

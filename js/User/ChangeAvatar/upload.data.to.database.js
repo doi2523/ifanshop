@@ -76,13 +76,32 @@ function UpdateThongTin() {
       // } catch (error) {
       //   console.error("Lỗi khi xoá key 'avatarUrl' từ localStorage:", error);
       // }
-        alert("Thông tin đã được cập nhật thành công! Vui lòng tải lại trang");
+      Alert();
+        // alert("Thông tin đã được cập nhật thành công! Vui lòng tải lại trang");
       setTimeout(() => {
           window.location.reload();
-      }, 2000);
+      }, 3000);
     })
 
     .catch((error) => {
       alert("Đã xảy ra lỗi khi cập nhật thông tin: " + error.message);
     });
+}
+function Alert(){
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      // toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+  Toast.fire({
+    icon: "success",
+    title: "Lưu thay đổi thành công!",
+    color: "#716add",
+  });
 }

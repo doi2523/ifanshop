@@ -81,12 +81,30 @@ function UploadImageAndGetURL() {
     getDownloadURL(imageRef)
       .then((url) => {
         console.log("URL của ảnh:", url);
-
+        AlertSuccess();
         // Lưu URL vào localStorage
         localStorage.setItem("imageUrl", url);
       })
       .catch((error) => {
         console.error("Lỗi khi lấy URL ảnh:", error);
       });
+  });
+}
+function AlertSuccess(){
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      // toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+  Toast.fire({
+    icon: "success",
+    title: "Tải hình ảnh lên thành công!",
+    color: "#716add",
   });
 }

@@ -64,7 +64,7 @@ function UploadImageAndGetURL() {
     const imageRef = ref(storage, "Avatar/" + file.name);
     getDownloadURL(imageRef)
       .then((url) => {
-        console.log("URL của ảnh:", url);
+        // console.log("URL của ảnh:", url);
         // Lưu URL vào localStorage
         localStorage.removeItem("avatarUrl");
         localStorage.setItem("avatarUrl", url);
@@ -75,6 +75,7 @@ function UploadImageAndGetURL() {
             // Cập nhật giá trị của cookie url_profile thành url
             document.cookie = "url_profile=" + url;
             console.log(url);
+            Alert();
             // alert('Tải lên thành công!');
           } else {
             console.error("Không có tên tệp được cung cấp.");
@@ -86,5 +87,23 @@ function UploadImageAndGetURL() {
       .catch((error) => {
         console.error("Lỗi khi lấy URL ảnh:", error);
       });
+  });
+}
+function Alert(){
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      // toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+  Toast.fire({
+    icon: "success",
+    title: "Tải hình ảnh lên thành công!",
+    color: "#716add",
   });
 }

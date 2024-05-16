@@ -57,6 +57,7 @@ function UploadImageAndGetURL() {
   const storage = getStorage();
   const storageRef = ref(storage, "iPhone/" + file.name);
   uploadBytes(storageRef, file).then((snapshot) => {
+    AlertSuccess();
     console.log("Tải ảnh lên thành công!");
     const imageRef = ref(storage, "iPhone/" + file.name);
   getDownloadURL(imageRef)
@@ -68,5 +69,23 @@ function UploadImageAndGetURL() {
       .catch((error) => {
         console.error("Lỗi khi lấy URL ảnh:", error);
       });
+  });
+}
+function AlertSuccess(){
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      // toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+  Toast.fire({
+    icon: "success",
+    title: "Tải hình ảnh lên thành công!",
+    color: "#716add",
   });
 }

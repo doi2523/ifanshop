@@ -57,11 +57,30 @@ document.getElementById('update-passwd').addEventListener('submit', function(eve
 function ForgotPassword(email) {
     sendPasswordResetEmail(auth, email)
     .then(() => {
-        alert("Một email đã được gửi tới địa chỉ của bạn để đặt lại mật khẩu. Vui lòng kiểm tra hộp thư đến của bạn.");
+        AlertSuccess();
+        // alert("Một email đã được gửi tới địa chỉ của bạn để đặt lại mật khẩu. Vui lòng kiểm tra hộp thư đến của bạn.");
     })
     .catch((error) => {
         console.log(error.code);
         console.log(error.message);
-        alert("Đã xảy ra lỗi khi gửi email đặt lại mật khẩu. Vui lòng thử lại sau.");
+        // alert("Đã xảy ra lỗi khi gửi email đặt lại mật khẩu. Vui lòng thử lại sau.");
     });
 };
+function AlertSuccess(){
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        // toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+    Toast.fire({
+      icon: "success",
+      title: "Hãy kiểm tra hộp thư của bạn!",
+      color: "#716add",
+    });
+  }

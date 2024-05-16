@@ -51,13 +51,14 @@ document.getElementById('signup').addEventListener('submit', function(event) {
         role: "user"
     })
     // alert('Đăng ký thành công!');
-    AlertSuccess()
+
     document.getElementById('signupMessage').innerText = 'Đăng ký thành công! Vui lòng đăng nhập!';
     signupMessage.style.color = 'green';
+    AlertSuccess()
     setTimeout(function() {
       window.location.href = 'login.html';
             // window.location.reload();
-        }, 2000);
+    }, 3000);
     // ...
   })
   .catch((error) => {
