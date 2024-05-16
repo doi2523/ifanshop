@@ -94,7 +94,8 @@ import {
         const idContent = gridData.idsanpham; // Nội dung cần sao chép
         navigator.clipboard.writeText(idContent) // Sao chép nội dung vào clipboard
             .then(() => {
-                console.log("Đã sao chép ID: ", idContent);
+              AlertSuccessCopy(idContent);
+                // console.log("Đã sao chép ID: ", idContent);
                 // Thêm thông báo hoặc hiệu ứng khi sao chép thành công nếu cần
             // Đẩy giá trị đã copy vào ô input
             document.getElementById('idsanpham').value = idContent;
@@ -117,11 +118,30 @@ function copyProductId(event) {
   navigator.clipboard
     .writeText(productId)
     .then(() => {
-      console.log("Đã sao chép ID sản phẩm thành công: " + productId);
-      alert("Đã sao chép ID sản phẩm thành công: " + productId);
+      AlertSuccessCopy(productId);
+      // console.log("Đã sao chép ID sản phẩm thành công: " + productId);
+      // alert("Đã sao chép ID sản phẩm thành công: " + productId);
     })
     .catch((err) => {
       console.error("Lỗi khi sao chép ID sản phẩm: ", err);
       alert("Đã xảy ra lỗi khi sao chép ID sản phẩm");
     });
+}
+function AlertSuccessCopy(productId){
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      // toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+  Toast.fire({
+    icon: "success",
+    title: "Copy sản phẩm '"+productId+"' thành công!",
+    color: "#716add",
+  });
 }

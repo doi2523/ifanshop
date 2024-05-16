@@ -66,13 +66,10 @@
   background-color: gray;
   /* Màu xám */
 }
-        ul {
-          list-style-type: none;
-          /* Loại bỏ loại ký hiệu mặc định (trong trường hợp này là dấu chấm) */
-        }
-        a{
-          cursor: pointer;
-        }
-        .darkmode{
-          background-color: rgba(0, 0, 0, 0.407);
-        }
+ul {
+  list-style-type: none;
+  /* Loại bỏ loại ký hiệu mặc định (trong trường hợp này là dấu chấm) */
+}
+a{
+  cursor: pointer;
+}

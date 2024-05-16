@@ -97,7 +97,7 @@ function displayGrid(gridData) {
       const codeContent = gridData.idgrid; // Lấy giá trị của dòng code
       navigator.clipboard.writeText(codeContent) // Sao chép nội dung vào clipboard
           .then(() => {
-              console.log("Đã sao chép code: ", codeContent);
+            AlertSuccessCopy(codeContent);
               // Thêm thông báo hoặc hiệu ứng khi sao chép thành công nếu cần
                           // Đẩy giá trị đã copy vào ô input
             document.getElementById('number-grid').value = codeContent;
@@ -128,14 +128,14 @@ document
 function AddIn() {
   var numbergrid = document.getElementById("number-grid").value;
   if (numbergrid.trim() === "") {
-    alert("Vui lòng điền Code vào ô input trước khi thêm.");
+    AlertError();
     return; // Dừng hàm nếu ô input rỗng
   }
   // Lấy giá trị từ input
   var inputValue = document.getElementById("idsanpham").value;
   // Kiểm tra xem ô input có rỗng hay không
   if (inputValue.trim() === "") {
-    alert("Vui lòng điền giá trị vào ô input trước khi thêm.");
+    AlertError();
     return; // Dừng hàm nếu ô input rỗng
   }
   set(ref(database, "webiphone/" + numbergrid), {
@@ -148,10 +148,7 @@ function AddIn() {
     idgrid: numbergrid,
   })
     .then(() => {
-      alert("Thêm sản phẩm thành công!");
-      // setTimeout(() => {
-      //   window.location.reload();
-      // }, 1000);
+      AlertSuccessAdd();
       resetInput();
     })
     .catch((error) => {
@@ -196,13 +193,13 @@ function DeleteIn() {
   var numbergrid = document.getElementById("number-grid").value;
   console.log(numbergrid);
   if (numbergrid.trim() === "") {
-    alert("Vui lòng điền Code vào ô input trước khi xoá.");
+    AlertError();
     return; // Dừng hàm nếu ô input rỗng
   }
 
   remove(ref(database, "webiphone/" + numbergrid))
     .then(() => {
-      alert("Đã xoá sản phẩm");
+      AlertSuccessDel();
       resetInput();
       // Sau khi xoá thành công, bạn có thể cập nhật giao diện người dùng nếu cần
     })
@@ -217,4 +214,76 @@ function resetInput() {
   // Đặt lại giá trị của ô input về giá trị mặc định hoặc trống
   inputElement1.value = ""; // Đặt về giá trị trống
   inputElement2.value = ""; // Đặt về giá trị mặc định nếu có
+}
+function AlertError(){
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      // toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+  Toast.fire({
+    icon: "error",
+    title: "Vui lòng nhập đủ thông tin trước khi thao tác!",
+    color: "#716add",
+  });
+}
+function AlertSuccessDel(){
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      // toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+  Toast.fire({
+    icon: "success",
+    title: "Sản phẩm này đã được xoá thành công!",
+    color: "#716add",
+  });
+}
+function AlertSuccessAdd(){
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      // toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+  Toast.fire({
+    icon: "success",
+    title: "Thêm sản phẩm lên web thành công!",
+    color: "#716add",
+  });
+}
+function AlertSuccessCopy(productId){
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      // toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+  Toast.fire({
+    icon: "success",
+    title: "Copy sản phẩm '"+productId+"' thành công!",
+    color: "#716add",
+  });
 }
