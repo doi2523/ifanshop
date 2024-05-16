@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="css/admin.css" />
   </head>
 
-  <body>
+  <body >
     <!-- Banner -->
     <!-- Dashboard -->
     <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
@@ -166,7 +166,7 @@
         </div>
       </nav>
       <!-- Main content -->
-      <div class="h-screen flex-grow-1 overflow-y-lg-auto">
+      <div  style="background-color: rgba(0, 0, 0, 0.04);" class="h-screen flex-grow-1 overflow-y-lg-auto">
         <!-- Header -->
         <header class="bg-surface-primary border-bottom pt-6">
           <div class="container-fluid">
@@ -203,7 +203,7 @@
               <!-- Nav -->
               <ul class="nav nav-tabs mt-4 overflow-x border-0">
                 <li class="nav-item">
-                  <a href="auth.qlyaccount.html" class="nav-link active"
+                  <a href="auth.qlyaccount.html" class="nav-link font-regular"
                     >User Data
                   </a>
                 </li>
@@ -218,21 +218,9 @@
           </div>
         </header>
         <!-- Main -->
-        <h1 class="container mt-4">Danh sách người dùng</h1>
-        <div class="container mt-3 overflow-y-lg-auto">
-          <table class="table table-dark">
-            <thead>
-              <th>STT</th>
-              <th>Username</th>
-              <th>Họ và tên</th>
-              <th>Sdt</th>
-              <th>Email</th>
-              <th>Password</th>
-              <th>Trạng thái</th>
-              <th>Tuỳ chọn</th>
-            </thead>
-            <tbody id="tbody1"></tbody>
-          </table>
+        <h1 class="container mt-4">Chi tiết người dùng</h1>
+        <div class="container mt-3 overflow-auto">
+            <div id="hienthichitiet"></div>
         </div>
       </div>
     </div>
@@ -241,10 +229,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script
-    type="module"
-    src="js/Admin/QlyUser/get.user.from.database.js"
-  ></script>
+  <script type="module" src="js/Admin/QlyUser/get.chi.tiet.user.js"></script>
   <script type="module" src="js/checklogin.js"></script>
   <script type="module" src="js/checklogout&delete.js"></script>
 </html>

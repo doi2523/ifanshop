@@ -47,8 +47,9 @@ document.getElementById('signup').addEventListener('submit', function(event) {
         sdt: sdt,
         last_login: "",
         last_logout: "",
-      urlavatar: "",
-        role: "user"
+        urlavatar: "",
+        role: "user",
+        userstatus: "signup"
     })
     // alert('Đăng ký thành công!');
 

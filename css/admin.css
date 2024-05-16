@@ -73,3 +73,6 @@
         a{
           cursor: pointer;
         }
+        .darkmode{
+          background-color: rgba(0, 0, 0, 0.407);
+        }

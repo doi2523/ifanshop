@@ -73,12 +73,12 @@ deleteBtn.classList.add("btn", "btn-primary", "btn-sm");
   // editBtn.addEventListener("click", editSanPham);
   editBtn.classList.add("btn", "btn-primary", "btn-sm", "mx-2");
 
-    // Tạo nút sửa
-  let showBtn = document.createElement("button");
-  showBtn.innerHTML = '<i class="fas fa-ellipsis-h"></i>';
-  // shwBtn.setAttribute("data-name", userr.uid); // Lưu trữ tên của sản phẩm
-  // shwBtn.addEventListener("click", shwSanPham);
-  showBtn.classList.add("btn", "btn-primary", "btn-sm");
+        // Create the button
+        let showBtn = document.createElement("button");
+        showBtn.innerHTML = '<i class="fas fa-ellipsis-h"></i>';
+        showBtn.setAttribute("data-name", uid); // Example UID, replace with userr.uid
+        showBtn.addEventListener("click", showUser);
+        showBtn.classList.add("btn", "btn-primary", "btn-sm");
 
   // Thiết lập nội dung cho các ô <td>
   td1.textContent = ++stdNo;
@@ -106,3 +106,35 @@ deleteBtn.classList.add("btn", "btn-primary", "btn-sm");
   showusers.appendChild(tr);
 }
 GetAll();
+        // Function to handle the click event
+function showUser(event) {
+  const dataName = event.currentTarget.getAttribute('data-name');
+  console.log(dataName); // Print the value of data-name attribute
+  localStorage.setItem("iduser", dataName);
+  if (dataName) {
+    AlertGet();
+    setTimeout(() => {
+      window.location.href = "auth.admin.chitietuser.html";
+  }, 3000); // Redirect after 3 seconds
+} else {
+    console.error("Không có giá trị productId để lưu vào localStorage.");
+}
+}
+function AlertGet(){
+  const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+      //   toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+    Toast.fire({
+      icon: "warning",
+      title: "Đang lấy thông tin người dùng, chờ chuyển trang!",
+      color: "#716add",
+    });
+} 

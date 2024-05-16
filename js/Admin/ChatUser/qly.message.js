@@ -64,7 +64,7 @@ function AddItemToList(uid, hoten, urlavatar, userstatus, messageCount) {
     let imageSrc = urlavatar;
     let userName = hoten;
     let userid = uid;
-    GetAllDataOnce();
+    // GetAllDataOnce();
     confirmDelete(uid); // Gọi hàm hiển thị cảnh báo xác nhận xoá
   });
   chatCell.appendChild(chatButton);
@@ -145,8 +145,8 @@ function confirmDelete(uid) {
   function deleteProduct(uid) {
     let productRef = ref(database, "messages/" + uid);
     // Xoá hàng chứa sản phẩm có ID tương ứng
-    // const rowToDelete = event.target.closest("");
-    rowToDelete.remove();
+    // const rowToDelete = event.target.closest("tr");
+    // rowToDelete.remove();
     remove(productRef)
       .then(() => {
         // Sau khi xoá thành công, cập nhật giao diện người dùng
