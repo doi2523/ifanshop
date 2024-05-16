@@ -76,37 +76,40 @@ import {
   function displayDonhang(donhang, newPostKey) {
     const donhangs = document.getElementById("donhang");
     // donhangs.innerHTML = "";
-    const li = document.createElement("li");
+    const div = document.createElement("div");
     const giatien = donhang.giasale;
+    const tensp = donhang.tensanpham;
     // Định dạng giá trị theo chuỗi có dấu chấm ngăn cách mỗi 3 chữ số
     const formattedGiaTien = giatien
       .toString()
       .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-    li.innerHTML = `
-        <div class="d-flex p-3">
-          <img src="${donhang.url}" alt="" style="height: 80px; margin-top: 25px;">
-          <div class="p-3">
-            <h6>Name: ${donhang.tensanpham}</h6>
-            <span>Giá tiền: ${formattedGiaTien}₫</span><br>
-            <span>Số lượng: ${donhang.soluong}</span><br>
-            <button id="delete" type="button" class="btn btn-danger me-2 d-flex ms-auto"><i class="fas fa-trash-alt"></i></button>
-          </div>
-        </div><hr>`;
+    div.innerHTML = `
+    <div class="d-flex m-1">
+    <div>
+      <img src="${donhang.url}" alt="" class="img_sanpham">
+    </div>
+    <div class="p-3">
+      <h6>${donhang.tensanpham}</h6>
+      <span>Giá tiền: ${formattedGiaTien}₫</span><br>
+      <span>Số lượng: ${donhang.soluong}</span><br>
+      <button id="delete" type="button" class="btn btn-danger me-2 d-flex ms-auto"><i class="fas fa-trash-alt"></i></button>
+    </div>
+  </div>`;
   
     // Thêm giá trị của sản phẩm này vào tổng giá trị
     totalAmount += parseFloat(donhang.giasale) * parseInt(donhang.soluong);
   
     // Hiển thị tổng giá trị lên giao diện
     // displayTotal();
-    donhangs.appendChild(li);
+    donhangs.appendChild(div);
   
     // Lấy tham chiếu đến nút "delete"
-    const deleteButton = li.querySelector("#delete");
+    const deleteButton = div.querySelector("#delete");
     // Thêm sự kiện click cho nút "delete"
     deleteButton.addEventListener("click", function () {
-      donhangs.removeChild(li);
+      donhangs.removeChild(div);
       // Xoá phần tử khỏi cơ sở dữ liệu khi nút "delete" được nhấn và truyền newPostKey
-      DeleteDonHang(newPostKey);
+      DeleteDonHang(newPostKey, tensp);
       // Cập nhật lại tổng giá trị sau khi sản phẩm được xoá
       totalAmount -= parseFloat(donhang.giasale) * parseInt(donhang.soluong);
       // Hiển thị tổng giá trị mới lên giao diện
@@ -117,15 +120,16 @@ import {
   }
   
   GetDonhang();
-  function DeleteDonHang(newPostKey) {
+  function DeleteDonHang(newPostKey, tensp) {
     let productRef = ref(database, "donhang/" + uidProfile + "/" + newPostKey);
     remove(productRef)
       .then(() => {
-        alert("Đã xoá sản phẩm khỏi giỏ hàng");
+        AlertGioHang(tensp);
+        // alert("Đã xoá sản phẩm khỏi giỏ hàng");
         // Sau khi xoá thành công, bạn có thể cập nhật giao diện người dùng nếu cần
       })
       .catch((error) => {
-        alert("Lỗi khi xoá sản phẩm:", error);
+        // alert("Lỗi khi xoá sản phẩm:", error);
       });
   }
   // Hàm hiển thị tổng giá trị lên giao diện
@@ -134,4 +138,22 @@ import {
     tongtienElement.textContent = totalAmount.toLocaleString() + "₫"; // Gán giá trị mới cho nội dung của phần tử
   }
   displayTotal();
+  function AlertGioHang(ten){
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+    Toast.fire({
+      icon: "success",
+      title: "Xoá '"+ten+"' khỏi giỏ hàng thành công!",
+      color: "#716add",
+    });
+  }
   

@@ -948,3 +948,16 @@ a:hover {
   justify-content: flex-start;
   font-size: 13px;
 }
+.img_sanpham{
+  max-height: auto;
+  max-width: 60px;
+  margin-top: 25px;
+  border: 2px solid #a3b9e7;
+  padding: 2px;
+}
+.txt_white{
+  color: #fff;
+}
+.text-add-shoping{
+  color: #fff;
+}

@@ -273,7 +273,7 @@ hr {
     margin-left: 0;
   }
   .add-shoping{
-    background-color: #d8caf7;
+    /* background-color: #d8caf7; */
     font-size: 20px;
     border: none;
     display: flex;
@@ -282,22 +282,6 @@ hr {
     margin-top: 10px;
     padding: 5px;
     border-radius: 10px;
-  }
-  .adding::after{
-    content: '';
-    position: absolute;
-    width: auto;
-    height: 3px;
-    background: linear-gradient(to left, #7a60ff, #cd9ffa);
-    border-radius: 5px;
-    transform: scaleX(0);
-    transform-origin: right left;
-    transition: .3s;
-    margin-left: 4px;
-    margin-top: -7px;
-  }
-  .adding:hover::after{
-    transform: scaleX(1);
   }
   #text-add-shoping{
     font-size: 16px;
@@ -380,7 +364,6 @@ hr {
     margin-left: 0;
   }
   .add-shoping{
-    background-color: #d8caf7;
     font-size: 20px;
     border: none;
     display: flex;
@@ -430,19 +413,6 @@ hr {
 #button-slide {
   border: none;
 }
-
-/********** LOGO **********/
-/* h1 {
-  text-align: center;
-  width: 200px;
-  height: 20px;
-  margin: 40px auto 40px auto;
-  background-repeat: no-repeat;
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-} */
-
 
 .txt-ip{
   color: black;
@@ -650,29 +620,12 @@ height: 200px;
   margin-left: auto;
 }
 .add-shoping{
-  background-color: #d8caf7;
   font-size: 30px;
   border: none;
   display: flex;
   align-items: center;
   flex-direction: row;
   margin-top: 10px;
-}
-.adding::after{
-  content: '';
-  position: absolute;
-  width: 175px;
-  height: 3px;
-	background: linear-gradient(to left, #7a60ff, #cd9ffa);
-  border-radius: 5px;
-  transform: scaleX(0);
-  transform-origin: right left;
-  transition: .3s;
-  margin-left: 4px;
-  margin-top: -7px;
-}
-.adding:hover::after{
-  transform: scaleX(1);
 }
 #text-add-shoping{
   font-size: 16px;
@@ -760,7 +713,6 @@ height: 200px;
     margin-left: 0;
   }
   .add-shoping{
-    background-color: #d8caf7;
     font-size: 20px;
     border: none;
     display: flex;
@@ -769,22 +721,6 @@ height: 200px;
     margin-top: 10px;
     padding: 5px;
     border-radius: 10px;
-  }
-  .adding::after{
-    content: '';
-    position: absolute;
-    width: auto;
-    height: 3px;
-    background: linear-gradient(to left, #7a60ff, #cd9ffa);
-    border-radius: 5px;
-    transform: scaleX(0);
-    transform-origin: right left;
-    transition: .3s;
-    margin-left: 4px;
-    margin-top: -7px;
-  }
-  .adding:hover::after{
-    transform: scaleX(1);
   }
   #text-add-shoping{
     font-size: 16px;
@@ -873,7 +809,6 @@ height: 200px;
     margin-left: 0;
   }
   .add-shoping{
-    background-color: #d8caf7;
     font-size: 20px;
     border: none;
     display: flex;
@@ -882,22 +817,6 @@ height: 200px;
     margin-top: 10px;
     padding: 5px;
     border-radius: 10px;
-  }
-  .adding::after{
-    content: '';
-    position: absolute;
-    width: auto;
-    height: 3px;
-    background: linear-gradient(to left, #7a60ff, #cd9ffa);
-    border-radius: 5px;
-    transform: scaleX(0);
-    transform-origin: right left;
-    transition: .3s;
-    margin-left: 4px;
-    margin-top: -7px;
-  }
-  .adding:hover::after{
-    transform: scaleX(1);
   }
   #text-add-shoping{
     font-size: 16px;
