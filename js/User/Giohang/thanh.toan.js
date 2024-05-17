@@ -169,7 +169,7 @@ document.getElementById("tieptuc").addEventListener("submit", function() {
     // Chuyển đổi giá trị thành float
     const tongtienFloat = parseFloat(tongtienWithoutDot);
             // Cập nhật thông tin người dùng vào cơ sở dữ liệu
-    set(ref(database, "Donhang/" + uidProfile), {
+    set(ref(database, "Thanhtoan/" + uidProfile), {
         username: newmail,
         hoten: newhoten,
         sdt: newsdt,

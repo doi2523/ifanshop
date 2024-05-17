@@ -59,7 +59,6 @@ import {
                     <div class="mb-2"><strong>Trạng thái:</strong> ${getusers.userstatus || ''}</div>
                     <div class="mb-2"><strong>Đăng nhập gần đây:</strong> ${getusers.last_login || ''}</div>
                     <div class="mb-2"><strong>Đăng xuất gần đây:</strong> ${getusers.last_logout || ''}</div>
-                    <div class="mb-2"><strong>Đơn hàng:</strong> ${getusers.orders || ''}</div>
                 </div>
                 <div class="col-md-2">
                     <h2>Tuỳ chọn</h2>
@@ -68,6 +67,9 @@ import {
                     <div class="mb-2"><button id="delete" class="btn btn-danger"><i class="bi bi-trash-fill"></i> Xoá</button></div>
                     <div class="mb-2"><button id="exit" class="btn btn-danger">Thoát</button></div>
                 </div>
+                <div class="col-md-7">
+                <div class="mb-2"><strong>Đơn hàng:</strong></div>
+              </div>
             `;
             container.appendChild(div);
             document.getElementById('delete').addEventListener('click', () => {
