@@ -80,15 +80,24 @@
       <!-- Ví dụ: -->
       <div class="card" style="margin-top: 0;">
         <div class="card-body">      
-          <h5 class="card-title">Thông tin đơn hàng</h5>
-          <a href="auth.thanhtoan.html" class="btn btn-primary mt-3">Sửa</a>
+          <div class="d-flex justify-content-between align-items-center">      
+            <h5 class="card-title mb-0">Thông tin đơn hàng</h5>
+            <a href="auth.thanhtoan.html" class="btn btn-primary">Sửa</a>
+          </div>
           <!-- Thêm các thông tin thanh toán của bạn vào đây -->
-          <p class="card-text" style="font-size: 15px;">Tổng số lượng sản phẩm: <span id="tongsoluong"></span></p>
-          <p class="card-text" style="font-size: 15px;">Tổng giá tiền: <span id="tongtien"></span></p><hr>
+          <p class="card-text" style="font-size: 15px; font-weight: bold;">Tổng số lượng sản phẩm: <span id="tongsoluong" style=" color: #007bff;"></span></p>
+          <p class="card-text" style="font-size: 15px; font-weight: bold;">Tổng giá tiền: <span id="tongtien" style=" color: #007bff;"></span></p><hr>
           <!-- <button id="tieptuc" type="button" class="btn btn-success mt-3">Tiếp tục</button> -->
         <h5>Tình trạng</h5>
-        <p class="card-text" style="font-size: 15px;">Đang giao hàng</p>
-        <h5>Nơi đến</h5>
+        <p class="card-text" style="font-size: 15px; font-weight: bold;"style=" color: #007bff;">Đang giao hàng</p>
+        <hr>
+        <div class="d-flex justify-content-between align-items-center">      
+          <h5 class="card-title mb-0">Giao tới</h5>
+          <a href="auth.thanhtoan.html" class="btn btn-primary">Sửa</a>
+        </div>
+        <p class="card-text" style="font-size: 15px; font-weight: bold;">Tên người nhận: <span id="tennguoinhan" style=" color: #007bff;"></span></p>
+        <p class="card-text" style="font-size: 15px; font-weight: bold;">Số điện thoại: <span id="sdtnguoinhan" style=" color: #007bff;"></span></p>
+        <p class="card-text" style="font-size: 15px; font-weight: bold;">Địa chỉ: <span id="diachinguoinhan" style=" color: #007bff;"></span></p>
       </div>
       </div>
     </div>
@@ -290,6 +299,7 @@
 <script type="module" src="js/message.online.js"></script>
 <script type="module" src="js/User/Giohang/thanh.toan.js"></script>
 <script type="module" src="js/User/Giohang/hienthi.sanpham.js"></script>
+<script type="module" src="js/User/Giohang/get.thong.tin.nguoi.nhan.js"></script>
 </body>
 
 </html>
