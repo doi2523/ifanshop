@@ -62,4 +62,58 @@ a.link {
   cursor: pointer;
   width: 13%;
   height: 80%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+#password-toggle-btn i {
+  pointer-events: none;
+}
+
+/* Đảm bảo nút hiển thị/ẩn mật khẩu được căn chỉnh chính xác */
+#password-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  height: 38px; /* Đảm bảo chiều cao của nút bằng với chiều cao của ô input */
+  margin-left: 5px;
+}
+
+#password-toggle-btn i {
+  pointer-events: none;
+}
+
+/* Style cho form-outline */
+.form-outline {
+  position: relative;
+}
+
+/* Style cho form-outline */
+.form-outline .form-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 16px; /* Điều chỉnh kích thước chữ của nhãn */
+}
+
+
+.form-outline input::placeholder {
+  opacity: 0.5;
+}
+
+/* Căn chỉnh nút hiển thị/ẩn mật khẩu */
+.position-relative .btn {
+  right: 10px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Căn chỉnh label bên trên ô input */
+.form-outline .form-label {
+  position: absolute;
+  top: -25px; /* Điều chỉnh khoảng cách từ label đến ô input */
+  left: 5px; /* Đảm bảo label đứng ở giữa của ô input */
+  /* background-color: white; Đảm bảo label không bị che bởi nền input */
+  padding: 0 5px; /* Tăng khoảng cách giữa label và input */
 }

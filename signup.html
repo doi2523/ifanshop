@@ -56,9 +56,8 @@
           <!-- <li class="nav-item"> <a class="nav-link" href="login.html">Đăng nhập</a> </li> -->
         </ul>
         <div>
-          <button id="btt-login" type="button" class="btn btn-outline-primary me-2"><a href="login.html">Đăng
-              nhập</a></button>
-          <button id="btt-sigup" type="button" class="btn btn-primary"><a href="signup.html">Đăng ký</a></button>
+          <a id="btt-login" href="login.html" class="btn btn-outline-primary me-2">Đăng nhập</a>
+          <a id="btt-sigup" href="signup.html" class="btn btn-primary">Đăng ký</a>
         </div>
       </div>
     </div>
@@ -68,7 +67,6 @@
   <!-------Banner Start------->
   <div class="container">
     <br>
-    <br>
     <section class="vh-100" style="margin-top: 100px;">
       <div class="container h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
@@ -77,158 +75,77 @@
               <div class="card-body p-md-5">
                 <div class="row justify-content-center">
                   <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Đăng ký</p>
+    <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Đăng ký</p>
 
-                    <form class="mx-1 mx-md-4" id="signup">
+<form class="mx-1 mx-md-4" id="signup">
+  <div class="d-flex flex-row mb-4">
+    <i class="fas fa-user-plus fa-lg my-3 mx-1 fa-fw"></i>
+    <div class="form-outline flex-fill mb-0">
+      <label class="form-label" for="login-email">Họ và tên</label>
+      <input type="text" id="signup-hoten" required name="txt-email-signup" class="form-control" placeholder="Fullname" />
+    </div>
+  </div>
 
-                      <div class="d-flex flex-row mb-4">
-                        <i class="fas fa-envelope fa-lg my-3 mx-1 fa-fw"></i>
-                        <div class="form-outline flex-fill mb-0">
-                          <input id="signup-hoten" type="text" required name="txt-email-signup" class="form-control" />
-                          <label class="form-label" for="form3Example3c">Họ và tên</label>
-                        </div>
-                      </div>
-                      <div class="d-flex flex-row mb-4">
-                        <i class="fas fa-mobile fa-lg my-3 mx-1 fa-fw"></i>
-                        <div class="form-outline flex-fill mb-0">
-                          <input id="signup-sdt" type="number" required name="txt-email-signup" class="form-control" />
-                          <label class="form-label" for="form3Example3c">Số điện thoại</label>
-                        </div>
-                      </div>
-                      <script>
-                        // Lấy tham chiếu đến input số điện thoại
-                        const sdtInput = document.getElementById("signup-sdt");
+  <div class="d-flex flex-row mb-4">
+    <i class="fas fa-mobile fa-lg my-3 mx-1 fa-fw"></i>
+    <div class="form-outline flex-fill mb-0">
+      <label class="form-label" for="login-email">Số điện thoại</label>
+      <input type="number" id="signup-sdt" required name="txt-email-signup" class="form-control" placeholder="0123456789" />
+    </div>
+  </div>
+    <div class="d-flex flex-row mb-4">
+      <i class="fas fa-user fa-lg my-3 mx-1 fa-fw"></i>
+      <div class="form-outline flex-fill mb-0">
+        <label class="form-label" for="login-email">Username</label>
+        <input type="text" id="signup-username" required name="txt-email-signup" class="form-control" placeholder="Username" />
+      </div>
+    </div>
 
-                        // Thêm sự kiện "input" để kiểm tra số điện thoại mỗi khi người dùng nhập vào
-                        sdtInput.addEventListener("input", function () {
-                          const sdt = this.value; // Lấy giá trị số điện thoại từ input
-                          // Kiểm tra độ dài của số điện thoại
-                          if (sdt.length !== 10) { // Nếu độ dài khác 10
-                            this.setCustomValidity("Số điện thoại phải có đúng 10 số.");
-                          } else {
-                            this.setCustomValidity(""); // Xóa thông báo lỗi nếu độ dài là 10
-                          }
-                        });
-                      </script>
+<div class="d-flex flex-row mb-4">
+  <i class="fas fa-envelope fa-lg my-3 mx-1 fa-fw"></i>
+  <div class="form-outline flex-fill mb-0">
+    <label class="form-label" for="login-email">E-mail</label>
+    <input type="email" id="signup-email" required name="txt-email-signup" class="form-control" placeholder="Example@gmail.com" />
+  </div>
+</div>
+<div class="d-flex flex-row mb-4">
+  <i class="fas fa-lock fa-lg my-3 mx-1 fa-fw"></i>
+  <div class="form-outline flex-fill mb-0">
+    <label class="form-label" for="login-email">Password</label>
+    <input type="password" id="signup-password" required name="txt-email-signup" class="form-control" placeholder="Password" />
+  </div>
+</div>
+<div class="d-flex flex-row mb-4">
+  <i class="fas fa-key fa-lg my-3 mx-1 fa-fw"></i>
+  <div class="form-outline flex-fill mb-0">
+    <label class="form-label" for="login-email">Repeat your Password</label>
+    <input type="password" id="repeat-passwd" required name="txt-email-signup" class="form-control" placeholder="Repeat your Password" />
+  </div>
+</div>
 
-                      <div class="d-flex flex-row mb-4">
-                        <i class="fas fa-user fa-lg my-3 mx-1 fa-fw"></i>
-                        <div class="form-outline flex-fill mb-0">
-                          <input id="signup-username" type="text" required name="txt-email-signup"
-                            class="form-control" />
-                          <label class="form-label" for="form3Example3c">Username</label>
-                        </div>
-                      </div>
+  <div class="form-check d-flex mb-5 mx-2">
+    <input class="form-check-input" type="checkbox" value="" id="form2Example3c" required/>
+    <label class="form-check-label" for="form2Example3">
+      Tôi đồng ý tất cả các điều khoản trong <a class="link" href="#!">Điều khoản dịch vụ</a>
+    </label>
+  </div>
 
-
-<script>
-  // Lấy tham chiếu đến input username
-  const usernameInput = document.getElementById("signup-username");
-
-  // Thêm sự kiện "input" để kiểm tra username mỗi khi người dùng nhập vào
-  usernameInput.addEventListener("input", function () {
-    const username = this.value; // Lấy giá trị username từ input
-    // Kiểm tra username
-    if (/[\s\u0300-\u036f]/.test(username)) { // Kiểm tra dấu cách và chữ có dấu
-      this.setCustomValidity("Username không hợp lệ. Username chỉ được chứa chữ cái không dấu, số và dấu gạch dưới.");
-    } else {
-      this.setCustomValidity(""); // Xóa thông báo lỗi nếu username hợp lệ
-    }
-  });
-</script>
-
-                      <div class="d-flex flex-row mb-4">
-                        <i class="fas fa-envelope fa-lg my-3 mx-1 fa-fw"></i>
-                        <div class="form-outline flex-fill mb-0">
-                          <input id="signup-email" type="email" required name="txt-email-signup" class="form-control" />
-                          <label class="form-label" for="form3Example3c">E-mail</label>
-                        </div>
-                      </div>
-                      
-                      <div class="d-flex flex-row mb-4">
-                        <i class="fas fa-lock fa-lg my-3 mx-1 fa-fw"></i>
-                        <div class="form-outline flex-fill mb-0">
-                          <input type="password" id="signup-password" type="password" required
-                            name="txt-password-signup" class="form-control" />
-                          <label class="form-label" for="form3Example4c">Password</label>
-                        </div>
-                      </div>
-                      <script>
-                        // Lấy tham chiếu đến input mật khẩu
-                        const passwordInput = document.getElementById("signup-password");
-
-                        // Thêm sự kiện "input" để kiểm tra mật khẩu mỗi khi người dùng nhập vào
-                        passwordInput.addEventListener("input", function () {
-                          const password = this.value; // Lấy giá trị mật khẩu từ input
-
-                          // Kiểm tra độ dài của mật khẩu và xem mật khẩu có chứa dấu cách không
-                          if (password.length < 6 || /\s/.test(password)) {
-                            // Nếu mật khẩu có ít hơn 6 ký tự hoặc chứa dấu cách
-                            this.setCustomValidity("Mật khẩu phải có ít nhất 6 ký tự và không chứa dấu cách.");
-                          } else {
-                            // Nếu mật khẩu hợp lệ
-                            this.setCustomValidity(""); // Xóa thông báo lỗi
-                          }
-                        });
-                      </script>
-                      <div class="d-flex flex-row mb-4">
-                        <i class="fas fa-key fa-lg my-3 mx-1 fa-fw"></i>
-                        <div class="form-outline flex-fill mb-0">
-                          <input type="password" id="repeat-passwd" class="form-control" required/>
-                          <label style="margin-left: -10px;" class="form-label" for="form3Example4cd">Repeat your
-                            password</label>
-                        </div>
-                      </div>
-
-                      <script>
-                        // Lấy tham chiếu đến input mật khẩu và nhập lại mật khẩu
-                        const passwordInput1 = document.getElementById("signup-password");
-                        const repeatPasswordInput = document.getElementById("repeat-passwd");
-
-                        // Thêm sự kiện "input" vào cả hai ô input để kiểm tra mật khẩu nhập lại
-                        passwordInput1.addEventListener("input", comparePasswords);
-                        repeatPasswordInput.addEventListener("input", comparePasswords);
-
-                        // Hàm so sánh giá trị của hai ô input mật khẩu
-                        function comparePasswords() {
-                          const password = passwordInput1.value; // Lấy giá trị mật khẩu từ ô input mật khẩu
-                          const repeatPassword = repeatPasswordInput.value; // Lấy giá trị nhập lại mật khẩu từ ô input nhập lại mật khẩu
-
-                          // Kiểm tra xem hai mật khẩu có giống nhau không
-                          if (password !== repeatPassword) {
-                            // Nếu hai mật khẩu không giống nhau, thiết lập thông báo lỗi
-                            repeatPasswordInput.setCustomValidity("Mật khẩu nhập lại không khớp.");
-                          } else {
-                            // Nếu hai mật khẩu giống nhau, xóa thông báo lỗi
-                            repeatPasswordInput.setCustomValidity("");
-                          }
-                        }
-                      </script>
-
-
-                      <div class="form-check d-flex mb-5 mx-2">
-                        <input class="form-check-input" type="checkbox" value="" id="form2Example3c" required/>
-                        <label class="form-check-label" for="form2Example3">
-                          Tôi đồng ý tất cả các điều khoản trong <a class="link" href="#!">Điều khoản dịch vụ</a>
-                        </label>
-                      </div>
-
-                      <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                        <button type="submit" id="signup" name="bt-signup" class="btn btn-primary btn-lg">Đăng
-                          ký</button>
-                      </div>
-                      <div id="signupSuccessMessage" style="display: none;">Đăng ký thành công!</div>
-                      <p class="notee" id="signupMessage"></p>
-                    </form>
-                    <div>
-                      <p style="text-align: right;">Bạn đã có tài khoản? <a class="link" href="login.html">Đăng
-                          nhập</a></p>
-                    </div>
+  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+    <button type="submit" id="signup" name="bt-signup" class="btn btn-primary btn-lg">Đăng
+      ký</button>
+  </div>
+  <div id="signupSuccessMessage" style="display: none;">Đăng ký thành công!</div>
+  <p class="notee" id="signupMessage"></p>
+</form>
+<div>
+  <p style="text-align: right;">Bạn đã có tài khoản? <a class="link" href="login.html">Đăng
+      nhập</a></p>
+</div>
                   </div>
                   <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
 
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                      class="img-fluid" alt="Sample image">
+<img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+  class="img-fluid" alt="Sample image">
 
                   </div>
                 </div>
@@ -318,7 +235,7 @@
   <script src="js/script.js"></script>
   <script src="js/re_pwd.js"></script>
   <script type="module" src="js/Login/signup.js"></script>
-  <script src="js/if.else.signup.js"></script>
+  <script src="js/Login/if.else.signup.js"></script>
   </script>
 </body>
 
