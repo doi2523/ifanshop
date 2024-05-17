@@ -591,9 +591,12 @@ a {
   margin-top: 10px;
 }
 .img-ip img{
-height: 200px;
+  max-height: 270px;
+  width: auto;
 }
 .tag-voucher{
+  height: 40px;
+  width: auto;
 }
 .tag-voucher img{
   height: 40px;
@@ -602,6 +605,7 @@ height: 200px;
 .grid-item{
   display: flex;
   flex-direction: column;
+  padding: 10px;
 }
 #gia-uu-dai{
   color:blue;
@@ -870,4 +874,103 @@ height: 200px;
   font-weight: bold;
   color: #333;
   cursor: pointer;
+}
+.item {
+  /* CSS mặc định cho div */
+  transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu nền */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0); /* Không có shadow ban đầu */
+}
+
+.item:hover {
+  /* CSS khi người dùng di chuột vào */
+  background-color: #c2abfc; /* Màu nền khi di chuột vào */
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow khi di chuột vào */
+}
+
+
+
+
+
+
+
+
+
+
+.visually-hidden {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+}
+.color-buttons {
+  display: flex;
+}
+
+.color-buttons input[type="radio"] {
+  display: none;
+}
+
+.btn-color {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%; /* Tạo hình tròn */
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.black {
+  background-color: black;
+}
+
+.white {
+  background-color: white;
+  border: 1px solid black; /* Viền cho nút màu trắng */
+}
+
+.gold {
+  background-color: gold;
+}
+.pink {
+  background-color: pink;
+}
+.btn-color {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%; /* Tạo hình tròn */
+  margin-right: 10px;
+  cursor: pointer;
+  transition: box-shadow 0.3s; /* Tạo hiệu ứng chuyển động cho sự thay đổi của box-shadow */
+}
+
+/* Tạo viền sáng khi được chọn */
+.btn-check:checked + .btn-color {
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.5); /* Viền sáng */
+}
+
+/* CSS để tạo ra hiệu ứng khi nút được chọn */
+.btn-outline-primary.default {
+  border: 2px solid #007bff; /* Màu viền mặc định */
+  color: #007bff; /* Màu chữ mặc định */
+}
+.btn-outline-primary:hover{
+  color: #fff;
+}
+/* Định dạng khi nút được chọn */
+.btn-check:checked + .btn-outline-primary.default {
+  border-color: #28a745; /* Màu viền khi được chọn */
+  background-color: #28a745; /* Màu nền khi được chọn */
+  color: white; /* Màu chữ khi được chọn */
+}
+.size{
+  font-size: 17px;
+}
+.size1{
+  font-size: 15px;
+}
+.red{
+  color: red;
+  font-weight: bold;
+}
+#green-check {
+  color: green; /* Đổi màu của icon thành màu xanh */
 }

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>iFanShop</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="icon" href="images/marketplace.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+    integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+    integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="css/iphone.css">
+  <link rel="stylesheet" href="css/thecart.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="">
+  <!-- Font Awesome -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body class="body-style">
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand navbar-logo" href="auth.index.html"><img src="images/ifa.png" alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"> <a class="nav-link" href="auth.index.html">Trang chủ</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="auth.about.html">Giới thiệu</a> </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Sản phẩm <i class="fa fa-regular fa-chevron-down"></i>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a style="color: #007bff;" class="dropdown-item" href="auth.iphone.html">iPhone</a></li>
+              <li><a class="dropdown-item" href="auth.macbook.html">Macbook</a></li>
+              <li><a class="dropdown-item" href="auth.ipad.html">iPad</a></li>
+              <li><a class="dropdown-item" href="auth.accessory.html">Phụ kiện</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"> <a class="nav-link" href="auth.services.html">Dịch vụ</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="auth.giohang.html">Giỏ hàng</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="auth.contact.html">Liên hệ</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="auth.chat.html">Đánh giá</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="auth.userpage.html">Tài khoản</a> </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+  <!-------Banner Start------->
+  <section>
+    <div>
+      <div class="container" style="padding-top: 100px;">
+        <br>
+        <!-- Form Thêm vào giỏ hàng -->
+        <div class="row">
+            <div class="col-md-6">
+                <iframe width="600" height="400" src="https://www.youtube.com/embed/HsxjCOuIFAc?si=h49URaGfG8a5YLGe&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <!-- <img src="images/0009181_iphone-14-128gb_240.png" alt=""> -->
+            </div>
+            <div class="col-md-6">
+                <form action="" id="addsp">
+                <div>
+                    <h2 style="font-size: 28px; margin-bottom: 10px;"><span id="namesanpham"></span></h2>
+                    <hr>
+                    <span style="font-size: 20px; font-weight: bold; color: #007bff;"><span id="giasale"></span></span>
+                    <span style="font-size: 20px; color: #999; margin-left: 10px; text-decoration: line-through;"><span id="giagocchitiet"></span></span>
+                    <h3 style="font-size: 20px; margin-top: 20px;">Dung lượng</h3>
+                    <div style="margin-bottom: 20px;">
+                        <input type="radio" id="capacity-32GB" name="capacity" value="64GB" class="btn-check visually-hidden" autocomplete="off" checked>
+                        <label class="btn btn-outline-primary default" for="capacity-32GB">64GB</label>
+                    
+                        <input type="radio" id="capacity-64GB" name="capacity" value="128GB" class="btn-check visually-hidden" autocomplete="off">
+                        <label class="btn btn-outline-primary default" for="capacity-64GB">128GB</label>
+                    
+                        <input type="radio" id="capacity-128GB" name="capacity" value="256GB" class="btn-check visually-hidden" autocomplete="off">
+                        <label class="btn btn-outline-primary default" for="capacity-128GB">256GB</label>
+                    </div>
+                    <script>
+                        const capacityInputs = document.querySelectorAll('input[name="capacity"]');
+                        capacityInputs.forEach(input => {
+                            input.addEventListener('change', function() {
+                                console.log("Giá trị đã chọn:", this.value);
+                            });
+                        });
+                    </script>
+                    <h3 style="font-size: 20px; margin-bottom: 10px;">Màu sắc: <span id="selected-color">Đen</span></h3>
+                    <div class="color-buttons">
+                        <input type="radio" id="color-black" name="color" value="Đen" class="btn-check visually-hidden" autocomplete="off" checked>
+                        <label class="btn-color black" for="color-black"></label>
+                
+                        <input type="radio" id="color-white" name="color" value="Trắng" class="btn-check visually-hidden" autocomplete="off">
+                        <label class="btn-color white" for="color-white"></label>
+                
+                        <input type="radio" id="color-gold" name="color" value="Vàng" class="btn-check visually-hidden" autocomplete="off">
+                        <label class="btn-color gold" for="color-gold"></label>
+
+                        <input type="radio" id="color-pink" name="color" value="Hồng" class="btn-check visually-hidden" autocomplete="off">
+                        <label class="btn-color pink" for="color-pink"></label>
+                    </div>
+                    <script>
+                        const colorInputs = document.querySelectorAll('input[name="color"]');
+                        
+                        colorInputs.forEach(input => {
+                            input.addEventListener('change', function() {
+                                console.log("Giá trị đã chọn:", this.value);
+                            });
+                        });
+                        const selectedColorSpan = document.getElementById('selected-color');
+
+                        colorInputs.forEach(input => {
+                            input.addEventListener('change', function() {
+                                selectedColorSpan.textContent = this.value;
+                            });
+                        });
+
+                        </script>
+                    <div class="border p-2" style="margin-bottom: 20px;">
+                        <div class="size" style="font-weight: bold; margin-bottom: 10px;">Phương thức mua hàng</div>
+                        <input type="radio" name="payment-method" id="payment-method-thang" value="Trả thẳng" required><span class="size1"> Mua thẳng </span><br>
+                        <input  type="radio" name="payment-method" id="payment-method-tra-gop"  value="Trả góp 0%" required><span class="size1"> Trả góp 0%</span>
+                    </div>
+                    <div class="border p-2">
+                        <div class="size" style="font-weight: bold; margin-bottom: 10px;"><i class="fas fa-gift"></i> Ưu đãi</div>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li class="size1 red">I. Ưu đãi thanh toán </li>
+                            <li class="size1"><i class="fas fa-check-circle" id="green-check"></i> Giảm tới 250.000đ qua cổng thanh toán QR VNPAY (xem chi tiết)</li>
+                            <li class="size1 red">II. Ưu đãi trả góp (1/5 - 31/5)</li>
+                            <li class="size1"><i class="fas fa-check-circle" id="green-check"></i> Ưu đãi tới 5% giá trị sản phẩm khi thanh toán trả góp (xem chi tiết)</li>
+                            <li class="size1 red">III. Ưu đãi mua kèm iPhone 15 series</li>
+                            <li class="size1"><i class="fas fa-check-circle" id="green-check"></i> Mua kèm giảm sâu phụ kiện (xem chi tiết)</li>
+                            <li class="size1 red">IV. Ưu đãi lên đời</li>
+                            <li class="size1"><i class="fas fa-check-circle" id="green-check"></i> Trợ giá lên đời đến 2.000.000đ (xem chi tiết)</li>
+                        </ul>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="font-size: 20px;">Mua ngay</button>
+                </div>
+            </form>
+            </div>
+        </div>
+        
+        
+      </div>
+      <br>
+      <!-------Banner End------->
+      <footer class="site-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-4">
+              <div class="logo-footer">
+                <img src="images/ifa1.png" alt="">
+              </div>
+              <p class="text-justify">Năm 2024, <a href="index.html">iFanShop</a> trở thành đại lý ủy quyền của Apple.
+                Chúng
+                tôi phát triển chuỗi cửa hàng tiêu chuẩn và Apple Mono Store nhằm mang đến trải nghiệm tốt nhất về sản
+                phẩm và
+                dịch vụ của Apple cho người dùng Việt Nam.</p>
+            </div>
+
+            <div class="col-xs-4 col-md-3">
+              <h6>Thông tin</h6>
+              <ul class="footer-links">
+                <li><a href="">Tin tức</a></li>
+                <li><a href="about.html">Giới thiệu</a></li>
+                <li><a href="">Check IMEI</a></li>
+                <li><a href="">Phương thức thanh toán</a></li>
+                <li><a href="">Bảo hành và sửa chữa</a></li>
+                <li><a href="">Đánh giá chất lượng, khiếu nại</a></li>
+                <li><a href="">Tra cứu hoá đơn điện tử</a></li>
+              </ul>
+            </div>
+
+            <div class="col-xs-4 col-md-3">
+              <h6>Chính sách</h6>
+              <ul class="footer-links">
+                <li><a href="">Thu cũ đổi mới</a></li>
+                <li><a href="">Giao hàng</a></li>
+                <li><a href="">Huỷ giao dịch</a></li>
+                <li><a href="">Đổi trả</a></li>
+                <li><a href="">Bảo hành</a></li>
+                <li><a href="">Dịch vụ</a></li>
+                <li><a href="">Giải quyết khiếu nại</a></li>
+                <li><a href="">Bảo mật thông tin</a></li>
+                <li><a href="">Hướng dẫn thanh toán</a></li>
+              </ul>
+            </div>
+
+            <div class="col-xs-4 col-md-2">
+              <h6>Chính sách</h6>
+              <ul class="footer-links">
+                <li><a href="">Thu cũ đổi mới</a></li>
+                <li><a href="">Giao hàng</a></li>
+                <li><a href="">Huỷ giao dịch</a></li>
+                <li><a href="">Đổi trả</a></li>
+                <li><a href="">Bảo hành</a></li>
+                <li><a href="">Dịch vụ</a></li>
+                <li><a href="">Giải quyết khiếu nại</a></li>
+                <li><a href="">Bảo mật thông tin</a></li>
+                <li><a href="">Hướng dẫn thanh toán</a></li>
+              </ul>
+            </div>
+          </div>
+          <hr>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+              <p class="copyright-text">Copyright &copy; 2024 All Rights Reserved by
+                <a href="auth.index.html">iFanShop</a>.
+              </p>
+            </div>
+
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <ul class="social-icons">
+                <li><img style="height: 40px;" src="images/facebook.png" alt=""></li>
+                <li class="mx-2"><img style="height: 40px;" src="images/instagram.png" alt=""></li>
+                <li><img style="height: 40px;" src="images/twitter.png" alt=""></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-------Download End------->
+      <!-------Download End------->
+
+      <footer class="footer-copy">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12">
+              <p>2024 &copy; Applight. Website Designed by <a href="" target="_blank" rel="dofollow">Doi teamwork</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- Ô giỏ hàng online -->
+      <div class="container">
+        <button class="iconcart btn btn-primary" id="iconcartclick">
+          <i class="fas fa-shopping-cart" style="font-size: 30px; margin-top: 5px; margin-left: -2px;"></i>
+        </button>
+        <div class="boxcart hide bg-primary" id="boxcart">
+          <div class="bannerchatbox">
+            <div class="logoboxchat border-right mx-2 pr-2" id="img-avatar-user">
+              <img id="user-avatar" src="images/user1.jpg" alt="">
+            </div>
+            <div class="titleboxchat">
+              <h7 class="text-white">iFanShop</h7><br>
+              <span class="text-white">Giỏ hàng của bạn</span>
+            </div>
+            <div class="mx-2">
+              <button id="closecart" type="button" class="btn btn-lg btn-link text-decoration-none iconclose">
+                <ion-icon name="close-outline" style="font-size: 35px; color: #fff;"></ion-icon>
+              </button>
+            </div>
+          </div>
+          <hr>
+          <div class="chat mt-1">
+            <div>
+              <div id="donhang"></div>
+            </div>
+          </div>
+          <hr>
+          <div>
+            <label class="txt_white">Thành tiền:</label>
+            <span class="txt_white" style="float: right;" id="tongtien" ></span>
+          </div>
+          <div class="input-message form-group-boxchat">
+            <form action="" class="form-chat">
+              <div class="d-flex">
+                <button type="button" class="btn btn-outline-primary me-2 send-button">
+                  <div class="d-flex">
+                    Thanh toán ngay <ion-icon name="card-outline" style="font-size: 25px;"></ion-icon>
+                  </div>
+                </button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+      <!-- Ô chat online -->
+      <div class="container">
+        <button class="fixed-div btn btn-primary" id="iconclick">
+          <i class="fas fa-comment-alt text-primary" style="font-size: 30px; margin-top: 5px; margin-left: -2px;"></i>
+        </button>
+        <div class="boxchat hide bg-primary" id="boxchat">
+          <div class="bannerchatbox">
+            <div class="logoboxchat border-right mx-2 pr-2" id="img-avatar-user">
+              <img id="user-avatar" src="images/user1.jpg" alt="">
+            </div>
+            <div class="titleboxchat">
+              <h7 class="text-white">iFanShop Xin chào, chúng tôi sẵn sàng hỗ trợ bạn</h7>
+              <span class="text-white" id="fullname"></span>
+            </div>
+            <div class="mx-2">
+              <button id="closebt" type="button" class="btn btn-lg btn-link text-decoration-none iconclose">
+                <ion-icon name="close-outline" style="font-size: 35px; color: #fff;"></ion-icon>
+              </button>
+            </div>
+          </div>
+          <hr>
+          <div class="chat">
+            <div>
+              <ul id="textchat"></ul>
+            </div>
+          </div>
+          <hr>
+          <div class="input-message form-group-boxchat">
+            <form action="" id="message-form" class="form-chat"> <!-- Đổi ID thành message-form -->
+              <input class="form-control" type="text" id="message-input" placeholder="Nhập" required
+                style="width: 235px;">
+              <!-- Đổi ID thành message-input -->
+              <div class="d-flex">
+                <button type="submit" class="btn btn-outline-primary me-2 send-button" id="send">
+                  <div class="d-flex">
+                    Gửi
+                    <ion-icon name="send-outline" style="font-size: 25px;"></ion-icon>
+                  </div>
+                </button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+      <!-- scrollIt js -->
+      <script src="js/scrollIt.min.js"></script>
+      <script src="js/wow.min.js"></script>
+      <script src="js/script.js"></script>
+
+      <script type="module" src="js/checklogin.js"></script>
+      <script type="module" src="js/message.online.js"></script>
+      <script type="module" src="js/User/Giohang/chi.tiet.js"></script>
+      <script type="module" src="js/User/Giohang/hienthi.sanpham.js"></script>
+
+</body>
+
+</html>

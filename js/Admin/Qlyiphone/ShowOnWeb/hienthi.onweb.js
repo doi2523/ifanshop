@@ -104,6 +104,14 @@ function ShowOnWeb(listiphone) {
   const div = document.createElement("div");
   div.classList.add("item", "item" + itemCount); // Thêm class item + số thứ tự vào div
   // Lấy giá gốc và giá sale từ message
+  div.addEventListener("mouseenter", function() {
+    // Thêm class khi người dùng trỏ chuột vào
+    div.classList.add("hovered");
+  });
+  div.addEventListener("mouseleave", function() {
+    // Xóa class khi người dùng rời chuột ra khỏi
+    div.classList.remove("hovered");
+  });
   const formatgiagoc = listiphone.giagoc;
   const giagoc = parseFloat(
     formatgiagoc.replace(".", "").replace(".", "").replace(".", "")
@@ -138,74 +146,86 @@ function ShowOnWeb(listiphone) {
             <span id="gia-uu-dai">${formattedGiaSale}₫</span>
             <span id="giagoc">${formattedGiaGoc}₫</span>
             <span id="phan-tram">-${giamGia}%</span>
-        </div>
-        <div class="adding mt-2">
-            <button class="btn btn-primary" id="add-cart" type="button">
-                <span href="#" class="add-to-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                </span>
-                <span class="text-add-shoping">Thêm vào giỏ hàng</span>
-            </button>
-        </div>               
+        </div>              
     </div>`;
+//     <div class="adding mt-2">
+//     <button class="btn btn-primary" id="add-cart" type="button">
+//         <span href="#" class="add-to-cart">
+//             <i class="fas fa-shopping-cart"></i>
+//         </span>
+//         <span class="text-add-shoping">Thêm vào giỏ hàng</span>
+//     </button>
+// </div> 
   showweb.appendChild(div);
   itemCount++; // Tăng biến đếm số lượng mục
-
-  div.querySelector("#add-cart").addEventListener("click", function () {
-    const userCartRef = ref(database, "donhang/" + uidProfile);
-    const newPostKey = listiphone.idsanpham;
-
-    get(child(userCartRef, newPostKey)).then((snapshot) => {
-      if (snapshot.exists()) {
-        const currentQuantity = parseInt(snapshot.val().soluong) || 0; // Chuyển đổi chuỗi thành số
-        const newQuantity = currentQuantity + 1;
-
-        update(ref(database, "donhang/" + uidProfile + "/" + newPostKey), {
-          soluong: newQuantity.toString(),
-        })
-          .then(() => {
-            let ten=listiphone.tensanpham;
-            AlertGioHang(ten);
-            // alert("Đã cập nhật giỏ hàng!");
-            console.log(
-              "Giá trị đã được cập nhật vào cơ sở dữ liệu thành công!"
-            );
-          })
-          .catch((error) => {
-            console.error(
-              "Đã xảy ra lỗi khi cập nhật giá trị vào cơ sở dữ liệu:",
-              error
-            );
-          });
-      } else {
-        set(ref(database, "donhang/" + uidProfile + "/" + newPostKey), {
-          tensanpham: listiphone.tensanpham,
-          dungluong: listiphone.dungluong,
-          url: listiphone.picture,
-          giasale: listiphone.giasale,
-          soluong: "1",
-          color: "",
-        })
-          .then(() => {
-            let ten=listiphone.tensanpham;
-            AlertGioHang(ten);
-            // alert("Đã thêm vào giỏ hàng!");
-            console.log("Giá trị đã được lưu vào cơ sở dữ liệu thành công!");
-            window.onload = function() {
-              // Tải lại trang sau khi trang đã được tải hoàn toàn
-              location.reload();
-          };
-          
-          })
-          .catch((error) => {
-            console.error(
-              "Đã xảy ra lỗi khi lưu giá trị vào cơ sở dữ liệu:",
-              error
-            );
-          });
-      }
+    // Thêm sự kiện click cho mỗi div.item
+    div.addEventListener('click', function() {
+      // Xử lý khi div.item được click
+      const idsanpham = listiphone.idsanpham;
+      localStorage.setItem("idsanpham", idsanpham);
+      if (idsanpham) {
+        window.location.href = "auth.chitiet.html";
+    } else {
+        console.error("Không có giá trị productId để lưu vào localStorage.");
+    }
+      // Ví dụ: Chuyển đến trang chi tiết sản phẩm, hiển thị thông tin chi tiết sản phẩm, ...
     });
-  });
+
+  // div.querySelector("#add-cart").addEventListener("click", function () {
+  //   const userCartRef = ref(database, "donhang/" + uidProfile);
+  //   const newPostKey = listiphone.idsanpham;
+
+  //   get(child(userCartRef, newPostKey)).then((snapshot) => {
+  //     if (snapshot.exists()) {
+  //       const currentQuantity = parseInt(snapshot.val().soluong) || 0; // Chuyển đổi chuỗi thành số
+  //       const newQuantity = currentQuantity + 1;
+
+  //       update(ref(database, "donhang/" + uidProfile + "/" + newPostKey), {
+  //         soluong: newQuantity.toString(),
+  //       })
+  //         .then(() => {
+  //           let ten=listiphone.tensanpham;
+  //           AlertGioHang(ten);
+  //           // alert("Đã cập nhật giỏ hàng!");
+  //           console.log(
+  //             "Giá trị đã được cập nhật vào cơ sở dữ liệu thành công!"
+  //           );
+  //         })
+  //         .catch((error) => {
+  //           console.error(
+  //             "Đã xảy ra lỗi khi cập nhật giá trị vào cơ sở dữ liệu:",
+  //             error
+  //           );
+  //         });
+  //     } else {
+  //       set(ref(database, "donhang/" + uidProfile + "/" + newPostKey), {
+  //         tensanpham: listiphone.tensanpham,
+  //         dungluong: listiphone.dungluong,
+  //         url: listiphone.picture,
+  //         giasale: listiphone.giasale,
+  //         soluong: "1",
+  //         color: "",
+  //       })
+  //         .then(() => {
+  //           let ten=listiphone.tensanpham;
+  //           AlertGioHang(ten);
+  //           // alert("Đã thêm vào giỏ hàng!");
+  //           console.log("Giá trị đã được lưu vào cơ sở dữ liệu thành công!");
+  //           window.onload = function() {
+  //             // Tải lại trang sau khi trang đã được tải hoàn toàn
+  //             location.reload();
+  //         };
+          
+  //         })
+  //         .catch((error) => {
+  //           console.error(
+  //             "Đã xảy ra lỗi khi lưu giá trị vào cơ sở dữ liệu:",
+  //             error
+  //           );
+  //         });
+  //     }
+  //   });
+  // });
 }
 GetiPhone();
 function AlertGioHang(ten){
