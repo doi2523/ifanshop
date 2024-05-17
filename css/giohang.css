@@ -248,4 +248,14 @@ Side note: I know that this style of nesting in SASS doesn't result in the most 
       width: 40%;
     }
   }
-  
+  .background-dark{
+    width: 3000px;
+    height: 3000px;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.342);
+  }
+  .alert-dathang {
+    z-index: 9999; /* Điều chỉnh giá trị z-index tùy theo nhu cầu */
+}

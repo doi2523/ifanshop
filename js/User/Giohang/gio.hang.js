@@ -153,7 +153,8 @@ document.getElementById(`savethaydoi`).addEventListener('click', function() {
     const quantityValue = parseInt(quantityInput.value);
     // Log giá trị của ô input ra console
     console.log("Giá trị của ô input:", quantityValue);
-    
+    // document.getElementById("nextstep").classList.add("hide");
+    // document.getElementById("dathang").classList.remove("hide");
     if (quantityValue === 0) {
         // Nếu số lượng mới là 0, xoá sản phẩm khỏi danh sách
         // Lấy ra tất cả các hàng trong bảng
@@ -188,9 +189,6 @@ document.getElementById(`savethaydoi`).addEventListener('click', function() {
         });
     }
 });
-
-
-
     // Cập nhật tổng giá trị khi hiển thị đơn hàng ban đầu
     updateTotalAmount();
     updateTotalQuantity(newPostKey);
@@ -249,6 +247,100 @@ function DeleteDonHang(newPostKey, tensp) {
         // alert("Lỗi khi xoá sản phẩm:", error);
       });
   }
+
+
+    // Lắng nghe sự kiện click trên nút "Tiến hành đặt hàng"
+    // document.getElementById("dathang").addEventListener("click", function() {
+    //     // Hiển thị phần tử fixedForm và background-dark
+    //     AlertDatHang();
+    //     document.getElementById("fixedForm").classList.remove("hide");
+    //     document.getElementById("background-dark").classList.remove("hide");
+    // });
+
+    // Lắng nghe sự kiện click trên phần tử background-dark
+    document.getElementById("background-dark").addEventListener("click", function() {
+        // Ẩn phần tử fixedForm và background-dark
+        document.getElementById("fixedForm").classList.add("hide");
+        document.getElementById("background-dark").classList.add("hide");
+    });
+
+
+
+document.getElementById("tieptuc").addEventListener("click", function() {
+    // Ngăn form khỏi tải lại trang
+    event.preventDefault();
+    // Lấy tham chiếu đến phần tử <span> có id là "tongtien"
+    const tongtienSpan = document.getElementById("tongtien");
+    const tongSoLuongSpan = document.getElementById("tongsoluong");
+    // Lấy giá trị từ phần tử <span>
+    const tongtienValue = tongtienSpan.textContent;
+    const tongsoluongValue = tongSoLuongSpan.textContent;
+    // Loại bỏ dấu chấm từ giá trị
+    const tongtienWithoutDot = tongtienValue.replace(/\./g, '');
+    // Chuyển đổi giá trị thành float
+    const tongtienFloat = parseFloat(tongtienWithoutDot);
+            // Cập nhật thông tin người dùng vào cơ sở dữ liệu
+    update(ref(database, "Donhang/" + uidProfile), {
+        tongtien: tongtienFloat,
+        tongsl: tongsoluongValue
+    })
+    .then(() => {
+        AlertTieptheo();
+        // Chờ 3 giây trước khi chuyển trang
+setTimeout(function() {
+    window.location.href = "auth.thanhtoan.html"; // Thay đổi URL này thành URL của trang bạn muốn chuyển đến
+}, 3000); // 3000 milliseconds = 3 giây
+    })
+    .catch((error) => {
+        alert("Đã xảy ra lỗi khi cập nhật thông tin: " + error.message);
+    });
+            
+        });
+// Lắng nghe sự kiện click trên nút "Tiến hành đặt hàng"
+document.getElementById("xacnhan").addEventListener("submit", function() {
+    // Ngăn form khỏi tải lại trang
+    event.preventDefault();
+    // Ẩn nút "dathang" và hiển thị nút "nextstep"
+    document.getElementById("dathang").classList.add("hide");
+    document.getElementById("nextstep").classList.remove("hide");
+    document.getElementById("noti").classList.remove("hide");
+    // Lấy giá trị từ các ô input
+    const newmail= document.getElementById("emailInput").value;
+    const newhoten = document.getElementById("tenInput").value;
+    const newsdt = document.getElementById("sdtInput").value;
+    const newdiaChi = document.getElementById("diaChiInput").value;
+    // Lấy tham chiếu đến phần tử <span> có id là "tongtien"
+    const tongtienSpan = document.getElementById("tongtien");
+    const tongSoLuongSpan = document.getElementById("tongsoluong");
+    // Lấy giá trị từ phần tử <span>
+    const tongtienValue = tongtienSpan.textContent;
+    const tongsoluongValue = tongSoLuongSpan.textContent;
+    // Loại bỏ dấu chấm từ giá trị
+    const tongtienWithoutDot = tongtienValue.replace(/\./g, '');
+    // Chuyển đổi giá trị thành float
+    const tongtienFloat = parseFloat(tongtienWithoutDot);
+            // Cập nhật thông tin người dùng vào cơ sở dữ liệu
+    set(ref(database, "Donhang/" + uidProfile), {
+        username: newmail,
+        hoten: newhoten,
+        sdt: newsdt,
+        diachi: newdiaChi,
+        tongtien: tongtienFloat,
+        tongsl: tongsoluongValue
+    })
+    .then(() => {
+        AlertTieptheo();
+        setTimeout(() => {
+            // Ẩn phần tử fixedForm và background-dark
+            document.getElementById("fixedForm").classList.add("hide");
+            document.getElementById("background-dark").classList.add("hide");
+        }, 3000);
+    })
+    .catch((error) => {
+        alert("Đã xảy ra lỗi khi cập nhật thông tin: " + error.message);
+    });
+            
+        });
   function AlertGioHang(ten){
     const Toast = Swal.mixin({
       toast: true,
@@ -282,6 +374,44 @@ function DeleteDonHang(newPostKey, tensp) {
     Toast.fire({
       icon: "success",
       title: "Cập nhật số lượng thành công!",
+      color: "#716add",
+    });
+  }
+  function AlertDatHang(){
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      toastClass: 'alert-dathang', // Thêm class mới
+      didOpen: (toast) => {
+        // toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+    Toast.fire({
+      icon: "success",
+      title: "Vui lòng xác nhận lại thông tin!",
+      color: "#716add",
+    });
+  }
+  function AlertTieptheo(){
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      toastClass: 'alert-dathang', // Thêm class mới
+      didOpen: (toast) => {
+        // toast.onmouseenter = Swal.stopTimer;
+        toast.onmouseleave = Swal.resumeTimer;
+      }
+    });
+    Toast.fire({
+      icon: "success",
+      title: "Đang chuyển hướng đến trang thanh toán!",
       color: "#716add",
     });
   }

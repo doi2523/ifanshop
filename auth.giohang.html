@@ -82,22 +82,50 @@
       <!-- Ví dụ: -->
       <div class="card" style="margin-top: 0;">
         <div class="card-body">
-          <div>
-            <input type="text" class="form-control" placeholder="Ma giam gia">
-            <button class="btn btn-primay">Ap dung</button>
-          </div>
+          <form action=""  >
           <h5 class="card-title">Thông tin thanh toán</h5>
           <!-- Thêm các thông tin thanh toán của bạn vào đây -->
           <p class="card-text">Tổng số lượng sản phẩm: <span id="tongsoluong"></span></p>
           <p class="card-text">Tổng giá tiền: <span id="tongtien"></span></p>
-          <input type="checkbox" required> Tôi đã đọc và đồng ý với của website
-          <a href="#" class="btn btn-primary">Tiến hành đặt hàng</a>
-        </div>
+          <input type="checkbox"> Tôi đã đọc và đồng ý với của website <br>
+          <!-- <button id="dathang" type="button" class="btn btn-primary mt-3">Tiến hành đặt hàng</button> -->
+          <button id="tieptuc" type="button" class="btn btn-success mt-3">Tiếp tục</button>
+        </form>
+      </div>
       </div>
     </div>
   </div>
 </div>
 
+<div id="fixedForm" class="border hide" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: white; padding: 20px; z-index: 99999; width: 40%;">
+  <h4 style="text-align: center;">Xác nhận lại thông tin</h4>
+  <form action="" id="xacnhan">
+  <div class="form-group">
+      <label for="emailInput"><strong style="font-weight: bold; color: black;">Email:</strong></label>
+      <input type="email" class="form-control" id="emailInput" required>
+  </div>
+  <div class="form-group">
+      <label for="tenInput"><strong style="font-weight: bold; color: black;">Tên:</strong></label>
+      <input type="text" class="form-control" id="tenInput" required>
+  </div>
+  <div class="form-group">
+      <label for="sdtInput"><strong style="font-weight: bold; color: black;">Số điện thoại:</strong></label>
+      <input type="tel" class="form-control" id="sdtInput" required>
+  </div>
+  <div class="form-group">
+      <label for="diaChiInput"><strong style="font-weight: bold; color: black;">Địa chỉ:</strong></label>
+      <input type="text" class="form-control" id="diaChiInput" required placeholder="Vui lòng nhập địa chỉ">
+  </div>
+  <div style="text-align: center;">
+      <button type="submit" class="btn btn-primary">Tiếp theo</button>
+  </div>
+  <div style="text-align: center;" class=" mt-2">
+    <span id="noti" class="hide" style="font-weight: 500; font-size: 17px; color: #007bff;">Cập nhật thông tin thành công!</span>
+</div>
+</form>
+</div>
+
+<div id="background-dark" class="hide background-dark"></div>
 
 
 <!-------Banner End-------> 
