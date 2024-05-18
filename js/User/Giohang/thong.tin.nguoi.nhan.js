@@ -50,6 +50,43 @@ import {
       
       // Sử dụng hàm để lấy giá trị từ cookies
       const uidProfile = getCookie("id_profile");
+  // Lắng nghe sự kiện click trên nút "Tiến hành đặt hàng"
+document.getElementById("editthongtin").addEventListener("click", function() {
+    // Ngăn form khỏi tải lại trang
+    event.preventDefault();
+    // Lấy giá trị từ các span
+    const tenNguoiNhan = document.getElementById("tennguoinhan").textContent;
+    const sdtNguoiNhan = document.getElementById("sdtnguoinhan").textContent;
+    const emailNguoiNhan = document.getElementById("emailnguoinhan").textContent;
+    const diaChiNguoiNhan = document.getElementById("diachinguoinhan").textContent;
+
+    // Lưu giá trị vào localStorage
+    localStorage.setItem('tenNguoiNhan', tenNguoiNhan);
+    localStorage.setItem('sdtNguoiNhan', sdtNguoiNhan);
+    localStorage.setItem('emailNguoiNhan', emailNguoiNhan);
+    localStorage.setItem('diaChiNguoiNhan', diaChiNguoiNhan);
+    AlertSuccess();
+    setTimeout(function() {
+      window.location.href = "auth.suathongtin.html";
+  }, 3000); // 3000 milliseconds = 3 giây
+})
+function GetThongTin(){
+  // Lấy thông tin từ localStorage
+  const tenNguoiNhan = localStorage.getItem('tenNguoiNhan');
+  const sdtNguoiNhan = localStorage.getItem('sdtNguoiNhan');
+  const emailNguoiNhan = localStorage.getItem('emailNguoiNhan');
+  const diaChiNguoiNhan = localStorage.getItem('diaChiNguoiNhan');
+
+  // Đẩy thông tin vào các ô input
+  document.getElementById('emailInput').value = emailNguoiNhan;
+  document.getElementById('tenInput').value = tenNguoiNhan;
+  document.getElementById('sdtInput').value = sdtNguoiNhan;
+  document.getElementById('diaChiInput').value = diaChiNguoiNhan;
+}
+document.addEventListener("DOMContentLoaded", function() {
+  // Gọi hàm GetThongTin() khi trang đã tải hoàn chỉnh
+  GetThongTin();
+});
 
   function GetData(){
     const databaseRef = ref(database);
@@ -73,4 +110,22 @@ import {
     }
 })
 }
-GetData();
+
+function AlertSuccess(){
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      // toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+  Toast.fire({
+    icon: "success",
+    title: "Người dùng bấm sửa, chờ chuyển trang!",
+    color: "#716add",
+  });
+}
