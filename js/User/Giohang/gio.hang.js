@@ -60,6 +60,7 @@ function GetGiohang() {
           },
           (error) => {
             console.error("Error getting messages: ", error);
+            AlertError();
           }
         );
       }      
@@ -188,7 +189,7 @@ document.getElementById("tieptuc").addEventListener("submit", function() {
 
     const tongtienValue = tongtienSpan.textContent;
     const tongsoluongValue = tongSoLuongSpan.textContent;
-
+    
     const tongtienWithoutDot = tongtienValue.replace(/\./g, '');
     const tongtienFloat = parseFloat(tongtienWithoutDot);
 
@@ -287,7 +288,7 @@ function DeleteGiohang(newPostKey, tensp) {
       color: "#716add",
     });
   }
-  function AlertDatHang(){
+  function AlertError(){
     const Toast = Swal.mixin({
       toast: true,
       position: "top-end",
@@ -300,8 +301,8 @@ function DeleteGiohang(newPostKey, tensp) {
       }
     });
     Toast.fire({
-      icon: "success",
-      title: "Vui lòng xác nhận lại thông tin!",
+      icon: "warning",
+      title: "Giỏ hàng đang trống!",
       color: "#716add",
     });
   }
