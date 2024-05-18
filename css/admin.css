@@ -98,3 +98,21 @@ a{
   cursor: pointer;
   box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.5); /* Hiệu ứng viền khi hover */
 }
+
+.fixer-tuychon {
+  width: 20%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.483);
+  position: fixed;
+  z-index: 9999;
+  right: 0;
+  top: 0;
+  transition: transform 0.5s ease; /* Sử dụng transition để thêm hiệu ứng trượt */
+  transform: translateX(100%); /* Bắt đầu ở vị trí 100% bên phải */
+}
+
+.fixer-tuychon.active {
+  transform: translateX(0); /* Kết thúc ở vị trí ban đầu */
+}
+
+
