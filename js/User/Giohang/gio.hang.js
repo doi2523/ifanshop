@@ -205,18 +205,28 @@ document.getElementById("tieptuc").addEventListener("submit", function() {
 
 // Hàm tính và cập nhật tổng giá trị của đơn hàng
 function updateTotalAmount() {
-    let totalAmount = 0;
-    const rows = document.querySelectorAll("#hienthi tr");
-    rows.forEach(row => {
-        const quantity = parseInt(row.querySelector(".quantity-input").value);
-        const giaSale = parseFloat(row.querySelector("td:nth-child(3)").textContent.replace("₫", "").replace(/\./g, "").replace(",", ""));
-        totalAmount += quantity * giaSale;
-    });
-    const formattedTotalAmount = totalAmount.toLocaleString();
-    const tongtienSpan = document.getElementById("tongtien");
-    tongtienSpan.textContent = "";
-    tongtienSpan.textContent = formattedTotalAmount;
+  let totalAmount = 0;
+  const rows = document.querySelectorAll("#hienthi tr");
+  
+  rows.forEach(row => {
+      const quantity = parseInt(row.querySelector(".quantity-input").value);
+      const giaSaleText = row.querySelector("td:nth-child(3)").textContent;
+      const giaSale = parseFloat(giaSaleText.replace("₫", "").replace(/\./g, "").replace(",", ""));
+      
+      totalAmount += quantity * giaSale;
+  });
+  
+  const formattedTotalAmount = totalAmount.toLocaleString();
+  const tongtienSpan = document.getElementById("tongtien");
+  tongtienSpan.textContent = formattedTotalAmount;
 }
+
+// Gọi hàm updateTotalAmount() khi trang được tải hoàn chỉnh
+document.addEventListener("DOMContentLoaded", function() {
+  GetThongTin();
+  updateTotalAmount();
+});
+
 // Hàm tính và cập nhật tổng số lượng của đơn hàng
 function updateTotalQuantity() {
     let totalQuantity = 0;
