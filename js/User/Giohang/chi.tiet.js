@@ -123,7 +123,7 @@ document.getElementById('addsp').addEventListener('submit', function(event) {
               const currentQuantity = parseInt(snapshot.val().soluong) || 0; // Chuyển đổi chuỗi thành số
               const newQuantity = currentQuantity + 1;
       
-              update(ref(database, "donhang/" + uidProfile + "/" + newPostKey), {
+              update(ref(database, "Giohang/" + uidProfile + "/" + newPostKey), {
                 soluong: newQuantity.toString(),
               })
                 .then(() => {
@@ -149,7 +149,7 @@ document.getElementById('addsp').addEventListener('submit', function(event) {
                   );
                 });
             } else {
-              set(ref(database, "donhang/" + uidProfile + "/" + newPostKey), {
+              set(ref(database, "Giohang/" + uidProfile + "/" + newPostKey), {
                 tensanpham: ProductData.tensanpham,
                 dungluong: selectedCapacity,
                 url: ProductData.picture,

@@ -82,14 +82,14 @@
       <!-- Ví dụ: -->
       <div class="card" style="margin-top: 0;">
         <div class="card-body">
-          <form action=""  >
+          <form action="" id="tieptuc" >
           <h5 class="card-title">Thông tin đơn hàng</h5>
           <!-- Thêm các thông tin thanh toán của bạn vào đây -->
           <p class="card-text" style="font-size: 15px; font-weight: bold;">Tổng số lượng sản phẩm: <span id="tongsoluong" style="color: #007bff;"></span></p>
           <p class="card-text" style="font-size: 15px; font-weight: bold;">Tổng giá tiền: <span id="tongtien"  style="color: #007bff;"></span></p>
-          <input type="checkbox"> Tôi đã đọc và đồng ý với của website <br>
+          <input type="checkbox" required> Tôi đã đọc và đồng ý với của website <br>
           <!-- <button id="dathang" type="button" class="btn btn-primary mt-3">Tiến hành đặt hàng</button> -->
-          <button id="tieptuc" type="button" class="btn btn-success mt-3">Tiếp tục</button>
+          <button type="submit" class="btn btn-success mt-3">Tiếp tục</button>
         </form>
       </div>
       </div>
@@ -218,52 +218,6 @@
     </div>
   </div>
 </footer>
-
-      <!-- Ô giỏ hàng online -->
-      <div class="container">
-        <button class="iconcart btn btn-primary" id="iconcartclick">
-          <i class="fas fa-shopping-cart" style="font-size: 30px; margin-top: 5px; margin-left: -2px;"></i>
-        </button>
-        <div class="boxcart hide bg-primary" id="boxcart">
-          <div class="bannerchatbox">
-            <div class="logoboxchat border-right mx-2 pr-2" id="img-avatar-user">
-              <img id="user-avatar" src="images/user1.jpg" alt="">
-            </div>
-            <div class="titleboxchat">
-              <h7 class="text-white">iFanShop</h7><br>
-              <span class="text-white">Giỏ hàng của bạn</span>
-            </div>
-            <div class="mx-2">
-              <button id="closecart" type="button" class="btn btn-lg btn-link text-decoration-none iconclose">
-                <ion-icon name="close-outline" style="font-size: 35px; color: #fff;"></ion-icon>
-              </button>
-            </div>
-          </div>
-          <hr>
-          <div class="chat">
-            <div>
-              <ul id="donhang"></ul>
-            </div>
-          </div>
-          <hr><br>
-          <div>
-            <label>Thành tiền:</label>
-            <span style="float: right;" id="tongtien" ></span>
-          </div>
-          <div class="input-message form-group-boxchat">
-            <form action="" class="form-chat">
-              <div class="d-flex">
-                <button type="button" class="btn btn-outline-primary me-2 send-button">
-                  <div class="d-flex">
-                    Thanh toán ngay <ion-icon name="card-outline" style="font-size: 25px;"></ion-icon>
-                  </div>
-                </button>
-              </div>
-            </form>
-          </div>
-
-        </div>
-      </div>
       <!-- Ô chat online -->
       <div class="container">
         <button class="fixed-div btn btn-primary" id="iconclick">
@@ -317,11 +271,11 @@
 <script src="js/scrollIt.min.js"></script> 
 <script src="js/wow.min.js"></script> 
 <script src="js/script.js"></script>
-<script src="js/giohang.js"></script>
+
 <script type="module" src="js/checklogin.js"></script>
 <script type="module" src="js/message.online.js"></script>
 <script type="module" src="js/User/Giohang/gio.hang.js"></script>
-<script type="module" src="js/User/Giohang/hienthi.sanpham.js"></script>
+
 </body>
 
 </html>

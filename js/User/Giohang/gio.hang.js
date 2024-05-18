@@ -49,17 +49,14 @@ import {
       }
       
       // Sử dụng hàm để lấy giá trị từ cookies
-      const uidProfile = getCookie("id_profile");
-function GetDonhang() {
+const uidProfile = getCookie("id_profile");
+function GetGiohang() {
         const database = getDatabase();
-        const databaseRef = ref(database, "donhang/" + uidProfile);
-      
+        const databaseRef = ref(database, "Giohang/" + uidProfile);
         // Lắng nghe sự kiện child_added để nhận thông báo khi có tin nhắn mới được thêm vào
-        onChildAdded(
-          databaseRef,
-          (snapshot) => {
-            const donhang = snapshot.val();
-            displayDonhang(donhang, snapshot.key);
+        onChildAdded(databaseRef,(snapshot) => {
+            const Giohang = snapshot.val();
+            displayGiohang(Giohang, snapshot.key);
           },
           (error) => {
             console.error("Error getting messages: ", error);
@@ -67,8 +64,8 @@ function GetDonhang() {
         );
       }      
 // Hàm hiển thị thông tin của đơn hàng và cập nhật tổng giá trị
-function displayDonhang(donhang, newPostKey) {
-    const donhangs = document.getElementById("hienthi");
+function displayGiohang(Giohang, newPostKey) {
+    const Giohangs = document.getElementById("hienthi");
     const tr = document.createElement("tr");
 
     // Tạo các ô <td> trong hàng
@@ -79,21 +76,21 @@ function displayDonhang(donhang, newPostKey) {
 
     // Thiết lập nội dung cho các ô <td>
     const img = document.createElement("img");
-    img.src = donhang.url;
+    img.src = Giohang.url;
     img.alt = "Hình ảnh sản phẩm";
     img.style.maxWidth = "70px";
     img.style.height = "auto";
     td1.appendChild(img);
 
     td2.innerHTML = `
-        ${donhang.tensanpham}<br>
-        Màu: ${donhang.color}<br>
-        Dung lượng: ${donhang.dungluong}<br>
-        Phương thức: ${donhang.payment}
+        ${Giohang.tensanpham}<br>
+        Màu: ${Giohang.color}<br>
+        Dung lượng: ${Giohang.dungluong}<br>
+        Phương thức: ${Giohang.payment}
     `;
 
     // Chuyển giá trị số sang kiểu Number và định dạng với dấu chấm mỗi 3 chữ số
-    const formattedGiaSale = parseFloat(donhang.giasale).toLocaleString();
+    const formattedGiaSale = parseFloat(Giohang.giasale).toLocaleString();
     // Gán giá trị đã định dạng vào ô td3
     td3.textContent = `${formattedGiaSale}₫`;
 
@@ -103,7 +100,7 @@ function displayDonhang(donhang, newPostKey) {
             <button class="btn btn-outline-secondary" type="button" id="decrease-${newPostKey}">
                 <i class="bi bi-dash"></i>
             </button>
-            <input type="number" class="form-control quantity-input" style="width: 50px" value="${donhang.soluong}" id="quantity-${newPostKey}">
+            <input type="number" class="form-control quantity-input" style="width: 50px" value="${Giohang.soluong}" id="quantity-${newPostKey}">
             <button class="btn btn-outline-secondary" type="button" id="increase-${newPostKey}">
                 <i class="bi bi-plus"></i>
             </button>
@@ -120,7 +117,7 @@ function displayDonhang(donhang, newPostKey) {
     tr.appendChild(td4);
 
     // Thêm hàng vào tbody
-    donhangs.appendChild(tr);
+    Giohangs.appendChild(tr);
 
     // Thêm sự kiện cho các nút tăng giảm số lượng
     document.getElementById(`decrease-${newPostKey}`).addEventListener('click', function() {
@@ -140,42 +137,30 @@ function displayDonhang(donhang, newPostKey) {
     // Thêm sự kiện cho nút xoá
     document.getElementById(`delete-${newPostKey}`).addEventListener('click', function() {
         // Xử lý việc xóa đơn hàng tại đây
-        donhangs.removeChild(tr);
-        DeleteDonHang(newPostKey, donhang.tensanpham);
+        Giohangs.removeChild(tr);
+        DeleteGiohang(newPostKey, Giohang.tensanpham);
         updateTotalAmount(); // Cập nhật tổng giá trị khi xóa
         updateTotalQuantity(newPostKey);
     });
 
 // Lắng nghe sự kiện click trên nút "Lưu thay đổi"
 document.getElementById(`savethaydoi`).addEventListener('click', function() {
-    // Lấy giá trị của ô input
     const quantityInput = document.getElementById(`quantity-${newPostKey}`);
     const quantityValue = parseInt(quantityInput.value);
-    // Log giá trị của ô input ra console
     console.log("Giá trị của ô input:", quantityValue);
-    // document.getElementById("nextstep").classList.add("hide");
-    // document.getElementById("dathang").classList.remove("hide");
     if (quantityValue === 0) {
-        // Nếu số lượng mới là 0, xoá sản phẩm khỏi danh sách
-        // Lấy ra tất cả các hàng trong bảng
         const rows = document.querySelectorAll("#hienthi tr");
-
-        // Duyệt qua từng hàng
         rows.forEach(row => {
-            // Lấy giá trị số lượng từ ô input trong hàng hiện tại
             const quantity = parseInt(row.querySelector(".quantity-input").value);
-
-            // Kiểm tra nếu số lượng là 0
             if (quantity === 0) {
-                // Xóa hàng hiện tại khỏi bảng
                 row.remove();
             }
         });
 
-        DeleteDonHang(newPostKey, donhang.tensanpham);
+    DeleteGiohang(newPostKey, Giohang.tensanpham);
     } else {
         // Nếu số lượng mới không phải là 0, tiến hành cập nhật vào cơ sở dữ liệu
-        update(ref(database, "donhang/" + uidProfile + "/" + newPostKey), {
+        update(ref(database, "Giohang/" + uidProfile + "/" + newPostKey), {
             soluong: quantityValue.toString(),
         })
         .then(() => {
@@ -192,6 +177,38 @@ document.getElementById(`savethaydoi`).addEventListener('click', function() {
     // Cập nhật tổng giá trị khi hiển thị đơn hàng ban đầu
     updateTotalAmount();
     updateTotalQuantity(newPostKey);
+
+    document.getElementById("tieptuc").addEventListener("submit", function() {
+      // Ngăn form khỏi tải lại trang
+      event.preventDefault();
+      updateTotalAmount();
+      updateTotalQuantity(newPostKey);
+      const tongtienSpan = document.getElementById("tongtien");
+    const tongSoLuongSpan = document.getElementById("tongsoluong");
+
+    const tongtienValue = tongtienSpan.textContent;
+    const tongsoluongValue = tongSoLuongSpan.textContent;
+
+    const tongtienWithoutDot = tongtienValue.replace(/\./g, '');
+    const tongtienFloat = parseFloat(tongtienWithoutDot);
+
+    // Lưu các giá trị vào localStorage
+    localStorage.setItem('tongtienFloat', tongtienFloat);
+    localStorage.setItem('tongsoluongValue', tongsoluongValue);
+     update(ref(database, "Thanhtoan/" + uidProfile), {
+         tongtien: tongtienFloat,
+         tongsl: tongsoluongValue
+     })
+     .then(() => { 
+      AlertTieptheo();
+        setTimeout(function() {
+            window.location.href = "auth.thanhtoan.html";
+        }, 3000);
+     })
+     .catch((error) => {
+         alert("Đã xảy ra lỗi khi cập nhật thông tin: " + error.message);
+     });       
+  });
 }
 
 // Hàm tính và cập nhật tổng giá trị của đơn hàng
@@ -203,13 +220,9 @@ function updateTotalAmount() {
         const giaSale = parseFloat(row.querySelector("td:nth-child(3)").textContent.replace("₫", "").replace(/\./g, "").replace(",", ""));
         totalAmount += quantity * giaSale;
     });
-    // Định dạng giá trị tổng thành chuỗi có dấu chấm ngăn cách mỗi 3 chữ số
     const formattedTotalAmount = totalAmount.toLocaleString();
-    // Lấy tham chiếu đến phần tử <span> có id là "tongtien"
     const tongtienSpan = document.getElementById("tongtien");
-    // Xoá giá trị cũ trong phần tử <span>
     tongtienSpan.textContent = "";
-    // Gán giá trị tổng mới vào phần tử <span>
     tongtienSpan.textContent = formattedTotalAmount;
 }
 // Hàm tính và cập nhật tổng số lượng của đơn hàng
@@ -222,23 +235,22 @@ function updateTotalQuantity() {
         if (quantity > 0) {
             totalQuantity += quantity;
         } else {
-            // Nếu số lượng là 0, thêm hàng vào mảng rowsToRemove
             rowsToRemove.push(row);
         }
     });
-    // Xoá các hàng trong mảng rowsToRemove
     rowsToRemove.forEach(row => {
         row.remove();
     });
-    // Hiển thị tổng số lượng trong phần tử <span> có id là "tongsoluong"
     const tongSoLuongSpan = document.getElementById("tongsoluong");
+    tongSoLuongSpan.textContent = "";
     tongSoLuongSpan.textContent = totalQuantity;
 }
 
-// Gọi hàm GetDonhang để bắt đầu quá trình lấy dữ liệu và hiển thị
-GetDonhang();
-function DeleteDonHang(newPostKey, tensp) {
-    let productRef = ref(database, "donhang/" + uidProfile + "/" + newPostKey);
+// Gọi hàm GetGiohang để bắt đầu quá trình lấy dữ liệu và hiển thị
+GetGiohang();
+
+function DeleteGiohang(newPostKey, tensp) {
+    let productRef = ref(database, "Giohang/" + uidProfile + "/" + newPostKey);
     remove(productRef)
       .then(() => {
         AlertGioHang(tensp);
@@ -248,99 +260,81 @@ function DeleteDonHang(newPostKey, tensp) {
       });
   }
 
+// document.getElementById("tieptuc").addEventListener("submit", function() {
+//     // Ngăn form khỏi tải lại trang
+//     event.preventDefault();
+//     // const tongtienSpan = document.getElementById("tongtien");
+//     // const tongSoLuongSpan = document.getElementById("tongsoluong");
 
-    // Lắng nghe sự kiện click trên nút "Tiến hành đặt hàng"
-    // document.getElementById("dathang").addEventListener("click", function() {
-    //     // Hiển thị phần tử fixedForm và background-dark
-    //     AlertDatHang();
-    //     document.getElementById("fixedForm").classList.remove("hide");
-    //     document.getElementById("background-dark").classList.remove("hide");
-    // });
+//     // const tongtienValue = tongtienSpan.textContent;
+//     // const tongsoluongValue = tongSoLuongSpan.textContent;
 
-    // Lắng nghe sự kiện click trên phần tử background-dark
-    document.getElementById("background-dark").addEventListener("click", function() {
-        // Ẩn phần tử fixedForm và background-dark
-        document.getElementById("fixedForm").classList.add("hide");
-        document.getElementById("background-dark").classList.add("hide");
-    });
-
-
-
-document.getElementById("tieptuc").addEventListener("click", function() {
-    // Ngăn form khỏi tải lại trang
-    event.preventDefault();
-    // Lấy tham chiếu đến phần tử <span> có id là "tongtien"
-    const tongtienSpan = document.getElementById("tongtien");
-    const tongSoLuongSpan = document.getElementById("tongsoluong");
-    // Lấy giá trị từ phần tử <span>
-    const tongtienValue = tongtienSpan.textContent;
-    const tongsoluongValue = tongSoLuongSpan.textContent;
-    // Loại bỏ dấu chấm từ giá trị
-    const tongtienWithoutDot = tongtienValue.replace(/\./g, '');
-    // Chuyển đổi giá trị thành float
-    const tongtienFloat = parseFloat(tongtienWithoutDot);
-            // Cập nhật thông tin người dùng vào cơ sở dữ liệu
-    update(ref(database, "Donhang/" + uidProfile), {
-        tongtien: tongtienFloat,
-        tongsl: tongsoluongValue
-    })
-    .then(() => {
-        AlertTieptheo();
-        // Chờ 3 giây trước khi chuyển trang
-setTimeout(function() {
-    window.location.href = "auth.thanhtoan.html"; // Thay đổi URL này thành URL của trang bạn muốn chuyển đến
-}, 3000); // 3000 milliseconds = 3 giây
-    })
-    .catch((error) => {
-        alert("Đã xảy ra lỗi khi cập nhật thông tin: " + error.message);
-    });
+//     // const tongtienWithoutDot = tongtienValue.replace(/\./g, '');
+//     // const tongtienFloat = parseFloat(tongtienWithoutDot);
+//             // Cập nhật thông tin người dùng vào cơ sở dữ liệu
+//     AlertTieptheo();
+//     updateTotalAmount();
+//     updateTotalQuantity(newPostKey);
+//     // update(ref(database, "Thanhtoan/" + uidProfile), {
+//     //     tongtien: tongtienFloat,
+//     //     tongsl: tongsoluongValue
+//     // })
+//     // .then(() => {
+        
+//     setTimeout(function() {
+//         window.location.href = "auth.thanhtoan.html"; // Thay đổi URL này thành URL của trang bạn muốn chuyển đến
+//     }, 3000);
+//     // })
+//     // .catch((error) => {
+//     //     alert("Đã xảy ra lỗi khi cập nhật thông tin: " + error.message);
+//     // });
             
-        });
+// });
 // Lắng nghe sự kiện click trên nút "Tiến hành đặt hàng"
-document.getElementById("xacnhan").addEventListener("submit", function() {
-    // Ngăn form khỏi tải lại trang
-    event.preventDefault();
-    // Ẩn nút "dathang" và hiển thị nút "nextstep"
-    document.getElementById("dathang").classList.add("hide");
-    document.getElementById("nextstep").classList.remove("hide");
-    document.getElementById("noti").classList.remove("hide");
-    // Lấy giá trị từ các ô input
-    const newmail= document.getElementById("emailInput").value;
-    const newhoten = document.getElementById("tenInput").value;
-    const newsdt = document.getElementById("sdtInput").value;
-    const newdiaChi = document.getElementById("diaChiInput").value;
-    // Lấy tham chiếu đến phần tử <span> có id là "tongtien"
-    const tongtienSpan = document.getElementById("tongtien");
-    const tongSoLuongSpan = document.getElementById("tongsoluong");
-    // Lấy giá trị từ phần tử <span>
-    const tongtienValue = tongtienSpan.textContent;
-    const tongsoluongValue = tongSoLuongSpan.textContent;
-    // Loại bỏ dấu chấm từ giá trị
-    const tongtienWithoutDot = tongtienValue.replace(/\./g, '');
-    // Chuyển đổi giá trị thành float
-    const tongtienFloat = parseFloat(tongtienWithoutDot);
-            // Cập nhật thông tin người dùng vào cơ sở dữ liệu
-    set(ref(database, "Donhang/" + uidProfile), {
-        username: newmail,
-        hoten: newhoten,
-        sdt: newsdt,
-        diachi: newdiaChi,
-        tongtien: tongtienFloat,
-        tongsl: tongsoluongValue
-    })
-    .then(() => {
-        AlertTieptheo();
-        setTimeout(() => {
-            // Ẩn phần tử fixedForm và background-dark
-            document.getElementById("fixedForm").classList.add("hide");
-            document.getElementById("background-dark").classList.add("hide");
-        }, 3000);
-    })
-    .catch((error) => {
-        alert("Đã xảy ra lỗi khi cập nhật thông tin: " + error.message);
-    });
+// document.getElementById("xacnhan").addEventListener("submit", function() {
+//     // Ngăn form khỏi tải lại trang
+//     event.preventDefault();
+//     // Ẩn nút "dathang" và hiển thị nút "nextstep"
+//     document.getElementById("dathang").classList.add("hide");
+//     document.getElementById("nextstep").classList.remove("hide");
+//     document.getElementById("noti").classList.remove("hide");
+//     // Lấy giá trị từ các ô input
+//     const newmail= document.getElementById("emailInput").value;
+//     const newhoten = document.getElementById("tenInput").value;
+//     const newsdt = document.getElementById("sdtInput").value;
+//     const newdiaChi = document.getElementById("diaChiInput").value;
+//     // Lấy tham chiếu đến phần tử <span> có id là "tongtien"
+//     const tongtienSpan = document.getElementById("tongtien");
+//     const tongSoLuongSpan = document.getElementById("tongsoluong");
+//     // Lấy giá trị từ phần tử <span>
+//     const tongtienValue = tongtienSpan.textContent;
+//     const tongsoluongValue = tongSoLuongSpan.textContent;
+//     // Loại bỏ dấu chấm từ giá trị
+//     const tongtienWithoutDot = tongtienValue.replace(/\./g, '');
+//     // Chuyển đổi giá trị thành float
+//     const tongtienFloat = parseFloat(tongtienWithoutDot);
+//             // Cập nhật thông tin người dùng vào cơ sở dữ liệu
+//     set(ref(database, "Giohang/" + uidProfile), {
+//         username: newmail,
+//         hoten: newhoten,
+//         sdt: newsdt,
+//         diachi: newdiaChi,
+//         tongtien: tongtienFloat,
+//         tongsl: tongsoluongValue
+//     })
+//     .then(() => {
+//         AlertTieptheo();
+//         setTimeout(() => {
+//             // Ẩn phần tử fixedForm và background-dark
+//             document.getElementById("fixedForm").classList.add("hide");
+//             document.getElementById("background-dark").classList.add("hide");
+//         }, 3000);
+//     })
+//     .catch((error) => {
+//         alert("Đã xảy ra lỗi khi cập nhật thông tin: " + error.message);
+//     });
             
-        });
+//         });
   function AlertGioHang(ten){
     const Toast = Swal.mixin({
       toast: true,
@@ -384,7 +378,6 @@ document.getElementById("xacnhan").addEventListener("submit", function() {
       showConfirmButton: false,
       timer: 3000,
       timerProgressBar: true,
-      toastClass: 'alert-dathang', // Thêm class mới
       didOpen: (toast) => {
         // toast.onmouseenter = Swal.stopTimer;
         toast.onmouseleave = Swal.resumeTimer;
@@ -403,7 +396,6 @@ document.getElementById("xacnhan").addEventListener("submit", function() {
       showConfirmButton: false,
       timer: 3000,
       timerProgressBar: true,
-      toastClass: 'alert-dathang', // Thêm class mới
       didOpen: (toast) => {
         // toast.onmouseenter = Swal.stopTimer;
         toast.onmouseleave = Swal.resumeTimer;

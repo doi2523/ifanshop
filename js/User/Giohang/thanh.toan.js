@@ -52,12 +52,8 @@ import {
       const uidProfile = getCookie("id_profile");
 function GetDonhang() {
         const database = getDatabase();
-        const databaseRef = ref(database, "donhang/" + uidProfile);
-      
-        // Lắng nghe sự kiện child_added để nhận thông báo khi có tin nhắn mới được thêm vào
-        onChildAdded(
-          databaseRef,
-          (snapshot) => {
+        const databaseRef = ref(database, "Giohang/" + uidProfile);
+        onChildAdded(databaseRef,(snapshot) => {
             const donhang = snapshot.val();
             displayDonhang(donhang, snapshot.key);
           },
@@ -109,25 +105,25 @@ function displayDonhang(donhang, newPostKey) {
     // Thêm hàng vào tbody
     donhangs.appendChild(tr);
         // Cập nhật tổng số lượng
-        updateTotalQuantity();
+        // updateTotalQuantity();
 }
-// Hàm tính và cập nhật tổng số lượng của đơn hàng
-function updateTotalQuantity() {
-    let totalQuantity = 0;
-    const rows = document.querySelectorAll("#hienthi tr");
-    rows.forEach(row => {
-        const quantity = parseInt(row.querySelector("td:nth-child(4)").textContent);
-        totalQuantity += quantity;
-    });
-    // Hiển thị tổng số lượng trong phần tử <span> có id là "tongsoluong"
-    const tongSoLuongSpan = document.getElementById("tongsoluong");
-    tongSoLuongSpan.textContent = totalQuantity;
-}
+// // Hàm tính và cập nhật tổng số lượng của đơn hàng
+// function updateTotalQuantity() {
+//     let totalQuantity = 0;
+//     const rows = document.querySelectorAll("#hienthi tr");
+//     rows.forEach(row => {
+//         const quantity = parseInt(row.querySelector("td:nth-child(4)").textContent);
+//         totalQuantity += quantity;
+//     });
+//     // Hiển thị tổng số lượng trong phần tử <span> có id là "tongsoluong"
+//     const tongSoLuongSpan = document.getElementById("tongsoluong");
+//     tongSoLuongSpan.textContent = totalQuantity;
+// }
 // Gọi hàm GetDonhang để bắt đầu quá trình lấy dữ liệu và hiển thị
 GetDonhang();
 function GetDiaChi(){
     const databaseRef = ref(database);
-    const userRef = child(databaseRef, "Donhang/" + uidProfile);
+    const userRef = child(databaseRef, "Giohang/" + uidProfile);
     get(userRef)
     .then((snapshot) => {
     if (snapshot.exists()) {
@@ -149,6 +145,13 @@ document.getElementById("emailInput").value = emailProfile;
 document.getElementById("tenInput").value = hotenProfile;
 document.getElementById("sdtInput").value = sdtProfile;
 
+const tongtienSpan = document.getElementById("tongtien");
+const tongSoLuongSpan = document.getElementById("tongsoluong");
+const tongtienFloat = parseFloat(localStorage.getItem('tongtienFloat'));
+const tongsoluongValue = parseInt(localStorage.getItem('tongsoluongValue'));
+
+tongtienSpan.textContent = tongtienFloat;
+tongSoLuongSpan.textContent = tongsoluongValue;
 // Lắng nghe sự kiện click trên nút "Tiến hành đặt hàng"
 document.getElementById("tieptuc").addEventListener("submit", function() {
     // Ngăn form khỏi tải lại trang
@@ -168,9 +171,10 @@ document.getElementById("tieptuc").addEventListener("submit", function() {
     const tongtienWithoutDot = tongtienValue.replace(/\./g, '');
     // Chuyển đổi giá trị thành float
     const tongtienFloat = parseFloat(tongtienWithoutDot);
-            // Cập nhật thông tin người dùng vào cơ sở dữ liệu
-    set(ref(database, "Thanhtoan/" + uidProfile), {
-        username: newmail,
+
+    const orderRef = push(ref(database, "Thanhtoan/" + uidProfile));
+    set(orderRef, {
+        mail: newmail,
         hoten: newhoten,
         sdt: newsdt,
         diachi: newdiaChi,
