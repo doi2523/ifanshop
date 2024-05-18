@@ -1,3 +1,4 @@
+
 const email = document.getElementById("email");
 
 function sendEmail() {
@@ -10,7 +11,7 @@ function sendEmail() {
     Subject: "Cám ơn !",
     Body: "Cám ơn bạn đã quan tâm đến nội dung website"
   }).then(
-    // message => alert(message)
+    message => alert(message)
   );
 }
 document.getElementById("emailForm").addEventListener("submit", function() {
@@ -19,6 +20,8 @@ document.getElementById("emailForm").addEventListener("submit", function() {
   sendEmail();
   Alert();
 })
+
+
 function Alert() {
   const Toast = Swal.mixin({
     toast: true,

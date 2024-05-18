@@ -259,3 +259,22 @@ Side note: I know that this style of nesting in SASS doesn't result in the most 
   .alert-dathang {
     z-index: 9999; /* Điều chỉnh giá trị z-index tùy theo nhu cầu */
 }
+.ma-don-hang {
+  padding: 5px;
+  color: blue;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+.img-don-hang{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.img-don-hang img{
+  max-width: 70px;
+}
+.txt-don-hang{
+  color: blue;
+  font-size: 15px;
+}

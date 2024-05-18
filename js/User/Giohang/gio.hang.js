@@ -178,7 +178,7 @@ document.getElementById(`savethaydoi`).addEventListener('click', function() {
     updateTotalAmount();
     updateTotalQuantity(newPostKey);
 
-    document.getElementById("tieptuc").addEventListener("submit", function() {
+document.getElementById("tieptuc").addEventListener("submit", function() {
       // Ngăn form khỏi tải lại trang
       event.preventDefault();
       updateTotalAmount();
@@ -195,20 +195,11 @@ document.getElementById(`savethaydoi`).addEventListener('click', function() {
     // Lưu các giá trị vào localStorage
     localStorage.setItem('tongtienFloat', tongtienFloat);
     localStorage.setItem('tongsoluongValue', tongsoluongValue);
-     update(ref(database, "Thanhtoan/" + uidProfile), {
-         tongtien: tongtienFloat,
-         tongsl: tongsoluongValue
-     })
-     .then(() => { 
       AlertTieptheo();
         setTimeout(function() {
             window.location.href = "auth.thanhtoan.html";
         }, 3000);
-     })
-     .catch((error) => {
-         alert("Đã xảy ra lỗi khi cập nhật thông tin: " + error.message);
-     });       
-  });
+      });
 }
 
 // Hàm tính và cập nhật tổng giá trị của đơn hàng
@@ -260,81 +251,6 @@ function DeleteGiohang(newPostKey, tensp) {
       });
   }
 
-// document.getElementById("tieptuc").addEventListener("submit", function() {
-//     // Ngăn form khỏi tải lại trang
-//     event.preventDefault();
-//     // const tongtienSpan = document.getElementById("tongtien");
-//     // const tongSoLuongSpan = document.getElementById("tongsoluong");
-
-//     // const tongtienValue = tongtienSpan.textContent;
-//     // const tongsoluongValue = tongSoLuongSpan.textContent;
-
-//     // const tongtienWithoutDot = tongtienValue.replace(/\./g, '');
-//     // const tongtienFloat = parseFloat(tongtienWithoutDot);
-//             // Cập nhật thông tin người dùng vào cơ sở dữ liệu
-//     AlertTieptheo();
-//     updateTotalAmount();
-//     updateTotalQuantity(newPostKey);
-//     // update(ref(database, "Thanhtoan/" + uidProfile), {
-//     //     tongtien: tongtienFloat,
-//     //     tongsl: tongsoluongValue
-//     // })
-//     // .then(() => {
-        
-//     setTimeout(function() {
-//         window.location.href = "auth.thanhtoan.html"; // Thay đổi URL này thành URL của trang bạn muốn chuyển đến
-//     }, 3000);
-//     // })
-//     // .catch((error) => {
-//     //     alert("Đã xảy ra lỗi khi cập nhật thông tin: " + error.message);
-//     // });
-            
-// });
-// Lắng nghe sự kiện click trên nút "Tiến hành đặt hàng"
-// document.getElementById("xacnhan").addEventListener("submit", function() {
-//     // Ngăn form khỏi tải lại trang
-//     event.preventDefault();
-//     // Ẩn nút "dathang" và hiển thị nút "nextstep"
-//     document.getElementById("dathang").classList.add("hide");
-//     document.getElementById("nextstep").classList.remove("hide");
-//     document.getElementById("noti").classList.remove("hide");
-//     // Lấy giá trị từ các ô input
-//     const newmail= document.getElementById("emailInput").value;
-//     const newhoten = document.getElementById("tenInput").value;
-//     const newsdt = document.getElementById("sdtInput").value;
-//     const newdiaChi = document.getElementById("diaChiInput").value;
-//     // Lấy tham chiếu đến phần tử <span> có id là "tongtien"
-//     const tongtienSpan = document.getElementById("tongtien");
-//     const tongSoLuongSpan = document.getElementById("tongsoluong");
-//     // Lấy giá trị từ phần tử <span>
-//     const tongtienValue = tongtienSpan.textContent;
-//     const tongsoluongValue = tongSoLuongSpan.textContent;
-//     // Loại bỏ dấu chấm từ giá trị
-//     const tongtienWithoutDot = tongtienValue.replace(/\./g, '');
-//     // Chuyển đổi giá trị thành float
-//     const tongtienFloat = parseFloat(tongtienWithoutDot);
-//             // Cập nhật thông tin người dùng vào cơ sở dữ liệu
-//     set(ref(database, "Giohang/" + uidProfile), {
-//         username: newmail,
-//         hoten: newhoten,
-//         sdt: newsdt,
-//         diachi: newdiaChi,
-//         tongtien: tongtienFloat,
-//         tongsl: tongsoluongValue
-//     })
-//     .then(() => {
-//         AlertTieptheo();
-//         setTimeout(() => {
-//             // Ẩn phần tử fixedForm và background-dark
-//             document.getElementById("fixedForm").classList.add("hide");
-//             document.getElementById("background-dark").classList.add("hide");
-//         }, 3000);
-//     })
-//     .catch((error) => {
-//         alert("Đã xảy ra lỗi khi cập nhật thông tin: " + error.message);
-//     });
-            
-//         });
   function AlertGioHang(ten){
     const Toast = Swal.mixin({
       toast: true,
