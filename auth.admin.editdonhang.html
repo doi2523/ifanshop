@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+
+<head>
+
+  <meta charset="utf-8">
+  <title>Admin</title>
+
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+  <link rel="icon" href="images/marketplace.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+    integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+  <!-- Banner -->
+  <!-- Dashboard -->
+  <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary">
+    <!-- Vertical Navbar -->
+    <nav class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg"
+    id="navbarVertical">
+    <div class="container-fluid">
+        <!-- Nút Toggler -->
+        <button class="navbar-toggler ms-2" type="button" data-toggle="collapse" data-target="#sidebarCollapse"
+            aria-controls="sidebarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Brand -->
+        <a class="navbar-brand py-lg-2 mb-lg-5 px-lg-6 me-0" href="#">
+            <img src="images/ifa.png" alt="">
+        </a>
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse" id="sidebarCollapse">
+            <!-- Navigation -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="auth.admin.html">
+                        <i class="bi bi-house sz"></i>
+                        <span class="sz">Bảng điều khiển</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="auth.analytics.html">
+                        <i class="bi bi-bar-chart sz"></i>
+                        <span class="sz">Phân tích</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                      aria-expanded="false">
+                      <i class="bi bi-bookmarks sz"></i>
+                      <span class="sz">QLY sản phẩm</span>
+                  </a>
+                  <ul class="dropdown-menu border" aria-labelledby="navbarDropdown" style="margin-left: 40px">
+                      <!-- Các mục menu trong dropdown menu -->
+                      <li class="nav-item">
+                          <a class="nav-link dropdown-item" href="auth.admin.qlyiphone.html">
+                              <i class="bi bi-phone sz1"></i><span class="sz1">QLY iPhone</span>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link dropdown-item" href="#">
+                              <i class="bi bi-laptop sz1"></i><span class="sz1">QLY Macbook</span>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link dropdown-item" href="#">
+                              <i class="bi bi-tablet sz1"></i><span class="sz1">QLY iPad</span>
+                          </a>
+                      </li>
+                      <!-- Thêm các mục menu khác tại đây nếu cần -->
+                  </ul>
+              </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="auth.admin.qlydonhang.html">
+                      <i class="bi bi-cart sz"></i>
+                      <span class="sz">QLY đơn hàng</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="auth.admin.qlydichvu.html">
+                    <i class="bi bi-wrench sz"></i>
+                    <span class="sz">QLY dịch vụ</span>
+                </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="auth.admin.qlydoanhthu.html">
+                  <i class="bi bi-graph-up sz"></i>
+                  <span class="sz">QLY doanh thu</span>
+              </a>
+          </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="auth.qlymessage.html">
+                        <i class="bi bi-chat sz"></i>
+                        <span class="sz">QLY phản hồi</span>
+                        <span
+                        class="badge bg-soft-primary text-primary rounded-pill d-inline-flex align-items-center ms-auto">6</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="auth.qlyaccount.html">
+                        <i class="bi bi-people sz"></i>
+                        <span class="sz">QLY người dùng</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- Push content down -->
+            <div class="mt-auto"></div>
+            <!-- User (md) -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="auth.userpage.html">
+                        <i class="bi bi-person-square sz"></i>
+                        <span class="sz">Tài khoản</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="logout">
+                        <i class="bi bi-box-arrow-left sz"></i>
+                        <span class="sz">Đăng xuất</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <!-- Main content -->
+    <div class="h-screen flex-grow-1 overflow-y-lg-auto">
+      <!-- Header -->
+      <header class="darkmode bg-surface-primary border-bottom pt-6">
+        <div class="container-fluid">
+          <div class="mb-npx">
+            <div class="row align-items-center">
+              <div class="col-sm-6 col-12 mb-4 mb-sm-0">
+                <!-- Title -->
+                <h1 class="h2 mb-0 ls-tight">Cập nhật đơn hàng</h1>
+              </div>
+              <!-- Actions -->
+              <div class="col-sm-6 col-12 text-sm-end">
+                <div class="mx-n1">
+                  <a href="#" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1">
+                    <span class=" pe-2">
+                      <i class="bi bi-pencil"></i>
+                    </span>
+                    <span>Edit</span>
+                  </a>
+                  <a href="#" class="btn d-inline-flex btn-sm btn-primary mx-1">
+                    <span class=" pe-2">
+                      <i class="bi bi-plus"></i>
+                    </span>
+                    <span>Create</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <!-- Nav -->
+            <ul class="nav nav-tabs mt-4 overflow-x border-0">
+              <li class="nav-item ">
+                <a href="auth.admin.qlydonhang.html" class="nav-link active">Ds đơn hàng</a>
+              </li>
+              <li class="nav-item">
+                <span class="nav-link font-regular" id="datetime">File requests</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <!-- Main -->
+      <div class="container">
+        <h1>Đơn hàng <span id="h1madonhang">MaDonHang</span></h1>
+        <div class="row">
+          <div class="col-md-12">
+              <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                  <thead class="thead-dark">
+                    <tr>
+                      <!-- <th scope="col">STT</th> -->
+                      <th scope="col">Mã đơn hàng</th>
+                      <th scope="col">Thông tin người mua</th>
+                      <th scope="col">Đơn hàng</th>
+                      <th scope="col">Thông tin chi tiết</th>
+                    </tr>
+                  </thead>
+                  <tbody id="hienthi"></tbody>
+                </table>
+                <div class="d-flex justify-content-end mb-3">
+              </div>
+              </div>
+            </div>
+            <div id="fixer-tuychon" class="fixer-tuychon">
+              <h1 class="text-white mt-2" style=" text-align: center;">Tuỳ chọn</h1>
+              <div><hr><form action="">
+                <span class="text-white">Mã đơn hàng:<input class="text-danger form-control" id="madonhangtuychon" placeholder="Nhập mã đơn hàng" required>
+              </div><hr>
+              <div>
+                <button type="button" id="editdonhang" class="btn btn-primary"><i class="fas fa-edit"></i> Sửa</button>
+                <button type="button" id="timkiemdonhang"  class="btn btn-primary"><i class="fas fa-search"></i>Tìm vị trí</button>
+                <hr>
+                <button type="submit" id="xoadonhang"  class="btn btn-danger"><i class="bi bi-trash"></i> Xoá</button> 
+                <button type="button" id="thoat"  class="btn btn-primary">Thoát</button>
+              </div></form>
+            </div>
+
+          <div class="col-md-6">
+            <!-- Nơi để hiển thị thông tin thanh toán -->
+            <h1>Thông tin đơn hàng</h1>
+            <div class="card" style="margin-top: 0;">
+              <div class="card-body">      
+                <div class="d-flex justify-content-between align-items-center">      
+                  <h5 class="card-title mb-0">Thông tin đơn hàng</h5>
+                  <!-- <button  class="btn btn-primary">Sửa</button> -->
+                </div>
+                <!-- Thêm các thông tin thanh toán của bạn vào đây -->
+                <span class="card-text" style="font-size: 15px; font-weight: bold;">Mã đơn hàng: <span id="span-madonhang" style=" color: #007bff;"></span></span><br>
+                <span class="card-text" style="font-size: 15px; font-weight: bold;">Tổng số lượng sản phẩm: <input class="form-control" id="span-tongsoluong" style=" color: #007bff;"></span><br>
+                <span class="card-text" style="font-size: 15px; font-weight: bold;">Tổng giá tiền: <input class="form-control" id="span-tongtien" style=" color: #007bff;"></span><hr>
+                <!-- <button id="tieptuc" type="button" class="btn btn-success mt-3">Tiếp tục</button> -->
+              <!-- <h5>Tình trạng</h5>
+              <p class="card-text" style="font-size: 15px; font-weight: bold;"style=" color: #007bff;">Đang giao hàng</p>
+              <hr> -->
+              <div class="d-flex justify-content-between align-items-center">      
+                <h5 class="card-title mb-0">Giao tới</h5>
+                <!-- <button type="button" id="editthongtin" class="btn btn-primary">Sửa</button> -->
+              </div>
+              <p class="card-text" style="font-size: 15px; font-weight: bold;">Tên người nhận: <span id="tennguoinhan" style=" color: #007bff;"></span></p>
+              <p class="card-text" style="font-size: 15px; font-weight: bold;">Số điện thoại: <span id="sdtnguoinhan" style=" color: #007bff;"></span></p>
+              <p class="card-text" style="font-size: 15px; font-weight: bold;">Email: <span id="emailnguoinhan" style=" color: #007bff;"></span></p>
+              <p class="card-text" style="font-size: 15px; font-weight: bold;">Địa chỉ: <span id="diachinguoinhan" style=" color: #007bff;"></span></p>
+            </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <!-- Nơi để hiển thị thông tin thanh toán -->
+            <h1>Thông tin người mua</h1>
+            <div class="card" style="margin-top: 0;">
+              <div class="card-body">      
+                <div class="d-flex justify-content-between align-items-center">      
+                  <h5 class="card-title mb-0">Thông tin đơn hàng</h5>
+                  <!-- <button  class="btn btn-primary">Sửa</button> -->
+                </div>
+                <!-- Thêm các thông tin thanh toán của bạn vào đây -->
+                <span class="card-text" style="font-size: 15px; font-weight: bold;">Mã đơn hàng: <span id="span-madonhang" style=" color: #007bff;"></span></span><br>
+                <span class="card-text" style="font-size: 15px; font-weight: bold;">Tổng số lượng sản phẩm: <input class="form-control" id="span-tongsoluong" style=" color: #007bff;"></span><br>
+                <span class="card-text" style="font-size: 15px; font-weight: bold;">Tổng giá tiền: <input class="form-control" id="span-tongtien" style=" color: #007bff;"></span><hr>
+                <!-- <button id="tieptuc" type="button" class="btn btn-success mt-3">Tiếp tục</button> -->
+              <!-- <h5>Tình trạng</h5>
+              <p class="card-text" style="font-size: 15px; font-weight: bold;"style=" color: #007bff;">Đang giao hàng</p>
+              <hr> -->
+              <div class="d-flex justify-content-between align-items-center">      
+                <h5 class="card-title mb-0">Giao tới</h5>
+                <!-- <button type="button" id="editthongtin" class="btn btn-primary">Sửa</button> -->
+              </div>
+              <p class="card-text" style="font-size: 15px; font-weight: bold;">Tên người nhận: <span id="tennguoinhan" style=" color: #007bff;"></span></p>
+              <p class="card-text" style="font-size: 15px; font-weight: bold;">Số điện thoại: <span id="sdtnguoinhan" style=" color: #007bff;"></span></p>
+              <p class="card-text" style="font-size: 15px; font-weight: bold;">Email: <span id="emailnguoinhan" style=" color: #007bff;"></span></p>
+              <p class="card-text" style="font-size: 15px; font-weight: bold;">Địa chỉ: <span id="diachinguoinhan" style=" color: #007bff;"></span></p>
+            </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+      </div>
+      
+    </div>
+  </div>
+</body>
+<script src="js/admin.js"></script>
+<!-- Bootstrap JS và Popper.js -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script type="module" src="js/checklogin.js"></script>
+<script type="module" src="js/checklogout&delete.js"></script>
+<script type="module" src="js/Admin/QlyDonhang/EditDonHang/edit.don.hang.js"></script>
+</html>

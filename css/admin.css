@@ -114,5 +114,14 @@ a{
 .fixer-tuychon.active {
   transform: translateX(0); /* Kết thúc ở vị trí ban đầu */
 }
+.error-input {
+  border-color: #ff0000; /* Đổi màu viền thành màu đỏ */
+  box-shadow: 0 0 5px #ff0000; /* Thêm đổ bóng đỏ */
+  /* Các thuộc tính khác để làm sáng ô input lên nếu cần */
+}
+.highlight-row {
+  background-color: rgba(255, 255, 0, 0.564); /* Màu nền của hàng khi được làm nổi bật */
+  /* Các thuộc tính khác để làm nổi bật hàng */
+}
 
 

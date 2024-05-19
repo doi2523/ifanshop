@@ -40,17 +40,6 @@ const database = getDatabase(app);
 const auth = getAuth();
 const firebaseApp = getApp();
 
-//Function lấy dữ liệu từ cookies
-function getCookie(name) {
-  const cookieValue = document.cookie.match(
-    "(^|;)\\s*" + name + "\\s*=\\s*([^;]+)"
-  );
-  return cookieValue ? cookieValue.pop() : "";
-}
-
-// Sử dụng hàm để lấy giá trị từ cookies
-const uidProfile = getCookie("id_profile");
-
 let itemCount = 1; // Biến đếm số lượng mục
 
 function GetiPhone() {
@@ -58,9 +47,7 @@ function GetiPhone() {
   const databaseRef = ref(database, "webiphone");
 
   // Lắng nghe sự kiện child_added để nhận thông báo khi có tin nhắn mới được thêm vào
-  onChildAdded(
-    databaseRef,
-    (snapshot) => {
+  onChildAdded(databaseRef,(snapshot) => {
       const product = snapshot.val();
       const idsanpham_hienthi = product.idsanpham; // Lấy giá trị của idsanpham từ dữ liệu snapshot
 
@@ -79,19 +66,9 @@ function GetData(idsanpham_hienthi) {
   const productRef = ref(database, "sanpham/" + idsanpham_hienthi);
 
   // Lắng nghe sự kiện child_added trên nút con chứa dữ liệu với idsanpham
-  onValue(
-    productRef,
-    (snapshot) => {
+  onValue(productRef,(snapshot) => {
       const listiphone = snapshot.val();
       ShowOnWeb(listiphone);
-      // console.log(listiphone);
-
-      // Và những thuộc tính khác nếu có
-
-      // console.log("Tên sản phẩm:", tenSanPham);
-      // console.log("Dung lượng:", dungLuong);
-      // console.log("Giá sale:", giaSale);
-      // console.log("Giá gốc:", giaGoc);
     },
     (error) => {
       console.error("Error getting messages: ", error);
@@ -148,19 +125,9 @@ function ShowOnWeb(listiphone) {
             <span id="phan-tram">-${giamGia}%</span>
         </div>              
     </div>`;
-//     <div class="adding mt-2">
-//     <button class="btn btn-primary" id="add-cart" type="button">
-//         <span href="#" class="add-to-cart">
-//             <i class="fas fa-shopping-cart"></i>
-//         </span>
-//         <span class="text-add-shoping">Thêm vào giỏ hàng</span>
-//     </button>
-// </div> 
   showweb.appendChild(div);
   itemCount++; // Tăng biến đếm số lượng mục
-    // Thêm sự kiện click cho mỗi div.item
     div.addEventListener('click', function() {
-      // Xử lý khi div.item được click
       const idsanpham = listiphone.idsanpham;
       localStorage.setItem("idsanpham", idsanpham);
       if (idsanpham) {
@@ -168,64 +135,7 @@ function ShowOnWeb(listiphone) {
     } else {
         console.error("Không có giá trị productId để lưu vào localStorage.");
     }
-      // Ví dụ: Chuyển đến trang chi tiết sản phẩm, hiển thị thông tin chi tiết sản phẩm, ...
     });
-
-  // div.querySelector("#add-cart").addEventListener("click", function () {
-  //   const userCartRef = ref(database, "donhang/" + uidProfile);
-  //   const newPostKey = listiphone.idsanpham;
-
-  //   get(child(userCartRef, newPostKey)).then((snapshot) => {
-  //     if (snapshot.exists()) {
-  //       const currentQuantity = parseInt(snapshot.val().soluong) || 0; // Chuyển đổi chuỗi thành số
-  //       const newQuantity = currentQuantity + 1;
-
-  //       update(ref(database, "donhang/" + uidProfile + "/" + newPostKey), {
-  //         soluong: newQuantity.toString(),
-  //       })
-  //         .then(() => {
-  //           let ten=listiphone.tensanpham;
-  //           AlertGioHang(ten);
-  //           // alert("Đã cập nhật giỏ hàng!");
-  //           console.log(
-  //             "Giá trị đã được cập nhật vào cơ sở dữ liệu thành công!"
-  //           );
-  //         })
-  //         .catch((error) => {
-  //           console.error(
-  //             "Đã xảy ra lỗi khi cập nhật giá trị vào cơ sở dữ liệu:",
-  //             error
-  //           );
-  //         });
-  //     } else {
-  //       set(ref(database, "donhang/" + uidProfile + "/" + newPostKey), {
-  //         tensanpham: listiphone.tensanpham,
-  //         dungluong: listiphone.dungluong,
-  //         url: listiphone.picture,
-  //         giasale: listiphone.giasale,
-  //         soluong: "1",
-  //         color: "",
-  //       })
-  //         .then(() => {
-  //           let ten=listiphone.tensanpham;
-  //           AlertGioHang(ten);
-  //           // alert("Đã thêm vào giỏ hàng!");
-  //           console.log("Giá trị đã được lưu vào cơ sở dữ liệu thành công!");
-  //           window.onload = function() {
-  //             // Tải lại trang sau khi trang đã được tải hoàn toàn
-  //             location.reload();
-  //         };
-          
-  //         })
-  //         .catch((error) => {
-  //           console.error(
-  //             "Đã xảy ra lỗi khi lưu giá trị vào cơ sở dữ liệu:",
-  //             error
-  //           );
-  //         });
-  //     }
-  //   });
-  // });
 }
 GetiPhone();
 function AlertGioHang(ten){
