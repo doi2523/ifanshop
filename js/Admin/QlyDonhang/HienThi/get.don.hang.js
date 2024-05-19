@@ -64,9 +64,9 @@ function GetDonhang() {
                     const diachi = ThongTinDonhang.diachi;
                     const mail = ThongTinDonhang.mail
                     const thongtindonhang = ThongTinDonhang.thongtindonhang;
-                    
+                    const tinhtrang= ThongTinDonhang.tinhtrang;
                     // Gọi displayDonhang chỉ một lần cho mỗi đơn hàng
-                    displayDonhang(MaDonhang, time, soluongmua, tongtien, thongtindonhang, hoten, sdt, diachi, mail, MaNguoiDung);
+                    displayDonhang(MaDonhang, time, soluongmua, tongtien, thongtindonhang, hoten, sdt, diachi, mail, MaNguoiDung, tinhtrang);
                 }
             });
         });
@@ -74,7 +74,7 @@ function GetDonhang() {
 }
 let rowCount = 0;
 
-function displayDonhang(MaDonhang, time, soluongmua, tongtien, thongtindonhang, hoten ,sdt, diachi, mail, MaNguoiDung) {
+function displayDonhang(MaDonhang, time, soluongmua, tongtien, thongtindonhang, hoten ,sdt, diachi, mail, MaNguoiDung, tinhtrang) {
     const donhangs = document.getElementById("hienthi");
     const tr = document.createElement("tr");
 
@@ -116,7 +116,7 @@ function displayDonhang(MaDonhang, time, soluongmua, tongtien, thongtindonhang, 
         Số lượng mua: <span style="color: #007bff;">${soluongmua}</span><br>
         Thành tiền: <span style="color: #007bff;">${parseFloat(tongtien).toLocaleString()}₫</span><br>
         Thời gian đặt: <span style="color: #007bff;">${time}</span><br>
-        Tình trạng: <span style="color: #007bff;">Đang giao hàng</span> <br>
+        Tình trạng: <span style="color: #007bff;">${tinhtrang}</span> <br>
         </div>
     </div>
     </td>

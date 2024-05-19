@@ -69,15 +69,16 @@ function GetDonhang() {
                 const diachi = ThongTinDonhang.diachi;
                 const mail = ThongTinDonhang.mail
                 const thongtindonhang = ThongTinDonhang.thongtindonhang;
+                const tinhtrang = ThongTinDonhang.tinhtrang;
                 
                 // Gọi displayDonhang chỉ một lần cho mỗi đơn hàng
-                displayDonhang(MaDonhang, time, soluongmua, tongtien, thongtindonhang, hoten, sdt, diachi, mail);
+                displayDonhang(MaDonhang, time, soluongmua, tongtien, thongtindonhang, hoten, sdt, diachi, mail, tinhtrang);
             }
         });
     });
 }
 
-function displayDonhang(MaDonhang, time, soluongmua, tongtien, thongtindonhang, hoten ,sdt, diachi, mail) {
+function displayDonhang(MaDonhang, time, soluongmua, tongtien, thongtindonhang, hoten ,sdt, diachi, mail, tinhtrang) {
     const donhangs = document.getElementById("hienthi");
     const tr = document.createElement("tr");
 
@@ -105,7 +106,7 @@ function displayDonhang(MaDonhang, time, soluongmua, tongtien, thongtindonhang, 
         <td>${parseFloat(tongtien).toLocaleString()}₫</td>
         <td>${soluongmua}</td>
         <td>${time}</td>
-        <td>Đang giao hàng</td>
+        <td>${tinhtrang}</td>
     `;
 
     tr.innerHTML = html;
@@ -126,7 +127,7 @@ function displayDonhang(MaDonhang, time, soluongmua, tongtien, thongtindonhang, 
                 console.log("Số lượng:", item.soluong);
                 console.log("Phương thức thanh toán:", item.payment);
             });
-            // Lấy tham chiếu đến các thẻ span bằng id
+    const spanTinhTrang = document.getElementById("tinhtrang");
     const spanMaDonHang = document.getElementById("span-madonhang");
     const spanTongSoLuong = document.getElementById("span-tongsoluong");
     const spanTongTien = document.getElementById("span-tongtien");
@@ -136,6 +137,7 @@ function displayDonhang(MaDonhang, time, soluongmua, tongtien, thongtindonhang, 
     const spanDiaChiNguoiNhan = document.getElementById("diachinguoinhan");
 
     // Gán giá trị vào các thẻ span
+    spanTinhTrang.textContent = tinhtrang;
     spanMaDonHang.textContent = MaDonhang;
     spanTongSoLuong.textContent = soluongmua;
     spanTongTien.textContent = parseFloat(tongtien).toLocaleString() + "₫";

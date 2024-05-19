@@ -187,7 +187,8 @@ document.getElementById("tieptuc").addEventListener("submit", function() {
         tongtien: tongtienFloat,
         tongsl: tongsoluongValue,
         thongtindonhang: allsanpham,
-        time: formattedDateTime
+        time: formattedDateTime,
+        tinhtrang: "Chờ xác nhận",
     })
     .then(() => {
         AlertTieptheo();
