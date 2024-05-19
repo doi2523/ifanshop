@@ -233,30 +233,32 @@ function displayHienThi(ThongTinDonhang, thongtindonhang, MaDonhangSua, MaNguoiM
             <div class="card-text" style="font-size: 15px; font-weight: bold;">
               <div class="row mb-3">
                 <div class="col-md-4">Tên:</div>
-                <div class="col-md-8"><span id="tensanpham-${index}" style="color: #007bff;">${item.tensanpham}</span></div>
+                <div class="col-md-8"><span id="tensanpham-${index}" required style="color: #007bff;">${item.tensanpham}</span></div>
               </div>
               <div class="row mb-3">
                 <div class="col-md-4">Màu:</div>
-                <div class="col-md-8"><span id="color-${index}" style="color: #007bff;">${item.color}</span></div>
+                <div class="col-md-8"><span id="color-${index}" required style="color: #007bff;">${item.color}</span></div>
               </div>
               <div class="row mb-3">
                 <div class="col-md-4">Dung lượng:</div>
-                <div class="col-md-8"><span id="dungluong-${index}" style="color: #007bff;">${item.dungluong}</span></div>
+                <div class="col-md-8"><span id="dungluong-${index}" required style="color: #007bff;">${item.dungluong}</span></div>
               </div>
               <div class="row mb-3">
                 <div class="col-md-4">Giá tiền:</div>
-                <div class="col-md-8"><span id="giasale-${index}" style="color: #007bff;">${item.giasale}</span></div>
+                <div class="col-md-8"><span id="giasale-${index}" required style="color: #007bff;">${item.giasale}</span></div>
               </div>
               <div class="row mb-3">
                 <div class="col-md-4">Số lượng:</div>
-                <div class="col-md-8"><span id="soluong-${index}" style="color: #007bff;">${item.soluong}</span></div>
+                <div class="col-md-8"><span id="soluong-${index}" required style="color: #007bff;">${item.soluong}</span></div>
               </div>
               <div class="row mb-3">
                 <div class="col-md-4">Phương thức:</div>
-                <div class="col-md-8"><span id="payment-${index}" style="color: #007bff;">${item.payment}</span></div>
+                <div class="col-md-8"><span id="payment-${index}" required style="color: #007bff;">${item.payment}</span></div>
               </div>
               <div class="row">
-                <div class="col-md-12"><button type="submit" class="btn btn-success float-end">Thay Đổi</button></div>
+                <div class="col-md-12">
+                <button type="button" id="deldonhang" class="btn btn-danger">Xoá</button>
+                <button type="submit" class="btn btn-success float-end">Thay Đổi</button></div>
               </div>
             </div>
           </div>        
@@ -272,6 +274,28 @@ function displayHienThi(ThongTinDonhang, thongtindonhang, MaDonhangSua, MaNguoiM
 
   container.insertAdjacentHTML('beforeend', htmlContent);
 
+  // document.getElementById('deldonhang').addEventListener('click', function(event) {
+    
+      
+  //   let DonhangRef = ref(database, "Donhang/" + MaNguoiMua + "/" + MaDonhangSua + "/thongtindonhang/" + index);
+  //   remove(DonhangRef)
+  //   .then(() => {
+  //     AlertSuccess();
+  //   })
+  //   .catch((error) => {
+  //       AlertError0();
+  //   });
+  // })
+  document.querySelectorAll('.btn-danger').forEach((button, index) => {
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+
+      const stt = index -1;
+      console.log(stt)
+      console.log(index);
+      AlertConfirm(MaNguoiMua, MaDonhangSua, stt)
+    })
+  })
 // Khởi tạo một biến để kiểm tra xem đã có nút "Lưu" hay chưa
 let saveButtonAdded = false;
 
@@ -332,6 +356,7 @@ document.querySelectorAll('.btn-success').forEach((button, index) => {
         button.style.display = 'inline-block';
         saveButton.style.display = 'none';
 
+
         // Đặt lại biến saveButtonAdded về false để cho phép thêm nút "Lưu" lần tiếp theo
         saveButtonAdded = false;
       });
@@ -347,16 +372,12 @@ document.querySelectorAll('.btn-success').forEach((button, index) => {
     }
   });
 });
-
-
-
-
-  document.getElementById('thongtindonhang').addEventListener('submit', function(event) {
+document.getElementById('thongtindonhang').addEventListener('submit', function(event) {
     event.preventDefault();
 
     updateDonHang(MaNguoiMua, MaDonhangSua);
   })
-  document.getElementById('thongtinnguoidung').addEventListener('submit', function(event) {
+document.getElementById('thongtinnguoidung').addEventListener('submit', function(event) {
     event.preventDefault();
 
     updateNguoidung(MaNguoiMua, MaDonhangSua);
@@ -436,60 +457,17 @@ function updateNguoidung(MaNguoiMua, MaDonhangSua) {
     console.error('Error updating product:', error);
   });
 }
-function updateProduct(index, MaNguoiMua, MaDonhangSua) {
-  const idsanpham = thongtindonhang[index].idsanpham;
-  const tensanpham = document.getElementById(`tensanpham-${index}`).value;
-  const color = document.getElementById(`color-${index}`).value;
-  const dungluong = document.getElementById(`dungluong-${index}`).value;
-  const giagoc = thongtindonhang[index].giagoc; // Assuming giagoc is part of thongtindonhang
-  const giasale = document.getElementById(`giatien-${index}`).value;
-  const soluong = document.getElementById(`soluong-${index}`).value;
-  const payment = document.getElementById(`payment-${index}`).value;
-  const imageUrl = thongtindonhang[index].url; // Assuming imageUrl is part of thongtindonhang
-
-  update(ref(database, "Donhang/" + MaNguoiMua +"/" +MaDonhangSua + "/thongtin"+ index), {
-    tensanpham: tensanpham,
-  }).then(() => {
-    alert('Cập nhật thành công');
-  }).catch((error) => {
-    console.error('Error updating product:', error);
+function DelDonHang(MaNguoiMua, MaDonhangSua, stt){
+  let DonhangRef = ref(database, "Donhang/" + MaNguoiMua + "/" + MaDonhangSua + "/thongtindonhang/" + stt);
+  remove(DonhangRef)
+  .then(() => {
+    AlertSuccess();
+  })
+  .catch((error) => {
+      AlertError0();
   });
 }
-
-function DeleteDonHang(MaNguoiDung, MaDonhangXoa, tr) {
-    // Tham chiếu đến đơn hàng cần xóa
-    let DonhangRef = ref(database, "Donhang/" + MaNguoiDung + "/" + MaDonhangXoa);
-
-    // Kiểm tra sự tồn tại của đơn hàng trước khi xóa
-    get(DonhangRef)
-        .then((snapshot) => {
-            if (snapshot.exists()) {
-                // Đơn hàng tồn tại, thực hiện xóa
-                remove(DonhangRef)
-                    .then(() => {
-                        tr.remove();
-                        var fixer = document.getElementById("fixer-tuychon");
-                        fixer.classList.toggle("active");
-                    })
-                    .catch((error) => {
-                        AlertError0();
-                    });
-            } else {
-                // Đơn hàng không tồn tại, báo lỗi
-                Swal.fire({
-                    title: "Error!",
-                    text: "Đơn hàng không tồn tại trong cơ sở dữ liệu.",
-                    icon: "error",
-                });
-            }
-        })
-        .catch((error) => {
-            // Xảy ra lỗi khi kiểm tra sự tồn tại của đơn hàng
-            AlertError0();
-        });
-}
-
-function AlertConfirm(MaNguoiDung, MaDonhangXoa, tr){
+function AlertConfirm(MaNguoiMua, MaDonhangSua, stt){
     Swal.fire({
         title: "Bạn chắc không?",
         text: "Bạn sẽ xoá đơn hàng này!",
@@ -500,12 +478,12 @@ function AlertConfirm(MaNguoiDung, MaDonhangXoa, tr){
         confirmButtonText: "Yes, delete it!"
       }).then((result) => {
         if (result.isConfirmed) {
-          Swal.fire({
-            title: "Deleted!",
-            text: "Đơn hàng này đã được xoá.",
-            icon: "success"
-          });
-          DeleteDonHang(MaNguoiDung, MaDonhangXoa, tr);
+          // Swal.fire({
+          //   title: "Deleted!",
+          //   text: "Đơn hàng này đã được xoá.",
+          //   icon: "success"
+          // });
+          DelDonHang(MaNguoiMua, MaDonhangSua, stt);
         }
       });
 }
@@ -592,22 +570,3 @@ function AlertError(){
         text: "Vui lòng nhập mã đơn hàng!",
       });
   }
-  // Hàm xử lý khi dữ liệu đã được nhập vào ô input
-function HandleInputData() {
-    var inputElement = document.getElementById('madonhangtuychon');
-    var inputValue = inputElement.value.trim();
-
-    if (inputValue !== "") {
-        // Nếu dữ liệu đã được nhập vào ô input, loại bỏ sự làm sáng ô input lên
-        RemoveInputErrorHighlight(inputElement);
-    }
-}
-// Khi xảy ra lỗi
-function HighlightInputError(inputElement) {
-    inputElement.classList.add("error-input"); // Thêm lớp error-input vào ô input
-}
-
-// Khi không còn lỗi nữa (sau khi đã nhập dữ liệu vào ô input)
-function RemoveInputErrorHighlight(inputElement) {
-    inputElement.classList.remove("error-input"); // Loại bỏ lớp error-input khỏi ô input
-}
