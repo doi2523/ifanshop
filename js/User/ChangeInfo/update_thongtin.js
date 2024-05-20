@@ -37,52 +37,46 @@ const database = getDatabase(app);
 const auth = getAuth();
 const user = auth.currentUser;
 
+  // Đọc giá trị từ cookie
+  const userInfoStringFromCookie = Cookies.get('userInfo');
+  // Chuyển chuỗi JSON thành đối tượng JavaScript
+  if (userInfoStringFromCookie) {
+    const userInfoFromCookie = JSON.parse(userInfoStringFromCookie);
+    
+    const uidProfile = userInfoFromCookie.id_profile; // ID
+    const emailProfile = userInfoFromCookie.email_profile; //Email
+    const hotenProfile = userInfoFromCookie.hoten_profile; //Họ tên
+    const passwordProfile = userInfoFromCookie.password_profile; //Password
+    const sdtProfile = userInfoFromCookie.sdt_profile; //Số điện thoại
+    const usernameProfile = userInfoFromCookie.username_profile; //Username
+    const URLProfile = userInfoFromCookie.url_profile; //Link ảnh
+    const RoleProfile = userInfoFromCookie.role; //Vai trò người dùng
+    const Status = userInfoFromCookie.userstatus; //Trạng thái
+    const TimeLogin = userInfoFromCookie.last_login; //Time đăng nhập
+    const TimeLogout = userInfoFromCookie.last_logout; //Time đăng xuất
+
+    // console.log(userInfoFromCookie);
+
 function UpdateThongtin() {
   var newhoten = document.getElementById("hoten").value;
   var newsdt = document.getElementById("sdt").value;
   var newusername = document.getElementById("username").value;
 
-  const auth = getAuth();
-  const user = auth.currentUser;
-  const uid = user.uid;
   const database = getDatabase(app);
-  function updateCookieWithValues(newUsername, newHoten, newSdt) {
-    // Kiểm tra xem các giá trị mới có tồn tại không
-    if (newUsername && newHoten && newSdt) {
-      // Cập nhật giá trị của cookie username
-      document.cookie = "username_profile=" + newUsername;
-      // Cập nhật giá trị của cookie hoten
-      document.cookie = "hoten_profile=" + newHoten;
-      // Cập nhật giá trị của cookie sdt
-      document.cookie = "sdt_profile=" + newSdt;
-      console.log("Cập nhật các giá trị thành công!");
-      // alert('Tải lên thành công!');
-    } else {
-      console.error("Không có giá trị mới được cung cấp.");
-    }
-  }
 
-  // Lấy giá trị mới cho các cookie từ các biến newUsername, newHoten, và newSdt
-  var newUsername = newusername;
-  var newHoten = newhoten;
-  var newSdt = newsdt;
-
-  // Gọi hàm để cập nhật giá trị mới cho các cookie
-  updateCookieWithValues(newUsername, newHoten, newSdt);
-
-  update(ref(database, "users/" + uid), {
+  update(ref(database, "users/" + uidProfile), {
     username: newusername,
     hoten: newhoten,
     sdt: newsdt,
   })
-    .then(() => {
+  .then(() => {
       AlertSuccess();
       setTimeout(() => {
         window.location.reload();
       }, 3000);
     })
 
-    .catch((error) => {
+  .catch((error) => {
       Swal.fire({
         icon: "error",
         title: "Oops...",
@@ -94,32 +88,32 @@ function UpdateThongtin() {
 document.getElementById("update-profile").addEventListener("submit", function (event) {
     event.preventDefault();
     UpdateThongtin();
-    UpdateURL();
+    UpdateCookies();
   });
-function UpdateURL() {
-  function getCookie(name) {
-    const auth = getAuth();
-    const cookieValue = document.cookie.match(
-      "(^|;)\\s*" + name + "\\s*=\\s*([^;]+)"
-    );
-    return cookieValue ? cookieValue.pop() : "";
-  }
-  // Sử dụng hàm để lấy giá trị từ cookies
-  const uidProfile = getCookie("id_profile");
-  const emailProfile = getCookie("email_profile");
-  const hotenProfile = getCookie("hoten_profile");
-  const passwordProfile = getCookie("password_profile");
-  const sdtProfile = getCookie("sdt_profile");
-  const usernameProfile = getCookie("username_profile");
-  const filenameProfile = getCookie("filename_profile");
-  const URLProfile = getCookie("url_profile");
-  const user = auth.currentUser;
-  const database = getDatabase(app);
-  update(ref(database, "users/" + uidProfile), {
-    hoten: hotenProfile,
-    sdt: sdtProfile,
-    username: usernameProfile,
-  });
+function UpdateCookies() {
+  var newhoten = document.getElementById("hoten").value;
+  var newsdt = document.getElementById("sdt").value;
+  var newusername = document.getElementById("username").value;
+      //Khởi tạo chuỗi giá trị để lưu vào cookies
+      const userInfo = {
+        id_profile: uidProfile,
+        email_profile: emailProfile,
+        hoten_profile: newhoten,
+        password_profile: passwordProfile,
+        sdt_profile: newsdt,
+        username_profile: newusername,
+        url_profile: URLProfile,
+        role: RoleProfile,
+        userstatus: Status,
+        last_login: TimeLogin,
+        last_logout: TimeLogout,
+      };
+      const userInfoString = JSON.stringify(userInfo);
+      // Lưu chuỗi JSON vào cookie
+      Cookies.set('userInfo', userInfoString, { expires: 2, path: '/' });
+}
+} else {
+  console.log('Cookies không tồn tại hoặc đã bị xoá?!');
 }
 function AlertSuccess(){
   const Toast = Swal.mixin({

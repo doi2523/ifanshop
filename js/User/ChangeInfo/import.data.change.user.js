@@ -1,22 +1,24 @@
-//Function lấy dữ liệu từ cookies
-function getCookie(name) {
-    const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
-    return cookieValue ? cookieValue.pop() : '';
-}
+  // Đọc giá trị từ cookie
+  const userInfoStringFromCookie = Cookies.get('userInfo');
+  // Chuyển chuỗi JSON thành đối tượng JavaScript
+  if (userInfoStringFromCookie) {
+    const userInfoFromCookie = JSON.parse(userInfoStringFromCookie);
+    
+    const uidProfile = userInfoFromCookie.id_profile; // ID
+    const emailProfile = userInfoFromCookie.email_profile; //Email
+    const hotenProfile = userInfoFromCookie.hoten_profile; //Họ tên
+    const passwordProfile = userInfoFromCookie.password_profile; //Password
+    const sdtProfile = userInfoFromCookie.sdt_profile; //Số điện thoại
+    const usernameProfile = userInfoFromCookie.username_profile; //Username
+    const URLProfile = userInfoFromCookie.url_profile; //Link ảnh
+    const RoleProfile = userInfoFromCookie.role; //Vai trò người dùng
+    const Status = userInfoFromCookie.userstatus; //Trạng thái
+    const TimeLogin = userInfoFromCookie.last_login; //Time đăng nhập
+    const TimeLogout = userInfoFromCookie.last_logout; //Time đăng xuất
 
-// Sử dụng hàm để lấy giá trị từ cookies
-const uidProfile = getCookie("id_profile")
-const emailProfile = getCookie("email_profile");
-const hotenProfile = getCookie("hoten_profile");
-const passwordProfile = getCookie("password_profile");
-const sdtProfile = getCookie("sdt_profile");
-const usernameProfile = getCookie("username_profile");
-const filenameProfile = getCookie("filename_profile");
-const URLProfile = getCookie("url_profile");
 
-const RolerProfile = getCookie("role");
 const roler = document.getElementById('roler');
-roler.textContent = RolerProfile;
+roler.textContent = RoleProfile;
 
 
 const usernameElement = document.getElementById('txt-username');
@@ -56,20 +58,6 @@ imageContainer.appendChild(img);
 }
 AddAvatar();
 
-// function printAllCookies() {
-//     // Tách các cookie thành mảng dựa trên dấu chấm phẩy và khoảng trắng
-//     const cookiesArray = document.cookie.split('; ');
-
-//     // Duyệt qua mảng các cookie và in ra từng cookie
-//     cookiesArray.forEach(cookie => {
-//         // Tách tên và giá trị của cookie
-//         const [cookieName, cookieValue] = cookie.split('=');
-//         // In ra tên và giá trị của cookie
-//         console.log(`${cookieName}: ${decodeURIComponent(cookieValue)}`);
-//     });
-// }
-//         printAllCookies();
-    // Lấy thẻ img có id là "user-avatar"
     var userAvatar = document.getElementById("user-avatar");
     
     // URL mới bạn muốn thay thế
@@ -78,3 +66,6 @@ AddAvatar();
     // Thay đổi thuộc tính src của thẻ img thành URL mới
     userAvatar.src = newImageUrl;
 
+} else {
+    console.log('Cookies không tồn tại hoặc đã bị xoá?!');
+}

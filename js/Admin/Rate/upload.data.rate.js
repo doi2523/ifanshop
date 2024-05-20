@@ -39,21 +39,25 @@ const database = getDatabase(app);
 const auth = getAuth();
 const firebaseApp = getApp();
 
-//Function lấy dữ liệu từ cookies
-function getCookie(name) {
-  const cookieValue = document.cookie.match(
-    "(^|;)\\s*" + name + "\\s*=\\s*([^;]+)"
-  );
-  return cookieValue ? cookieValue.pop() : "";
-}
+// Đọc giá trị từ cookie
+const userInfoStringFromCookie = Cookies.get('userInfo');
+// Chuyển chuỗi JSON thành đối tượng JavaScript
+if (userInfoStringFromCookie) {
+  const userInfoFromCookie = JSON.parse(userInfoStringFromCookie);
 
-// Sử dụng hàm để lấy giá trị từ cookies
-const hotenProfile = getCookie("hoten_profile");
-const URLProfile = getCookie("url_profile");
+  const uidProfile = userInfoFromCookie.id_profile; // ID
+  const emailProfile = userInfoFromCookie.email_profile; //Email
+  const hotenProfile = userInfoFromCookie.hoten_profile; //Họ tên
+  const passwordProfile = userInfoFromCookie.password_profile; //Password
+  const sdtProfile = userInfoFromCookie.sdt_profile; //Số điện thoại
+  const usernameProfile = userInfoFromCookie.username_profile; //Username
+  const URLProfile = userInfoFromCookie.url_profile; //Link ảnh
+  const RoleProfile = userInfoFromCookie.role; //Vai trò người dùng
+  const Status = userInfoFromCookie.userstatus; //Trạng thái
+  const TimeLogin = userInfoFromCookie.last_login; //Time đăng nhập
+  const TimeLogout = userInfoFromCookie.last_logout; //Time đăng xuất
 
-document
-  .getElementById("sendrate")
-  .addEventListener("submit", function (event) {
+document.getElementById("sendrate").addEventListener("submit", function (event) {
     event.preventDefault();
     setTimeout(AddSanPham, 2000);
   });
@@ -102,12 +106,7 @@ function resetInputs() {
   // Làm mới giá trị của ô input chứa file (nếu có)
   const fileInput = document.getElementById("file-form");
   fileInput.value = null;
-  // Lấy thẻ <img> cần làm mới
-  // const imgElement = document.querySelector(".img-fluid");
-
-  // Tạo một URL mới cho hình ảnh, ví dụ:
-  // const newImageUrl = "";
-
-  // // Gán giá trị mới cho thuộc tính src của thẻ <img>
-  // imgElement.src = newImageUrl;
+}
+} else {
+  console.log('Cookies không tồn tại hoặc đã bị xoá?!');
 }

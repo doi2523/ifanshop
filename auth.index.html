@@ -3,39 +3,21 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>iFanShop | Home</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css"
-    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css"/>
     <link rel="stylesheet" href="css/animate.css" />
     <link rel="icon" href="images/marketplace.png" type="image/x-icon" />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-      integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"/>
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
-      integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"crossorigin="anonymous"/>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"rel="stylesheet"/>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-    ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+    <script type="module"src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet" href="css/banner.css" />
+    <!-- Sweetalert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Js Cookies -->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
 
@@ -459,54 +441,6 @@
         </div>
       </div>
     </footer>
-
-
-
-      <!-- Ô giỏ hàng online -->
-      <div class="container">
-        <button class="iconcart btn btn-primary" id="iconcartclick">
-          <i class="fas fa-shopping-cart" style="font-size: 30px; margin-top: 5px; margin-left: -2px;"></i>
-        </button>
-        <div class="boxcart hide bg-primary" id="boxcart">
-          <div class="bannerchatbox">
-            <div class="logoboxchat border-right mx-2 pr-2" id="img-avatar-user">
-              <img id="user-avatar" src="images/user1.jpg" alt="">
-            </div>
-            <div class="titleboxchat">
-              <h7 class="text-white">iFanShop</h7><br>
-              <span class="text-white">Giỏ hàng của bạn</span>
-            </div>
-            <div class="mx-2">
-              <button id="closecart" type="button" class="btn btn-lg btn-link text-decoration-none iconclose">
-                <ion-icon name="close-outline" style="font-size: 35px; color: #fff;"></ion-icon>
-              </button>
-            </div>
-          </div>
-          <hr>
-          <div class="chat">
-            <div>
-              <ul id="donhang"></ul>
-            </div>
-          </div>
-          <hr><br>
-          <div>
-            <label>Thành tiền:</label>
-            <span style="float: right;" id="tongtien" ></span>
-          </div>
-          <div class="input-message form-group-boxchat">
-            <form action="" class="form-chat">
-              <div class="d-flex">
-                <button type="button" class="btn btn-outline-primary me-2 send-button">
-                  <div class="d-flex">
-                    Thanh toán ngay <ion-icon name="card-outline" style="font-size: 25px;"></ion-icon>
-                  </div>
-                </button>
-              </div>
-            </form>
-          </div>
-
-        </div>
-      </div>
       <!-- Ô chat online -->
       <div class="container">
         <button class="fixed-div btn btn-primary" id="iconclick">
@@ -555,11 +489,7 @@
   </body>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script
-    src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-    integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-    crossorigin="anonymous"
-  ></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   <!-- scrollIt js -->
@@ -567,11 +497,8 @@
   <script src="js/wow.min.js"></script>
   <script src="js/script.js"></script>
   <!-- 2 module này kiểm tra xem có đăng nhập không nếu có thì lấy dữu liệu và lưu vào cookies -->
-  <script type="module" src="js/get_image.js"></script>
   <script type="module" src="js/checklogin.js"></script>
-  <script type="module" src="js/save&cookies.js"></script>
   <script src="js/banner.js"></script>
   <script type="module" src="js/message.online.js"></script>
-  <script src="js/getdata.js"></script>
-  <script type="module" src="js/User/Giohang/hienthi.sanpham.js"></script>
+  <script src="js/User/HienThi/getdata.js"></script>
 </html>

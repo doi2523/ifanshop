@@ -23,6 +23,10 @@
 
     <link rel="stylesheet" href="css/banner.css">
     <link rel="stylesheet" href="css/rate.css">
+    <!-- Sweetalert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- Js Cookies -->
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -259,51 +263,6 @@
 </div>
 
 <div id="background-dark"></div>
-      <!-- Ô giỏ hàng online -->
-      <div class="container">
-        <button class="iconcart btn btn-primary" id="iconcartclick">
-          <i class="fas fa-shopping-cart" style="font-size: 30px; margin-top: 5px; margin-left: -2px;"></i>
-        </button>
-        <div class="boxcart hide bg-primary" id="boxcart">
-          <div class="bannerchatbox">
-            <div class="logoboxchat border-right mx-2 pr-2" id="img-avatar-user">
-              <img id="user-avatar" src="images/user1.jpg" alt="">
-            </div>
-            <div class="titleboxchat">
-              <h7 class="text-white">iFanShop</h7><br>
-              <span class="text-white">Giỏ hàng của bạn</span>
-            </div>
-            <div class="mx-2">
-              <button id="closecart" type="button" class="btn btn-lg btn-link text-decoration-none iconclose">
-                <ion-icon name="close-outline" style="font-size: 35px; color: #fff;"></ion-icon>
-              </button>
-            </div>
-          </div>
-          <hr>
-          <div class="chat">
-            <div>
-              <ul id="donhang"></ul>
-            </div>
-          </div>
-          <hr><br>
-          <div>
-            <label>Thành tiền:</label>
-            <span style="float: right;" id="tongtien" ></span>
-          </div>
-          <div class="input-message form-group-boxchat">
-            <form action="" class="form-chat">
-              <div class="d-flex">
-                <button type="button" class="btn btn-outline-primary me-2 send-button">
-                  <div class="d-flex">
-                    Thanh toán ngay <ion-icon name="card-outline" style="font-size: 25px;"></ion-icon>
-                  </div>
-                </button>
-              </div>
-            </form>
-          </div>
-
-        </div>
-      </div>
       <!-- Ô chat online -->
       <div class="container">
         <button class="fixed-div btn btn-primary rounded" id="iconclick">
@@ -367,7 +326,7 @@
 <script type="module" src="js/message.online.js"></script>
 <!-- <script type="module" src="js/chat.everyone.js"></script> -->
 <script src="js/Admin/Rate/hienthi.js"></script>
-<script type="module" src="js/User/Giohang/hienthi.sanpham.js"></script>
+
 <script src="js/User/Rating/rating.js"></script>
 <script src="js/User/Rating/script.js"></script>
 <!-- <script type="module" src="js/import/import.data.iphone.js"></script> -->

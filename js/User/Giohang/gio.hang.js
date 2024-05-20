@@ -40,16 +40,24 @@ import {
   const auth = getAuth();
   const firebaseApp = getApp();
 
-    //Function lấy dữ liệu từ cookies
-    function getCookie(name) {
-        const cookieValue = document.cookie.match(
-          "(^|;)\\s*" + name + "\\s*=\\s*([^;]+)"
-        );
-        return cookieValue ? cookieValue.pop() : "";
-      }
-      
-      // Sử dụng hàm để lấy giá trị từ cookies
-const uidProfile = getCookie("id_profile");
+// Đọc giá trị từ cookie
+const userInfoStringFromCookie = Cookies.get('userInfo');
+// Chuyển chuỗi JSON thành đối tượng JavaScript
+if (userInfoStringFromCookie) {
+  const userInfoFromCookie = JSON.parse(userInfoStringFromCookie);
+
+  const uidProfile = userInfoFromCookie.id_profile; // ID
+  const emailProfile = userInfoFromCookie.email_profile; //Email
+  const hotenProfile = userInfoFromCookie.hoten_profile; //Họ tên
+  const passwordProfile = userInfoFromCookie.password_profile; //Password
+  const sdtProfile = userInfoFromCookie.sdt_profile; //Số điện thoại
+  const usernameProfile = userInfoFromCookie.username_profile; //Username
+  const URLProfile = userInfoFromCookie.url_profile; //Link ảnh
+  const RoleProfile = userInfoFromCookie.role; //Vai trò người dùng
+  const Status = userInfoFromCookie.userstatus; //Trạng thái
+  const TimeLogin = userInfoFromCookie.last_login; //Time đăng nhập
+  const TimeLogout = userInfoFromCookie.last_logout; //Time đăng xuất
+
 function GetGiohang() {
         const database = getDatabase();
         const databaseRef = ref(database, "Giohang/" + uidProfile);
@@ -223,7 +231,7 @@ function updateTotalAmount() {
 
 // Gọi hàm updateTotalAmount() khi trang được tải hoàn chỉnh
 document.addEventListener("DOMContentLoaded", function() {
-  GetThongTin();
+  // GetGiohang();
   updateTotalAmount();
 });
 
@@ -261,7 +269,9 @@ function DeleteGiohang(newPostKey, tensp) {
         // alert("Lỗi khi xoá sản phẩm:", error);
       });
   }
-
+} else {
+  console.log('Cookies không tồn tại hoặc đã bị xoá?!');
+}
   function AlertGioHang(ten){
     const Toast = Swal.mixin({
       toast: true,

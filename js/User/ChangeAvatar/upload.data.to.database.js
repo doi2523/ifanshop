@@ -37,23 +37,26 @@ const database = getDatabase(app);
 const auth = getAuth();
 const user = auth.currentUser;
 
-//Function lấy dữ liệu từ cookies
-function getCookie(name) {
-  const cookieValue = document.cookie.match(
-    "(^|;)\\s*" + name + "\\s*=\\s*([^;]+)"
-  );
-  return cookieValue ? cookieValue.pop() : "";
-}
-
-// Sử dụng hàm để lấy giá trị từ cookies
-const uidProfile = getCookie("id_profile");
-const filenameProfile = getCookie("filename_profile");
-const avatarProfile = getCookie("url_profile");
+  // Đọc giá trị từ cookie
+  const userInfoStringFromCookie = Cookies.get('userInfo');
+  // Chuyển chuỗi JSON thành đối tượng JavaScript
+  if (userInfoStringFromCookie) {
+    const userInfoFromCookie = JSON.parse(userInfoStringFromCookie);
+    
+    const uidProfile = userInfoFromCookie.id_profile; // ID
+    const emailProfile = userInfoFromCookie.email_profile; //Email
+    const hotenProfile = userInfoFromCookie.hoten_profile; //Họ tên
+    const passwordProfile = userInfoFromCookie.password_profile; //Password
+    const sdtProfile = userInfoFromCookie.sdt_profile; //Số điện thoại
+    const usernameProfile = userInfoFromCookie.username_profile; //Username
+    const URLProfile = userInfoFromCookie.url_profile; //Link ảnh
+    const RoleProfile = userInfoFromCookie.role; //Vai trò người dùng
+    const Status = userInfoFromCookie.userstatus; //Trạng thái
+    const TimeLogin = userInfoFromCookie.last_login; //Time đăng nhập
+    const TimeLogout = userInfoFromCookie.last_logout; //Time đăng xuất
 
 // Lắng nghe sự kiện khi người dùng nhấn nút submit trong form
-document
-  .getElementById("update-profile")
-  .addEventListener("submit", function (event) {
+document.getElementById("update-profile").addEventListener("submit", function (event) {
     event.preventDefault(); // Ngăn chặn việc tải lại trang
     setTimeout(UpdateThongTin, 2000);
   });
@@ -62,22 +65,27 @@ function UpdateThongTin() {
   // Lấy dữ liệu từ localStorage
   const avatarUrl = localStorage.getItem("avatarUrl");
   update(ref(database, "users/" + uidProfile), {
-    // nameavatar: filenameProfile,
     urlavatar: avatarUrl,
   })
     .then(() => {
-      console.log("ok");
-      // Xoá dữ liệu từ localStorage sau khi sử dụng xong
-      // try {
-      //   localStorage.removeItem("avatarUrl");
-      //   console.log("Đã xoá thành công key 'avatarUrl' từ localStorage.");
-      //   const avatarUrl = localStorage.getItem("avatarUrl");
-      //   console.log("URL ảnh từ localStorage:", avatarUrl);
-      // } catch (error) {
-      //   console.error("Lỗi khi xoá key 'avatarUrl' từ localStorage:", error);
-      // }
+      //Khởi tạo chuỗi giá trị để lưu vào cookies
+      const userInfo = {
+        id_profile: uidProfile,
+        email_profile: emailProfile,
+        hoten_profile: hotenProfile,
+        password_profile: passwordProfile,
+        sdt_profile: sdtProfile,
+        username_profile: usernameProfile,
+        url_profile: avatarUrl, //Cap nhat link anh
+        role: RoleProfile,
+        userstatus: Status,
+        last_login: TimeLogin,
+        last_logout: TimeLogout,
+      };
+      const userInfoString = JSON.stringify(userInfo);
+      // Lưu chuỗi JSON vào cookie
+      Cookies.set('userInfo', userInfoString, { expires: 2, path: '/' });
       Alert();
-        // alert("Thông tin đã được cập nhật thành công! Vui lòng tải lại trang");
       setTimeout(() => {
           window.location.reload();
       }, 3000);
@@ -87,6 +95,10 @@ function UpdateThongTin() {
       alert("Đã xảy ra lỗi khi cập nhật thông tin: " + error.message);
     });
 }
+} else {
+  console.log('Cookies không tồn tại hoặc đã bị xoá?!');
+}
+
 function Alert(){
   const Toast = Swal.mixin({
     toast: true,

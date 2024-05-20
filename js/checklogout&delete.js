@@ -1,20 +1,12 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
-import {
-  getDatabase,
-  update,
-  ref,
-} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
-import {
-  getAuth,
-  signOut,
-} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+import {getDatabase,update,ref} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
+import {getAuth,signOut,} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
 const firebaseConfig = {
   apiKey: "AIzaSyCnZzlFSm-61oaNvO2TTJyef2PMc6iU8DY",
   authDomain: "user-inifanshop.firebaseapp.com",
-  databaseURL:
-    "https://user-inifanshop-default-rtdb.asia-southeast1.firebasedatabase.app",
+  databaseURL:"https://user-inifanshop-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "user-inifanshop",
   storageBucket: "user-inifanshop.appspot.com",
   messagingSenderId: "104690936940",
@@ -27,69 +19,45 @@ const analytics = getAnalytics(app);
 const database = getDatabase(app);
 const auth = getAuth();
 
+//Xoá cookies hiện tại
 function deleteAllCookies() {
-  //Lấy các biến có trong cookies đang có
-  const cookiesToDelete = [
-    "id_profile",
-    "email_profile",
-    "hoten_profile",
-    "password_profile",
-    "sdt_profile",
-    "username_profile",
-    "filename_profile",
-    "url_profile",
-    "role",
-  ];
-  // console.log(cookiesToDelete);
-  cookiesToDelete.forEach((cookieName) => {
-    // Thiết lập thời gian hết hạn của cookie thành thời điểm trước đó
-    document.cookie = `${cookieName}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;`;
-    console.log(`Đã xóa cookie ${cookieName}`);
-  });
+  Cookies.remove('userInfo', { path: '/' });
 }
-
-function deleteAllCookiess() {
-  // Tách các cookie thành mảng dựa trên dấu chấm phẩy và khoảng trắng
-  const cookiesArray = document.cookie.split("; ");
-
-  // Duyệt qua mảng các cookie và thiết lập thời gian hết hạn của từng cookie
-  cookiesArray.forEach((cookie) => {
-    // Tách tên của cookie
-    const cookieName = cookie.split("=")[0];
-    // Thiết lập thời gian hết hạn của cookie thành thời điểm trước đó
-    document.cookie = `${cookieName}=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;`;
-  });
-}
+//In cookies ra xem còn cookies không
 function printAllCookies() {
-  // Tách các cookie thành mảng dựa trên dấu chấm phẩy và khoảng trắng
-  const cookiesArray = document.cookie.split("; ");
-
-  // Duyệt qua mảng các cookie và in ra từng cookie
-  cookiesArray.forEach((cookie) => {
-    // Tách tên và giá trị của cookie
-    const [cookieName, cookieValue] = cookie.split("=");
-    // In ra tên và giá trị của cookie
-    console.log(`${cookieName}: ${decodeURIComponent(cookieValue)}`);
-  });
+  // Đọc giá trị từ cookie
+  const userInfoStringFromCookie = Cookies.get('userInfo');
+  // Chuyển chuỗi JSON thành đối tượng JavaScript
+  if (userInfoStringFromCookie) {
+    const userInfoFromCookie = JSON.parse(userInfoStringFromCookie);
+    console.log(userInfoFromCookie); // {name: "Đào Văn Đôi", age: 30, email: "daovandoi@example.com"}
+    console.log(userInfoFromCookie.email_profile);
+    console.log(userInfoFromCookie.sdt_profile);
+    console.log(userInfoFromCookie.hoten_profile);
+    console.log(userInfoFromCookie.password_profile);
+    console.log(userInfoFromCookie.id_profile);
+    console.log(userInfoFromCookie.username_profile);
+    console.log(userInfoFromCookie.url_profile);
+    console.log(userInfoFromCookie.role);
+    console.log(userInfoFromCookie.userstatus);
+    console.log(userInfoFromCookie.last_login);
+    console.log(userInfoFromCookie.last_logout);
+  } else {
+    console.log('Cookies không tồn tại hoặc đã bị xoá?!');
+  }
 }
-
+//Đăng xuất
 function Logout() {
   signOut(auth)
     .then(() => {
-      // alert("Đăng xuất thành công!");
-      // Sign-out successful.
-      // setTimeout(function() {
       window.location.href = 'login.html';
-      // }, 2000);
     })
     .catch((error) => {
-      // Xử lý lỗi khi đăng xuất
       console.error("Lỗi khi đăng xuất:", error);
     });
 }
-
+//Thêm thời gian đăng xuất và cập nhập trạng thái offline
 function AddLastLogout() {
-  // Lấy thời gian hiện tại
   let last_logout_time = new Date();
   let formattedDateTime = last_logout_time.toLocaleString("vi-VN", {
     day: "2-digit",
@@ -108,33 +76,7 @@ function AddLastLogout() {
   });
 
 }
-document.getElementById("logout").addEventListener("click", function (event) {
-  // Ngăn chặn hành động mặc định của nút (nếu có)
-  event.preventDefault();
-  printAllCookies();
-  deleteAllCookies();
-  deleteAllCookiess();
-  AddLastLogout();
-  AlertSuccess();
-  setTimeout(function() {
-    Logout();
-  }, 3000); 
-  // alert("Bạn đã đăng xuất thành công!");
-  // Ví dụ: Redirect hoặc thực hiện các thao tác đăng xuất khác
-});
-
-// Tính toán thời gian mỗi ngày trong milliseconds
-var oneDayInMillis = 24 * 60 * 60 * 1000;
-
-// Thiết lập setInterval để chạy hàm kiểm tra và đăng xuất mỗi ngày
-setInterval(function() {
-  deleteAllCookies();
-  deleteAllCookiess();
-  AddLastLogout();
-  Logout();
-}, oneDayInMillis); // Kiểm tra mỗi ngày
-
-
+//Thông báo đăng xuất thành công
 function AlertSuccess(){
   const Toast = Swal.mixin({
     toast: true,
@@ -153,3 +95,15 @@ function AlertSuccess(){
     color: "#716add",
   });
 }
+//Sự kiện khi bấm đăng xuất
+document.getElementById("logout").addEventListener("click", function (event) {
+  event.preventDefault();
+  printAllCookies();
+  deleteAllCookies();
+  AddLastLogout();
+  printAllCookies();
+  AlertSuccess();
+  setTimeout(function() {
+    Logout();
+  }, 3000); 
+});

@@ -24,42 +24,31 @@
   const database = getDatabase(app);
     const auth = getAuth();
 
+  // Đọc giá trị từ cookie
+  const userInfoStringFromCookie = Cookies.get('userInfo');
+  // Chuyển chuỗi JSON thành đối tượng JavaScript
+  if (userInfoStringFromCookie) {
+    const userInfoFromCookie = JSON.parse(userInfoStringFromCookie);
 
-function getCookie(name) {
-    const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
-    return cookieValue ? cookieValue.pop() : '';
-}
-
-// Sử dụng hàm để lấy giá trị từ cookies
-    // Sử dụng hàm để lấy giá trị từ cookies
-    const uidProfile = getCookie("id_profile");
-    const emailProfile = getCookie("email_profile");
-    const hotenProfile = getCookie("hoten_profile");
-    const passwordProfile = getCookie("password_profile");
-    const sdtProfile = getCookie("sdt_profile");
-    const usernameProfile = getCookie("username_profile");
-    const filenameProfile = getCookie("filename_profile");
-    const URLProfile = getCookie("url_profile");
-
-    // Sử dụng các giá trị đã lấy được từ cookies
-    // console.log(emailProfile);
-    // console.log(hotenProfile);
-    // console.log(passwordProfile);
-    // console.log(sdtProfile);
-    // console.log(usernameProfile);
-    // console.log(filenameProfile);
+    const uidProfile = userInfoFromCookie.id_profile; // ID
+    const emailProfile = userInfoFromCookie.email_profile; //Email
+    const hotenProfile = userInfoFromCookie.hoten_profile; //Họ tên
+    const passwordProfile = userInfoFromCookie.password_profile; //Password
+    const sdtProfile = userInfoFromCookie.sdt_profile; //Số điện thoại
+    const usernameProfile = userInfoFromCookie.username_profile; //Username
+    const URLProfile = userInfoFromCookie.url_profile; //Link ảnh
+    const RoleProfile = userInfoFromCookie.role; //Vai trò người dùng
 
 var fullname = document.getElementById("fullname"); // Lấy thẻ div có id là "fullname"
 if (fullname) {
     // Kiểm tra xem fullname có tồn tại không trước khi gán giá trị cho thuộc tính 'textContent'
-    fullname.textContent = hotenProfile;
+    fullname.textContent = userInfoFromCookie.hoten_profile;
 }
 
 function SetAvatar() {
 var userAvatar = document.getElementById('user-avatar');
-
 // Thay đổi thuộc tính src của thẻ <img> bằng URL mới
-userAvatar.src = URLProfile;
+userAvatar.src = userInfoFromCookie.url_profile;
 }
 SetAvatar();
 
@@ -101,7 +90,6 @@ document.getElementById('message-form').addEventListener('submit', function(even
 function GetMess() {
     const database = getDatabase();
     const databaseRef = ref(database, "messages/" + uidProfile);
-
     // Lắng nghe sự kiện child_added để nhận thông báo khi có tin nhắn mới được thêm vào
     onChildAdded(databaseRef, (snapshot) => {
         const message = snapshot.val();
@@ -127,3 +115,7 @@ function displayMessage(message) {
 }
 
 GetMess();
+
+} else {
+    console.log('Cookies không tồn tại hoặc đã bị xoá?!');
+  }
