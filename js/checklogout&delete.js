@@ -38,6 +38,7 @@ function deleteAllCookies() {
     "username_profile",
     "filename_profile",
     "url_profile",
+    "role",
   ];
   // console.log(cookiesToDelete);
   cookiesToDelete.forEach((cookieName) => {

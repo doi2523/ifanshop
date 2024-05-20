@@ -76,14 +76,18 @@ function UpdateThongtin() {
     sdt: newsdt,
   })
     .then(() => {
-      alert("Thông tin đã được cập nhật thành công!");
+      AlertSuccess();
       setTimeout(() => {
         window.location.reload();
-      }, 2000);
+      }, 3000);
     })
 
     .catch((error) => {
-      alert("Đã xảy ra lỗi khi cập nhật thông tin: " + error.message);
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Something went wrong!",
+      });
     });
 }
 
@@ -115,5 +119,23 @@ function UpdateURL() {
     hoten: hotenProfile,
     sdt: sdtProfile,
     username: usernameProfile,
+  });
+}
+function AlertSuccess(){
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      // toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+  Toast.fire({
+    icon: "success",
+    title: "Cập nhật thông tin thành công!",
+    color: "#716add",
   });
 }

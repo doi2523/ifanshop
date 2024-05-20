@@ -43,7 +43,7 @@ function SavaToCookies() {
         const url_profile = userData.urlavatar //Lấy giá trị của urlavatar
         const last_login = userData.last_login;
         const last_logout = userData.last_logout;
-
+        const role = userData.role;
 
         console.log("Email:", email_profile);
         console.log("Password:", password_profile);
@@ -65,6 +65,7 @@ function SavaToCookies() {
           username_profile,
           filename_profile,
           url_profile,
+          role,
         };
         Object.keys(values).forEach(key => {
           document.cookie = `${key}=${values[key]}`;

@@ -14,41 +14,32 @@ const usernameProfile = getCookie("username_profile");
 const filenameProfile = getCookie("filename_profile");
 const URLProfile = getCookie("url_profile");
 
-// Sử dụng các giá trị đã lấy được từ cookies
-// console.log(uidProfile)
-// console.log(emailProfile);
-// console.log(hotenProfile);
-// console.log(passwordProfile);
-// console.log(sdtProfile);
-// console.log(usernameProfile);
-// console.log(filenameProfile);
-// console.log(URLProfile)
+const RolerProfile = getCookie("role");
+const roler = document.getElementById('roler');
+roler.textContent = RolerProfile;
 
 
 const usernameElement = document.getElementById('txt-username');
 usernameElement.textContent = "@"+ usernameProfile;
     
-const uidd = document.getElementById('uid');
-const usernm = document.getElementById('username');
 const emaill = document.getElementById('email');
+const passwd = document.getElementById('password');
 const hotenn = document.getElementById('hoten');
 const sdtt = document.getElementById('sdt');
 const urlavatar = document.getElementById('url-avatar');
 // Gán giá trị cho phần tử
-uidd.textContent = uidProfile;
-usernm.textContent= usernameProfile;
+
 emaill.textContent= emailProfile;
-hotenn.textContent= hotenProfile;
-sdtt.textContent = sdtProfile;
+passwd.textContent= passwordProfile;
+
 
 
 
 // Đẩy các giá trị vào các trường trong form để người dùng có thể sửa và tiếp tục update
-document.getElementById("uid").value = uidProfile;
-document.getElementById("username").value = usernameProfile;
+
 document.getElementById("email").value = emailProfile;
-document.getElementById("hoten").value = hotenProfile;
-document.getElementById("sdt").value = sdtProfile;
+document.getElementById("password").value = passwordProfile;
+
 
 function AddAvatar() {
     //Phương thức thêm ảnh vào trang thông qua url đã lấy từ cookie
