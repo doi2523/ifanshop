@@ -102,11 +102,31 @@ function displayDonhang(MaDonhang, time, soluongmua, tongtien, thongtindonhang, 
             </div>`;
     });
 
+    // Xác định màu sắc dựa trên tình trạng
+let color;
+switch (tinhtrang) {
+    case "Đã xác nhận":
+        color = "green";
+        break;
+    case "Đang giao hàng":
+        color = "blue";
+        break;
+    case "Đã giao thành công":
+        color = "green";
+        break;
+    case "Đơn hàng bị huỷ":
+        color = "red";
+        break;
+    default:
+        color = "black";
+        break;
+}
+
     html += `</td>
         <td>${parseFloat(tongtien).toLocaleString()}₫</td>
         <td>${soluongmua}</td>
         <td>${time}</td>
-        <td>${tinhtrang}</td>
+        <td style="color: ${color}; font-size: 15px; font-weight: bold;">${tinhtrang}</td>
     `;
 
     tr.innerHTML = html;
@@ -127,7 +147,29 @@ function displayDonhang(MaDonhang, time, soluongmua, tongtien, thongtindonhang, 
                 console.log("Số lượng:", item.soluong);
                 console.log("Phương thức thanh toán:", item.payment);
             });
-    const spanTinhTrang = document.getElementById("tinhtrang");
+            let color;
+            switch (tinhtrang) {
+                case "Đã xác nhận":
+                    color = "green";
+                    break;
+                case "Đang giao hàng":
+                    color = "blue";
+                    break;
+                case "Đã giao thành công":
+                    color = "green";
+                    break;
+                case "Đơn hàng bị huỷ":
+                    color = "red";
+                    break;
+                default:
+                    color = "black";
+                    break;
+            }
+                        // Đặt nội dung và màu sắc cho span
+                        const spanTinhTrang = document.getElementById("tinhtrang");
+                        spanTinhTrang.textContent = tinhtrang;
+                        spanTinhTrang.style.color = color;
+
     const spanMaDonHang = document.getElementById("span-madonhang");
     const spanTongSoLuong = document.getElementById("span-tongsoluong");
     const spanTongTien = document.getElementById("span-tongtien");
@@ -137,7 +179,7 @@ function displayDonhang(MaDonhang, time, soluongmua, tongtien, thongtindonhang, 
     const spanDiaChiNguoiNhan = document.getElementById("diachinguoinhan");
 
     // Gán giá trị vào các thẻ span
-    spanTinhTrang.textContent = tinhtrang;
+    // spanTinhTrang.textContent = tinhtrang;
     spanMaDonHang.textContent = MaDonhang;
     spanTongSoLuong.textContent = soluongmua;
     spanTongTien.textContent = parseFloat(tongtien).toLocaleString() + "₫";
@@ -151,7 +193,7 @@ function displayDonhang(MaDonhang, time, soluongmua, tongtien, thongtindonhang, 
 // Gọi hàm GetDonhang để bắt đầu quá trình lấy dữ liệu và hiển thị
 GetDonhang();
   // Lắng nghe sự kiện click trên nút "Tiến hành đặt hàng"
-  document.getElementById("editthongtin").addEventListener("click", function(event) {
+document.getElementById("editthongtin").addEventListener("click", function(event) {
     // Ngăn form khỏi tải lại trang
     event.preventDefault();
 
@@ -161,13 +203,20 @@ GetDonhang();
     const sdtNguoiNhan = document.getElementById("sdtnguoinhan").textContent.trim();
     const emailNguoiNhan = document.getElementById("emailnguoinhan").textContent.trim();
     const diaChiNguoiNhan = document.getElementById("diachinguoinhan").textContent.trim();
+    const tinhTrang = document.getElementById("tinhtrang").textContent.trim();
 
-    // Kiểm tra nếu bất kỳ giá trị nào rỗng
-    if (!MadonhangEdit || !tenNguoiNhan || !sdtNguoiNhan || !emailNguoiNhan || !diaChiNguoiNhan) {
+    // Kiểm tra tình trạng đơn hàng
+    if (tinhTrang === "Đã xác nhận" || tinhTrang === "Đang giao hàng" || tinhTrang === "Đã giao thành công" || tinhTrang === "Đơn hàng bị huỷ") {
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: "Vui lòng chọn đơn hàng!",
+        html: `Trạng thái "<span style="color: #007bff;">${tinhTrang}</span>", không thể sửa đổi thông tin.`,
+    });
+    } else if (!MadonhangEdit || !tenNguoiNhan || !sdtNguoiNhan || !emailNguoiNhan || !diaChiNguoiNhan) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Vui lòng chọn đơn hàng",
       });
     } else {
         // Lưu giá trị vào localStorage
@@ -186,6 +235,7 @@ GetDonhang();
         }, 3000); // 3000 milliseconds = 3 giây
     }
 });
+
 
 function AlertSuccess(){
     const Toast = Swal.mixin({
