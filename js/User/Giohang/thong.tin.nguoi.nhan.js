@@ -51,41 +51,70 @@ import {
       // Sử dụng hàm để lấy giá trị từ cookies
       const uidProfile = getCookie("id_profile");
 function GetThongTin(){
+  const MadonhangEdit = localStorage.getItem('MadonhangEdit');
+  
+  const emailInput = document.getElementById('emailInput').value;
+  const tenInput = document.getElementById('tenInput').value;
+  const sdtInput = document.getElementById('sdtInput').value;
+  const diaChiInput = document.getElementById('diaChiInput').value ;
+
+  update(ref(database, "Donhang/" + uidProfile + "/"+ MadonhangEdit), {
+    hoten: tenInput,
+    mail: emailInput,
+    diachi: diaChiInput,
+    sdt: sdtInput
+  })
+  .then(() => {
+    AlertSuccess();
+    try {
+      localStorage.removeItem("tenNguoiNhan");
+      localStorage.removeItem("sdtNguoiNhan");
+      localStorage.removeItem("emailNguoiNhan");
+      localStorage.removeItem("diaChiNguoiNhan");
+    } catch (error) {
+      console.error("Lỗi khi xoá từ localStorage:", error);
+    }
+    
+  })
+  .catch((error) => {
+    alert("Đã xảy ra lỗi" + error.message);
+  });
+}
+
+function GetData(){
   // Lấy thông tin từ localStorage
+  const MadonhangEdit = localStorage.getItem('MadonhangEdit');
   const tenNguoiNhan = localStorage.getItem('tenNguoiNhan');
   const sdtNguoiNhan = localStorage.getItem('sdtNguoiNhan');
   const emailNguoiNhan = localStorage.getItem('emailNguoiNhan');
   const diaChiNguoiNhan = localStorage.getItem('diaChiNguoiNhan');
   // Đẩy thông tin vào các ô input
+  document.getElementById('span-madonhang').textContent = MadonhangEdit;
   document.getElementById('emailInput').value = emailNguoiNhan;
   document.getElementById('tenInput').value = tenNguoiNhan;
   document.getElementById('sdtInput').value = sdtNguoiNhan;
   document.getElementById('diaChiInput').value = diaChiNguoiNhan;
 }
-document.addEventListener("DOMContentLoaded", function() {
-  // Gọi hàm GetThongTin() khi trang đã tải hoàn chỉnh
-  GetThongTin();
+GetData();
+document.getElementById("thaydoithongtin").addEventListener("submit", function (event) {
+  event.preventDefault();
+  GetThongTin()
 });
-
-  function GetData(){
-    const databaseRef = ref(database);
-    const userRef = child(databaseRef, "Donhang/" + uidProfile);
-    get(userRef)
-    .then((snapshot) => {
-    if (snapshot.exists()) {
-        const userData = snapshot.val();
-
-        const ten_profile = userData.hoten;
-        const sdt_profile = userData.sdt;
-        const diachi_profile = userData.diachi;
-
-        const Ten = document.getElementById("tennguoinhan");
-        const Sdt = document.getElementById("sdtnguoinhan");
-        const Diachi = document.getElementById("diachinguoinhan");
-
-        Ten.textContent = ten_profile;
-        Sdt.textContent = sdt_profile;
-        Diachi.textContent = diachi_profile;
+function AlertSuccess(){
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      // toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
     }
-})
+  });
+  Toast.fire({
+    icon: "success",
+    title: "Cập nhật thông tin thành công!",
+    color: "#716add",
+  });
 }

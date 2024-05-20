@@ -257,7 +257,6 @@ function displayHienThi(ThongTinDonhang, thongtindonhang, MaDonhangSua, MaNguoiM
               </div>
               <div class="row">
                 <div class="col-md-12">
-                <button type="button" id="deldonhang" class="btn btn-danger">Xoá</button>
                 <button type="submit" class="btn btn-success float-end">Thay Đổi</button></div>
               </div>
             </div>
@@ -355,15 +354,31 @@ document.querySelectorAll('.btn-success').forEach((button, index) => {
         // Hiển thị nút "Thay Đổi" lại
         button.style.display = 'inline-block';
         saveButton.style.display = 'none';
-
+        DeleteButton.style.display = 'none';
 
         // Đặt lại biến saveButtonAdded về false để cho phép thêm nút "Lưu" lần tiếp theo
         saveButtonAdded = false;
       });
 
+            // Tạo nút "Lưu" và thêm sự kiện "click" cho nút này
+      const DeleteButton = document.createElement('button');
+      DeleteButton.type = 'button';
+      DeleteButton.textContent = 'Xoá';
+      DeleteButton.className = 'btn btn-danger float-end mx-2';
+
+      DeleteButton.addEventListener('click', () => {
+
+        AlertConfirm(MaNguoiMua, MaDonhangSua, index);
+        // Hiển thị nút "Thay Đổi" lại
+        button.style.display = 'inline-block';
+        saveButton.style.display = 'none';
+        DeleteButton.style.display = 'none';
+
+        saveButtonAdded = true;
+      });
       // Thêm nút "Lưu" vào sau nút "Thay Đổi"
       button.parentNode.appendChild(saveButton);
-
+      button.parentNode.appendChild(DeleteButton);
       // Ẩn nút "Thay Đổi"
       button.style.display = 'none';
 
@@ -457,8 +472,8 @@ function updateNguoidung(MaNguoiMua, MaDonhangSua) {
     console.error('Error updating product:', error);
   });
 }
-function DelDonHang(MaNguoiMua, MaDonhangSua, stt){
-  let DonhangRef = ref(database, "Donhang/" + MaNguoiMua + "/" + MaDonhangSua + "/thongtindonhang/" + stt);
+function DelDonHang(MaNguoiMua, MaDonhangSua, index){
+  let DonhangRef = ref(database, "Donhang/" + MaNguoiMua + "/" + MaDonhangSua + "/thongtindonhang/" + index);
   remove(DonhangRef)
   .then(() => {
     AlertSuccess();
@@ -467,7 +482,7 @@ function DelDonHang(MaNguoiMua, MaDonhangSua, stt){
       AlertError0();
   });
 }
-function AlertConfirm(MaNguoiMua, MaDonhangSua, stt){
+function AlertConfirm(MaNguoiMua, MaDonhangSua, index){
     Swal.fire({
         title: "Bạn chắc không?",
         text: "Bạn sẽ xoá đơn hàng này!",
@@ -483,7 +498,7 @@ function AlertConfirm(MaNguoiMua, MaDonhangSua, stt){
           //   text: "Đơn hàng này đã được xoá.",
           //   icon: "success"
           // });
-          DelDonHang(MaNguoiMua, MaDonhangSua, stt);
+          DelDonHang(MaNguoiMua, MaDonhangSua, index);
         }
       });
 }

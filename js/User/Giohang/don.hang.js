@@ -151,25 +151,42 @@ function displayDonhang(MaDonhang, time, soluongmua, tongtien, thongtindonhang, 
 // Gọi hàm GetDonhang để bắt đầu quá trình lấy dữ liệu và hiển thị
 GetDonhang();
   // Lắng nghe sự kiện click trên nút "Tiến hành đặt hàng"
-  document.getElementById("editthongtin").addEventListener("click", function() {
+  document.getElementById("editthongtin").addEventListener("click", function(event) {
     // Ngăn form khỏi tải lại trang
     event.preventDefault();
-    // Lấy giá trị từ các span
-    const tenNguoiNhan = document.getElementById("tennguoinhan").textContent;
-    const sdtNguoiNhan = document.getElementById("sdtnguoinhan").textContent;
-    const emailNguoiNhan = document.getElementById("emailnguoinhan").textContent;
-    const diaChiNguoiNhan = document.getElementById("diachinguoinhan").textContent;
 
-    // Lưu giá trị vào localStorage
-    localStorage.setItem('tenNguoiNhan', tenNguoiNhan);
-    localStorage.setItem('sdtNguoiNhan', sdtNguoiNhan);
-    localStorage.setItem('emailNguoiNhan', emailNguoiNhan);
-    localStorage.setItem('diaChiNguoiNhan', diaChiNguoiNhan);
-    AlertSuccess();
-    setTimeout(function() {
-      window.location.href = "auth.suathongtin.html";
-  }, 3000); // 3000 milliseconds = 3 giây
-})
+    // Lấy giá trị từ các span
+    const MadonhangEdit = document.getElementById("span-madonhang").textContent.trim();
+    const tenNguoiNhan = document.getElementById("tennguoinhan").textContent.trim();
+    const sdtNguoiNhan = document.getElementById("sdtnguoinhan").textContent.trim();
+    const emailNguoiNhan = document.getElementById("emailnguoinhan").textContent.trim();
+    const diaChiNguoiNhan = document.getElementById("diachinguoinhan").textContent.trim();
+
+    // Kiểm tra nếu bất kỳ giá trị nào rỗng
+    if (!MadonhangEdit || !tenNguoiNhan || !sdtNguoiNhan || !emailNguoiNhan || !diaChiNguoiNhan) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Vui lòng chọn đơn hàng!",
+      });
+    } else {
+        // Lưu giá trị vào localStorage
+        localStorage.setItem('MadonhangEdit', MadonhangEdit);
+        localStorage.setItem('tenNguoiNhan', tenNguoiNhan);
+        localStorage.setItem('sdtNguoiNhan', sdtNguoiNhan);
+        localStorage.setItem('emailNguoiNhan', emailNguoiNhan);
+        localStorage.setItem('diaChiNguoiNhan', diaChiNguoiNhan);
+        
+        // Gọi hàm AlertSuccess
+        AlertSuccess();
+        
+        // Chuyển hướng sau 3 giây
+        setTimeout(function() {
+            window.location.href = "auth.suathongtin.html";
+        }, 3000); // 3000 milliseconds = 3 giây
+    }
+});
+
 function AlertSuccess(){
     const Toast = Swal.mixin({
       toast: true,
