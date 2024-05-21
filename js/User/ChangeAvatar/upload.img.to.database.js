@@ -120,7 +120,8 @@ function UploadImageAndGetURL() {
   });
 }
 } else {
-  console.log('Cookies không tồn tại hoặc đã bị xoá?!');
+  // console.log('Cookies không tồn tại hoặc đã bị xoá?!');
+  window.location.href = 'login.html';
 }
 function Alert(){
   const Toast = Swal.mixin({
