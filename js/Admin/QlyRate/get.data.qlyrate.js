@@ -25,32 +25,6 @@
   const database = getDatabase(app);
     const auth = getAuth();
 
-
-function getCookie(name) {
-    const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
-    return cookieValue ? cookieValue.pop() : '';
-}
-
-// Sử dụng hàm để lấy giá trị từ cookies
-const uidProfile = getCookie("id_profile")
-const emailProfile = getCookie("email_profile");
-const hotenProfile = getCookie("hoten_profile");
-const passwordProfile = getCookie("password_profile");
-const sdtProfile = getCookie("sdt_profile");
-const usernameProfile = getCookie("username_profile");
-const filenameProfile = getCookie("filename_profile");
-const URLProfile = getCookie("url_profile");
-
-// Sử dụng các giá trị đã lấy được từ cookies
-console.log(uidProfile)
-console.log(emailProfile);
-console.log(hotenProfile);
-console.log(passwordProfile);
-console.log(sdtProfile);
-console.log(usernameProfile);
-console.log(filenameProfile);
-console.log(URLProfile)
-
 function GetData() {
     const database = getDatabase();
     const databaseRef = ref(database, "Rate");

@@ -160,3 +160,25 @@ a{
   color: #000;
 }
 
+.btn-sm {
+  font-size: 14px;
+  /* Điều chỉnh kích thước chữ của nút */
+  padding: 5px 10px;
+  /* Điều chỉnh padding của nút */
+}
+
+.small-table {
+  width: 50%;
+  /* Điều chỉnh chiều rộng của bảng */
+  font-size: 14px;
+  /* Điều chỉnh kích thước chữ */
+}
+
+.image-thumbnail {
+  max-width: 100px;
+  max-height: 100px;
+}
+.img-fluid{
+  max-width: 200px;
+  max-height: 250px;
+}

@@ -39,181 +39,154 @@ import {
   const auth = getAuth();
   const firebaseApp = getApp();
 
-          // Function to display user data
+// Function to display user data
 function displayUsers(getusers) {
-            const container = document.getElementById("hienthichitiet");
-            const div = document.createElement("div");
-            div.classList.add("row", "mb-3");
-            
-            div.innerHTML = `
-                <div class="col-md-4">
-                    <img src="${getusers.urlavatar}" alt="Profile Image" class="img-fluid rounded">
-                </div>
-                <div class="col-md-5">
-                    <div class="mb-2"><strong>Tên người dùng:</strong> ${getusers.username || ''}</div>
-                    <div class="mb-2"><strong>Email:</strong> ${getusers.email || ''}</div>
-                    <div class="mb-2"><strong>Họ tên:</strong> ${getusers.hoten || '' }</div>
-                    <div class="mb-2"><strong>Role:</strong> ${getusers.role || ''}</div>
-                    <div class="mb-2"><strong>Số điện thoại:</strong> ${getusers.sdt || ''}</div>
-                    <div class="mb-2"><strong>Username:</strong> ${getusers.username || ''}</div>
-                    <div class="mb-2"><strong>Trạng thái:</strong> ${getusers.userstatus || ''}</div>
-                    <div class="mb-2"><strong>Đăng nhập gần đây:</strong> ${getusers.last_login || ''}</div>
-                    <div class="mb-2"><strong>Đăng xuất gần đây:</strong> ${getusers.last_logout || ''}</div>
-                </div>
-                <div class="col-md-2">
-                    <h2>Tuỳ chọn</h2>
-                    <div class="mb-2"><a href="auth.admin.change.user.html" class="btn btn-primary">Thay đổi</a></div>
-                    <div class="mb-2"><button id="" class="btn btn-danger"><i class="fas fa-ban"></i> Block</button></div>
-                    <div class="mb-2"><button id="delete" class="btn btn-danger"><i class="bi bi-trash-fill"></i> Xoá</button></div>
-                    <div class="mb-2"><button id="exit" class="btn btn-danger">Thoát</button></div>
-                </div>
-              </div>
-            `;
-            container.appendChild(div);
-            document.getElementById('delete').addEventListener('click', () => {
-                AlertConfirm();
-            });
-            document.getElementById('exit').addEventListener('click', () => {
-                ClearLocal();
-                AlertExit();
-                setTimeout(() => {
-                    window.location.href = "auth.qlyaccount.html";
-                }, 3000); // Redirect after 3 seconds
-            });
-        }
+  const container = document.getElementById("hienthichitiet");
+  const div = document.createElement("div");
+  div.classList.add("row", "mb-3");
 
-        // Function to get all users and display them
-        function GetAll() {
-            const iduser= localStorage.getItem("iduser");
-            const databaseRef = ref(database);
-            const userRef = child(databaseRef, "users/" + iduser);
-            // get(userRef, (snapshot) => {
-            //     const getusers = snapshot.val();
-            //     const uid = snapshot.key;
-            //     // console.log("All user data:", uid);
-            //     displayUsers(getusers);
-            // },
-            get(userRef).then((snapshot) => {
-                if (snapshot.exists()) {
-                  const getusers = snapshot.val();
-                  displayUsers(getusers);
-                  Alert();
-                }
-            }),
-            (error) => {
-                console.error("Error getting users: ", error);
-            };
-        }
+  div.innerHTML = `
+      <div class="col-md-4">
+          <img src="${getusers.urlavatar}" alt="Profile Image" class="img-fluid rounded">
+      </div>
+      <div class="col-md-5">
+          <div class="mb-2"><strong>Tên người dùng:</strong> ${getusers.username || ''}</div>
+          <div class="mb-2"><strong>Email:</strong> ${getusers.email || ''}</div>
+          <div class="mb-2"><strong>Họ tên:</strong> ${getusers.hoten || '' }</div>
+          <div class="mb-2"><strong>Role:</strong> ${getusers.role || ''}</div>
+          <div class="mb-2"><strong>Số điện thoại:</strong> ${getusers.sdt || ''}</div>
+          <div class="mb-2"><strong>Username:</strong> ${getusers.username || ''}</div>
+          <div class="mb-2"><strong>Trạng thái:</strong> ${getusers.userstatus || ''}</div>
+          <div class="mb-2"><strong>Đăng nhập gần đây:</strong> ${getusers.last_login || ''}</div>
+          <div class="mb-2"><strong>Đăng xuất gần đây:</strong> ${getusers.last_logout || ''}</div>
+      </div>
+      <div class="col-md-2">
+          <h2>Tuỳ chọn</h2>
+          <div class="mb-2"><a href="auth.admin.change.user.html" class="btn btn-primary">Thay đổi</a></div>
+          <div class="mb-2"><button id="" class="btn btn-danger"><i class="fas fa-ban"></i> Block</button></div>
+          <div class="mb-2"><button id="delete" class="btn btn-danger"><i class="bi bi-trash-fill"></i> Xoá</button></div>
+          <div class="mb-2"><button id="exit" class="btn btn-danger">Thoát</button></div>
+      </div>
+    </div>
+  `;
+  container.appendChild(div);
+  document.getElementById('delete').addEventListener('click', () => {
+      AlertConfirm();
+  });
+  document.getElementById('exit').addEventListener('click', () => {
+      ClearLocal();
+      AlertExit();
+      setTimeout(() => {
+          window.location.href = "auth.qlyaccount.html";
+      }, 3000); // Redirect after 3 seconds
+  });
+}
 
-        // Call the function to get and display all users
-        GetAll();
-        function ClearLocal() {
-            try {
-              localStorage.removeItem("iduser");
-              console.log("Đã xoá thành công key 'iduser' từ localStorage.");
-            } catch (error) {
-              console.error("Lỗi khi xoá key 'iduser' từ localStorage:", error);
-            }
-          }
-          function GetDonhang() {
-            const database = getDatabase();
-            const iduser= localStorage.getItem("iduser");
-            const databaseRef = ref(database, "Donhang/" + iduser);
-            
-            onChildAdded(databaseRef, (snapshot) => {
-                const MaDonhang = snapshot.key;
-                const DataRef = ref(database, "Donhang/" + iduser + "/" + MaDonhang);
-                
-                get(DataRef).then((snapshot) => {
-                    if (snapshot.exists()) {
-                        const ThongTinDonhang = snapshot.val();
-                        const time = ThongTinDonhang.time;
-                        const soluongmua = ThongTinDonhang.tongsl;
-                        const tongtien = ThongTinDonhang.tongtien;
-                        const hoten = ThongTinDonhang.hoten;
-                        const sdt = ThongTinDonhang.sdt;
-                        const diachi = ThongTinDonhang.diachi;
-                        const mail = ThongTinDonhang.mail
-                        const thongtindonhang = ThongTinDonhang.thongtindonhang;
-                        
-                        // Gọi displayDonhang chỉ một lần cho mỗi đơn hàng
-                        displayDonhang(MaDonhang, time, soluongmua, tongtien, thongtindonhang, hoten, sdt, diachi, mail);
-                    }
-                });
-            });
-        }
+// Function to get all users and display them
+function GetAll() {
+  const iduser= localStorage.getItem("iduser");
+  const databaseRef = ref(database);
+  const userRef = child(databaseRef, "users/" + iduser);
+  get(userRef).then((snapshot) => {
+      if (snapshot.exists()) {
+        const getusers = snapshot.val();
+        displayUsers(getusers);
+        Alert();
+      }
+  }),
+  (error) => {
+      console.error("Error getting users: ", error);
+  };
+}
+// Call the function to get and display all users
+GetAll();
+
+function ClearLocal() {
+  try {
+    localStorage.removeItem("iduser");
+    console.log("Đã xoá thành công key 'iduser' từ localStorage.");
+  } catch (error) {
+    console.error("Lỗi khi xoá key 'iduser' từ localStorage:", error);
+  }
+}
+function GetDonhang() {
+  const database = getDatabase();
+  const iduser= localStorage.getItem("iduser");
+  const databaseRef = ref(database, "Donhang/" + iduser);
+
+  onChildAdded(databaseRef, (snapshot) => {
+      const MaDonhang = snapshot.key;
+      const DataRef = ref(database, "Donhang/" + iduser + "/" + MaDonhang);
+
+  get(DataRef).then((snapshot) => {
+  if (snapshot.exists()) {
+    const ThongTinDonhang = snapshot.val();
+    const thongtindonhang = ThongTinDonhang.thongtindonhang;
+    // Gọi displayDonhang chỉ một lần cho mỗi đơn hàng
+    displayDonhang(MaDonhang, thongtindonhang, ThongTinDonhang);
+      }
+    });
+  });
+}
         
-        function displayDonhang(MaDonhang, time, soluongmua, tongtien, thongtindonhang, hoten ,sdt, diachi, mail) {
-            const donhangs = document.getElementById("hienthi");
-            const tr = document.createElement("tr");
+function displayDonhang(MaDonhang, thongtindonhang, ThongTinDonhang) {
+  const donhangs = document.getElementById("hienthi");
+  const tr = document.createElement("tr");
         
-            // Tạo HTML cho mỗi hàng
-            let html = `
-                <td class="ma-don-hang">${MaDonhang}</td>
-                <td>`;
+  // Tạo HTML cho mỗi hàng
+  let html = `
+      <td class="ma-don-hang">${MaDonhang}</td>
+      <td>`;
         
-            // Thêm thông tin của mỗi sản phẩm trong đơn hàng vào HTML
-            thongtindonhang.forEach((item, index) => {
-                html += `
-                    <div class="product-info">
-                        <div class="img-don-hang"><img src="${item.url}" alt=""></div>
-                        <div>
-                            Tên: <span>${item.tensanpham}</span><br>
-                            Màu: <span>${item.color}</span><br>
-                            Dung lượng: ${item.dungluong}</span><br>
-                            Số lượng : <span>${item.soluong}</span> <br>
-                            Phương thức: <span>${item.payment}</span>
-                        </div>
-                    </div>`;
-            });
+  // Thêm thông tin của mỗi sản phẩm trong đơn hàng vào HTML
+  thongtindonhang.forEach((item, index) => {
+    html += `
+      <div class="product-info">
+        <div class="img-don-hang"><img src="${item.url}" alt=""></div>
+        <div>
+            Tên: <span>${item.tensanpham}</span><br>
+            Màu: <span>${item.color}</span><br>
+            Dung lượng: ${item.dungluong}</span><br>
+            Số lượng : <span>${item.soluong}</span> <br>
+            Phương thức: <span>${item.payment}</span>
+        </div>
+      </div>`;
+  });
         
-            html += `</td>
-                <td>${parseFloat(tongtien).toLocaleString()}₫</td>
-                <td>${soluongmua}</td>
-                <td>${time}</td>
-                <td>Đang giao hàng</td>
-            `;
+  html += `</td>
+      <td>${parseFloat(ThongTinDonhang.tongtien).toLocaleString()}₫</td>
+      <td>${ThongTinDonhang.tongsl}</td>
+      <td>${ThongTinDonhang.time}</td>
+      <td>${ThongTinDonhang.tinhtrang}</td>
+  `;
         
-            tr.innerHTML = html;
-            donhangs.appendChild(tr);
+  tr.innerHTML = html;
+  donhangs.appendChild(tr);
         
-                // Gắn sự kiện click vào hàng
-                tr.addEventListener("click", function() {
-                    // In ra tất cả dữ liệu trong hàng
-                    console.log("Mã đơn hàng:", MaDonhang);
-                    console.log("Thời gian đặt:", time);
-                    console.log("Số lượng mua:", soluongmua);
-                    console.log("Tổng tiền:", tongtien);
-                    thongtindonhang.forEach((item, index) => {
-                        console.log("Sản phẩm", index + 1);
-                        console.log("Tên sản phẩm:", item.tensanpham);
-                        console.log("Màu:", item.color);
-                        console.log("Dung lượng:", item.dungluong);
-                        console.log("Số lượng:", item.soluong);
-                        console.log("Phương thức thanh toán:", item.payment);
-                    });
-                    // Lấy tham chiếu đến các thẻ span bằng id
-            const spanMaDonHang = document.getElementById("span-madonhang");
-            const spanTongSoLuong = document.getElementById("span-tongsoluong");
-            const spanTongTien = document.getElementById("span-tongtien");
-            const spanTenNguoiNhan = document.getElementById("tennguoinhan");
-            const spanSDTNguoiNhan = document.getElementById("sdtnguoinhan");
-            const spanEmailNguoiNhan = document.getElementById("emailnguoinhan");
-            const spanDiaChiNguoiNhan = document.getElementById("diachinguoinhan");
+  // Gắn sự kiện click vào hàng
+  tr.addEventListener("click", function() {
+  // Lấy tham chiếu đến các thẻ span bằng id
+  const spanMaDonHang = document.getElementById("span-madonhang");
+  const spanTongSoLuong = document.getElementById("span-tongsoluong");
+  const spanTongTien = document.getElementById("span-tongtien");
+  const spanTenNguoiNhan = document.getElementById("tennguoinhan");
+  const spanSDTNguoiNhan = document.getElementById("sdtnguoinhan");
+  const spanEmailNguoiNhan = document.getElementById("emailnguoinhan");
+  const spanDiaChiNguoiNhan = document.getElementById("diachinguoinhan");
         
-            // Gán giá trị vào các thẻ span
-            spanMaDonHang.textContent = MaDonhang;
-            spanTongSoLuong.textContent = soluongmua;
-            spanTongTien.textContent = parseFloat(tongtien).toLocaleString() + "₫";
-            spanTenNguoiNhan.textContent = hoten;
-            spanSDTNguoiNhan.textContent = sdt;
-            spanEmailNguoiNhan.textContent = mail;
-            spanDiaChiNguoiNhan.textContent = diachi;
-                })
-        }
+  // Gán giá trị vào các thẻ span
+  spanMaDonHang.textContent = MaDonhang;
+  spanTongSoLuong.textContent = ThongTinDonhang.tongsl;
+  spanTongTien.textContent = parseFloat(ThongTinDonhang.tongtien).toLocaleString() + "₫";
+  spanTenNguoiNhan.textContent = ThongTinDonhang.hoten;
+  spanSDTNguoiNhan.textContent = ThongTinDonhang.sdt;
+  spanEmailNguoiNhan.textContent = ThongTinDonhang.mail;
+  spanDiaChiNguoiNhan.textContent = ThongTinDonhang.diachi;
+  })
+}
         
-        // Gọi hàm GetDonhang để bắt đầu quá trình lấy dữ liệu và hiển thị
-        GetDonhang();
+// Gọi hàm GetDonhang để bắt đầu quá trình lấy dữ liệu và hiển thị
+GetDonhang();
         
 function deleteUser() {
     const iduser= localStorage.getItem("iduser");
@@ -223,7 +196,7 @@ function deleteUser() {
         // Sau khi xoá thành công, cập nhật giao diện người dùng
         ClearLocal();
         setTimeout(() => {
-            window.location.href = "auth.qlyaccount.html";
+  window.location.href = "auth.qlyaccount.html";
         }, 3000); // Redirect after 3 seconds
       })
       .catch((error) => {
@@ -267,22 +240,22 @@ function AlertExit(){
       });
 } 
 function AlertConfirm(){
+  Swal.fire({
+    title: "Bạn chắc không?",
+    text: "Bạn muốn xoá người dùng này?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+  if (result.isConfirmed) {
     Swal.fire({
-        title: "Bạn chắc không?",
-        text: "Bạn muốn xoá người dùng này?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!"
-      }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire({
-            title: "Deleted!",
-            text: "Đã xoá người dùng này thành công, chờ chuyển trang!",
-            icon: "success"
-          });
-          deleteUser();
-        }
-      });
+    title: "Deleted!",
+    text: "Đã xoá người dùng này thành công, chờ chuyển trang!",
+    icon: "success"
+    });
+    deleteUser();
+    }
+  });
 }
