@@ -100,7 +100,6 @@ function clearTextChat() {
 function GetMess(userid) {
   const database = getDatabase();
   const databaseRef = ref(database, "messages/" + userid);
-
   // Lắng nghe sự kiện child_added để nhận thông báo khi có tin nhắn mới được thêm vào
   onChildAdded(databaseRef,(snapshot) => {
       const message = snapshot.val();
@@ -111,7 +110,29 @@ function GetMess(userid) {
     }
   );
 }
-
+function AutoGetMess() {
+  const database = getDatabase();
+  const UserID = localStorage.getItem("UserID");
+  const databaseRef = ref(database, "messages/" + UserID);
+  // Lắng nghe sự kiện child_added để nhận thông báo khi có tin nhắn mới được thêm vào
+  onChildAdded(databaseRef,(snapshot) => {
+      const message = snapshot.val();
+      displayMessage(message);
+      let imageSrc = message.url;
+      let userName = message.name;
+      let userid = message.userid;
+      // Tạo HTML cho hình ảnh và tên người dùng
+      let chatInfoHTML = `<img class="image-avt" src="${imageSrc}" alt="${userName}"> ${userName}`;
+  
+      // In hình ảnh và tên người dùng ra div chatInfo
+      document.getElementById("chatInfo").innerHTML = chatInfoHTML;
+    },
+    (error) => {
+      console.error("Error getting messages: ", error);
+    }
+  );
+}
+AutoGetMess();
 function displayMessage(message) {
   const messages = document.getElementById('hienthimessage');
   const div = document.createElement('div');
@@ -215,6 +236,14 @@ document.getElementById("send").addEventListener("submit", function (event) {
   const messagesRef = ref(database, "messages");
   // Lấy dữ liệu từ localStorage
   const UserID = localStorage.getItem("UserID");
+  if (!UserID || UserID.trim() === "") {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Vui lòng chọn người để nhắn tin!",
+    });
+    return; // Ngắt dòng lệnh nếu UserID không tồn tại hoặc rỗng
+}
 
   const userMessagesRef = child(messagesRef, UserID); // Tạo nút con cho từng người dùng
   const newMessageRef = push(userMessagesRef); // Tạo một khóa mới trong nút của người dùng
@@ -237,8 +266,8 @@ document.getElementById("send").addEventListener("submit", function (event) {
     role: RoleProfile,
   })
     .then(() => {
-      // alert('Đã gửi tin nhắn thành công!');
-      document.getElementById("txtchat").value = "";
+      AlertSuccess();
+      document.getElementById("message-input").value = "";
     })
     .catch((error) => {
       console.error("Error writing message to database: ", error);
@@ -257,4 +286,22 @@ function DeleleData() {
   } catch (error) {
     console.error("Lỗi khi xoá key 'UserID' từ localStorage:", error);
   }
+}
+function AlertSuccess(){
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      // toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+  Toast.fire({
+    icon: "success",
+    title: "Gửi tin nhắn thành công!",
+    color: "#716add",
+  });
 }

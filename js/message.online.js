@@ -38,6 +38,7 @@
     const usernameProfile = userInfoFromCookie.username_profile; //Username
     const URLProfile = userInfoFromCookie.url_profile; //Link ảnh
     const RoleProfile = userInfoFromCookie.role; //Vai trò người dùng
+    const Status = userInfoFromCookie.userstatus; //Trạng thái
 
 var fullname = document.getElementById("fullname"); // Lấy thẻ div có id là "fullname"
 if (fullname) {
@@ -79,7 +80,7 @@ document.getElementById('message-form').addEventListener('submit', function(even
         url: URLProfile,
         role: RoleProfile,
     }).then(() => {
-        // alert('Đã gửi tin nhắn thành công!');
+        AlertSuccess();
         document.getElementById("message-input").value = "";
     }).catch((error) => {
         console.error('Error writing message to database: ', error);
@@ -136,7 +137,24 @@ function displayMessage(message) {
 } else {
     console.log('Cookies không tồn tại hoặc đã bị xoá?!');
 }
-
+function AlertSuccess(){
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      // toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    }
+  });
+  Toast.fire({
+    icon: "success",
+    title: "Gửi tin nhắn thành công!",
+    color: "#716add",
+  });
+}
 document.addEventListener("DOMContentLoaded", function() {
   var iconClickBtn = document.getElementById("iconclick");
   var boxChat = document.getElementById("boxchat");
