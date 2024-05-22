@@ -266,18 +266,21 @@
       <i class="fas fa-comment-alt text-primary" style="font-size: 30px; margin-top: 5px; margin-left: -2px;"></i>
     </button>
     <!-- Hiển thị toàn bộ tin nhắn theo id người dùng   -->
-    <div class="container">
+    <div class="container" id="boxshowchatmess">
       <div class="boxchatmess hide bg-primary p-2" id="boxchat">
         <div class="chat-container p-2">
           <div class="chat-header row">
             <div class="col-md-2 d-flex align-items-center">
               <img id="user-avatar" src="" alt="Header Image" class="header-image">
             </div>
-            <div class="col-md-10">
+            <div class="col-md-8">
               <div class="col">
                 <span class="header-title">iFanShop Xin Chào!</span> <br>
                 <span class="footer-title">Chúng tôi có thể hỗ trợ gì cho <span id="fullname"></span>?</span>
               </div>
+            </div>
+            <div class="col-md-2 d-flex justify-content-center align-items-center">
+              <button id="closebuttonchat" class="btn btn-outline-secondary btn-sm closebuttonchat"><i class="bi bi-x" style="font-size: 2rem; color: white;"></i></button>
             </div>
           </div>
           <div class="chat-messages mt-2" id="hienthimessage">
@@ -294,8 +297,6 @@
               <img src="https://via.placeholder.com/40" class="avatar" alt="User Avatar">
             </div> -->
             <!-- Thêm nhiều tin nhắn ở đây -->
-            <ul id="textchat"></ul>
-            <div id="hienthimessage"></div>
           </div>
           <div class="chat-input">
             <div class="input-group">

@@ -11,6 +11,7 @@
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <link rel="stylesheet" href="css/giohang.css">
+<link rel="stylesheet" href="css/chatonline.css">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
@@ -282,50 +283,53 @@
   </div>
 </footer>
 
-      <!-- Ô chat online -->
-      <div class="container">
-        <button class="fixed-div btn btn-primary" id="iconclick">
-          <i class="fas fa-comment-alt text-primary" style="font-size: 30px; margin-top: 5px; margin-left: -2px;"></i>
-        </button>
-        <div class="boxchat hide bg-primary" id="boxchat">
-          <div class="bannerchatbox">
-            <div class="logoboxchat border-right mx-2 pr-2" id="img-avatar-user">
-              <img id="user-avatar" src="images/user1.jpg" alt="">
+    <!-- Icon chat online -->
+    <button class="fixed-div btn btn-primary" id="iconclick">
+      <i class="fas fa-comment-alt text-primary" style="font-size: 30px; margin-top: 5px; margin-left: -2px;"></i>
+    </button>
+    <!-- Hiển thị toàn bộ tin nhắn theo id người dùng   -->
+    <div class="container" id="boxshowchatmess">
+      <div class="boxchatmess hide bg-primary p-2" id="boxchat">
+        <div class="chat-container p-2">
+          <div class="chat-header row">
+            <div class="col-md-2 d-flex align-items-center">
+              <img id="user-avatar" src="" alt="Header Image" class="header-image">
             </div>
-            <div class="titleboxchat">
-              <h7 class="text-white">iFanShop Xin chào, chúng tôi sẵn sàng hỗ trợ bạn</h7>
-              <span class="text-white" id="fullname"></span>
-            </div>
-            <div class="mx-2">
-              <button id="closebt" type="button" class="btn btn-lg btn-link text-decoration-none iconclose">
-                <ion-icon name="close-outline" style="font-size: 35px; color: #fff;"></ion-icon>
-              </button>
-            </div>
-          </div>
-          <hr>
-          <div class="chat">
-            <div>
-              <ul id="textchat"></ul>
-            </div>
-          </div>
-          <hr>
-          <div class="input-message form-group-boxchat">
-            <form action="" id="message-form" class="form-chat"> <!-- Đổi ID thành message-form -->
-              <input class="form-control" type="text" id="message-input" placeholder="Nhập" required
-                style="width: 235px;">
-              <!-- Đổi ID thành message-input -->
-              <div class="d-flex">
-                <button type="submit" class="btn btn-outline-primary me-2 send-button" id="send">
-                  <div class="d-flex">
-                    Gửi
-                    <ion-icon name="send-outline" style="font-size: 25px;"></ion-icon>
-                  </div>
-                </button>
+            <div class="col-md-8">
+              <div class="col">
+                <span class="header-title">iFanShop Xin Chào!</span> <br>
+                <span class="footer-title">Chúng tôi có thể hỗ trợ gì cho <span id="fullname"></span>?</span>
               </div>
-            </form>
+            </div>
+            <div class="col-md-2 d-flex justify-content-center align-items-center">
+              <button id="closebuttonchat" class="btn btn-outline-secondary btn-sm closebuttonchat"><i class="bi bi-x" style="font-size: 2rem; color: white;"></i></button>
+            </div>
           </div>
-
+          <div class="chat-messages mt-2" id="hienthimessage">
+            <!-- <div class="chat-message received">
+              <img src="https://via.placeholder.com/40" class="avatar" alt="User Avatar">
+              <div class="message-content">
+                Xin chào! Bạn thế nào?
+              </div>
+            </div>
+            <div class="chat-message sent">
+              <div class="message-content">
+                Mình ổn, cảm ơn! Còn bạn?
+              </div>
+              <img src="https://via.placeholder.com/40" class="avatar" alt="User Avatar">
+            </div> -->
+            <!-- Thêm nhiều tin nhắn ở đây -->
+          </div>
+          <div class="chat-input">
+            <div class="input-group">
+              <form action="" id="message-form" class="input-group">
+                <input id="message-input" type="text" class="form-control" required placeholder="Nhập tin nhắn...">
+                <button id="send" class="btn btn-success" type="submit"><i class="fas fa-paper-plane"></i> Gửi</button>
+              </form>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 
 </body>

@@ -152,11 +152,11 @@
   }
   .chat-messages {
     flex: 1;
-    padding: 10px;
+    padding: 0 10px 10px 10px;
     overflow-y: auto;
     background-color: #f5f5f5;
     border-radius: 10px;
-    border-bottom : none;
+    border-bottom : none; 
   }
   .chat-message {
     display: flex;
@@ -215,12 +215,24 @@
     border-radius: 10px;
     max-width: 70%;
   }
-  .chat-message.sent .message-content {
+  /* .chat-message.sent .message-content {
     background-color: #d1e7dd;
-  }  
+  }   */
   .message-time {
     text-align: center;
     margin: 0px 0;
     font-size: 0.75rem;
     color: gray;
   } 
+.closebuttonchat{
+  border: none;
+  margin-left: -35px;
+  margin-top: -20px;
+}  
+.closebuttonchat:hover {
+  background-color: inherit; /* Hoặc màu nền bạn muốn */
+  color: inherit; /* Hoặc màu chữ bạn muốn */
+  border-color: inherit; /* Hoặc màu viền bạn muốn */
+  box-shadow: none; /* Loại bỏ bóng nếu có */
+  text-decoration: none; /* Loại bỏ gạch chân nếu có */
+}

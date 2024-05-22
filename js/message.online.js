@@ -135,4 +135,27 @@ function displayMessage(message) {
 
 } else {
     console.log('Cookies không tồn tại hoặc đã bị xoá?!');
-  }
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  var iconClickBtn = document.getElementById("iconclick");
+  var boxChat = document.getElementById("boxchat");
+  var closeBtn = document.getElementById("closebuttonchat");
+
+  iconClickBtn.addEventListener("click", function() {
+    iconClickBtn.style.display = "none";
+    boxChat.classList.remove("hide");
+  });
+
+  closeBtn.addEventListener("click", function() {
+    iconClickBtn.style.display = "block";
+    boxChat.classList.add("hide");
+  });
+
+  document.addEventListener("mousedown", function(event) {
+    if (!boxChat.contains(event.target) && event.target !== iconClickBtn) {
+      iconClickBtn.style.display = "block";
+      boxChat.classList.add("hide");
+    }
+  });
+});
