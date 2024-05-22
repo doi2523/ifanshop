@@ -536,40 +536,6 @@ a:hover {
   width: 60px;
   height: 60px;
 }
-.iconcart {
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  z-index: 60;
-  /* background-color: #fff; */
-  border: none;
-  outline: none;
-  cursor: pointer;
-  border-radius: 100%;
-  width: 60px;
-  height: 60px;
-}
-.boxcart {
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  width: 350px;
-  height: 500px;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  z-index: 99;
-  display: flex;
-  flex-direction: column;
-}
-.cart {
-  height: 100%;
-  width: 100%;
-  overflow-y: auto;
-  background-color: #fff;
-  border-radius: 10px;
-}
 .boxchat {
   position: fixed;
   bottom: 20px;
@@ -651,9 +617,6 @@ a:hover {
   display: flex;
   flex-direction: row;
   justify-content: center;
-}
-#message-input {
-  width: 100%;
 }
 .send-button {
   background-color: white;
@@ -961,3 +924,8 @@ a:hover {
 .text-add-shoping{
   color: #fff;
 }
+
+
+
+
+

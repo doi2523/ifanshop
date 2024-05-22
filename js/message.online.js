@@ -76,7 +76,8 @@ document.getElementById('message-form').addEventListener('submit', function(even
         message: message,
         time: formattedDateTime,
         userid: uidProfile,
-        url: URLProfile
+        url: URLProfile,
+        role: RoleProfile,
     }).then(() => {
         // alert('Đã gửi tin nhắn thành công!');
         document.getElementById("message-input").value = "";
@@ -100,21 +101,37 @@ function GetMess() {
 }
 
 function displayMessage(message) {
-    const messages = document.getElementById('textchat');
-    const li = document.createElement('li');
-    li.innerHTML = `
-    <fieldset class="border p-2 mx-2 my-2">
-        <legend class="w-auto legend-small"><img src="${message.url}" alt="User Image"
-                style="width: 40px; height: 40px; border-radius: 100%;"> ${message.name} </legend>
-        ${message.message}<br><br>
-        <p style="margin-bottom: -18px; float: right; background-color: #fff;">${message.time}</p>
-    </fieldset>
-    <hr>
-    `
-    messages.appendChild(li);
-}
+    const messages = document.getElementById('hienthimessage');
+    const div = document.createElement('div');
 
-GetMess();
+          // Tạo phần tử hiển thị thời gian
+          const timeDiv = document.createElement('div');
+          timeDiv.classList.add('message-time');
+          timeDiv.textContent = message.time;
+          messages.appendChild(timeDiv);
+          
+    div.classList.add('chat-message');
+    //Điều kiện hiển thị nếu role là user thì sẽ hiển thị bên phải
+    if (message.role === 'user') {
+      div.classList.add('sent');
+      div.innerHTML = `
+        <div class="message-content">${message.message}</div>
+        <img src="${message.url}" alt="User Avatar" class="avatar-icon">
+      `;
+    } //Nếu là role khác sẽ hiển thị bên trái
+    else {
+      div.classList.add('received');
+      div.innerHTML = `
+        <img src="${message.url}" alt="User Avatar" class="avatar-icon">
+        <div class="message-content">${message.message}</div>
+
+      `;
+    }
+    messages.appendChild(div);
+  }
+//   <div class="message-time">${message.time}</div>
+
+  GetMess();
 
 } else {
     console.log('Cookies không tồn tại hoặc đã bị xoá?!');

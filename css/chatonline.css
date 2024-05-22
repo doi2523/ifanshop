@@ -1,0 +1,226 @@
+.fixed-div {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    /* background-color: #fff; */
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+  }
+.header-image{
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 100%;
+}
+.header-title{
+  color: white;
+  font-size: 18px;
+}
+.footer-title{
+  color: white;
+  font-size: 14px;
+}
+  .boxchatmess {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 350px;
+    height: 500px;
+    background-color: #fff;
+    /* padding: 20px; */
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+  }
+  .btn.btn-primary .text-primary {
+    color: #ffffff !important;
+    /* Màu trắng */
+  }
+  .hide {
+    display: none;
+  }
+  
+  .unhide {
+    display: block;
+  }
+  
+  .chat {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    background-color: #fff;
+    border-radius: 10px;
+  }
+  .logoboxchat img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+  }
+  .custom-thin-icon {
+    font-weight: 100;
+    /* Độ đậm của biểu tượng */
+  }
+  .bannerchatbox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+  }
+  .titleboxchat {
+    width: max-content;
+  }
+  .input-message {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+  }
+  .kedoc {
+    width: 1px;
+    height: 80%;
+    background-color: #fff;
+  }
+  .iconclose {
+    display: flex;
+    margin-top: -30px;
+    margin-right: -20px;
+  }
+  .noti {
+    position: fixed;
+    color: #fff;
+    width: max-content;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: #007bff;
+    font-size: 20px;
+    padding: 5px;
+  }
+  .form-chat {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  .send-button {
+    background-color: white;
+    /* Đặt màu nền là màu trắng */
+    float: right;
+    right: 0;
+    margin-left: auto;
+  }
+  #fullname {
+    text-decoration: underline;
+  }
+  .message-item {
+    padding: 10px;
+  }
+  .banerchatbox {
+    width: max-content;
+    height: 50px;
+  }
+  .form-group img {
+    width: 200px;
+    height: auto;
+  }
+  .kengang {
+    width: 100%;
+    height: 1px;
+    background-color: #000000;
+  }
+  .legend-small {
+    font-size: 15px;
+    /* Điều chỉnh kích thước chữ tùy thích */
+  }
+  .card {
+    margin-top: 20px;
+  }
+
+  .chat-container {
+    max-width: 600px;
+    margin: 0 auto;
+    height: 80vh;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .chat-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    border-bottom : none;
+  }
+  .chat-message {
+    display: flex;
+    margin-bottom: 15px;
+  }
+  /* .chat-message .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  } */
+  .chat-message .message-content {
+    max-width: 75%;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .chat-message.sent .message-content {
+    background-color: #007bff;
+    color: white;
+    margin-left: auto;
+  }
+  .chat-message.received .message-content {
+    background-color: #e9ecef;
+    color: black;
+  }
+  .chat-input {
+    padding: 0px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+  }  
+
+  .chat-messages {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .chat-message {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .chat-message.sent {
+    justify-content: flex-end;
+  }
+  .chat-message.received {
+    justify-content: flex-start;
+  }
+  .avatar-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 10px;
+  }
+  .message-content {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 70%;
+  }
+  .chat-message.sent .message-content {
+    background-color: #d1e7dd;
+  }  
+  .message-time {
+    text-align: center;
+    margin: 0px 0;
+    font-size: 0.75rem;
+    color: gray;
+  } 
