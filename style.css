@@ -74,13 +74,12 @@ a:hover {
   position: absolute;
   width: 80%;
   height: 3px;
-  background-color: #fff;
+  background-color: #f08fff;
   border-radius: 5px;
   transform: scaleX(0);
   transform-origin: right left;
   transition: 0.3s;
   display: flex;
-  justify-content: center;
   align-items: center;
   margin-top: -17px;
 }

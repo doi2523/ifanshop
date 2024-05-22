@@ -68,7 +68,7 @@ function AddItemToList(uid, hoten, urlavatar, userstatus, messageCount) {
     let userName = hoten;
     let userid = uid;
     // Tạo HTML cho hình ảnh và tên người dùng
-    let chatInfoHTML = `<img class="image-avt" src="${imageSrc}" alt="${userName}"> ${userName} [${userstatus}]`;
+    let chatInfoHTML = `<img class="image-avt" src="${imageSrc}" alt="${userName}"> ${userName} [${userstatus}] <span class="${statusDotClass}"></span>`;
 
     // In hình ảnh và tên người dùng ra div chatInfo
     document.getElementById("chatInfo").innerHTML = chatInfoHTML;
@@ -94,7 +94,7 @@ function clearChatInfo() {
 }
 // Hàm để xóa nội dung của phần tử textchat
 function clearTextChat() {
-  document.getElementById("textchat").innerHTML = "";
+  document.getElementById("hienthimessage").innerHTML = "";
 }
 
 function GetMess(userid) {
@@ -113,18 +113,32 @@ function GetMess(userid) {
 }
 
 function displayMessage(message) {
-  const messages = document.getElementById("textchat");
-  const li = document.createElement("li");
-  li.innerHTML = `
-    <fieldset class="border p-2 mx-2 my-2">
-        <legend class="w-auto legend-small"><img class="image-avt" src="${message.url}" alt="User Image" border-radius: 100%;"> ${message.name} </legend>
-        <br>
-        ${message.message}<br><br>
-        <p style="margin-bottom: -18px; float: right; background-color: #fff;">${message.time}</p>
-    </fieldset>
-    <hr>
+  const messages = document.getElementById('hienthimessage');
+  const div = document.createElement('div');
+
+        // Tạo phần tử hiển thị thời gian
+        const timeDiv = document.createElement('div');
+        timeDiv.classList.add('message-time');
+        timeDiv.textContent = message.time;
+        messages.appendChild(timeDiv);
+        
+  div.classList.add('chat-message');
+  //Điều kiện hiển thị nếu role là user thì sẽ hiển thị bên phải
+  if (message.role === 'user') {
+    div.classList.add('received');
+    div.innerHTML = `
+    <img src="${message.url}" alt="User Avatar" class="avatar-icon">
+    <div class="message-content">${message.message}</div>
     `;
-  messages.appendChild(li);
+  } //Nếu là role khác sẽ hiển thị bên trái
+  else {
+    div.classList.add('sent');
+    div.innerHTML = `
+    <div class="message-content">${message.message}</div>
+    <img src="${message.url}" alt="User Avatar" class="avatar-icon">
+    `;
+  }
+  messages.appendChild(div);
 }
 
 function AddAllItemsToList(userData) {
@@ -174,22 +188,28 @@ function GetAllDataOnce() {
 
 GetAllDataOnce();
 //Function lấy dữ liệu từ cookies
-function getCookie(name) {
-  const cookieValue = document.cookie.match(
-    "(^|;)\\s*" + name + "\\s*=\\s*([^;]+)"
-  );
-  return cookieValue ? cookieValue.pop() : "";
-}
+// Đọc giá trị từ cookie
+const userInfoStringFromCookie = Cookies.get('userInfo');
+// Chuyển chuỗi JSON thành đối tượng JavaScript
+if (userInfoStringFromCookie) {
+  const userInfoFromCookie = JSON.parse(userInfoStringFromCookie);
 
-// Sử dụng hàm để lấy giá trị từ cookies
-const uidProfile = getCookie("id_profile");
-const filenameProfile = getCookie("filename_profile");
-const avatarProfile = getCookie("url_profile");
+  const uidProfile = userInfoFromCookie.id_profile; // ID
+  const emailProfile = userInfoFromCookie.email_profile; //Email
+  const hotenProfile = userInfoFromCookie.hoten_profile; //Họ tên
+  const passwordProfile = userInfoFromCookie.password_profile; //Password
+  const sdtProfile = userInfoFromCookie.sdt_profile; //Số điện thoại
+  const usernameProfile = userInfoFromCookie.username_profile; //Username
+  const URLProfile = userInfoFromCookie.url_profile; //Link ảnh
+  const RoleProfile = userInfoFromCookie.role; //Vai trò người dùng
+  const Status = userInfoFromCookie.userstatus; //Trạng thái
+  const TimeLogin = userInfoFromCookie.last_login; //Time đăng nhập
+  const TimeLogout = userInfoFromCookie.last_logout; //Time đăng xuất
 
-document.getElementById("sedmess").addEventListener("submit", function (event) {
+document.getElementById("send").addEventListener("submit", function (event) {
   event.preventDefault();
 
-  var message = document.getElementById("txtchat").value;
+  var message = document.getElementById("message-input").value;
   console.log(message);
   const database = getDatabase(app);
   const messagesRef = ref(database, "messages");
@@ -213,7 +233,8 @@ document.getElementById("sedmess").addEventListener("submit", function (event) {
     message: message,
     time: formattedDateTime,
     userid: UserID,
-    url: avatarProfile,
+    url: URLProfile,
+    role: RoleProfile,
   })
     .then(() => {
       // alert('Đã gửi tin nhắn thành công!');
@@ -223,6 +244,9 @@ document.getElementById("sedmess").addEventListener("submit", function (event) {
       console.error("Error writing message to database: ", error);
     });
 });
+} else {
+  console.log('Cookies không tồn tại hoặc đã bị xoá?!');
+}
 function DeleleData() {
   // Xoá dữ liệu từ localStorage sau khi sử dụng xong
   try {

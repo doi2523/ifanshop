@@ -95,15 +95,31 @@ function AlertSuccess(){
     color: "#716add",
   });
 }
+//Hỏi người dùng có xác nhận đăng xuất không
+function AlertConfirm(){
+  Swal.fire({
+    title: "Bạn chắc không?",
+    text: "Bạn sẽ đăng xuất bây giờ!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes!"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      printAllCookies();
+      deleteAllCookies();
+      AddLastLogout();
+      printAllCookies();
+      AlertSuccess();
+      setTimeout(function() {
+        Logout();
+      }, 3000); 
+    }
+  });
+}
 //Sự kiện khi bấm đăng xuất
 document.getElementById("logout").addEventListener("click", function (event) {
   event.preventDefault();
-  printAllCookies();
-  deleteAllCookies();
-  AddLastLogout();
-  printAllCookies();
-  AlertSuccess();
-  setTimeout(function() {
-    Logout();
-  }, 3000); 
+  AlertConfirm();
 });
