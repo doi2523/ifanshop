@@ -78,10 +78,6 @@ hr {
   transform: translateX(-45%) translateY(0) scale(1);
   transform-origin: bottom center;
 }
-.btn-success {
-  background-color: #f96b6a !important;
-  border-color: #f96b6a !important;
-}
 .featured-area {
   background-color: #edeff9;
 }

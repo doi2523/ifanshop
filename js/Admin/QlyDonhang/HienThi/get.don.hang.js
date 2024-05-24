@@ -95,7 +95,7 @@ function displayDonhang(MaDonhang, time, soluongmua, tongtien, thongtindonhang, 
     // Thêm thông tin của mỗi sản phẩm trong đơn hàng vào HTML
     thongtindonhang.forEach((item, index) => {
         html += `
-        <div class="row">
+        <div class="row product-info" style="border:none">
         <div class="img-don-hang col-md-4">
             <img style="max-width: 90px; height: 100px;" src="${item.url}" alt="">
         </div>
@@ -109,6 +109,25 @@ function displayDonhang(MaDonhang, time, soluongmua, tongtien, thongtindonhang, 
     </div>    
         `;
     });
+    // Xác định màu sắc dựa trên tình trạng
+    let color;
+    switch (tinhtrang) {
+        case "Đã xác nhận":
+            color = "green";
+            break;
+        case "Đang giao hàng":
+            color = "blue";
+            break;
+        case "Đã giao thành công":
+            color = "green";
+            break;
+        case "Đơn hàng bị huỷ":
+            color = "red";
+            break;
+        default:
+            color = "black";
+            break;
+    }
     html += `</td>
     <td>
         <div class="product-info">
@@ -116,7 +135,7 @@ function displayDonhang(MaDonhang, time, soluongmua, tongtien, thongtindonhang, 
         Số lượng mua: <span style="color: #007bff;">${soluongmua}</span><br>
         Thành tiền: <span style="color: #007bff;">${parseFloat(tongtien).toLocaleString()}₫</span><br>
         Thời gian đặt: <span style="color: #007bff;">${time}</span><br>
-        Tình trạng: <span style="color: #007bff;">${tinhtrang}</span> <br>
+        Tình trạng: <span style="color: ${color}; font-weight: bold;">${tinhtrang}</span> <br>
         </div>
     </div>
     </td>

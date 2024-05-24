@@ -149,6 +149,14 @@ const tongsoluongValue = parseInt(localStorage.getItem('tongsoluongValue'));
 const formattedTongtien = parseFloat(tongtienFloat).toLocaleString();
 tongtienSpan.textContent = `${formattedTongtien}₫`;
 tongSoLuongSpan.textContent = tongsoluongValue;
+
+document.getElementById("apdung").addEventListener("click", function() {
+  // Ngăn form khỏi tải lại trang
+  event.preventDefault();
+  const Magiamgia = document.getElementById("input_magiamgia").value;
+  const tongtienSpan = document.getElementById("tongtien");
+  console.log(Magiamgia)
+});
 // Lắng nghe sự kiện click trên nút "Tiến hành đặt hàng"
 document.getElementById("tieptuc").addEventListener("submit", function() {
     // Ngăn form khỏi tải lại trang
