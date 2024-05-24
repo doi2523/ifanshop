@@ -197,12 +197,16 @@ switch (ThongTinDonhang.tinhtrang) {
     if (MaDonhangXoa === "") {
       HighlightInputError(document.getElementById('madonhangtuychon'));
       // Nếu ô input trống, hiển thị cảnh báo và dừng hàm
-      AlertError("Vui lòng nhập mã đơn hàng!");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Vui lòng nhập mã đơn hàng!",
+      });
       return;
     }
     HandleInputData();
     // Nếu ô input không trống, thực hiện hàm AlertConfirm để xác nhận xóa đơn hàng
-    AlertConfirm(iduser, MaDonhangXoa, tr);
+    AlertConfirmXoaDonHang(iduser, MaDonhangXoa, tr);
     });
     document.getElementById('editdonhang').addEventListener('click', function() {
       event.preventDefault();
@@ -210,7 +214,11 @@ switch (ThongTinDonhang.tinhtrang) {
       if (MaDonhangSua === "") {
         HighlightInputError(document.getElementById('madonhangtuychon'));
         // Nếu ô input trống, hiển thị cảnh báo và dừng hàm
-        AlertError("Vui lòng nhập mã đơn hàng!");
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Vui lòng nhập mã đơn hàng!",
+        });
         return;
       }
       HandleInputData();
@@ -225,12 +233,16 @@ switch (ThongTinDonhang.tinhtrang) {
           if (MaDonhangTim === "") {
           HighlightInputError(document.getElementById('madonhangtuychon'));
           // Nếu ô input trống, hiển thị cảnh báo và dừng hàm
-          AlertError("Vui lòng nhập mã đơn hàng!");
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Vui lòng nhập mã đơn hàng!",
+          });
           return;
           }
           HandleInputData();
           // Nếu ô input không trống, thực hiện hàm AlertConfirm để xác nhận xóa đơn hàng
-          TimKiem(MaNguoiDung, MaDonhangTim, tr);
+          TimKiem(iduser, MaDonhangTim, tr);
         
        });
       document.getElementById('thoat').addEventListener('click', function() {
@@ -291,6 +303,34 @@ function DeleteDonHang(iduser, MaDonhangXoa, tr) {
       AlertError0();
     });
 }
+function XoaLopTimKiem() {
+  var trList = document.querySelectorAll('tr.highlight-row');
+
+  // Lặp qua tất cả các hàng có lớp CSS 'highlight-row' và xoá lớp đó
+  trList.forEach(function(tr) {
+      tr.classList.remove('highlight-row');
+  });
+}
+function TimKiem(iduser, MaDonhangTim, tr) {
+  var tdList = document.querySelectorAll('td.ma-don-hang');
+
+  // Lặp qua từng thẻ td chứa mã đơn hàng
+  tdList.forEach(function(td) {
+      var maDonHang = td.getAttribute('data-madonhang');
+
+      // So sánh giá trị mã đơn hàng
+      if (maDonHang === MaDonhangTim) {
+          // Nếu tìm thấy mã đơn hàng, cuộn trang đến hàng đó và làm sáng hàng
+          td.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Cuộn trang đến thẻ td chứa mã đơn hàng
+          td.parentElement.classList.add('highlight-row'); // Thêm lớp CSS để làm sáng hàng chứa mã đơn hàng
+          console.log("Đã tìm thấy mã đơn hàng:", maDonHang);
+      } else {
+          // Nếu không tìm thấy mã đơn hàng, loại bỏ lớp CSS làm sáng hàng
+          td.parentElement.classList.remove('highlight-row');
+      }
+  });
+}
+
   // Hàm xử lý khi dữ liệu đã được nhập vào ô input
 function HandleInputData() {
     var inputElement = document.getElementById('madonhangtuychon');
@@ -310,7 +350,7 @@ function HighlightInputError(inputElement) {
 function RemoveInputErrorHighlight(inputElement) {
     inputElement.classList.remove("error-input"); // Loại bỏ lớp error-input khỏi ô input
 }
-function AlertConfirm1(MaNguoiDung, MaDonhangXoa, tr){
+function AlertConfirmXoaDonHang(iduser, MaDonhangXoa, tr){
   Swal.fire({
       title: "Bạn chắc không?",
       text: "Bạn sẽ xoá đơn hàng này!",
@@ -326,29 +366,9 @@ function AlertConfirm1(MaNguoiDung, MaDonhangXoa, tr){
           text: "Đơn hàng này đã được xoá.",
           icon: "success"
         });
-        DeleteDonHang(MaNguoiDung, MaDonhangXoa, tr);
+        DeleteDonHang(iduser, MaDonhangXoa, tr);
       }
     });
-}
-
-function TimKiem(MaNguoiDung, MaDonhangTim) {
-  var tdList = document.querySelectorAll('td.ma-don-hang');
-
-  // Lặp qua từng thẻ td chứa mã đơn hàng
-  tdList.forEach(function(td) {
-      var maDonHang = td.getAttribute('data-madonhang');
-
-      // So sánh giá trị mã đơn hàng
-      if (maDonHang === MaDonhangTim) {
-          // Nếu tìm thấy mã đơn hàng, cuộn trang đến hàng đó và làm sáng hàng
-          td.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Cuộn trang đến thẻ td chứa mã đơn hàng
-          td.parentElement.classList.add('highlight-row'); // Thêm lớp CSS để làm sáng hàng chứa mã đơn hàng
-          console.log("Đã tìm thấy mã đơn hàng:", maDonHang);
-      } else {
-          // Nếu không tìm thấy mã đơn hàng, loại bỏ lớp CSS làm sáng hàng
-          td.parentElement.classList.remove('highlight-row');
-      }
-  });
 }
 function Alert(){
     const Toast = Swal.mixin({

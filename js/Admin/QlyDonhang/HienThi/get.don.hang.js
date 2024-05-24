@@ -341,7 +341,7 @@ function AlertError(){
         title: "Oops...",
         text: "Vui lòng nhập mã đơn hàng!",
       });
-  }
+}
   // Hàm xử lý khi dữ liệu đã được nhập vào ô input
 function HandleInputData() {
     var inputElement = document.getElementById('madonhangtuychon');
