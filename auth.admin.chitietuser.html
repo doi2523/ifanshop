@@ -104,7 +104,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="auth.qlyaccount.html">
+                    <a class="nav-link active" href="auth.qlyaccount.html">
                         <i class="bi bi-people sz"></i>
                         <span class="sz">QLY người dùng</span>
                     </a>
@@ -190,9 +190,9 @@
         <div class="container">
           <h1 style="padding-top: 40px;">Đơn hàng</h1>
           <div class="row">
-            <div class="col-md-8"> <!-- Giảm số cột để làm cho bảng nhỏ hơn -->
+            <div class="col-md-9"> <!-- Giảm số cột để làm cho bảng nhỏ hơn -->
               <div class="table-responsive">
-                  <table class="table table-striped table-hover table-sm"> <!-- Thêm lớp table-sm để làm cho bảng nhỏ hơn -->
+                  <table class="table table-striped table-hover table-sm table-border"> <!-- Thêm lớp table-sm để làm cho bảng nhỏ hơn -->
                       <thead class="thead-dark">
                           <tr>
                               <th scope="col">Mã đơn hàng</th>
@@ -208,34 +208,42 @@
                   <div class="d-flex justify-content-end mb-3"></div>
               </div>
           </div>
-          
-            <div class="col-md-4">
-              <!-- Nơi để hiển thị thông tin thanh toán -->
-              <!-- Ví dụ: -->
-              <div class="card" style="margin-top: 0;">
-                <div class="card-body">      
-                  <div class="d-flex justify-content-between align-items-center">      
-                    <h5 class="card-title mb-0">Thông tin đơn hàng</h5>
-                    <a href="auth.thanhtoan.html" class="btn btn-primary">Sửa</a>
-                  </div>
-                  <!-- Thêm các thông tin thanh toán của bạn vào đây -->
-                  <span class="card-text" style="font-size: 15px; font-weight: bold;">Mã đơn hàng: <span id="span-madonhang" style=" color: #007bff;"></span></span><br>
-                  <span class="card-text" style="font-size: 15px; font-weight: bold;">Tổng số lượng sản phẩm: <span id="span-tongsoluong" style=" color: #007bff;"></span></span><br>
-                  <span class="card-text" style="font-size: 15px; font-weight: bold;">Tổng giá tiền: <span id="span-tongtien" style=" color: #007bff;"></span></span><hr>
-                  <!-- <button id="tieptuc" type="button" class="btn btn-success mt-3">Tiếp tục</button> -->
-                <h5>Tình trạng</h5>
-                <p class="card-text" style="font-size: 15px; font-weight: bold;"style=" color: #007bff;">Đang giao hàng</p>
-                <hr>
+          <!-- <div class="col-md-4">
+            <div class="card" style="margin-top: 0;">
+              <div class="card-body">      
                 <div class="d-flex justify-content-between align-items-center">      
-                  <h5 class="card-title mb-0">Giao tới</h5>
-                  <button type="button" class="btn btn-primary">Sửa</button>
+                  <h5 class="card-title mb-0">Thông tin đơn hàng</h5>
+                  <a href="auth.thanhtoan.html" class="btn btn-primary">Sửa</a>
                 </div>
-                <p class="card-text" style="font-size: 15px; font-weight: bold;">Tên người nhận: <span id="tennguoinhan" style=" color: #007bff;"></span></p>
-                <p class="card-text" style="font-size: 15px; font-weight: bold;">Số điện thoại: <span id="sdtnguoinhan" style=" color: #007bff;"></span></p>
-                <p class="card-text" style="font-size: 15px; font-weight: bold;">Email: <span id="emailnguoinhan" style=" color: #007bff;"></span></p>
-                <p class="card-text" style="font-size: 15px; font-weight: bold;">Địa chỉ: <span id="diachinguoinhan" style=" color: #007bff;"></span></p>
+                <span class="card-text" style="font-size: 15px; font-weight: bold;">Mã đơn hàng: <span id="span-madonhang" style=" color: #007bff;"></span></span><br>
+                <span class="card-text" style="font-size: 15px; font-weight: bold;">Tổng số lượng sản phẩm: <span id="span-tongsoluong" style=" color: #007bff;"></span></span><br>
+                <span class="card-text" style="font-size: 15px; font-weight: bold;">Tổng giá tiền: <span id="span-tongtien" style=" color: #007bff;"></span></span><hr>
+              <h5>Tình trạng</h5>
+              <p class="card-text" style="font-size: 15px; font-weight: bold;"style=" color: #007bff;">Đang giao hàng</p>
+              <hr>
+              <div class="d-flex justify-content-between align-items-center">      
+                <h5 class="card-title mb-0">Giao tới</h5>
+                <button type="button" class="btn btn-primary">Sửa</button>
               </div>
-              </div>
+              <p class="card-text" style="font-size: 15px; font-weight: bold;">Tên người nhận: <span id="tennguoinhan" style=" color: #007bff;"></span></p>
+              <p class="card-text" style="font-size: 15px; font-weight: bold;">Số điện thoại: <span id="sdtnguoinhan" style=" color: #007bff;"></span></p>
+              <p class="card-text" style="font-size: 15px; font-weight: bold;">Email: <span id="emailnguoinhan" style=" color: #007bff;"></span></p>
+              <p class="card-text" style="font-size: 15px; font-weight: bold;">Địa chỉ: <span id="diachinguoinhan" style=" color: #007bff;"></span></p>
+            </div>
+            </div>
+          </div> -->
+            <div id="fixer-tuychon" class="fixer-tuychon">
+              <h1 class="text-white mt-2" style=" text-align: center;">Tuỳ chọn</h1>
+              <div><hr><form action="">
+                <span class="text-white">Mã đơn hàng:<input style="font-weight: bold;" class="text-danger form-control" id="madonhangtuychon" placeholder="Nhập mã đơn hàng" required>
+              </div><hr>
+              <div>
+                <button type="button" id="editdonhang" class="btn btn-primary"><i class="fas fa-edit"></i> Sửa</button>
+                <button type="button" id="timkiemdonhang"  class="btn btn-primary"><i class="fas fa-search"></i>Tìm vị trí</button>
+                <hr>
+                <button type="submit" id="xoadonhang"  class="btn btn-danger"><i class="bi bi-trash"></i> Xoá</button> 
+                <button type="button" id="thoat"  class="btn btn-primary">Thoát</button>
+              </div></form>
             </div>
           </div>
           <hr>

@@ -123,13 +123,13 @@ function GetDonhang() {
     const ThongTinDonhang = snapshot.val();
     const thongtindonhang = ThongTinDonhang.thongtindonhang;
     // Gọi displayDonhang chỉ một lần cho mỗi đơn hàng
-    displayDonhang(MaDonhang, thongtindonhang, ThongTinDonhang);
+    displayDonhang(MaDonhang, thongtindonhang, ThongTinDonhang, iduser);
       }
     });
   });
 }
         
-function displayDonhang(MaDonhang, thongtindonhang, ThongTinDonhang) {
+function displayDonhang(MaDonhang, thongtindonhang, ThongTinDonhang, iduser) {
   const donhangs = document.getElementById("hienthi");
   const tr = document.createElement("tr");
         
@@ -142,52 +142,109 @@ function displayDonhang(MaDonhang, thongtindonhang, ThongTinDonhang) {
   thongtindonhang.forEach((item, index) => {
     html += `
       <div class="product-info">
-        <div class="img-don-hang"><img src="${item.url}" alt=""></div>
-        <div>
-            Tên: <span>${item.tensanpham}</span><br>
-            Màu: <span>${item.color}</span><br>
-            Dung lượng: ${item.dungluong}</span><br>
-            Số lượng : <span>${item.soluong}</span> <br>
-            Phương thức: <span>${item.payment}</span>
-        </div>
+      <div class="row">
+      <div class="col-md-4 img-don-hang">
+      <img style="max-width: 70px; max-height: 85px;" src="${item.url}" alt="">
+       </div>
+      <div class="col-md-8">
+          Tên: <span>${item.tensanpham}</span><br>
+          Màu: <span>${item.color}</span><br>
+          Dung lượng: ${item.dungluong}</span><br>
+          Số lượng : <span>${item.soluong}</span> <br>
+          Phương thức: <span>${item.payment}</span>
+      </div>
+      </div>
       </div>`;
   });
-        
+// Xác định màu sắc dựa trên tình trạng
+let color;
+switch (ThongTinDonhang.tinhtrang) {
+    case "Đã xác nhận":
+        color = "green";
+        break;
+    case "Đang giao hàng":
+        color = "blue";
+        break;
+    case "Đã giao thành công":
+        color = "green";
+        break;
+    case "Đơn hàng bị huỷ":
+        color = "red";
+        break;
+    default:
+        color = "black";
+        break;
+}
   html += `</td>
       <td>${parseFloat(ThongTinDonhang.tongtien).toLocaleString()}₫</td>
       <td>${ThongTinDonhang.tongsl}</td>
       <td>${ThongTinDonhang.time}</td>
-      <td>${ThongTinDonhang.tinhtrang}</td>
+      <td style="color: ${color};">${ThongTinDonhang.tinhtrang}</td>
   `;
         
   tr.innerHTML = html;
   donhangs.appendChild(tr);
         
-  // Gắn sự kiện click vào hàng
+  // // Gắn sự kiện click vào hàng
   tr.addEventListener("click", function() {
-  // Lấy tham chiếu đến các thẻ span bằng id
-  const spanMaDonHang = document.getElementById("span-madonhang");
-  const spanTongSoLuong = document.getElementById("span-tongsoluong");
-  const spanTongTien = document.getElementById("span-tongtien");
-  const spanTenNguoiNhan = document.getElementById("tennguoinhan");
-  const spanSDTNguoiNhan = document.getElementById("sdtnguoinhan");
-  const spanEmailNguoiNhan = document.getElementById("emailnguoinhan");
-  const spanDiaChiNguoiNhan = document.getElementById("diachinguoinhan");
+    var fixer = document.getElementById("fixer-tuychon");
+    fixer.classList.add("active");// Thêm hoặc xóa lớp active
+    const spanMaDonHangTuyChon = document.getElementById("madonhangtuychon");
+    spanMaDonHangTuyChon.value = MaDonhang;
+  document.getElementById('xoadonhang').addEventListener('click', function(event) {
+    event.preventDefault();
+    var MaDonhangXoa = document.getElementById('madonhangtuychon').value.trim(); // Lấy giá trị từ ô input và loại bỏ khoảng trắng đầu cuối
+    if (MaDonhangXoa === "") {
+      HighlightInputError(document.getElementById('madonhangtuychon'));
+      // Nếu ô input trống, hiển thị cảnh báo và dừng hàm
+      AlertError("Vui lòng nhập mã đơn hàng!");
+      return;
+    }
+    HandleInputData();
+    // Nếu ô input không trống, thực hiện hàm AlertConfirm để xác nhận xóa đơn hàng
+    AlertConfirm(iduser, MaDonhangXoa, tr);
+    });
+    document.getElementById('editdonhang').addEventListener('click', function() {
+      event.preventDefault();
+      var MaDonhangSua = document.getElementById('madonhangtuychon').value.trim(); // Lấy giá trị từ ô input và loại bỏ khoảng trắng đầu cuối
+      if (MaDonhangSua === "") {
+        HighlightInputError(document.getElementById('madonhangtuychon'));
+        // Nếu ô input trống, hiển thị cảnh báo và dừng hàm
+        AlertError("Vui lòng nhập mã đơn hàng!");
+        return;
+      }
+      HandleInputData();
+        localStorage.setItem('MaDonhangSua', MaDonhangSua);
+        localStorage.setItem('MaNguoiMua', iduser);
+        window.location.href = 'auth.admin.editdonhang.html';
+      });
+      // Thêm sự kiện cho nút tìm kiếm
+      document.getElementById('timkiemdonhang').addEventListener('click', function() {
+          event.preventDefault();
+          var MaDonhangTim = document.getElementById('madonhangtuychon').value.trim(); // Lấy giá trị từ ô input và loại bỏ khoảng trắng đầu cuối
+          if (MaDonhangTim === "") {
+          HighlightInputError(document.getElementById('madonhangtuychon'));
+          // Nếu ô input trống, hiển thị cảnh báo và dừng hàm
+          AlertError("Vui lòng nhập mã đơn hàng!");
+          return;
+          }
+          HandleInputData();
+          // Nếu ô input không trống, thực hiện hàm AlertConfirm để xác nhận xóa đơn hàng
+          TimKiem(MaNguoiDung, MaDonhangTim, tr);
         
-  // Gán giá trị vào các thẻ span
-  spanMaDonHang.textContent = MaDonhang;
-  spanTongSoLuong.textContent = ThongTinDonhang.tongsl;
-  spanTongTien.textContent = parseFloat(ThongTinDonhang.tongtien).toLocaleString() + "₫";
-  spanTenNguoiNhan.textContent = ThongTinDonhang.hoten;
-  spanSDTNguoiNhan.textContent = ThongTinDonhang.sdt;
-  spanEmailNguoiNhan.textContent = ThongTinDonhang.mail;
-  spanDiaChiNguoiNhan.textContent = ThongTinDonhang.diachi;
+       });
+      document.getElementById('thoat').addEventListener('click', function() {
+          event.preventDefault();
+          XoaLopTimKiem();
+          fixer.classList.remove("active");
+          spanMaDonHangTuyChon.value = "";
+      });
   })
 }
         
 // Gọi hàm GetDonhang để bắt đầu quá trình lấy dữ liệu và hiển thị
 GetDonhang();
-        
+
 function deleteUser() {
     const iduser= localStorage.getItem("iduser");
     let UserRef = ref(database, "users/" + iduser);
@@ -202,7 +259,97 @@ function deleteUser() {
       .catch((error) => {
         alert("Lỗi khi xoá tin nhắn:", error);
       });
-  }
+}
+function DeleteDonHang(iduser, MaDonhangXoa, tr) {
+  // Tham chiếu đến đơn hàng cần xóa
+  let DonhangRef = ref(database, "Donhang/" + iduser + "/" + MaDonhangXoa);
+  // Kiểm tra sự tồn tại của đơn hàng trước khi xóa
+  get(DonhangRef)
+  .then((snapshot) => {
+    if (snapshot.exists()) {
+    // Đơn hàng tồn tại, thực hiện xóa
+    remove(DonhangRef)
+    .then(() => {
+        tr.remove();
+        var fixer = document.getElementById("fixer-tuychon");
+        fixer.classList.toggle("active");
+    })
+    .catch((error) => {
+        AlertError0();
+    });
+    } else {
+      // Đơn hàng không tồn tại, báo lỗi
+      Swal.fire({
+          title: "Error!",
+          text: "Đơn hàng không tồn tại trong cơ sở dữ liệu.",
+          icon: "error",
+      });
+    }
+    })
+    .catch((error) => {
+      // Xảy ra lỗi khi kiểm tra sự tồn tại của đơn hàng
+      AlertError0();
+    });
+}
+  // Hàm xử lý khi dữ liệu đã được nhập vào ô input
+function HandleInputData() {
+    var inputElement = document.getElementById('madonhangtuychon');
+    var inputValue = inputElement.value.trim();
+
+    if (inputValue !== "") {
+        // Nếu dữ liệu đã được nhập vào ô input, loại bỏ sự làm sáng ô input lên
+        RemoveInputErrorHighlight(inputElement);
+    }
+}
+// Khi xảy ra lỗi
+function HighlightInputError(inputElement) {
+    inputElement.classList.add("error-input"); // Thêm lớp error-input vào ô input
+}
+
+// Khi không còn lỗi nữa (sau khi đã nhập dữ liệu vào ô input)
+function RemoveInputErrorHighlight(inputElement) {
+    inputElement.classList.remove("error-input"); // Loại bỏ lớp error-input khỏi ô input
+}
+function AlertConfirm1(MaNguoiDung, MaDonhangXoa, tr){
+  Swal.fire({
+      title: "Bạn chắc không?",
+      text: "Bạn sẽ xoá đơn hàng này!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Deleted!",
+          text: "Đơn hàng này đã được xoá.",
+          icon: "success"
+        });
+        DeleteDonHang(MaNguoiDung, MaDonhangXoa, tr);
+      }
+    });
+}
+
+function TimKiem(MaNguoiDung, MaDonhangTim) {
+  var tdList = document.querySelectorAll('td.ma-don-hang');
+
+  // Lặp qua từng thẻ td chứa mã đơn hàng
+  tdList.forEach(function(td) {
+      var maDonHang = td.getAttribute('data-madonhang');
+
+      // So sánh giá trị mã đơn hàng
+      if (maDonHang === MaDonhangTim) {
+          // Nếu tìm thấy mã đơn hàng, cuộn trang đến hàng đó và làm sáng hàng
+          td.scrollIntoView({ behavior: 'smooth', block: 'center' }); // Cuộn trang đến thẻ td chứa mã đơn hàng
+          td.parentElement.classList.add('highlight-row'); // Thêm lớp CSS để làm sáng hàng chứa mã đơn hàng
+          console.log("Đã tìm thấy mã đơn hàng:", maDonHang);
+      } else {
+          // Nếu không tìm thấy mã đơn hàng, loại bỏ lớp CSS làm sáng hàng
+          td.parentElement.classList.remove('highlight-row');
+      }
+  });
+}
 function Alert(){
     const Toast = Swal.mixin({
         toast: true,

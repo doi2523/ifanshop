@@ -96,7 +96,6 @@ function clearChatInfo() {
 function clearTextChat() {
   document.getElementById("hienthimessage").innerHTML = "";
 }
-
 function GetMess(userid) {
   const database = getDatabase();
   const databaseRef = ref(database, "messages/" + userid);
@@ -110,29 +109,29 @@ function GetMess(userid) {
     }
   );
 }
-function AutoGetMess() {
-  const database = getDatabase();
-  const UserID = localStorage.getItem("UserID");
-  const databaseRef = ref(database, "messages/" + UserID);
-  // Lắng nghe sự kiện child_added để nhận thông báo khi có tin nhắn mới được thêm vào
-  onChildAdded(databaseRef,(snapshot) => {
-      const message = snapshot.val();
-      displayMessage(message);
-      let imageSrc = message.url;
-      let userName = message.name;
-      let userid = message.userid;
-      // Tạo HTML cho hình ảnh và tên người dùng
-      let chatInfoHTML = `<img class="image-avt" src="${imageSrc}" alt="${userName}"> ${userName}`;
+// function AutoGetMess() {
+//   const database = getDatabase();
+//   const UserID = localStorage.getItem("UserID");
+//   const databaseRef = ref(database, "messages/" + UserID);
+//   // Lắng nghe sự kiện child_added để nhận thông báo khi có tin nhắn mới được thêm vào
+//   onChildAdded(databaseRef,(snapshot) => {
+//       const message = snapshot.val();
+//       displayMessage(message);
+//       let imageSrc = message.url;
+//       let userName = message.name;
+//       let userid = message.userid;
+//       // Tạo HTML cho hình ảnh và tên người dùng
+//       let chatInfoHTML = `<img class="image-avt" src="${imageSrc}" alt="${userName}"> ${userName}`;
   
-      // In hình ảnh và tên người dùng ra div chatInfo
-      document.getElementById("chatInfo").innerHTML = chatInfoHTML;
-    },
-    (error) => {
-      console.error("Error getting messages: ", error);
-    }
-  );
-}
-AutoGetMess();
+//       // In hình ảnh và tên người dùng ra div chatInfo
+//       document.getElementById("chatInfo").innerHTML = chatInfoHTML;
+//     },
+//     (error) => {
+//       console.error("Error getting messages: ", error);
+//     }
+//   );
+// }
+// AutoGetMess();
 function displayMessage(message) {
   const messages = document.getElementById('hienthimessage');
   const div = document.createElement('div');
@@ -242,8 +241,17 @@ document.getElementById("send").addEventListener("submit", function (event) {
       title: "Oops...",
       text: "Vui lòng chọn người để nhắn tin!",
     });
-    return; // Ngắt dòng lệnh nếu UserID không tồn tại hoặc rỗng
-}
+  return; // Ngắt dòng lệnh nếu UserID không tồn tại hoặc rỗng
+  }
+  // Kiểm tra xem chọn người dùng để nhắn tin chưa
+  var chatInfoElement = document.getElementById("chatInfo");
+  if (!chatInfoElement || !chatInfoElement.innerHTML.trim()) {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Please select a user to chat with!",
+    });
+  } else {
 
   const userMessagesRef = child(messagesRef, UserID); // Tạo nút con cho từng người dùng
   const newMessageRef = push(userMessagesRef); // Tạo một khóa mới trong nút của người dùng
@@ -272,6 +280,7 @@ document.getElementById("send").addEventListener("submit", function (event) {
     .catch((error) => {
       console.error("Error writing message to database: ", error);
     });
+  };
 });
 } else {
   console.log('Cookies không tồn tại hoặc đã bị xoá?!');
@@ -280,9 +289,9 @@ function DeleleData() {
   // Xoá dữ liệu từ localStorage sau khi sử dụng xong
   try {
     localStorage.removeItem("UserID");
-    console.log("Đã xoá thành công key 'UserID' từ localStorage.");
+    // console.log("Đã xoá thành công key 'UserID' từ localStorage.");
     const UserID = localStorage.getItem("UserID");
-    console.log("URL ảnh từ localStorage:", UserID);
+    // console.log("URL ảnh từ localStorage:", UserID);
   } catch (error) {
     console.error("Lỗi khi xoá key 'UserID' từ localStorage:", error);
   }

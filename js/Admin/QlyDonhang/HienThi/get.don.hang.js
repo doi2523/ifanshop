@@ -146,7 +146,6 @@ function displayDonhang(MaDonhang, time, soluongmua, tongtien, thongtindonhang, 
 
         // Gắn sự kiện click vào hàng
     tr.addEventListener("click", function() {
-        // In ra tất cả dữ liệu trong hàng
         // Bắt đầu animation khi click vào hàng
         var fixer = document.getElementById("fixer-tuychon");
         fixer.classList.add("active");// Thêm hoặc xóa lớp active
@@ -165,23 +164,6 @@ function displayDonhang(MaDonhang, time, soluongmua, tongtien, thongtindonhang, 
         //     console.log("Phương thức thanh toán:", item.payment);
         // });
         const spanMaDonHangTuyChon = document.getElementById("madonhangtuychon");
-                    // Lấy tham chiếu đến các thẻ span bằng id
-            // const spanMaDonHang = document.getElementById("span-madonhang");
-            // const spanTongSoLuong = document.getElementById("span-tongsoluong");
-            // const spanTongTien = document.getElementById("span-tongtien");
-            // const spanTenNguoiNhan = document.getElementById("tennguoinhan");
-            // const spanSDTNguoiNhan = document.getElementById("sdtnguoinhan");
-            // const spanEmailNguoiNhan = document.getElementById("emailnguoinhan");
-            // const spanDiaChiNguoiNhan = document.getElementById("diachinguoinhan");
-
-            // // Gán giá trị vào các thẻ span
-            // spanMaDonHang.textContent = MaDonhang;
-            // spanTongSoLuong.textContent = soluongmua;
-            // spanTongTien.textContent = parseFloat(tongtien).toLocaleString() + "₫";
-            // spanTenNguoiNhan.textContent = hoten;
-            // spanSDTNguoiNhan.textContent = sdt;
-            // spanEmailNguoiNhan.textContent = mail;
-            // spanDiaChiNguoiNhan.textContent = diachi;
             spanMaDonHangTuyChon.value = MaDonhang;
             document.getElementById('xoadonhang').addEventListener('click', function(event) {
                 event.preventDefault();
