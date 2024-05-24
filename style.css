@@ -521,34 +521,6 @@ a:hover {
   z-index: 2;
   border-radius: 100%;
 }
-
-.fixed-div {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1000;
-  /* background-color: #fff; */
-  border: none;
-  outline: none;
-  cursor: pointer;
-  border-radius: 100%;
-  width: 60px;
-  height: 60px;
-}
-.boxchat {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 350px;
-  height: 500px;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  z-index: 90;
-  display: flex;
-  flex-direction: column;
-}
 .btn.btn-primary .text-primary {
   color: #ffffff !important;
   /* Màu trắng */
@@ -561,13 +533,6 @@ a:hover {
   display: block;
 }
 
-.chat {
-  height: 100%;
-  width: 100%;
-  overflow-y: auto;
-  background-color: #fff;
-  border-radius: 10px;
-}
 .logoboxchat img {
   width: 50px;
   height: 50px;
@@ -577,80 +542,10 @@ a:hover {
   font-weight: 100;
   /* Độ đậm của biểu tượng */
 }
-.bannerchatbox {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 70px;
-}
-.titleboxchat {
-  width: max-content;
-}
-.input-message {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-}
-.kedoc {
-  width: 1px;
-  height: 80%;
-  background-color: #fff;
-}
-.iconclose {
-  display: flex;
-  margin-top: -30px;
-  margin-right: -20px;
-}
-.noti {
-  position: fixed;
-  color: #fff;
-  width: max-content;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1000;
-  background-color: #007bff;
-  font-size: 20px;
-  padding: 5px;
-}
-.form-chat {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-.send-button {
-  background-color: white;
-  /* Đặt màu nền là màu trắng */
-  float: right;
-  right: 0;
-  margin-left: auto;
-}
-#fullname {
-  text-decoration: underline;
-}
-.message-item {
-  padding: 10px;
-}
-.banerchatbox {
-  width: max-content;
-  height: 50px;
-}
 .form-group img {
   width: 200px;
   height: auto;
 }
-.kengang {
-  width: 100%;
-  height: 1px;
-  background-color: #000000;
-}
-.legend-small {
-  font-size: 15px;
-  /* Điều chỉnh kích thước chữ tùy thích */
-}
-.card {
-  margin-top: 20px;
-}
-
 .site-footer {
   background-color: #26272b;
   padding: 45px 0 20px;
@@ -905,11 +800,6 @@ a:hover {
 
 /* ---------------------------------------------------------------------------- */
 
-.row {
-  display: flex;
-  justify-content: flex-start;
-  font-size: 13px;
-}
 .img_sanpham{
   max-height: auto;
   max-width: 60px;
@@ -918,9 +808,6 @@ a:hover {
   padding: 2px;
 }
 .txt_white{
-  color: #fff;
-}
-.text-add-shoping{
   color: #fff;
 }
 

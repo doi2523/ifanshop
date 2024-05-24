@@ -190,7 +190,7 @@
 
   .chat-messages {
     max-width: 600px;
-    margin: 0 auto;
+    /* margin: 0 auto; */
   }
   .chat-message {
     display: flex;
@@ -235,4 +235,7 @@
   border-color: inherit; /* Hoặc màu viền bạn muốn */
   box-shadow: none; /* Loại bỏ bóng nếu có */
   text-decoration: none; /* Loại bỏ gạch chân nếu có */
+}
+#fullname {
+  text-decoration: underline;
 }
