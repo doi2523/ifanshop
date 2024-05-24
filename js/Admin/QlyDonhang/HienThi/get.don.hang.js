@@ -145,25 +145,26 @@ function displayDonhang(MaDonhang, time, soluongmua, tongtien, thongtindonhang, 
     donhangs.appendChild(tr);
 
         // Gắn sự kiện click vào hàng
-        tr.addEventListener("click", function() {
-            // In ra tất cả dữ liệu trong hàng
-                // Bắt đầu animation khi click vào hàng
-                var fixer = document.getElementById("fixer-tuychon");
-                fixer.classList.toggle("active"); // Thêm hoặc xóa lớp active
-            // Gắn sự kiện click vào toàn bộ trang
-            console.log("Mã đơn hàng:", MaDonhang);
-            console.log("Thời gian đặt:", time);
-            console.log("Số lượng mua:", soluongmua);
-            console.log("Tổng tiền:", tongtien);
-            thongtindonhang.forEach((item, index) => {
-                console.log("Sản phẩm", index + 1);
-                console.log("Tên sản phẩm:", item.tensanpham);
-                console.log("Màu:", item.color);
-                console.log("Dung lượng:", item.dungluong);
-                console.log("Số lượng:", item.soluong);
-                console.log("Phương thức thanh toán:", item.payment);
-            });
-            const spanMaDonHangTuyChon = document.getElementById("madonhangtuychon");
+    tr.addEventListener("click", function() {
+        // In ra tất cả dữ liệu trong hàng
+        // Bắt đầu animation khi click vào hàng
+        var fixer = document.getElementById("fixer-tuychon");
+        fixer.classList.add("active");// Thêm hoặc xóa lớp active
+        // fixer.classList.toggle("active"); 
+        // Gắn sự kiện click vào toàn bộ trang
+        // console.log("Mã đơn hàng:", MaDonhang);
+        // console.log("Thời gian đặt:", time);
+        // console.log("Số lượng mua:", soluongmua);
+        // console.log("Tổng tiền:", tongtien);
+        // thongtindonhang.forEach((item, index) => {
+        //     console.log("Sản phẩm", index + 1);
+        //     console.log("Tên sản phẩm:", item.tensanpham);
+        //     console.log("Màu:", item.color);
+        //     console.log("Dung lượng:", item.dungluong);
+        //     console.log("Số lượng:", item.soluong);
+        //     console.log("Phương thức thanh toán:", item.payment);
+        // });
+        const spanMaDonHangTuyChon = document.getElementById("madonhangtuychon");
                     // Lấy tham chiếu đến các thẻ span bằng id
             // const spanMaDonHang = document.getElementById("span-madonhang");
             // const spanTongSoLuong = document.getElementById("span-tongsoluong");
