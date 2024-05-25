@@ -23,7 +23,9 @@ roler.textContent = RoleProfile;
 
 const usernameElement = document.getElementById('txt-username');
 usernameElement.textContent = "@"+ usernameProfile;
-    
+//Đổ dữ liệu email vào
+const EmailElement = document.getElementById('current-email');
+EmailElement.textContent = emailProfile;
 
 const usernm = document.getElementById('username');
 const hotenn = document.getElementById('hoten');

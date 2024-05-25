@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>iFanShop</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-<link rel="stylesheet" href="css/animate.css">
-<link rel="icon" href="images/marketplace.png" type="image/x-icon">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-<link rel="stylesheet" type="text/css" href="style.css"/>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>iFanShop</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="icon" href="images/marketplace.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style.css"/>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-<link rel="stylesheet" href="css/giohang.css">
-<link rel="stylesheet" href="css/chatonline.css">
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- Sweetalert2 -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<!-- Js Cookies -->
-<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/chatonline.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Sweetalert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Js Cookies -->
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body class="body-style">
@@ -122,12 +121,16 @@
                         </div>
                     </div>
                     <ul class="nav nav-tabs">
-                        <li class="nav-item"><a href="auth.userpage.html"
-                                class="active nav-link">Thông tin</a></li>
+                        <li class="nav-item">
+                          <a id="clickthaydoinfo" href="#" class="nav-link active">Cập nhật thông tin</a>
+                        </li>
+                        <li class="nav-item">
+                          <a id="clickupdateemail" href="#" class="nav-link">Cập nhật email</a>
+                        </li>
                     </ul>
                     <div class="tab-content pt-3">
                         <div class="tab-pane active">
-                            <form id="update-profile">
+                            <form id="update-profile" class="form-update">
                                 <div class="row">
                                     <div class="col">
                                         <div class="row">
@@ -166,8 +169,58 @@
                                     </div>
                                 </div>
                             </form>
+                            <div id="divupdateemail" class="form-update hide">
+                              <form action="" id="update-email">
+                                <div class="row">
+                                  <div class="col">
+                                      <div class="form-group">
+                                          <label>Email cũ:</label><br>
+                                          <label for="username" id="current-email" class="form-control"></label>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Email mới:</label><br>
+                                        <input for="username" id="new-email" required class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                              <div class="row">
+                                <div class="col d-flex justify-content-end">
+                                    <button class="btn btn-primary" id="update_thongtin"
+                                        type="submit">Cập nhật</button>
+                                </div>
+                            </div>
+                              </form>
+                            </div>
                         </div>
                     </div>
+                    <script>
+                      document.addEventListener('DOMContentLoaded', function () {
+                          const InfoBtn = document.getElementById('clickthaydoinfo');
+                          const EmailBtn = document.getElementById('clickupdateemail');
+                          const InfoContainer = document.getElementById('update-profile');
+                          const EmailContainer = document.getElementById('divupdateemail');
+              
+                          InfoBtn.addEventListener('click', function (e) {
+                              e.preventDefault();
+                              InfoContainer.classList.remove('hide');
+                              EmailContainer.classList.add('hide');
+                              InfoBtn.classList.add('active');
+                              EmailBtn.classList.remove('active');
+                          });
+              
+                          EmailBtn.addEventListener('click', function (e) {
+                              e.preventDefault();
+                              EmailContainer.classList.remove('hide');
+                              InfoContainer.classList.add('hide');
+                              EmailBtn.classList.add('active');
+                              InfoBtn.classList.remove('active');
+                          });
+                      });
+                  </script>
                 </div>
             </div>
           </div>
@@ -346,7 +399,7 @@
 <!-- 2 module này kiểm tra xem có đăng nhập không nếu có thì lấy dữu liệu và lưu vào cookies -->
 <script type="module" src="js/checklogin.js"></script>
 <script src="js/User/ChangeInfo/import.data.change.user.js"></script>
-<script type="module" src="js/User/ChangeInfo/update_thongtin.js"></script>
+<script type="module" src="js/User/ChangeInfo/update.info.user.js"></script>
 <script type="module" src="js/message.online.js"></script>
 
 </html>
