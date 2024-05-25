@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es" dir="ltr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ADMIN | QLY Sản phẩm</title>
-  <link rel="icon" href="images/marketplace.png" type="image/x-icon" />
+  <meta charset="utf-8">
+  <title>Admin</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+  <!-- icon -->
+  <link rel="icon" href="images/marketplace.png" type="image/x-icon">
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/admin.css" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/admin.css">
   <!-- Sweetalert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- Js Cookies -->
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
 </head>
-
 <body>
   <!-- Banner -->
   <!-- Dashboard -->
@@ -57,8 +58,8 @@
                   </a>
                   <ul class="dropdown-menu border" aria-labelledby="navbarDropdown" style="margin-left: 40px">
                       <!-- Các mục menu trong dropdown menu -->
-                      <li class="nav-item active">
-                          <a class="nav-link active dropdown-item" href="auth.admin.qlyiphone.html">
+                      <li class="nav-item">
+                          <a class="nav-link dropdown-item" href="auth.admin.qlyiphone.html">
                               <i class="bi bi-phone sz1"></i><span class="sz1">QLY iPhone</span>
                           </a>
                       </li>
@@ -82,6 +83,12 @@
                   </a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="auth.admin.qlydanhmuc.html">
+                  <i class="bi bi-collection sz"></i>
+                  <span class="sz">QLY Danh mục</span>
+                </a>
+            </li>
+              <li class="nav-item">
                 <a class="nav-link" href="auth.admin.qlydichvu.html">
                     <i class="bi bi-wrench sz"></i>
                     <span class="sz">QLY dịch vụ</span>
@@ -94,7 +101,7 @@
               </a>
           </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="auth.qlymessage.html">
+                    <a class="nav-link" href="auth.admin.qlymessages.html">
                         <i class="bi bi-chat sz"></i>
                         <span class="sz">QLY phản hồi</span>
                         <span
@@ -102,7 +109,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="auth.qlyaccount.html">
+                    <a class="nav-link" href="auth.admin.qlyaccount.html">
                         <i class="bi bi-people sz"></i>
                         <span class="sz">QLY người dùng</span>
                     </a>
@@ -131,25 +138,25 @@
     <!-- Main content -->
     <div class="h-screen flex-grow-1 overflow-y-lg-auto">
       <!-- Header -->
-      <header class="bg-surface-primary border-bottom pt-6">
+      <header class="darkmode bg-surface-primary border-bottom pt-6">
         <div class="container-fluid">
           <div class="mb-npx">
             <div class="row align-items-center">
               <div class="col-sm-6 col-12 mb-4 mb-sm-0">
                 <!-- Title -->
-                <h1 class="h2 mb-0 ls-tight">QLY iPhone</h1>
+                <h1 class="h2 mb-0 ls-tight">QLY Danh mục</h1>
               </div>
               <!-- Actions -->
               <div class="col-sm-6 col-12 text-sm-end">
                 <div class="mx-n1">
                   <a href="#" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1">
-                    <span class="pe-2">
+                    <span class=" pe-2">
                       <i class="bi bi-pencil"></i>
                     </span>
                     <span>Edit</span>
                   </a>
                   <a href="#" class="btn d-inline-flex btn-sm btn-primary mx-1">
-                    <span class="pe-2">
+                    <span class=" pe-2">
                       <i class="bi bi-plus"></i>
                     </span>
                     <span>Create</span>
@@ -159,58 +166,102 @@
             </div>
             <!-- Nav -->
             <ul class="nav nav-tabs mt-4 overflow-x border-0">
-              <li class="nav-item">
-                <a href="auth.admin.qlyiphone.html" class="nav-link active">Danh sách</a>
+              <li class="nav-item ">
+                <a id="danhsachclick" href="#" class="nav-link active">Danh sách</a>
               </li>
               <li class="nav-item">
-                <a href="auth.admin.addiphone.html" class="nav-link font-regular">Thêm sản phẩm</a>
+                <a id="themclick" href="#" class="nav-link font-regular">Thêm danh mục</a>
               </li>
               <li class="nav-item">
-                <a href="auth.admin.setupiphone.html" class="nav-link font-regular">Hiển thị trên Web</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link font-regular" href="#"><span id="datetime"></span></a>
+                <span style="color: blueviolet;font-size: 15px; font-weight: bold;" id="datetime" class="nav-link font-regular"></span>
               </li>
             </ul>
           </div>
         </div>
       </header>
-      <h2 class="container mt-3">Sản phẩm đã thêm</h2>
-      <div class="container mt-3 overflow-y-lg-auto ">
-        <table id="" class="table table-striped table-dark small-table">
-          <thead>
-            <th>STT</th>
-            <th>ID</th>
-            <th>Tên sản phẩm</th>
-            <th>Dung lượng</th>
-            <th>Số lượng</th>
-            <th>Giá sale</th>
-            <th>Giá gốc</th>
-            <th>Ảnh</th>
-            <th>Tuỳ chọn</th>
-            <!-- <th>Sửa</th> -->
-          </thead>
-          <tbody id="additem"></tbody>
-        </table>
-      </div><br><hr>
+      <!-- Main -->
+      <!-- Danh sách danh mục -->
+      <div class="container float-left" id="danhsachdanhmuc">
+        <h1 class="mt-2">Danh sách danh mục</h1>
+        <div class="row">
+            <div class="col-md-7">
+                <div class="table-responsive">
+                    <table class="table table-hover table-info table-sm">
+                        <thead class="thead-dark">
+                            <th>STT</th>
+                            <th>ID</th>
+                            <th>Tên</th>
+                            <th colspan="2">Tuỳ chọn</th>
+                        </thead>
+                        <tbody id="hienthidanhmuc"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div></div>
+        </div>
+      </div>
+      <!-- Thêm mới danh mục -->
+      <div class="container hide" id="themdanhmuc">
+        <h1 class="mt-2">Thêm mới danh mục</h1>
+        <div class="p-2">
+            <form action="" id="formdanhmuc">
+                <div class="mb-3">
+                    <label for="categoryId" class="form-label">ID danh mục</label>
+                    <div class="input-group">
+                        <input type="text" id="categoryId" required class="form-control" placeholder="Nhập ID danh mục">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="categoryId" class="form-label">Tên danh mục</label>
+                    <div class="input-group">
+                        <input type="text" id="categoryName" required class="form-control" placeholder="Nhập tên danh mục">
+                    </div>
+                </div>  
+                <button type="submit" class="btn btn-primary float-right">Thêm</button>             
+            </form>
+        </div>
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const danhSachBtn = document.getElementById('danhsachclick');
+            const themBtn = document.getElementById('themclick');
+            const danhSachContainer = document.getElementById('danhsachdanhmuc');
+            const themContainer = document.getElementById('themdanhmuc');
+
+            danhSachBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                danhSachContainer.classList.remove('hide');
+                themContainer.classList.add('hide');
+                danhSachBtn.classList.add('active');
+                danhSachBtn.classList.remove('font-regular');
+                themBtn.classList.remove('active');
+                themBtn.classList.add('font-regular');
+            });
+
+            themBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                danhSachContainer.classList.add('hide');
+                themContainer.classList.remove('hide');
+                danhSachBtn.classList.remove('active');
+                danhSachBtn.classList.add('font-regular');
+                themBtn.classList.add('active');
+                themBtn.classList.remove('font-regular');
+            });
+        });
+    </script>
     </div>
   </div>
 </body>
+<script src="js/admin.js"></script>
+<script src="js/Time/time.js"></script>
 <!-- Bootstrap JS và Popper.js -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<!-- <script type="module" src="js/qlysanpham.js"></script> -->
-
-<script type="module" src="js/checklogout&delete.js"></script>
 <script type="module" src="js/checklogin.js"></script>
-<script src="js/Time/time.js"></script>
-<!-- <script type="module" src="js/Admin/Qlyiphone/upload.img.to.database.js"></script> -->
-<script type="module" src="js/Admin/Qlyiphone/Hienthi/get.data.from.database.js"></script>
-
-<!-- <script type="module" src="js/addsanpham.js"></script> -->
-<!-- <script type="module" src="js/insert/insert.iphone.js"></script> -->
-<!-- <script type="module" src="js/insert/get.iphone.from.database.js"></script> -->
-<!-- <script src="js/insert_sanpham.js"></script> -->
+<script type="module" src="js/checklogout&delete.js"></script>
+<!-- Js danh mục -->
+<script type="module" src="js/Admin/QlyDanhmuc/hienthi.danhmuc.js"></script>
+<script type="module" src="js/Admin/QlyDanhmuc/add.danhmuc.js"></script>
 
 </html>

@@ -41,21 +41,23 @@ var userList = document.getElementById("userList");
 function AddItemToList(uid, hoten, urlavatar, userstatus, messageCount) {
   // Tạo một hàng mới trong bảng
   let row = document.createElement("tr");
+  row.id = `user-${uid}`;
   // Tạo một ô cho hình ảnh
   let imgCell = document.createElement("td");
   imgCell.innerHTML = `<img class="image-avt" src="${urlavatar}" alt=""><br>${hoten}`;
   // Tạo một ô cho UID và Họ tên
   let infoCell = document.createElement("td");
-  let statusDotClass =
-    userstatus === "online" ? "dot dot-green" : "dot dot-gray";
+  let statusDotClass = userstatus === "online" ? "dot dot-green" : "dot dot-gray";
   infoCell.innerHTML = `${userstatus} <span class="${statusDotClass}"></span> `;
   ///
   let numberCell = document.createElement("td");
   numberCell.innerHTML = `${messageCount}`;
+  numberCell.classList.add("number-mess");
+  numberCell.id = `message-count-${uid}`;
   // Tạo một ô cho nút "Chat"
   let chatCell = document.createElement("td");
   let chatButton = document.createElement("button");
-  chatButton.innerHTML = '<i class="fas fa-comment"></i>';
+  chatButton.innerHTML = '<i class="fas fa-comment"></i> Chat now';
   chatButton.classList.add("btn", "btn-primary", "btn-sm");
   chatButton.addEventListener("click", function () {
     // Xóa nội dung của phần tử chatInfo và textchat trước khi thêm mới
@@ -87,7 +89,6 @@ function AddItemToList(uid, hoten, urlavatar, userstatus, messageCount) {
   // Thêm hàng vào bảng
   userList.appendChild(row);
 }
-
 // Hàm để xóa nội dung của phần tử chatInfo
 function clearChatInfo() {
   document.getElementById("chatInfo").innerHTML = "";
@@ -99,7 +100,6 @@ function clearTextChat() {
 function GetMess(userid) {
   const database = getDatabase();
   const databaseRef = ref(database, "messages/" + userid);
-  // Lắng nghe sự kiện child_added để nhận thông báo khi có tin nhắn mới được thêm vào
   onChildAdded(databaseRef,(snapshot) => {
       const message = snapshot.val();
       displayMessage(message);
@@ -109,39 +109,14 @@ function GetMess(userid) {
     }
   );
 }
-// function AutoGetMess() {
-//   const database = getDatabase();
-//   const UserID = localStorage.getItem("UserID");
-//   const databaseRef = ref(database, "messages/" + UserID);
-//   // Lắng nghe sự kiện child_added để nhận thông báo khi có tin nhắn mới được thêm vào
-//   onChildAdded(databaseRef,(snapshot) => {
-//       const message = snapshot.val();
-//       displayMessage(message);
-//       let imageSrc = message.url;
-//       let userName = message.name;
-//       let userid = message.userid;
-//       // Tạo HTML cho hình ảnh và tên người dùng
-//       let chatInfoHTML = `<img class="image-avt" src="${imageSrc}" alt="${userName}"> ${userName}`;
-  
-//       // In hình ảnh và tên người dùng ra div chatInfo
-//       document.getElementById("chatInfo").innerHTML = chatInfoHTML;
-//     },
-//     (error) => {
-//       console.error("Error getting messages: ", error);
-//     }
-//   );
-// }
-// AutoGetMess();
 function displayMessage(message) {
   const messages = document.getElementById('hienthimessage');
   const div = document.createElement('div');
-
-        // Tạo phần tử hiển thị thời gian
-        const timeDiv = document.createElement('div');
-        timeDiv.classList.add('message-time');
-        timeDiv.textContent = message.time;
-        messages.appendChild(timeDiv);
-        
+  // Tạo phần tử hiển thị thời gian
+  const timeDiv = document.createElement('div');
+  timeDiv.classList.add('message-time');
+  timeDiv.textContent = message.time;
+  messages.appendChild(timeDiv); 
   div.classList.add('chat-message');
   //Điều kiện hiển thị nếu role là user thì sẽ hiển thị bên phải
   if (message.role === 'user') {
@@ -159,12 +134,6 @@ function displayMessage(message) {
     `;
   }
   messages.appendChild(div);
-}
-
-function AddAllItemsToList(userData) {
-  userData.forEach((user) => {
-    AddItemToList(user.uid, user.hoten, user.urlavatar, user.userstatus);
-  });
 }
 
 function GetAllDataOnce() {
@@ -191,7 +160,6 @@ function GetAllDataOnce() {
               messageCount++; // Tăng số lượng cho mỗi tin nhắn được lặp qua
             });
             userData.push({ uid, hoten, urlavatar, userstatus, messageCount });
-            console.log(messageCount)
             AddItemToList(uid, hoten, urlavatar, userstatus, messageCount);
 
           })
@@ -204,7 +172,8 @@ function GetAllDataOnce() {
     .catch((error) => {
       console.error("Error fetching user data:", error);
     });
-}
+} 
+
 
 GetAllDataOnce();
 //Function lấy dữ liệu từ cookies
@@ -273,14 +242,20 @@ document.getElementById("send").addEventListener("submit", function (event) {
     url: URLProfile,
     role: RoleProfile,
   })
-    .then(() => {
-      AlertSuccess();
-      document.getElementById("message-input").value = "";
-    })
-    .catch((error) => {
-      console.error("Error writing message to database: ", error);
-    });
-  };
+  .then(() => {
+        // Cập nhật số lượng tin nhắn trong danh sách người dùng
+        const messageCountCell = document.getElementById(`message-count-${UserID}`);
+        if (messageCountCell) {
+          let currentCount = parseInt(messageCountCell.innerHTML, 10);
+          messageCountCell.innerHTML = currentCount + 1;
+        }
+    AlertSuccess();
+    document.getElementById("message-input").value = "";
+  })
+  .catch((error) => {
+    console.error("Error writing message to database: ", error);
+  });
+};
 });
 } else {
   console.log('Cookies không tồn tại hoặc đã bị xoá?!');

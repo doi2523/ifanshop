@@ -39,10 +39,6 @@
   max-height: 40px;
   border-radius: 100%;
 }
-.custom-table {
-  width: 30%;
-  /* Đặt độ rộng của bảng là 100% của phần tử chứa nó */
-}
 .height-chat {
   height: 500px;
   position: relative;
@@ -182,4 +178,8 @@ a{
 }
 .headerchat{
   height: 64px;
+  width: 100%;
+}
+.hide{
+  display: none;
 }

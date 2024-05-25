@@ -24,8 +24,7 @@ import {
 const firebaseConfig = {
   apiKey: "AIzaSyCnZzlFSm-61oaNvO2TTJyef2PMc6iU8DY",
   authDomain: "user-inifanshop.firebaseapp.com",
-  databaseURL:
-    "https://user-inifanshop-default-rtdb.asia-southeast1.firebasedatabase.app",
+  databaseURL:"https://user-inifanshop-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "user-inifanshop",
   storageBucket: "user-inifanshop.appspot.com",
   messagingSenderId: "104690936940",
@@ -38,7 +37,7 @@ const analytics = getAnalytics(app);
 const database = getDatabase(app);
 const auth = getAuth();
 
-var userList = document.getElementById("userList");
+var userList = document.getElementById("Manage-list");
 function AddItemToList(uid, hoten, urlavatar, userstatus, messageCount) {
   // Tạo một hàng mới trong bảng
   let row = document.createElement("tr");
@@ -47,8 +46,7 @@ function AddItemToList(uid, hoten, urlavatar, userstatus, messageCount) {
   imgCell.innerHTML = `<img class="image-avt" src="${urlavatar}" alt=""><br>${hoten}`;
   // Tạo một ô cho UID và Họ tên
   let infoCell = document.createElement("td");
-  let statusDotClass =
-    userstatus === "online" ? "dot dot-green" : "dot dot-gray";
+  let statusDotClass =userstatus === "online" ? "dot dot-green" : "dot dot-gray";
   infoCell.innerHTML = `${userstatus} <span class="${statusDotClass}"></span> `;
   ///
   let numberCell = document.createElement("td");
@@ -56,16 +54,11 @@ function AddItemToList(uid, hoten, urlavatar, userstatus, messageCount) {
   // Tạo một ô cho nút "Chat"
   let chatCell = document.createElement("td");
   let chatButton = document.createElement("button");
-  chatButton.innerHTML = '<i class="fas fa-trash"></i>';
+  chatButton.innerHTML = '<i class="fas fa-trash"></i> Xoá';
   chatButton.classList.add("btn", "btn-danger", "btn-sm");
   chatButton.addEventListener("click", function () {
     // Xử lý khi nút "Chat" được nhấn
-    // Lấy thông tin hình ảnh và tên người dùng
-    let imageSrc = urlavatar;
-    let userName = hoten;
-    let userid = uid;
-    // GetAllDataOnce();
-    confirmDelete(uid); // Gọi hàm hiển thị cảnh báo xác nhận xoá
+    confirmDelete(uid, numberCell);
   });
   chatCell.appendChild(chatButton);
   // Thêm các ô vào hàng
@@ -90,7 +83,7 @@ function GetMess(userid) {
         console.error("Error getting messages: ", error);
       }
     );
-  }
+}
   function GetAllDataOnce() {
     const databaseRef = ref(database);
   
@@ -128,29 +121,38 @@ function GetMess(userid) {
       .catch((error) => {
         console.error("Error fetching user data:", error);
       });
-  }
+}
   
-  GetAllDataOnce();
+GetAllDataOnce();
 // Hàm xác nhận xoá sản phẩm
-function confirmDelete(uid) {
-    let confirmation = window.confirm("Bạn có chắc chắn muốn xoá tin nhắn này?");
-    if (confirmation) {
-      deleteProduct(uid); // Nếu chọn "OK", gọi hàm để xoá sản phẩm
-    } else {
-      console.log("Người dùng đã hủy bỏ thao tác xoá tin nhắn."); // Nếu chọn "Cancel", không làm gì cả
+function confirmDelete(uid, numberCell) {
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!"
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        title: "Deleted!",
+        text: "Your file has been deleted.",
+        icon: "success"
+      });
+      deleteProduct(uid, numberCell);
     }
-  }
+  });
+}
   
   // Hàm xoá sản phẩm
-  function deleteProduct(uid) {
+  function deleteProduct(uid, numberCell) {
     let productRef = ref(database, "messages/" + uid);
-    // Xoá hàng chứa sản phẩm có ID tương ứng
-    // const rowToDelete = event.target.closest("tr");
-    // rowToDelete.remove();
     remove(productRef)
       .then(() => {
-        // Sau khi xoá thành công, cập nhật giao diện người dùng
-        alert("Đã xoá tin nhắn");
+        numberCell.innerHTML='0';
+        // alert("Đã xoá tin nhắn");
       })
       .catch((error) => {
         alert("Lỗi khi xoá tin nhắn:", error);

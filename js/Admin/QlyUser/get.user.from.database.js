@@ -11,8 +11,7 @@ import { getAuth, deleteUser} from "https://www.gstatic.com/firebasejs/10.10.0/f
 const firebaseConfig = {
   apiKey: "AIzaSyCnZzlFSm-61oaNvO2TTJyef2PMc6iU8DY",
   authDomain: "user-inifanshop.firebaseapp.com",
-  databaseURL:
-    "https://user-inifanshop-default-rtdb.asia-southeast1.firebasedatabase.app",
+  databaseURL:"https://user-inifanshop-default-rtdb.asia-southeast1.firebasedatabase.app",
   projectId: "user-inifanshop",
   storageBucket: "user-inifanshop.appspot.com",
   messagingSenderId: "104690936940",
@@ -24,7 +23,6 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const database = getDatabase(app);
 const auth = getAuth();
-
 
 var stdNo = 0;
 function GetAll() {

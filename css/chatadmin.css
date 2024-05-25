@@ -62,3 +62,11 @@
   box-shadow: none; /* Loại bỏ bóng nếu có */
   text-decoration: none; /* Loại bỏ gạch chân nếu có */
 }
+.chat-message.received .message-content{
+  background-color:rgba(137, 43, 226, 0.148);
+  color: #007bff;
+}
+.number-mess{
+  font-weight: bold;
+  color: #007bff;
+}
