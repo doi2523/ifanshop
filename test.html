@@ -78,7 +78,7 @@
                   </ul>
               </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="auth.admin.qlydonhang.html">
+                  <a class="nav-link active" href="auth.admin.qlydonhang.html">
                       <i class="bi bi-cart sz"></i>
                       <span class="sz">QLY đơn hàng</span>
                   </a>
@@ -96,7 +96,7 @@
                 </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="auth.admin.qlydoanhthu.html">
+              <a class="nav-link" href="auth.admin.qlydoanhthu.html">
                   <i class="bi bi-graph-up sz"></i>
                   <span class="sz">QLY doanh thu</span>
               </a>
@@ -167,13 +167,8 @@
             </div>
             <!-- Nav -->
             <ul class="nav nav-tabs mt-4 overflow-x border-0">
-                <li class="nav-item">
-                    <a href="auth.qlyaccount.html" class="nav-link active"
-                      >User Data
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link font-regular">Black List</a>
+                <li class="nav-item ">
+                    <a href="auth.admin.qlydonhang.html" class="nav-link active">Ds đơn hàng</a>
                   </li>
                   <li class="nav-item">
                     <span style="color: blueviolet; font-weight: bold;" id="datetime" class="nav-link font-regular">File requests</span>
@@ -187,24 +182,23 @@
         <!-- Chat -->
         <div class="container-fluid">
           <div class="row g-6 mb-6">
-            <div class="col-xl-12 col-sm-6 col-12">
+            <div class="col-xl-12 col-sm-12 col-12">
               <div class="card shadow border-0">
                 <div class="card-body">
                   <div class="row">
                     <div style="overflow-y: auto;" class="custom-table-container mr-3">
-                        <table class="table table-primary table-border table-sm table-hover">
+                        <table class="table table-hover table-sm">
                             <thead class="thead-dark">
-                              <th>STT</th>
-                              <th>Username</th>
-                              <th>Họ và tên</th>
-                              <th>Sdt</th>
-                              <th>Email</th>
-                              <th>Password</th>
-                              <th>Trạng thái</th>
-                              <th>Tuỳ chọn</th>
+                              <tr>
+                                <th scope="col">STT</th>
+                                <th scope="col">Mã đơn hàng</th>
+                                <th scope="col">Thông tin người mua</th>
+                                <th scope="col">Đơn hàng</th>
+                                <th scope="col">Thông tin chi tiết</th>
+                              </tr>
                             </thead>
-                            <tbody id="tbody1"></tbody>
-                        </table>
+                            <tbody id="hienthi"></tbody>
+                          </table>
                     </div>
                   </div>
                 </div>
@@ -213,6 +207,19 @@
           </div>
         </div>
       </main>
+      <div id="fixer-tuychon" class="fixer-tuychon p-3">
+        <h1 class="text-white mt-2" style=" text-align: center;">Tuỳ chọn</h1>
+        <div><hr><form action="">
+          <span class="text-white">Mã đơn hàng:<input class="text-danger form-control" id="madonhangtuychon" placeholder="Nhập mã đơn hàng" required>
+        </div><hr>
+        <div>
+          <button type="button" id="editdonhang" class="btn btn-primary"><i class="fas fa-edit"></i> Sửa</button>
+          <button type="button" id="timkiemdonhang"  class="btn btn-primary"><i class="fas fa-search"></i>Tìm vị trí</button>
+          <hr>
+          <button type="submit" id="xoadonhang"  class="btn btn-danger"><i class="bi bi-trash"></i> Xoá</button> 
+          <button type="button" id="thoat"  class="btn btn-primary">Thoát</button>
+        </div></form>
+      </div>
     </div>
   </div>
 </body>
@@ -225,5 +232,5 @@
 <script type="module" src="js/checklogin.js"></script>
 <script type="module" src="js/checklogout&delete.js"></script>
 
-<script type="module" src="js/Admin/QlyUser/get.user.from.database.js"></script>
+<script type="module" src="js/Admin/QlyDonhang/HienThi/get.don.hang.js"></script>
 </html>
