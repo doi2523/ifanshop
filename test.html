@@ -168,17 +168,16 @@
             <!-- Nav -->
             <ul class="nav nav-tabs mt-4 overflow-x border-0">
                 <li class="nav-item">
-                    <a id="chatclick" href="#" class="nav-link active">Chat</a>
-                </li>
-                <li class="nav-item">
-                    <a id="managemessLink" href="#" class="nav-link font-regular">QLY Message</a>
-                </li>
-                <li class="nav-item">
-                    <a id="managerateLink" href="#" class="nav-link font-regular">QLY đánh giá</a>
-                </li>
-                <li class="nav-item">
-                    <span class="nav-link font-regular" href="#"><span id="datetime"></span></span>
-                </li>
+                    <a href="auth.qlyaccount.html" class="nav-link active"
+                      >User Data
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="nav-link font-regular">Black List</a>
+                  </li>
+                  <li class="nav-item">
+                    <span style="color: blueviolet; font-weight: bold;" id="datetime" class="nav-link font-regular">File requests</span>
+                  </li>
             </ul>
           </div>
         </div>
@@ -186,44 +185,26 @@
       <!-- Main -->
       <main class="py-6 bg-surface-secondary">
         <!-- Chat -->
-        <div id="messages" class="container-fluid">
+        <div class="container-fluid">
           <div class="row g-6 mb-6">
-            <div class="col-xl-5 col-sm-6 col-12">
+            <div class="col-xl-12 col-sm-6 col-12">
               <div class="card shadow border-0">
                 <div class="card-body">
                   <div class="row">
                     <div style="overflow-y: auto;" class="custom-table-container mr-3">
-                        <table class="table table-sm custom-table border">
-                            <thead>
-                                <th>User</th>
-                                <th>Trạng thái</th>
-                                <th>Mess</th>
-                                <th>Chat</th>
+                        <table class="table table-primary table-border table-sm table-hover">
+                            <thead class="thead-dark">
+                              <th>STT</th>
+                              <th>Username</th>
+                              <th>Họ và tên</th>
+                              <th>Sdt</th>
+                              <th>Email</th>
+                              <th>Password</th>
+                              <th>Trạng thái</th>
+                              <th>Tuỳ chọn</th>
                             </thead>
-                            <tbody id="userList"></tbody>
+                            <tbody id="tbody1"></tbody>
                         </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-7 col-sm-6 col-12">
-              <div class="card shadow border-0">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="container border p-3 height-chat d-flex flex-column bg-light">
-                        <div id="chatInfo" class=" bg-dark headerchat p-3"></div>
-                        <div style="overflow-y: auto;">
-                            <div class="chat-messages mt-2" id="hienthimessage"></div>
-                        </div>
-                        <div class="mt-auto input-fixed">
-                            <div class="input-group mt-2">
-                                <form action="" id="send" class="input-group">
-                                    <input id="message-input" type="text" class="form-control" required placeholder="Nhập tin nhắn...">
-                                    <button class="btn btn-success" type="submit"><i class="fas fa-paper-plane"></i> Gửi</button>
-                                </form>
-                            </div>
-                        </div>
                     </div>
                   </div>
                 </div>
@@ -231,115 +212,7 @@
             </div>
           </div>
         </div>
-        <!-- Manage -->
-        <div id="managemess" class="hide container-fluid">
-                    <div class="row g-6 mb-6">
-                      <div class="col-xl-5 col-sm-6 col-12">
-                        <div class="card shadow border-0">
-                          <div class="card-body">
-                            <div class="row">
-                              <div style="overflow-y: auto;" class="custom-table-container mr-3">
-                                  <table class="table table-sm custom-table border">
-                                        <thead>
-                                            <th>User</th>
-                                            <th>Trạng thái</th>
-                                            <th>Mess</th>
-                                            <th>Tuỳ chọn</th>
-                                        </thead>
-                                        <tbody id="Manage-list"></tbody>
-                                  </table>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-xl-7 col-sm-6 col-12">
-                        <div class="card shadow border-0">
-                          <div class="card-body">
-                            <div class="row">
-                                <div class="container height-chat d-flex flex-column bg-light p-3">
-                                    <div id="chatInfo-manage" class="bg-dark headerchat p-3">Click từng hàng để xoá tin nhắn</div>
-                                    <div style="overflow-y: auto;">
-                                        <div class="chat-messages mt-2" id="hienthimanage"></div>
-                                    </div>
-                                </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-        </div>
-        <!-- Rate -->
-        <div id="rating" class="hide container-fluid ">
-            <div class="row g-6 mb-6">
-              <div class="col-xl-9 col-sm-6 col-12">
-                <div class="card shadow border-0">
-                  <div class="card-body">
-                    <div class="row">
-                      <div style="overflow-y: auto;" class="custom-table-container mr-3">
-                        <div class="list-group mt-3">
-                            <div id="textchat-everyone" class="list-group-flush"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
       </main>
-      <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const chat = document.getElementById('chatclick');
-            const managemess = document.getElementById('managemessLink');
-            const rating = document.getElementById('managerateLink');
-
-            const DivChat = document.getElementById('messages');
-            const DivManagemess = document.getElementById('managemess');
-            const DivManageRate = document.getElementById('rating');
-
-            chat.addEventListener('click', function (e) {
-                e.preventDefault();
-                DivChat.classList.remove('hide');
-                DivManagemess.classList.add('hide');
-                DivManageRate.classList.add('hide');
-
-                chat.classList.remove('font-regular');
-                chat.classList.add('active');
-                managemess.classList.add('font-regular');
-                managemess.classList.remove('active');
-                rating.classList.remove('active');
-                rating.classList.add('font-regular');
-            });
-
-            managemess.addEventListener('click', function (e) {
-                e.preventDefault();
-                DivChat.classList.add('hide');
-                DivManagemess.classList.remove('hide');
-                DivManageRate.classList.add('hide');
-
-                managemess.classList.remove('font-regular');
-                managemess.classList.add('active');
-                chat.classList.remove('active');
-                chat.classList.add('font-regular');
-                rating.classList.remove('active');
-                rating.classList.add('font-regular');
-            });
-            rating.addEventListener('click', function (e) {
-                e.preventDefault();
-                DivChat.classList.add('hide');
-                DivManagemess.classList.add('hide');
-                DivManageRate.classList.remove('hide');
-
-                managemess.classList.add('font-regular');
-                managemess.classList.remove('active');
-                chat.classList.remove('active');
-                chat.classList.add('font-regular');
-                rating.classList.add('active');
-                rating.classList.remove('font-regular');
-            });
-        });
-    </script>
     </div>
   </div>
 </body>
@@ -352,7 +225,5 @@
 <script type="module" src="js/checklogin.js"></script>
 <script type="module" src="js/checklogout&delete.js"></script>
 
-<script type="module" src="js/Admin/QlyRate/get.data.qlyrate.js"></script>
-<script type="module" src="js/Admin/ChatUser/qly.message.js"></script>
-<script type="module" src="js/Admin/ChatUser/get.user.from.database.js"></script>
+<script type="module" src="js/Admin/QlyUser/get.user.from.database.js"></script>
 </html>
