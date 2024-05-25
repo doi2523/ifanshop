@@ -220,6 +220,7 @@ document.getElementById("send").addEventListener("submit", function (event) {
       title: "Oops...",
       text: "Please select a user to chat with!",
     });
+    DeleleData();
   } else {
 
   const userMessagesRef = child(messagesRef, UserID); // Tạo nút con cho từng người dùng
