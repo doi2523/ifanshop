@@ -2,10 +2,10 @@
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
     import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
-import {
-  getAuth, createUserWithEmailAndPassword,
-  signInWithEmailAndPassword, sendPasswordResetEmail
-} from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+    import {
+      getAuth, createUserWithEmailAndPassword,
+      signInWithEmailAndPassword, sendPasswordResetEmail
+    } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
   
@@ -27,28 +27,27 @@ import {
     const database = getDatabase(app);
     const auth = getAuth();
     
-    //Function lấy dữ liệu từ cookies
-function getCookie(name) {
-    const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
-    return cookieValue ? cookieValue.pop() : '';
-}
+// Đọc giá trị từ cookie
+const userInfoStringFromCookie = Cookies.get('userInfo');
+// Chuyển chuỗi JSON thành đối tượng JavaScript
+if (userInfoStringFromCookie) {
+  const userInfoFromCookie = JSON.parse(userInfoStringFromCookie);
 
-// Sử dụng hàm để lấy giá trị từ cookies
-const uidProfile = getCookie("id_profile")
-const emailProfile = getCookie("email_profile");
-const hotenProfile = getCookie("hoten_profile");
-const passwordProfile = getCookie("password_profile");
-const sdtProfile = getCookie("sdt_profile");
-const usernameProfile = getCookie("username_profile");
-const filenameProfile = getCookie("filename_profile");
-const URLProfile = getCookie("url_profile");
+  const uidProfile = userInfoFromCookie.id_profile; // ID
+  const emailProfile = userInfoFromCookie.email_profile; //Email
+  const hotenProfile = userInfoFromCookie.hoten_profile; //Họ tên
+  const passwordProfile = userInfoFromCookie.password_profile; //Password
+  const sdtProfile = userInfoFromCookie.sdt_profile; //Số điện thoại
+  const usernameProfile = userInfoFromCookie.username_profile; //Username
+  const URLProfile = userInfoFromCookie.url_profile; //Link ảnh
+  const RoleProfile = userInfoFromCookie.role; //Vai trò người dùng
+  const Status = userInfoFromCookie.userstatus; //Trạng thái
+  const TimeLogin = userInfoFromCookie.last_login; //Time đăng nhập
+  const TimeLogout = userInfoFromCookie.last_logout; //Time đăng xuất
 
 document.getElementById('update-passwd').addEventListener('submit', function(event) {
-    // Ngăn chặn mặc định hành vi của biểu mẫu
     event.preventDefault();
-    // Lấy giá trị của trường email
     var email = emailProfile;
-    // Gọi hàm ForgotPassword với email đã lấy được
     ForgotPassword(email);
     
 });
@@ -66,6 +65,10 @@ function ForgotPassword(email) {
         // alert("Đã xảy ra lỗi khi gửi email đặt lại mật khẩu. Vui lòng thử lại sau.");
     });
 };
+} else {
+  console.log('Cookies không tồn tại hoặc đã bị xoá?!');
+}
+
 function AlertSuccess(){
     const Toast = Swal.mixin({
       toast: true,

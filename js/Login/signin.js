@@ -2,7 +2,7 @@
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
   import { getDatabase, set, ref, get, child, update } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
-  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
+  import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-auth.js";
   // TODO: Add SDKs for Firebase products that you want to use
   // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -56,18 +56,18 @@ function SavaToCookies() {
       // Chuyển chuỗi JSON thành đối tượng JavaScript
       if (userInfoStringFromCookie) {
         const userInfoFromCookie = JSON.parse(userInfoStringFromCookie);
-        console.log(userInfoFromCookie); // {name: "Đào Văn Đôi", age: 30, email: "daovandoi@example.com"}
-        console.log(userInfoFromCookie.email_profile);
-        console.log(userInfoFromCookie.sdt_profile);
-        console.log(userInfoFromCookie.hoten_profile);
-        console.log(userInfoFromCookie.password_profile);
-        console.log(userInfoFromCookie.id_profile);
-        console.log(userInfoFromCookie.username_profile);
-        console.log(userInfoFromCookie.url_profile);
-        console.log(userInfoFromCookie.role);
-        console.log(userInfoFromCookie.userstatus);
-        console.log(userInfoFromCookie.last_login);
-        console.log(userInfoFromCookie.last_logout);
+        // console.log(userInfoFromCookie); // {name: "Đào Văn Đôi", age: 30, email: "daovandoi@example.com"}
+        // console.log(userInfoFromCookie.email_profile);
+        // console.log(userInfoFromCookie.sdt_profile);
+        // console.log(userInfoFromCookie.hoten_profile);
+        // console.log(userInfoFromCookie.password_profile);
+        // console.log(userInfoFromCookie.id_profile);
+        // console.log(userInfoFromCookie.username_profile);
+        // console.log(userInfoFromCookie.url_profile);
+        // console.log(userInfoFromCookie.role);
+        // console.log(userInfoFromCookie.userstatus);
+        // console.log(userInfoFromCookie.last_login);
+        // console.log(userInfoFromCookie.last_logout);
       } else {
         console.log('No user info found in cookies');
       }
@@ -80,7 +80,7 @@ document.getElementById('signin').addEventListener('submit', function(event) {
   
   const email = document.getElementById("login-email").value;
   const password = document.getElementById("login-password").value;
-  
+  deleteAllCookies();
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       const user = userCredential.user;
@@ -92,7 +92,7 @@ document.getElementById('signin').addEventListener('submit', function(event) {
         minute: '2-digit',
         second: '2-digit'
       });
-
+      // AddLastLogout();
       // Fetch user role from the database
       const userRef = ref(database, '/users/' + user.uid);
       get(userRef)
@@ -138,77 +138,20 @@ document.getElementById('signin').addEventListener('submit', function(event) {
     })
     .catch((error) => {
       const errorMessage = error.message;
-      AlertError();
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Tài khoản hoặc mật khẩu không đúng!",
+      });
       document.getElementById('loginMessage').innerText = 'Tài khoản hoặc mật khẩu không đúng!';
       document.getElementById('loginMessage').style.color = 'red';
       console.error('Lỗi đăng nhập:', errorMessage);
     });
 });
-// document.getElementById('signin').addEventListener('submit', function(event) {
-//   event.preventDefault();
-//   var email = document.getElementById("login-email").value;
-//   var password = document.getElementById("login-password").value;
-//   signInWithEmailAndPassword(auth, email, password)
-//   .then((userCredential) => {
-//   // Signed in 
-//   const auth = getAuth();
-//   const user = auth.currentUser;
-
-//   let last_login_time = new Date();
-//   let formattedDateTime = last_login_time.toLocaleString('vi-VN', {
-//     day: '2-digit',
-//     month: '2-digit',
-//     year: 'numeric',
-//     hour: '2-digit',
-//     minute: '2-digit',
-//     second: '2-digit'
-//   });
-//   let updates = {};
-//   updates['/users/' + user.uid + '/last_login'] = formattedDateTime;
-//   update(ref(database), updates)
-//       .then(() => {
-//           console.log('Đã cập nhật thời gian đăng nhập thành công.');
-//       })
-//       .catch((error) => {
-//           console.error('Lỗi khi cập nhật thời gian đăng nhập:', error);
-//       });
-//   if (email === 'admin@gmail.com' && password === '123456') {
-//       document.getElementById('loginMessage').innerText = 'Đăng nhập thành công! Vui lòng đợi!';
-//       loginMessage.style.color = 'green';  // Đợi 2 giây trước khi tải lại trang
-//       SavaToCookies();
-//       AlertSuccessAdmin();
-//       setTimeout(function() {
-//         window.location.href = 'auth.admin.html';
-//       }, 3000);
-//       // alert('Chào mừng admin!');  
-//       update(ref(database, "users/" + user.uid), {
-//         userstatus: "online"
-//       })    
-//       }
-//   else {
-//     document.getElementById('loginMessage').innerText = 'Đăng nhập thành công! Vui lòng đợi!'; 
-//     loginMessage.style.color = 'green';
-//     SavaToCookies();
-//     AlertSuccess();
-//       setTimeout(function() {
-//         window.location.href = 'auth.index.html';
-//       }, 3000); 
-//     // alert("Chào mừng '"+user.email +"' đăng nhập");
-//     update(ref(database, "users/" + user.uid), {
-//       userstatus: "online"
-//     })
-//     }
-//     })
-//     .catch((error) => {
-//       const errorCode = error.code;
-//       const errorMessage = error.message;
-//       //alert('Đăng nhập thất bại!');
-//       AlertError();
-//       document.getElementById('loginMessage').innerText = 'Tài khoản hoặc mật khẩu không đúng!';
-//       loginMessage.style.color = 'red';
-// });
-// });
-
+//Xoá cookies hiện tại
+function deleteAllCookies() {
+  Cookies.remove('userInfo', { path: '/' });
+}
 function AlertSuccess(){
   const Toast = Swal.mixin({
     toast: true,
@@ -243,13 +186,5 @@ function AlertSuccessAdmin(){
     icon: "success",
     title: "Chào mừng admin đăng nhập!",
     color: "#716add",
-  });
-}
-function AlertError(){
-  Swal.fire({
-    icon: "error",
-    title: "Oops...",
-    text: "Tài khoản hoặc mật khẩu không đúng!",
-    // footer: '<a href="#">Why do I have this issue?</a>'
   });
 }
