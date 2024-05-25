@@ -56,22 +56,22 @@ if (userInfoStringFromCookie) {
 onAuthStateChanged(auth, (user) => {
   if (user) {
     //Nếu người đăng nhập
-    // update(ref(database, "users/" + uidProfile), {
-    //     userstatus: "online"
-    // })
     if (RoleProfile !== 'admin') {
-      alert('Bạn không có quyền truy cập vào trang này!');
+      // alert('Bạn không có quyền truy cập vào trang này!');
       window.location.href = 'auth.index.html';
+      window.location.replace("auth.index.html");
     }
   } else {
     // User is signed out
-    //           update(ref(database, "users/" + uidProfile), {
-    //             userstatus: "offline",
-    //   });
     window.location.replace("login.html");
   }
 });
-
+function checkAdminAccess() {
+  if (RoleProfile !== 'admin') {
+    window.location.replace("auth.index.html");
+  }
+}
+checkAdminAccess();
 function SavaToCookies() {
   const user = auth.currentUser;
   const databaseRef = ref(database);
