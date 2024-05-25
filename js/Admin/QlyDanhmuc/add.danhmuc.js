@@ -47,18 +47,48 @@ import {
     var iddanhmuc = document.getElementById("categoryId").value;
     var tendanhmuc = document.getElementById("categoryName").value;
   
-    set(ref(database, "Danhmuc/" + iddanhmuc), {
-      iddanhmuc: iddanhmuc,
-      Tendanhmuc: tendanhmuc,
-    })
-    .then(() => {
-        AlertSuccess(tendanhmuc);
-        resetInputs();
-      })
-      .catch((error) => {
-        alert("Đã xảy ra lỗi" + error.message);
+    // Tham chiếu đến nút con trong cơ sở dữ liệu
+    var danhMucRef = ref(database, "Danhmuc/" + iddanhmuc);
+  
+    // Kiểm tra xem danh mục đã tồn tại hay chưa
+    get(danhMucRef).then((snapshot) => {
+      if (snapshot.exists()) {
+        // Nếu danh mục đã tồn tại, hiển thị thông báo lỗi
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Danh mục đã tồn tại!",
+        });
+      } else {
+        // Nếu danh mục chưa tồn tại, thêm mới danh mục vào cơ sở dữ liệu
+        set(danhMucRef, {
+          iddanhmuc: iddanhmuc,
+          Tendanhmuc: tendanhmuc,
+        })
+        .then(() => {
+          // Hiển thị thông báo thành công
+          AlertSuccess(tendanhmuc);
+          resetInputs();
+        })
+        .catch((error) => {
+          // Hiển thị thông báo lỗi
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Đã xảy ra lỗi: " + error.message,
+          });
+        });
+      }
+    }).catch((error) => {
+      // Hiển thị thông báo lỗi nếu không thể kiểm tra sự tồn tại của danh mục
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Đã xảy ra lỗi khi kiểm tra danh mục: " + error.message,
       });
+    });
   }
+  
   function resetInputs(){
     document.getElementById("categoryId").value = "";
     document.getElementById("categoryName").value = "";

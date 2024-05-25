@@ -55,35 +55,58 @@ function AddSanPham() {
   // Lấy dữ liệu từ localStorage
   const imageUrl = localStorage.getItem("imageUrl");
 
-  set(ref(database, "sanpham/" + idsanpham), {
-    idsanpham: idsanpham,
-    tensanpham: tensanpham,
-    soluong: soluong,
-    dungluong: dungluong,
-    giagoc: giagoc,
-    giasale: giasale,
-    file: file.name,
-    picture: imageUrl,
-  })
-    .then(() => {
-      // Xoá dữ liệu từ localStorage sau khi sử dụng xong
-      try {
-        localStorage.removeItem("imageUrl");
-        console.log("Đã xoá thành công key 'imageUrl' từ localStorage.");
-        const imageUrl = localStorage.getItem("imageUrl");
-        console.log("URL ảnh từ localStorage:", imageUrl);
-      } catch (error) {
-        console.error("Lỗi khi xoá key 'imageUrl' từ localStorage:", error);
-      }
-      console.log("OK");
-      AlertSuccess(tensanpham);
+  // Tham chiếu đến sản phẩm trong cơ sở dữ liệu
+  var sanPhamRef = ref(database, "sanpham/" + idsanpham);
 
-      // alert("Thêm sản phẩm '" + tensanpham + "' thành công!");
-      resetInputs();
-    })
-    .catch((error) => {
-      alert("Đã xảy ra lỗi" + error.message);
+  // Kiểm tra xem sản phẩm đã tồn tại hay chưa
+  get(sanPhamRef).then((snapshot) => {
+    if (snapshot.exists()) {
+      // Nếu sản phẩm đã tồn tại, hiển thị thông báo lỗi
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Sản phẩm đã tồn tại!",
+      });
+    } else {
+      // Nếu sản phẩm chưa tồn tại, thêm mới sản phẩm vào cơ sở dữ liệu
+      set(sanPhamRef, {
+        idsanpham: idsanpham,
+        tensanpham: tensanpham,
+        soluong: soluong,
+        dungluong: dungluong,
+        giagoc: giagoc,
+        giasale: giasale,
+        picture: imageUrl,
+      })
+      .then(() => {
+        // Xoá dữ liệu từ localStorage sau khi sử dụng xong
+        try {
+          localStorage.removeItem("imageUrl");
+          console.log("Đã xoá thành công key 'imageUrl' từ localStorage.");
+          const imageUrl = localStorage.getItem("imageUrl");
+          console.log("URL ảnh từ localStorage:", imageUrl);
+        } catch (error) {
+          console.error("Lỗi khi xoá key 'imageUrl' từ localStorage:", error);
+        }
+        console.log("OK");
+        AlertSuccess(tensanpham);
+        resetInputs();
+      })
+      .catch((error) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Đã xảy ra lỗi: " + error.message,
+        });
+      });
+    }
+  }).catch((error) => {
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Đã xảy ra lỗi khi kiểm tra sản phẩm: " + error.message,
     });
+  });
 }
 // Sử dụng hàm resetInputs() khi cần làm mới các ô input
 function resetInputs() {

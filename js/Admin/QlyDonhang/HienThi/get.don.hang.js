@@ -80,6 +80,7 @@ function displayDonhang(MaDonhang, time, soluongmua, tongtien, thongtindonhang, 
 
     // Tạo HTML cho mỗi hàng
     let html = `
+    <td>${++rowCount}</td>
         <td data-madonhang="${MaDonhang}" class="ma-don-hang">${MaDonhang}</td>
         <td>
             <div class="product-info">

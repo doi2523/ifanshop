@@ -74,70 +74,140 @@ function SavaToCookies() {
     }
   })  
 }
+
 document.getElementById('signin').addEventListener('submit', function(event) {
   event.preventDefault();
-  var email = document.getElementById("login-email").value;
-  var password = document.getElementById("login-password").value;
+  
+  const email = document.getElementById("login-email").value;
+  const password = document.getElementById("login-password").value;
+  
   signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-  // Signed in 
-  const auth = getAuth();
-  const user = auth.currentUser;
-
-  let last_login_time = new Date();
-  let formattedDateTime = last_login_time.toLocaleString('vi-VN', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit'
-  });
-  let updates = {};
-  updates['/users/' + user.uid + '/last_login'] = formattedDateTime;
-  update(ref(database), updates)
-      .then(() => {
-          console.log('Đã cập nhật thời gian đăng nhập thành công.');
-      })
-      .catch((error) => {
-          console.error('Lỗi khi cập nhật thời gian đăng nhập:', error);
+    .then((userCredential) => {
+      const user = userCredential.user;
+      const lastLoginTime = new Date().toLocaleString('vi-VN', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
       });
-  if (email === 'admin@gmail.com' && password === '123456') {
-      document.getElementById('loginMessage').innerText = 'Đăng nhập thành công! Vui lòng đợi!';
-      loginMessage.style.color = 'green';  // Đợi 2 giây trước khi tải lại trang
-      SavaToCookies();
-      AlertSuccessAdmin();
-      setTimeout(function() {
-        window.location.href = 'auth.admin.html';
-      }, 3000);
-      // alert('Chào mừng admin!');  
-      update(ref(database, "users/" + user.uid), {
-        userstatus: "online"
-      })    
-      }
-  else {
-    document.getElementById('loginMessage').innerText = 'Đăng nhập thành công! Vui lòng đợi!'; 
-    loginMessage.style.color = 'green';
-    SavaToCookies();
-    AlertSuccess();
-      setTimeout(function() {
-        window.location.href = 'auth.index.html';
-      }, 3000); 
-    // alert("Chào mừng '"+user.email +"' đăng nhập");
-    update(ref(database, "users/" + user.uid), {
-      userstatus: "online"
-    })
-    }
+
+      // Fetch user role from the database
+      const userRef = ref(database, '/users/' + user.uid);
+      get(userRef)
+        .then((snapshot) => {
+          if (snapshot.exists()) {
+            const userData = snapshot.val();
+            const userRole = userData.role;
+
+            let updates = {};
+            updates['/users/' + user.uid + '/last_login'] = lastLoginTime;
+            updates['/users/' + user.uid + '/userstatus'] = "online";
+
+            update(ref(database), updates)
+              .then(() => {
+                console.log('Đã cập nhật thời gian đăng nhập và trạng thái thành công.');
+
+                document.getElementById('loginMessage').innerText = 'Đăng nhập thành công! Vui lòng đợi!';
+                document.getElementById('loginMessage').style.color = 'green';
+                SavaToCookies();
+
+                if (userRole === 'admin') {
+                  AlertSuccessAdmin();
+                  setTimeout(() => {
+                    window.location.href = 'auth.admin.html';
+                  }, 3000);
+                } else {
+                  AlertSuccess();
+                  setTimeout(() => {
+                    window.location.href = 'auth.index.html';
+                  }, 3000);
+                }
+              })
+              .catch((error) => {
+                console.error('Lỗi khi cập nhật dữ liệu:', error);
+              });
+          } else {
+            console.error('Không có dữ liệu người dùng.');
+          }
+        })
+        .catch((error) => {
+          console.error('Lỗi khi lấy dữ liệu người dùng:', error);
+        });
     })
     .catch((error) => {
-      const errorCode = error.code;
       const errorMessage = error.message;
-      //alert('Đăng nhập thất bại!');
       AlertError();
       document.getElementById('loginMessage').innerText = 'Tài khoản hoặc mật khẩu không đúng!';
-      loginMessage.style.color = 'red';
+      document.getElementById('loginMessage').style.color = 'red';
+      console.error('Lỗi đăng nhập:', errorMessage);
+    });
 });
-});
+// document.getElementById('signin').addEventListener('submit', function(event) {
+//   event.preventDefault();
+//   var email = document.getElementById("login-email").value;
+//   var password = document.getElementById("login-password").value;
+//   signInWithEmailAndPassword(auth, email, password)
+//   .then((userCredential) => {
+//   // Signed in 
+//   const auth = getAuth();
+//   const user = auth.currentUser;
+
+//   let last_login_time = new Date();
+//   let formattedDateTime = last_login_time.toLocaleString('vi-VN', {
+//     day: '2-digit',
+//     month: '2-digit',
+//     year: 'numeric',
+//     hour: '2-digit',
+//     minute: '2-digit',
+//     second: '2-digit'
+//   });
+//   let updates = {};
+//   updates['/users/' + user.uid + '/last_login'] = formattedDateTime;
+//   update(ref(database), updates)
+//       .then(() => {
+//           console.log('Đã cập nhật thời gian đăng nhập thành công.');
+//       })
+//       .catch((error) => {
+//           console.error('Lỗi khi cập nhật thời gian đăng nhập:', error);
+//       });
+//   if (email === 'admin@gmail.com' && password === '123456') {
+//       document.getElementById('loginMessage').innerText = 'Đăng nhập thành công! Vui lòng đợi!';
+//       loginMessage.style.color = 'green';  // Đợi 2 giây trước khi tải lại trang
+//       SavaToCookies();
+//       AlertSuccessAdmin();
+//       setTimeout(function() {
+//         window.location.href = 'auth.admin.html';
+//       }, 3000);
+//       // alert('Chào mừng admin!');  
+//       update(ref(database, "users/" + user.uid), {
+//         userstatus: "online"
+//       })    
+//       }
+//   else {
+//     document.getElementById('loginMessage').innerText = 'Đăng nhập thành công! Vui lòng đợi!'; 
+//     loginMessage.style.color = 'green';
+//     SavaToCookies();
+//     AlertSuccess();
+//       setTimeout(function() {
+//         window.location.href = 'auth.index.html';
+//       }, 3000); 
+//     // alert("Chào mừng '"+user.email +"' đăng nhập");
+//     update(ref(database, "users/" + user.uid), {
+//       userstatus: "online"
+//     })
+//     }
+//     })
+//     .catch((error) => {
+//       const errorCode = error.code;
+//       const errorMessage = error.message;
+//       //alert('Đăng nhập thất bại!');
+//       AlertError();
+//       document.getElementById('loginMessage').innerText = 'Tài khoản hoặc mật khẩu không đúng!';
+//       loginMessage.style.color = 'red';
+// });
+// });
 
 function AlertSuccess(){
   const Toast = Swal.mixin({
