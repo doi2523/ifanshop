@@ -102,7 +102,7 @@
               </a>
           </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="auth.admin.qlymessages.html">
+                    <a class="nav-link active" href="auth.admin.qlymessages.html">
                         <i class="bi bi-chat sz"></i>
                         <span class="sz">QLY phản hồi</span>
                         <span
@@ -222,7 +222,7 @@
         <!-- Manage -->
         <div id="managemess" class="container hide mt-3">
             <div class="row">
-                <div class="col-md-5">
+                <div class="col-md-4">
                     <div class="custom-table-container mr-3">
                         <table class="table table-sm custom-table border">
                             <thead>
@@ -235,10 +235,18 @@
                         </table>
                     </div>
                 </div>
+                <div class="col-md-8">
+                    <div class="container height-chat d-flex flex-column bg-light">
+                        <div id="chatInfo-manage" class="bg-dark headerchat p-3">Click từng hàng để xoá tin nhắn</div>
+                        <div style="overflow-y: auto;">
+                            <div class="chat-messages mt-2" id="hienthimanage"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- Rate -->
-        <div id="rating" class="container-fluid hide mt-3">
+        <div id="rating" class="container hide mt-3">
             <div class="row">
                 <!-- Cột bên trái -->
                 <!-- <div class="col-md-3">
@@ -252,9 +260,9 @@
                         <div id="textchat-everyone" class="list-group-flush"></div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <!-- <div class="col-md-3">
                     <h1>Luu y</h1>
-                </div>
+                </div> -->
             </div>
         </div>
         <script>

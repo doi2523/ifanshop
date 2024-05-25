@@ -51,6 +51,7 @@ function AddItemToList(uid, hoten, urlavatar, userstatus, messageCount) {
   ///
   let numberCell = document.createElement("td");
   numberCell.innerHTML = `${messageCount}`;
+  numberCell.id = `number-${uid}`;
   // Tạo một ô cho nút "Chat"
   let chatCell = document.createElement("td");
   let chatButton = document.createElement("button");
@@ -66,25 +67,111 @@ function AddItemToList(uid, hoten, urlavatar, userstatus, messageCount) {
   row.appendChild(infoCell);  
   row.appendChild(numberCell)
   row.appendChild(chatCell);
+  // Thêm sự kiện hover và thay đổi con trỏ chuột
+  row.addEventListener("mouseover", function() {
+    row.style.backgroundColor = "#f0f0f0"; // Thay đổi màu nền khi hover
+    row.style.cursor = "pointer"; // Thay đổi con trỏ chuột
+  });
+  row.addEventListener("mouseout", function() {
+    row.style.backgroundColor = ""; // Trở lại màu nền ban đầu khi không hover
+    row.style.cursor = "default"; // Trở lại con trỏ chuột ban đầu
+  });
 
+  row.addEventListener("click", function () {
+    document.getElementById("hienthimanage").innerHTML = "";
+    document.getElementById("chatInfo-manage").innerHTML = "";
+    // Tạo HTML cho hình ảnh và tên người dùng
+    let chatInfoHTML = `<img class="image-avt" src="${urlavatar}" alt="${hoten}"> ${hoten} [${userstatus}] <span class="${statusDotClass}"></span>`;
+    // In hình ảnh và tên người dùng ra div chatInfo
+    document.getElementById("chatInfo-manage").innerHTML = chatInfoHTML;
+    GetMess(uid, numberCell)
+  });
 
   // Thêm hàng vào bảng
   userList.appendChild(row);
 }
-function GetMess(userid) {
+function GetMess(uid, numberCell) {
     const database = getDatabase();
-    const databaseRef = ref(database, "messages/" + userid);
+    const databaseRef = ref(database, "messages/" + uid);
   
     // Lắng nghe sự kiện child_added để nhận thông báo khi có tin nhắn mới được thêm vào
     onChildAdded(databaseRef,(snapshot) => {
         const message = snapshot.val();
+        const keymess = snapshot.key;
+        displayMessage(message, keymess, uid, numberCell);
       },
       (error) => {
         console.error("Error getting messages: ", error);
       }
     );
 }
-  function GetAllDataOnce() {
+function displayMessage(message, keymess, uid, numberCell) {
+  const messages = document.getElementById('hienthimanage');
+  const div = document.createElement('div');
+  // Tạo phần tử hiển thị thời gian
+  const timeDiv = document.createElement('div');
+  timeDiv.classList.add('message-time');
+  timeDiv.textContent = message.time;
+  messages.appendChild(timeDiv); 
+  div.classList.add('chat-message');
+  //Điều kiện hiển thị nếu role là user thì sẽ hiển thị bên phải
+  if (message.role === 'user') {
+    div.classList.add('received');
+    div.innerHTML = `
+    <button class="btn btn-danger btn-sm delete-message"><i class="fas fa-trash"></i></button>
+    <img src="${message.url}" alt="User Avatar" class="avatar-icon">
+    <div class="message-content">${message.message}</div>
+    `;
+  } //Nếu là role khác sẽ hiển thị bên trái
+  else {
+    div.classList.add('sent');
+    div.innerHTML = `
+    <div class="message-content">${message.message}</div>
+    <img src="${message.url}" alt="User Avatar" class="avatar-icon">
+    <button class="btn btn-danger btn-sm delete-message"><i class="fas fa-trash"></i></button>
+    `;
+  }
+  messages.appendChild(div);
+
+  // Thêm sự kiện click cho nút xoá
+  const deleteButton = div.querySelector('.delete-message');
+  deleteButton.addEventListener('click', function() {
+    // Gọi hàm để xử lý việc xoá tin nhắn
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Tin nhắn này sẽ bị xoá!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Deleted!",
+          text: "Tin nhắn này đã được xoá.",
+          icon: "success"
+        });
+        let productRef = ref(database, "messages/" + uid + "/" + keymess);
+        remove(productRef)
+          .then(() => {
+            // numberCell.innerHTML='0';
+            div.remove();
+            timeDiv.remove();
+            // Trừ đi 1 ở ô numberCell
+            let currentCount = parseInt(numberCell.innerHTML);
+            if (!isNaN(currentCount)) {
+              numberCell.innerHTML = currentCount > 0 ? currentCount - 1 : 0;
+            }
+          })
+          .catch((error) => {
+            alert("Lỗi khi xoá tin nhắn:", error);
+          });
+      }
+    });
+  });
+}
+function GetAllDataOnce() {
     const databaseRef = ref(database);
   
     get(child(databaseRef, "users"))
@@ -128,7 +215,7 @@ GetAllDataOnce();
 function confirmDelete(uid, numberCell) {
   Swal.fire({
     title: "Are you sure?",
-    text: "You won't be able to revert this!",
+    text: "Bạn sẽ xoá tất cả tin nhắn với người dùng này!",
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
@@ -138,7 +225,7 @@ function confirmDelete(uid, numberCell) {
     if (result.isConfirmed) {
       Swal.fire({
         title: "Deleted!",
-        text: "Your file has been deleted.",
+        text: "Tất cả tin nhắn với người dùng này đã được xoá.",
         icon: "success"
       });
       deleteProduct(uid, numberCell);
@@ -146,15 +233,15 @@ function confirmDelete(uid, numberCell) {
   });
 }
   
-  // Hàm xoá sản phẩm
-  function deleteProduct(uid, numberCell) {
-    let productRef = ref(database, "messages/" + uid);
-    remove(productRef)
-      .then(() => {
-        numberCell.innerHTML='0';
-        // alert("Đã xoá tin nhắn");
-      })
-      .catch((error) => {
-        alert("Lỗi khi xoá tin nhắn:", error);
-      });
-  }
+// Hàm xoá sản phẩm
+function deleteProduct(uid, numberCell) {
+  let productRef = ref(database, "messages/" + uid);
+  remove(productRef)
+    .then(() => {
+      numberCell.innerHTML='0';
+      // alert("Đã xoá tin nhắn");
+    })
+    .catch((error) => {
+      alert("Lỗi khi xoá tin nhắn:", error);
+    });
+}
