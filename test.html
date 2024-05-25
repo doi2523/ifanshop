@@ -50,12 +50,12 @@
                     </a>
                 </li>
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                       aria-expanded="false">
                       <i class="bi bi-bookmarks sz"></i>
                       <span class="sz">QLY sản phẩm</span>
                   </a>
-                  <ul class="dropdown-menu border active" aria-labelledby="navbarDropdown" style="margin-left: 40px">
+                  <ul class="dropdown-menu border" aria-labelledby="navbarDropdown" style="margin-left: 40px">
                       <!-- Các mục menu trong dropdown menu -->
                       <li class="nav-item">
                           <a class="nav-link dropdown-item" href="auth.admin.qlyiphone.html">
@@ -82,7 +82,7 @@
                   </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="auth.admin.qlydanhmuc.html">
+                <a class="nav-link active" href="auth.admin.qlydanhmuc.html">
                   <i class="bi bi-collection sz"></i>
                   <span class="sz">QLY Danh mục</span>
                 </a>
@@ -143,7 +143,7 @@
             <div class="row align-items-center">
               <div class="col-sm-6 col-12 mb-4 mb-sm-0">
                 <!-- Title -->
-                <h1 class="h2 mb-0 ls-tight">Hiển thị trên Web</h1>
+                <h1 class="h2 mb-0 ls-tight">QLY Danh mục</h1>
               </div>
               <!-- Actions -->
               <div class="col-sm-6 col-12 text-sm-end">
@@ -165,14 +165,11 @@
             </div>
             <!-- Nav -->
             <ul class="nav nav-tabs mt-4 overflow-x border-0">
-                <li class="nav-item">
-                    <a href="auth.admin.qlyiphone.html" class="nav-link active">Danh sách</a>
+                <li class="nav-item ">
+                    <a id="danhsachclick" href="#" class="nav-link active">Danh sách</a>
                   </li>
                   <li class="nav-item">
-                    <a href="auth.admin.addiphone.html" class="nav-link font-regular">Thêm sản phẩm</a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="auth.admin.setupiphone.html" class="nav-link font-regular">Hiển thị trên Web</a>
+                    <a id="themclick" href="#" class="nav-link font-regular">Thêm danh mục</a>
                   </li>
                   <li class="nav-item">
                     <span style="color: blueviolet; font-weight: bold;" id="datetime" class="nav-link font-regular">File requests</span>
@@ -183,74 +180,81 @@
       </header>
       <!-- Main -->
       <main class="py-6 bg-surface-secondary">
-        <div class="container-fluid">
+        <div id="danhsachdanhmuc" class="container-fluid">
           <div class="row g-6 mb-6">
             <div class="col-xl-12 col-sm-12 col-12">
               <div class="card shadow border-0">
                 <div class="card-body">
                   <div class="row">
-                    <div class="row">
-                        <div class="col-md-6">
-                          <form action="" id="addweb" class="bg-dark text-light p-3">
-                            <div class="row">
-                              <div class="col">
-                                <label for="">Nhập Code muốn thao tác</label><br/>
-                                <input class="form-control" type="text" id="number-grid" placeholder="Example: #3" required/>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col">
-                                <label for="">Nhập ID:</label><br/>
-                                <input class="form-control" type="text" id="idsanpham" placeholder="Example: ip13prm"/>
-                              </div>
-                            </div>
-                            <div class="row mt-3">
-                              <div class="col d-flex justify-content-end">
-                                <button class="btn btn-primary mx-2"id="insert-to-gird"type="button">
-                                  <i class="bi bi-plus"></i> Thêm/ Thay thế</button>
-                                <button class="btn btn-danger" id="delete-to-gird" type="button">
-                                  <i class="bi bi-trash"></i> Xoá
-                              </button>                    
-                              </div>
-                            </div>
-                          </form>
-                        </div>
-                        <div class="col-md-6">
-                          <h2 class="container mt-3">Form Web & id Grid</h2>
-                          <div class="container mt-3">
-                            <table>
-                              <tbody id="showgrid"></tbody>
-                            </table>
-                          </div>
-                        </div>
-                      </div>
-                    <h2>ID sản phẩm đã thêm</h2>
-                    <div class="row">
-                        <div class="col-md-9">
-                            <table>
-                                <tbody id="showid"></tbody>
-                            </table>
-                        </div>
-                        <div class="col">
-                            <a class="btn btn-primary" href="auth.admin.addiphone.html">Thêm mới</a>
-                        </div>
-                    </div>
+                    <table class="table table-hover table-info table-sm">
+                        <thead class="thead-dark">
+                            <th>STT</th>
+                            <th>ID</th>
+                            <th>Tên</th>
+                            <th colspan="2">Tuỳ chọn</th>
+                        </thead>
+                        <tbody id="hienthidanhmuc"></tbody>
+                    </table>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
+        <div id="themdanhmuc" class="container-fluid hide">
+            <div class="row g-6 mb-6">
+              <div class="col-xl-12 col-sm-12 col-12">
+                <div class="card shadow border-0">
+                  <div class="card-body">
+                    <div class="row">
+                        <form action="" id="formdanhmuc">
+                            <div class="mb-3">
+                                <label for="categoryId" class="form-label">ID danh mục</label>
+                                <div class="input-group">
+                                    <input type="text" id="categoryId" required class="form-control" placeholder="Nhập ID danh mục">
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="categoryId" class="form-label">Tên danh mục</label>
+                                <div class="input-group">
+                                    <input type="text" id="categoryName" required class="form-control" placeholder="Nhập tên danh mục">
+                                </div>
+                            </div>  
+                            <button type="submit" class="btn btn-primary float-right">Thêm</button>             
+                        </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
       </main>
       <script>
-        document.getElementById('file').addEventListener('change', function(event) {
-            const selectedFile = event.target.files[0];
-            const imageURL = URL.createObjectURL(selectedFile);
-            const imageElement = document.createElement('img');
-            imageElement.src = imageURL;
-            imageElement.classList.add('img-fluid'); // Thêm lớp 'img-fluid' cho hình ảnh (Bootstrap)
-            document.getElementById('selectedImage').innerHTML = '';
-            document.getElementById('selectedImage').appendChild(imageElement);
+        document.addEventListener('DOMContentLoaded', function () {
+            const danhSachBtn = document.getElementById('danhsachclick');
+            const themBtn = document.getElementById('themclick');
+            const danhSachContainer = document.getElementById('danhsachdanhmuc');
+            const themContainer = document.getElementById('themdanhmuc');
+
+            danhSachBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                danhSachContainer.classList.remove('hide');
+                themContainer.classList.add('hide');
+                danhSachBtn.classList.add('active');
+                danhSachBtn.classList.remove('font-regular');
+                themBtn.classList.remove('active');
+                themBtn.classList.add('font-regular');
+            });
+
+            themBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                danhSachContainer.classList.add('hide');
+                themContainer.classList.remove('hide');
+                danhSachBtn.classList.remove('active');
+                danhSachBtn.classList.add('font-regular');
+                themBtn.classList.add('active');
+                themBtn.classList.remove('font-regular');
+            });
         });
     </script>
     </div>
@@ -265,6 +269,7 @@
 <script type="module" src="js/checklogin.js"></script>
 <script type="module" src="js/checklogout&delete.js"></script>
 
-<script type="module" src="js/insert/get.id.iphone.to.insert.js"></script>
-<script type="module" src="js/insert/show.iphone.in.web.js"></script>
+<!-- Js danh mục -->
+<script type="module" src="js/Admin/QlyDanhmuc/hienthi.danhmuc.js"></script>
+<script type="module" src="js/Admin/QlyDanhmuc/add.danhmuc.js"></script>
 </html>
