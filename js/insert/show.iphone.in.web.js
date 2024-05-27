@@ -44,14 +44,10 @@ let cellNumber = 1; // Biến để theo dõi số cho mỗi ô
 function GetGrid() {
   const database = getDatabase();
   const databaseRef = ref(database, "webiphone");
-
   // Lắng nghe sự kiện value để nhận tất cả dữ liệu khi nó thay đổi hoặc được tải lên ban đầu
-  onValue(
-    databaseRef,
-    (snapshot) => {
+  onValue(databaseRef,(snapshot) => {
       // Reset giá trị của biến đếm khi có thay đổi dữ liệu
       cellNumber = 1;
-
       const gridData = snapshot.val();
       // Xóa tất cả các phần tử hiện có trong grid trước khi hiển thị lại dữ liệu mới
       const showgrid = document.getElementById("showgrid");
@@ -81,7 +77,6 @@ function displayGrid(gridData) {
       tr = document.createElement("tr"); // Tạo một thẻ tr mới
       showgrid.appendChild(tr); // Thêm thẻ tr mới vào showgrid
   }
-
   // Tạo một thẻ td chứa dữ liệu và thêm vào thẻ tr
   const td = document.createElement("td");
   td.className = "border text-left gridbox";
@@ -119,12 +114,10 @@ function displayGrid(gridData) {
 
 GetGrid();
 
-document
-  .getElementById("insert-to-gird")
-  .addEventListener("click", function (event) {
+document.getElementById("insert-to-gird").addEventListener("click", function (event) {
     event.preventDefault();
     AddIn();
-  });
+});
 function AddIn() {
   var numbergrid = document.getElementById("number-grid").value;
   if (numbergrid.trim() === "") {
@@ -182,12 +175,10 @@ function UpdateIn() {
       alert("Đã xảy ra lỗi" + error.message);
     });
 }
-document
-  .getElementById("delete-to-gird")
-  .addEventListener("click", function (event) {
+document.getElementById("delete-to-gird").addEventListener("click", function (event) {
     event.preventDefault();
     DeleteIn();
-  });
+});
 function DeleteIn() {
   // Lấy nội dung của nhãn
   var numbergrid = document.getElementById("number-grid").value;
