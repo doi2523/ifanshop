@@ -41,6 +41,8 @@ const auth = getAuth();
 const firebaseApp = getApp();
 
 let itemCount = 1; // Biến đếm số lượng mục
+let originalProducts = []; // Danh sách sản phẩm ban đầu
+let filteredProducts = []; // Danh sách sản phẩm sau khi lọc
 
 function GetiPhone() {
   const database = getDatabase();
@@ -68,6 +70,9 @@ function GetData(idsanpham_hienthi) {
   // Lắng nghe sự kiện child_added trên nút con chứa dữ liệu với idsanpham
   onValue(productRef,(snapshot) => {
       const listiphone = snapshot.val();
+
+      originalProducts.push(listiphone); // Thêm sản phẩm vào danh sách ban đầu
+
       ShowOnWeb(listiphone);
     },
     (error) => {
@@ -127,6 +132,9 @@ function ShowOnWeb(listiphone) {
     </div>`;
   showweb.appendChild(div);
   itemCount++; // Tăng biến đếm số lượng mục
+
+  filteredProducts.push(listiphone); // Thêm sản phẩm vào danh sách đã lọc
+
     div.addEventListener('click', function() {
       const idsanpham = listiphone.idsanpham;
       localStorage.setItem("idsanpham", idsanpham);
@@ -138,21 +146,78 @@ function ShowOnWeb(listiphone) {
     });
 }
 GetiPhone();
-function AlertGioHang(ten){
-  const Toast = Swal.mixin({
-    toast: true,
-    position: "top-end",
-    showConfirmButton: false,
-    timer: 3000,
-    timerProgressBar: true,
-    didOpen: (toast) => {
-      // toast.onmouseenter = Swal.stopTimer;
-      toast.onmouseleave = Swal.resumeTimer;
-    }
+
+// Hàm tìm kiếm và lọc sản phẩm
+function filterProductsByNameOrPrice(query) {
+    const showweb = document.getElementById("showiphone");
+    showweb.innerHTML = ''; // Xóa tất cả các sản phẩm hiện có
+
+    filteredProducts = [];
+
+    filteredProducts = originalProducts.filter(product => {
+        const productPrice = parseFloat(product.giasale.replace(/\./g, ''));
+        const productName = product.tensanpham.toLowerCase();
+        const productDungluong = product.dungluong.toLowerCase();
+
+        const priceThreshold = 0.1; // Phần trăm sự chênh lệch tối đa giữa giá nhập và giá sản phẩm
+        const priceRange = productPrice * priceThreshold;
+
+        return (
+            (!isNaN(query) && Math.abs(productPrice - query) <= priceRange) ||
+            productName.includes(query.toLowerCase()) ||
+            productDungluong.includes(query.toLowerCase())
+        );
+    });
+
+    filteredProducts.forEach(product => {
+        ShowOnWeb(product); // Hiển thị sản phẩm đã lọc
+    });
+}
+
+document.getElementById('formtimkiem').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const searchInput = document.getElementById('inputtimkiem').value;
+  filterProductsByNameOrPrice(searchInput);
+});
+// Hàm sắp xếp sản phẩm theo giá tăng dần
+function sortProductsAscending() {
+  const showweb = document.getElementById("showiphone");
+  showweb.innerHTML = ''; // Xóa tất cả các sản phẩm hiện có
+
+  filteredProducts = originalProducts.slice().sort((a, b) => {
+      const priceA = parseFloat(a.giasale.replace(/\./g, ''));
+      const priceB = parseFloat(b.giasale.replace(/\./g, ''));
+      return priceA - priceB;
   });
-  Toast.fire({
-    icon: "success",
-    title: "Thêm '"+ten+"' vào giỏ hàng thành công!",
-    color: "#716add",
+
+  filteredProducts.forEach(product => {
+      ShowOnWeb(product); // Hiển thị sản phẩm đã sắp xếp
   });
 }
+
+// Hàm sắp xếp sản phẩm theo giá giảm dần
+function sortProductsDescending() {
+  const showweb = document.getElementById("showiphone");
+  showweb.innerHTML = ''; // Xóa tất cả các sản phẩm hiện có
+
+  filteredProducts = originalProducts.slice().sort((a, b) => {
+      const priceA = parseFloat(a.giasale.replace(/\./g, ''));
+      const priceB = parseFloat(b.giasale.replace(/\./g, ''));
+      return priceB - priceA;
+  });
+
+  filteredProducts.forEach(product => {
+      ShowOnWeb(product); // Hiển thị sản phẩm đã sắp xếp
+  });
+}
+
+
+// Xử lý sự kiện click vào button sắp xếp giá tăng dần
+document.getElementById('sortAscendingBtn').addEventListener('click', function() {
+  sortProductsAscending();
+});
+
+// Xử lý sự kiện click vào button sắp xếp giá giảm dần
+document.getElementById('sortDescendingBtn').addEventListener('click', function() {
+  sortProductsDescending();
+});

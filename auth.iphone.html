@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>iFanShop</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
   <link rel="stylesheet" href="css/animate.css">
   <link rel="icon" href="images/marketplace.png" type="image/x-icon">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
-    integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="style.css" />
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
-    integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- Sweetalert2 -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<!-- Js Cookies -->
-<script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+  <!-- Sweetalert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- Js Cookies -->
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
   <link rel="stylesheet" href="css/iphone.css">
   <link rel="stylesheet" href="css/thecart.css">
   <link rel="stylesheet" href="css/banner.css">
@@ -65,11 +62,8 @@
   </nav>
   <!-- End Navbar -->
   <!-------Banner Start------->
-  <section>
-    <div>
-      <div class="container">
-
-        <div class="slider">
+      <div class="container" style="padding-top: 100px;">
+        <div class="slider" style="padding: 0;">
           <h1 class="txt-ip">iPhone</h1>
           <button id="button-slide" type="button" class="slide-prev">&#10094;</button> <!-- Nút chuyển sang trước -->
           <div class="slide-viewer">
@@ -83,60 +77,35 @@
               <div class="slide slide-3">
                 <img id="image3" src="images/314dm.png" alt="The Flower Series" />
               </div>
-              <!-- <div class="slide slide-4">
-                <img id="image4" src="images/315dm.png" alt="Salt o' The Sea" />
-              </div> -->
             </div>
             <button id="button-slide" type="button" class="slide-next">&#10095;</button> <!-- Nút chuyển sang sau -->
           </div>
-          <div class="slide-buttons"></div>
+          <!-- <div class="slide-buttons"></div> -->
         </div>
-
-        <!-- Thanh Giỏ hàng -->
-        <div class="custom-navbar">
-          <div class="custom-search-box">
-            <!-- Ô tìm kiếm -->
-            <div class="txt-cart">Giỏ hàng</div>
-            <div>
-              <input type="text" class="custom-search-input" placeholder="Tìm kiếm...">
-              <button class="custom-search-button"><i class="fas fa-shopping-cart"></i></button>
-            </div>
-          </div>
-          <ul class="custom-menu">
-            <li class="custom-menu-item">All</li>
-            <li class="custom-menu-item">iPhone 11</li>
-            <li class="custom-menu-item">iPhone 12</li>
-            <li class="custom-menu-item">iPhone 13</li>
-          </ul>
-        </div>
-
-
-        <!-- Form Thêm vào giỏ hàng -->
-        <div class="add-to-cart-form" style="display: none;">
-          <h2>Thêm vào giỏ hàng</h2>
-          <form>
-            <label for="product-name">Tên sản phẩm:</label><br>
-            <input type="text" id="product-name" name="product-name"><br>
-            <label for="product-capacity">Dung lượng:</label><br>
-            <select id="product-capacity" name="product-capacity">
-              <option value="32GB">32GB</option>
-              <option value="64GB">64GB</option>
-              <option value="128GB">128GB</option>
-            </select><br>
-            <label for="product-color">Màu sắc:</label><br>
-            <select id="product-color" name="product-color">
-              <option value="Black">Black</option>
-              <option value="White">White</option>
-              <option value="Gold">Gold</option>
-            </select><br>
-            <label for="product-quantity">Số lượng:</label><br>
-            <input type="number" id="product-quantity" name="product-quantity" value="1" min="1"><br><br>
-            <input type="submit" value="Thêm vào giỏ hàng">
-          </form>
-        </div>
-
-        <div class="container-grid" id="showiphone"></div>
+        <h1>Tìm kiếm</h1>
       </div>
+  <div class="container">
+    <!-- Thanh Giỏ hàng -->
+    <div class="custom-navbar">
+      <div class="custom-search-box">
+        <!-- Ô tìm kiếm -->
+        <div class="txt-cart">Sản phẩm</div>
+        <form action="" id="formtimkiem">
+          <div class="d-flex align-items-center">
+            <input id="inputtimkiem" type="text" class="custom-search-input" placeholder="Tìm kiếm..." required>
+            <button type="submit" class="btn btn-success"><i class="fas fa-search"></i> Tìm kiếm</button>
+          </div>
+        </form>
+      </div>
+      <ul class="custom-menu">
+        <button id="sortAscendingBtn" class="btn btn-primary">Sắp xếp giá tăng dần</button>
+        <button id="sortDescendingBtn" class="btn btn-primary mx-2">Sắp xếp giá giảm dần</button>
+      </ul>
+    </div>
+  </div>    
+  <div class="container">
+    <div class="container-grid product-container" id="showiphone"></div>
+  </div>
       <!-------Banner End------->
       <footer class="site-footer">
         <div class="container">
@@ -251,19 +220,6 @@
             </div>
           </div>
           <div class="chat-messages mt-2" id="hienthimessage">
-            <!-- <div class="chat-message received">
-              <img src="https://via.placeholder.com/40" class="avatar" alt="User Avatar">
-              <div class="message-content">
-                Xin chào! Bạn thế nào?
-              </div>
-            </div>
-            <div class="chat-message sent">
-              <div class="message-content">
-                Mình ổn, cảm ơn! Còn bạn?
-              </div>
-              <img src="https://via.placeholder.com/40" class="avatar" alt="User Avatar">
-            </div> -->
-            <!-- Thêm nhiều tin nhắn ở đây -->
           </div>
           <div class="chat-input">
             <div class="input-group">
@@ -276,24 +232,20 @@
         </div>
       </div>
     </div>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
-        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
-        crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-      <!-- scrollIt js -->
-      <script src="js/scrollIt.min.js"></script>
-      <script src="js/wow.min.js"></script>
-      <script src="js/script.js"></script>
-      <script src="js/iphone.js"></script>
-
-      <script type="module" src="js/checklogin.js"></script>
-      <script type="module" src="js/message.online.js"></script>
-
-      <script type="module" src="js/Admin/Qlyiphone/ShowOnWeb/hienthi.onweb.js"></script>
-      <script type="module" src="js/User/Giohang/hienthi.sanpham.js"></script>
-
 </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <!-- scrollIt js -->
+  <script src="js/scrollIt.min.js"></script>
+  <script src="js/wow.min.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/iphone.js"></script>
 
+  <script type="module" src="js/checklogin.js"></script>
+  <script type="module" src="js/message.online.js"></script>
+
+  <script type="module" src="js/Admin/Qlyiphone/ShowOnWeb/hienthi.onweb.js"></script>
+  <script type="module" src="js/User/Giohang/hienthi.sanpham.js"></script>
 </html>
