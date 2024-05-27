@@ -71,7 +71,7 @@ function GetGiohang() {
             AlertError();
           }
         );
-      }      
+}      
 // Hàm hiển thị thông tin của đơn hàng và cập nhật tổng giá trị
 function displayGiohang(Giohang, newPostKey) {
     const Giohangs = document.getElementById("hienthi");
@@ -268,7 +268,7 @@ function DeleteGiohang(newPostKey, tensp) {
       .catch((error) => {
         // alert("Lỗi khi xoá sản phẩm:", error);
       });
-  }
+}
 } else {
   console.log('Cookies không tồn tại hoặc đã bị xoá?!');
 }

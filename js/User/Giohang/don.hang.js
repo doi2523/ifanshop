@@ -111,24 +111,24 @@ function displayDonhang(MaDonhang, time, soluongmua, tongtien, thongtindonhang, 
     });
 
     // Xác định màu sắc dựa trên tình trạng
-let color;
-switch (tinhtrang) {
-    case "Đã xác nhận":
-        color = "green";
-        break;
-    case "Đang giao hàng":
-        color = "blue";
-        break;
-    case "Đã giao thành công":
-        color = "green";
-        break;
-    case "Đơn hàng bị huỷ":
-        color = "red";
-        break;
-    default:
-        color = "black";
-        break;
-}
+    let color;
+    switch (tinhtrang) {
+        case "Đã xác nhận":
+            color = "green";
+            break;
+        case "Đang giao hàng":
+            color = "blue";
+            break;
+        case "Đã giao thành công":
+            color = "green";
+            break;
+        case "Đơn hàng bị huỷ":
+            color = "red";
+            break;
+        default:
+            color = "black";
+            break;
+    }
 
     html += `</td>
         <td>${parseFloat(tongtien).toLocaleString()}₫</td>
@@ -173,10 +173,10 @@ switch (tinhtrang) {
                     color = "black";
                     break;
             }
-                        // Đặt nội dung và màu sắc cho span
-                        const spanTinhTrang = document.getElementById("tinhtrang");
-                        spanTinhTrang.textContent = tinhtrang;
-                        spanTinhTrang.style.color = color;
+    // Đặt nội dung và màu sắc cho span
+    const spanTinhTrang = document.getElementById("tinhtrang");
+    spanTinhTrang.textContent = tinhtrang;
+    spanTinhTrang.style.color = color;
 
     const spanMaDonHang = document.getElementById("span-madonhang");
     const spanTongSoLuong = document.getElementById("span-tongsoluong");
@@ -195,12 +195,11 @@ switch (tinhtrang) {
     spanSDTNguoiNhan.textContent = sdt;
     spanEmailNguoiNhan.textContent = mail;
     spanDiaChiNguoiNhan.textContent = diachi;
-        })
+    })
 }
-
 // Gọi hàm GetDonhang để bắt đầu quá trình lấy dữ liệu và hiển thị
 GetDonhang();
-  // Lắng nghe sự kiện click trên nút "Tiến hành đặt hàng"
+
 document.getElementById("editthongtin").addEventListener("click", function(event) {
     // Ngăn form khỏi tải lại trang
     event.preventDefault();

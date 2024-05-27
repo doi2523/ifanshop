@@ -59,15 +59,14 @@ if (userInfoStringFromCookie) {
 
 document.getElementById("sendrate").addEventListener("submit", function (event) {
     event.preventDefault();
-    setTimeout(AddSanPham, 2000);
+    setTimeout(AddRate, 2000);
   });
 
-function AddSanPham() {
+function AddRate() {
   var textarea = document.getElementById("txt-form").value;
   const fileInput = document.getElementById("file-form");
   const file = fileInput.files[0];
   // Lấy dữ liệu từ localStorage
-
   const imageUrl = localStorage.getItem("imageUrl");
   const ratingValue = localStorage.getItem("ratingValue");
   // Thêm dữ liệu mới với key tự động được tạo ra bằng phương thức push()
@@ -101,7 +100,7 @@ function AddSanPham() {
 }
 // Sử dụng hàm resetInputs() khi cần làm mới các ô input
 function resetInputs() {
-  document.getElementById("txt-form").value = ""; // Làm mới giá trị của ô input 'idsanpham'
+  document.getElementById("txt-form").value = ""; // Làm mới giá trị của ô input 'idRate'
 
   // Làm mới giá trị của ô input chứa file (nếu có)
   const fileInput = document.getElementById("file-form");

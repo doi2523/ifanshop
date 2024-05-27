@@ -47,12 +47,13 @@ if (fullname) {
 }
 
 function SetAvatar() {
-var userAvatar = document.getElementById('user-avatar');
+var userAvatar = document.getElementById("user-avatar");
 // Thay đổi thuộc tính src của thẻ <img> bằng URL mới
 userAvatar.src = 'https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/Avatar%2FIMG_2017.jpg?alt=media&token=0fa4e8cf-a6bf-4faa-a07b-86fbdedef609';
 }
 SetAvatar();
 
+//Sụe kiện khi người dùng bấm gửi tin nhắn
 document.getElementById('message-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -88,7 +89,7 @@ document.getElementById('message-form').addEventListener('submit', function(even
 });
 
 
-
+//Hàm hiển thị tin nhắn 
 function GetMess() {
     const database = getDatabase();
     const databaseRef = ref(database, "messages/" + uidProfile);
@@ -129,10 +130,8 @@ function displayMessage(message) {
       `;
     }
     messages.appendChild(div);
-  }
-//   <div class="message-time">${message.time}</div>
-
-  GetMess();
+}
+GetMess();
 
 } else {
     console.log('Cookies không tồn tại hoặc đã bị xoá?!');

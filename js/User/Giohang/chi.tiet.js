@@ -57,7 +57,7 @@ if (userInfoStringFromCookie) {
   const TimeLogout = userInfoFromCookie.last_logout; //Time đăng xuất
 
 function ImportChiTiet(){
-    // Lấy dữ liệu từ localStorage
+  // Lấy dữ liệu từ localStorage
   const idsanpham = localStorage.getItem("idsanpham");
   console.log(idsanpham);
   const databaseRef = ref(database);
@@ -91,11 +91,9 @@ function formatPrice(price) {
 }
 document.getElementById('addsp').addEventListener('submit', function(event) {
     event.preventDefault(); // Ngăn chặn việc submit form
-    // AlertSuccess();
     // Lấy giá trị của phương thức thanh toán
     const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
     console.log('Phương thức thanh toán:', paymentMethod);
-    
     // Lấy giá trị của dung lượng
     const capacityInputs = document.querySelectorAll('input[name="capacity"]');
     let selectedCapacity = '';
@@ -105,7 +103,6 @@ document.getElementById('addsp').addEventListener('submit', function(event) {
         }
     });
     console.log('Dung lượng đã chọn:', selectedCapacity);
-    
     // Lấy giá trị của màu sắc
     const colorInputs = document.querySelectorAll('input[name="color"]');
     let selectedColor = '';
@@ -118,6 +115,7 @@ document.getElementById('addsp').addEventListener('submit', function(event) {
 
     const idsanpham = localStorage.getItem("idsanpham");
     const databaseRef = ref(database);
+    //Lấy thông tin sản phẩm thông qua id sản phẩm phẩm
     const ProductRef = child(databaseRef, "sanpham/" + idsanpham);
     get(ProductRef).then((snapshot) => {
       if (snapshot.exists()) {
@@ -125,7 +123,9 @@ document.getElementById('addsp').addEventListener('submit', function(event) {
 
         const userCartRef = ref(database, "donhang/" + uidProfile);
         const newPostKey = idsanpham;
+        //Kiểm tra trong database tồn tại sản phẩm này trong giỏ chưa
         get(child(userCartRef, newPostKey)).then((snapshot) => {
+          //Nếu tồn tại thì lấy giá trị cũ cộng thêm thêm 1
             if (snapshot.exists()) {
               const currentQuantity = parseInt(snapshot.val().soluong) || 0; // Chuyển đổi chuỗi thành số
               const newQuantity = currentQuantity + 1;
@@ -136,9 +136,7 @@ document.getElementById('addsp').addEventListener('submit', function(event) {
                 .then(() => {
                   let ten= ProductData.tensanpham;
                   AlertGioHang(ten);
-                  // alert("Đã cập nhật giỏ hàng!");
-                  console.log(
-                    "Giá trị đã được cập nhật vào cơ sở dữ liệu thành công!"
+                  console.log("Giá trị đã được cập nhật vào cơ sở dữ liệu thành công!"
                   );
                   if (idsanpham) {
                     // Điều hướng sau 3 giây
@@ -156,6 +154,7 @@ document.getElementById('addsp').addEventListener('submit', function(event) {
                   );
                 });
             } else {
+              //Nếu chưa tồn tại thì tạo mới
               set(ref(database, "Giohang/" + uidProfile + "/" + newPostKey), {
                 tensanpham: ProductData.tensanpham,
                 dungluong: selectedCapacity,
@@ -178,7 +177,6 @@ document.getElementById('addsp').addEventListener('submit', function(event) {
                     } else {
                     console.error("Không có giá trị productId để lưu vào localStorage.");
                     }
-                
                 })
                 .catch((error) => {
                   console.error(

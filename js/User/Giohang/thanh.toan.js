@@ -177,7 +177,7 @@ document.getElementById("tieptuc").addEventListener("submit", function() {
     // Chuyển đổi giá trị thành float
     const tongtienFloat = parseFloat(tongtienWithoutDot);
 
-      // Tạo một khóa ngẫu nhiên gồm 10 ký tự
+    // Tạo một khóa ngẫu nhiên gồm 10 ký tự để làm mã đơn hàng
   const randomKey = generateRandomKey(10);
   let last_login_time = new Date();
   let formattedDateTime = last_login_time.toLocaleString('vi-VN', {
@@ -202,7 +202,9 @@ document.getElementById("tieptuc").addEventListener("submit", function() {
         tinhtrang: "Chờ xác nhận",
     })
     .then(() => {
+      //Thông báo
         AlertTieptheo();
+        //Xoá sản phẩm này trong giỏ hàng bởi đã đặt hàng
         DeleteGiohang();
         setTimeout(function() {
             window.location.href = "auth.donhang.html"; // Thay đổi URL này thành URL của trang bạn muốn chuyển đến
