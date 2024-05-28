@@ -143,7 +143,7 @@ function AlertSuccess(tensanpham){
   });
   Toast.fire({
     icon: "success",
-    title: "Cập nhật sản phẩm '" + tensanpham + "' thành công!",
+    title: "Thêm sản phẩm '" + tensanpham + "' thành công!",
     color: "#716add",
   });
 }

@@ -65,19 +65,11 @@ import {
     const td3 = document.createElement("td");
     const td4 = document.createElement("td");
   
-  // Tạo nút xoá
-  // let deleteBtn = document.createElement("button");
-  // deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
-  // deleteBtn.setAttribute("data-name", iphone.idsanpham); // Lưu trữ tên của sản phẩm
-  // deleteBtn.addEventListener("click", deleteSanPham);
-  // deleteBtn.classList.add("btn", "btn-danger", "btn-sm", "mx-2");
-  
   let deleteBtn = document.createElement("button");
-  deleteBtn.innerHTML = '<i class="fas fa-trash"></i>';
+  deleteBtn.innerHTML = '<i class="fas fa-trash"></i> Xoá';
   deleteBtn.classList.add("btn", "btn-danger", "btn-sm", "mx-2");
   deleteBtn.addEventListener("click", function () {
-
-    // confirmDelete(productId) // Gọi hàm hiển thị cảnh báo xác nhận xoá
+    AlertConfirm(IDDanhmuc, tr);
   });
   
     let editBtn = document.createElement("button");
@@ -98,13 +90,17 @@ import {
     //     console.error("Không có giá trị productId để lưu vào localStorage.");
     // }
     });
-  
+    let XemthemBtn = document.createElement("button");
+    XemthemBtn.innerHTML = '<i class="fas fa-edit"></i> Xem thêm';
+    XemthemBtn.classList.add("btn", "btn-primary", "btn-sm");
+
     // Thiết lập nội dung cho các ô <td>
     td1.textContent = ++stdNo;
     td2.textContent = IDDanhmuc;
     td3.textContent = thongtin.Tendanhmuc;
-    td4.appendChild(editBtn);
+    // td4.appendChild(editBtn);
     td4.appendChild(deleteBtn);
+    td4.appendChild(XemthemBtn);
   
     // Thêm các ô <td> vào hàng
     tr.appendChild(td1);
@@ -116,37 +112,22 @@ import {
   }
   GetAll();
   
-  // Hàm xác nhận xoá sản phẩm
-  function confirmDelete(productId) {
-    let confirmation = window.confirm("Bạn có chắc chắn muốn xoá sản phẩm này?");
-    if (confirmation) {
-      deleteProduct(productId); // Nếu chọn "OK", gọi hàm để xoá sản phẩm
-    } else {
-      console.log("Người dùng đã hủy bỏ thao tác xoá sản phẩm."); // Nếu chọn "Cancel", không làm gì cả
-    }
-  }
-  
   // Hàm xoá sản phẩm
-  function deleteProduct(productId) {
-    let productRef = ref(database, "sanpham/" + productId);
-    // Xoá hàng chứa sản phẩm có ID tương ứng
-    const rowToDelete = event.target.closest("tr");
-    rowToDelete.remove();
+  function deleteProduct(IDDanhmuc, tr) {
+    let productRef = ref(database, "Danhmuc/" + IDDanhmuc);
     remove(productRef)
       .then(() => {
-        AlertSuccess(productId);
-        // Sau khi xoá thành công, cập nhật giao diện người dùng
-        // alert("Đã xoá sản phẩm có id: '" + productId + " '");
+        tr.remove();
       })
       .catch((error) => {
         alert("Lỗi khi xoá sản phẩm:", error);
       });
   }
   
-  function AlertConfirm(productId){
+  function AlertConfirm(IDDanhmuc, tr){
     Swal.fire({
       title: "Are you sure?",
-      text: "Bạn có chắc xoá sản phẩm này!",
+      text: "Bạn có chắc xoá danh mục này!",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -156,30 +137,15 @@ import {
       if (result.isConfirmed) {
         Swal.fire({
           title: "Xoá thành công!",
-          text: "Sản phẩm này đã được xoá thành công.",
+          text: "Danh mục này đã được xoá thành công.",
           icon: "success"
         });
-        deleteProduct(productId);
+        deleteProduct(IDDanhmuc, tr);
       }
     });
   }
   function AlertSuccess(productId){
-    const Toast = Swal.mixin({
-      toast: true,
-      position: "top-end",
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        // toast.onmouseenter = Swal.stopTimer;
-        toast.onmouseleave = Swal.resumeTimer;
-      }
-    });
-    Toast.fire({
-      icon: "success",
-      title: "Sản phẩm '" +productId+"' đã được xoá thành công!",
-      color: "#716add",
-    });
+
   }
   function editSanPham(event) {
     let productId = event.target.getAttribute("data-id");
