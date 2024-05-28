@@ -9,6 +9,32 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <style>
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 10px;
+      padding: 10px;
+      justify-content: center;
+    }
+    .grid-item {
+      background-color: #f0f0f0;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    .grid-item img {
+      max-width: 80px;
+      max-height: 90px;
+    }
+    .spansmall{
+      font-size: 10px;
+    }
+    .gachchan{
+      text-decoration: line-through;
+    }
+  </style>
   <link rel="stylesheet" href="css/admin.css" />
   <!-- Sweetalert2 -->
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -190,7 +216,7 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                           <form action="" id="addweb" class="bg-dark text-light p-3">
                             <div class="row">
                               <div class="col">
@@ -214,27 +240,24 @@
                               </div>
                             </div>
                           </form>
+                          <h2>ID sản phẩm đã thêm <a class="btn btn-primary btn-sm" href="auth.admin.addiphone.html">Thêm mới</a></h2>
+                          <table class="table table-info table-sm table-hover">
+                            <thead class="thead-dark text-light">
+                              <th class="col">STT</th>
+                              <th>ID</th>
+                              <th>Picture</th>
+                              <th>Thao tác</th>
+                              <tbody id="showid"></tbody>
+                            </thead>
+                          </table>
                         </div>
-                        <div class="col-md-6">
-                          <h2 class="container mt-3">Form Web & id Grid</h2>
+                        <div class="col-md-8">
+                          <h2 class="container">Hiển thị trên web <a class="btn btn-primary btn-sm" href="auth.admin.qlyiphone.html">Sửa đổi</a></h2>
                           <div class="container mt-3">
-                            <table>
-                              <tbody id="showgrid"></tbody>
-                            </table>
+                            <div class="grid-container" id="showgrid"></div>
                           </div>
                         </div>
                       </div>
-                    <h2>ID sản phẩm đã thêm</h2>
-                    <div class="row">
-                        <div class="col-md-9">
-                            <table>
-                                <tbody id="showid"></tbody>
-                            </table>
-                        </div>
-                        <div class="col">
-                            <a class="btn btn-primary" href="auth.admin.addiphone.html">Thêm mới</a>
-                        </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -254,8 +277,8 @@
 <script type="module" src="js/checklogin.js"></script>
 <script type="module" src="js/checklogout&delete.js"></script>
 
-<script type="module" src="js/insert/get.id.iphone.to.insert.js"></script>
-<script type="module" src="js/insert/show.iphone.in.web.js"></script>
+<script type="module" src="js/Admin/Qlyiphone/ShowOnWeb/get.id.iphone.js"></script>
+<script type="module" src="js/Admin/Qlyiphone/ShowOnWeb/insert.iphone.into.web.js"></script>
 <!-- Bảo vệ trang admin không cho user truy cập -->
 <script type="module" src="js/Admin/Protect/protect.js"></script>
 </html>
