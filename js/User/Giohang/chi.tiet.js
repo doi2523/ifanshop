@@ -84,6 +84,8 @@ function ImportChiTiet(){
       // ClearLocal();
 
       const thongTinDiv = document.getElementById('thongtin');
+  // Tính phần trăm giảm giá
+  const giamGia = ((1 - value_giasale / value_giagoc) * 100).toFixed(0);
 
       thongTinDiv.innerHTML = `
           <div class="border-thongtin float-center border">
@@ -94,7 +96,7 @@ function ImportChiTiet(){
             <p>Tên: <span class="text-blue">${value_tensp}</span></p>
             <p>Dung lượng: <span class="text-blue">${value_dungluong}</span></p>
             <p>Giá gốc: <span class="text-blue giagoc">${formatPrice(value_giagoc)+ "₫"}</span></p>
-            <p>Giá sale: <span class="text-blue">${formatPrice(value_giasale)+ "₫"}</span></p>
+            <p>Giá sale: <span class="text-blue">${formatPrice(value_giasale)+ "₫"}</span> <span class="phan-tram">    -${giamGia}%</span></p>
           </div>
       `;
       

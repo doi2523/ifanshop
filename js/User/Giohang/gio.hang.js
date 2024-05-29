@@ -95,9 +95,10 @@ function displayGiohang(Giohang, newPostKey) {
         ${Giohang.tensanpham}<br>
         Màu: ${Giohang.color}<br>
         Dung lượng: ${Giohang.dungluong}<br>
-        Phương thức: ${Giohang.payment}
-    `;
+        Phương thức: ${Giohang.payment}<br>
 
+    `;
+    // <button id="edit-giohang" class="btn btn-primary btn-sm">Sửa</button>
     // Chuyển giá trị số sang kiểu Number và định dạng với dấu chấm mỗi 3 chữ số
     const formattedGiaSale = parseFloat(Giohang.giasale).toLocaleString();
     // Gán giá trị đã định dạng vào ô td3
@@ -142,7 +143,17 @@ function displayGiohang(Giohang, newPostKey) {
         let currentQuantity = parseInt(quantityInput.value);
         quantityInput.value = currentQuantity + 1;
     });
+    // Lấy tham chiếu đến nút "Sửa"
+    // const editButton = document.getElementById("edit-giohang");
 
+    // // Thêm sự kiện "click" vào nút "Sửa"
+    // editButton.addEventListener("click", function() {
+    //     // Thực hiện các hành động bạn muốn khi nút "Sửa" được nhấp vào
+    //     // Ví dụ: mở một cửa sổ sửa đổi, chuyển hướng đến trang sửa đổi, vv.
+    //     // Ở đây bạn có thể gọi một hàm hoặc thực hiện các thao tác trực tiếp.
+    //     // Ví dụ:
+    //     alert("Nút 'Sửa' đã được nhấp vào!");
+    // });
     // Thêm sự kiện cho nút xoá
     document.getElementById(`delete-${newPostKey}`).addEventListener('click', function() {
         // Xử lý việc xóa đơn hàng tại đây

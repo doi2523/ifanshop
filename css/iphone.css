@@ -845,3 +845,15 @@ a {
 
 
 
+.item {
+  /* CSS mặc định cho div */
+  transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu nền */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0); /* Không có shadow ban đầu */
+}
+
+.item:hover {
+  /* CSS khi người dùng di chuột vào */
+  background-color: #c2abfc; /* Màu nền khi di chuột vào */
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow khi di chuột vào */
+}
