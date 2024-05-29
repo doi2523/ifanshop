@@ -230,7 +230,8 @@ function updateTotalAmount() {
   rows.forEach(row => {
       const quantity = parseInt(row.querySelector(".quantity-input").value);
       const giaSaleText = row.querySelector("td:nth-child(3)").textContent;
-      const giaSale = parseFloat(giaSaleText.replace("₫", "").replace(/\./g, "").replace(",", ""));
+      console.log(giaSaleText)
+      const giaSale = parseFloat(giaSaleText.replace(/[^\d]/g, ''));
       
       totalAmount += quantity * giaSale;
   });
