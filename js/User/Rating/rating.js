@@ -10,13 +10,11 @@ stars.forEach((star) => {
     // Xử lý logic tại đây, ví dụ: gửi giá trị đánh giá lên máy chủ.
   });
 });
-
 function resetStars() {
   stars.forEach((star) => {
     star.classList.remove("selected");
   });
 }
-
 function highlightStars(value) {
   for (let i = stars.length - 1; i >= stars.length - value; i--) {
     stars[i].classList.add("selected");

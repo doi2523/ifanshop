@@ -1,0 +1,234 @@
+.video-responsive {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 tỷ lệ khung hình */
+    height: 0;
+    overflow: hidden;
+}
+.video-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+
+.slider {
+    width: 300px;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+.slider img {
+  max-width: 300px; /* Ensure images do not exceed their container */
+  max-height: 300px;
+  object-fit: cover;
+}
+
+.btn-slide {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    max-width: 30px;
+    max-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-slide.prev {
+    left: 10px;
+}
+
+.btn-slide.next {
+    right: 10px;
+}
+
+.slider2 {
+  width: 300px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.border-thongtin{
+  border: #333;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.border-thongtin img{
+  max-width: 190px;
+
+}
+.text-blue{
+  color: #007bff;
+  text-align: left;
+}
+.text-blue.giagoc{
+  text-decoration: line-through;
+}
+
+/* styles.css */
+.form-popup {
+    display: none;
+    position: absolute;
+    background-color: #fefefe;
+    border: 1px solid #ccc;
+    padding: 20px;
+    max-width: 300px;
+    z-index: 9;
+    /* margin-top: 800px; */
+  }
+  .form-container input[type=text] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    border: none;
+    background: #f1f1f1;
+  }
+  .form-container input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+  }
+  .close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+  }
+  .item {
+    /* CSS mặc định cho div */
+    transition: background-color 0.3s ease; /* Hiệu ứng chuyển đổi màu nền */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0); /* Không có shadow ban đầu */
+  }
+  
+  .item:hover {
+    /* CSS khi người dùng di chuột vào */
+    background-color: #c2abfc; /* Màu nền khi di chuột vào */
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow khi di chuột vào */
+  }
+  .visually-hidden {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+  }
+  .color-buttons {
+    display: flex;
+  }
+  
+  .color-buttons input[type="radio"] {
+    display: none;
+  }
+  
+  .btn-color {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; /* Tạo hình tròn */
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .black {
+    background-color: black;
+  }
+  
+  .white {
+    background-color: white;
+    border: 1px solid black; /* Viền cho nút màu trắng */
+  }
+  
+  .gold {
+    background-color: gold;
+  }
+  .pink {
+    background-color: pink;
+  }
+  .btn-color {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; /* Tạo hình tròn */
+    margin-right: 10px;
+    cursor: pointer;
+    transition: box-shadow 0.3s; /* Tạo hiệu ứng chuyển động cho sự thay đổi của box-shadow */
+  }
+  
+  /* Tạo viền sáng khi được chọn */
+  .btn-check:checked + .btn-color {
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.5); /* Viền sáng */
+  }
+  
+  /* CSS để tạo ra hiệu ứng khi nút được chọn */
+  .btn-outline-primary.default {
+    border: 2px solid #007bff; /* Màu viền mặc định */
+    color: #007bff; /* Màu chữ mặc định */
+  }
+  .btn-outline-primary:hover{
+    color: #fff;
+  }
+  /* Định dạng khi nút được chọn */
+  .btn-check:checked + .btn-outline-primary.default {
+    border-color: #28a745; /* Màu viền khi được chọn */
+    background-color: #28a745; /* Màu nền khi được chọn */
+    color: white; /* Màu chữ khi được chọn */
+  }
+  .size{
+    font-size: 17px;
+  }
+  .size1{
+    font-size: 15px;
+  }
+  .red{
+    color: red;
+    font-weight: bold;
+  }
+  #green-check {
+    color: green; /* Đổi màu của icon thành màu xanh */
+  }
+  @media (max-width: 900px) {
+    .slider {
+        width: 100%;
+    }
+
+    .slider img {
+        max-width: 50%;
+    }
+}
+
+@media (max-width: 600px) {
+    .slider img {
+        max-width: 100%;
+    }
+
+    button {
+        padding: 5px;
+    }
+}

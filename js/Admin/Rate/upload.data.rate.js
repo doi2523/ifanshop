@@ -90,8 +90,11 @@ function AddRate() {
       } catch (error) {
         console.error("Lỗi khi xoá key 'imageUrl' từ localStorage:", error);
       }
-      console.log("OK");
-      alert("Thêm thành công!");
+      Swal.fire({
+        title: "Success!",
+        text: "Đánh giá thành công.",
+        icon: "success"
+      });
       resetInputs();
     })
     .catch((error) => {

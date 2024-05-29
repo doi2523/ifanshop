@@ -143,18 +143,18 @@ function displayDonhang(MaDonhang, time, soluongmua, tongtien, thongtindonhang, 
         // Gắn sự kiện click vào hàng
         tr.addEventListener("click", function() {
             // In ra tất cả dữ liệu trong hàng
-            console.log("Mã đơn hàng:", MaDonhang);
-            console.log("Thời gian đặt:", time);
-            console.log("Số lượng mua:", soluongmua);
-            console.log("Tổng tiền:", tongtien);
-            thongtindonhang.forEach((item, index) => {
-                console.log("Sản phẩm", index + 1);
-                console.log("Tên sản phẩm:", item.tensanpham);
-                console.log("Màu:", item.color);
-                console.log("Dung lượng:", item.dungluong);
-                console.log("Số lượng:", item.soluong);
-                console.log("Phương thức thanh toán:", item.payment);
-            });
+            // console.log("Mã đơn hàng:", MaDonhang);
+            // console.log("Thời gian đặt:", time);
+            // console.log("Số lượng mua:", soluongmua);
+            // console.log("Tổng tiền:", tongtien);
+            // thongtindonhang.forEach((item, index) => {
+            //     console.log("Sản phẩm", index + 1);
+            //     console.log("Tên sản phẩm:", item.tensanpham);
+            //     console.log("Màu:", item.color);
+            //     console.log("Dung lượng:", item.dungluong);
+            //     console.log("Số lượng:", item.soluong);
+            //     console.log("Phương thức thanh toán:", item.payment);
+            // });
             let color;
             switch (tinhtrang) {
                 case "Đã xác nhận":

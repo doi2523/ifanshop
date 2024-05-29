@@ -1,5 +1,4 @@
-
-  // Import the functions you need from the SDKs you need
+// Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-analytics.js";
   import { getDatabase, set, ref,push, onValue, get, child, update, onChildAdded } from "https://www.gstatic.com/firebasejs/10.10.0/firebase-database.js";
@@ -25,31 +24,23 @@
   const database = getDatabase(app);
     const auth = getAuth();
 
+// Đọc giá trị từ cookie
+const userInfoStringFromCookie = Cookies.get('userInfo');
+// Chuyển chuỗi JSON thành đối tượng JavaScript
+if (userInfoStringFromCookie) {
+  const userInfoFromCookie = JSON.parse(userInfoStringFromCookie);
 
-function getCookie(name) {
-    const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
-    return cookieValue ? cookieValue.pop() : '';
-}
-
-// Sử dụng hàm để lấy giá trị từ cookies
-const uidProfile = getCookie("id_profile")
-const emailProfile = getCookie("email_profile");
-const hotenProfile = getCookie("hoten_profile");
-const passwordProfile = getCookie("password_profile");
-const sdtProfile = getCookie("sdt_profile");
-const usernameProfile = getCookie("username_profile");
-const filenameProfile = getCookie("filename_profile");
-const URLProfile = getCookie("url_profile");
-
-// Sử dụng các giá trị đã lấy được từ cookies
-console.log(uidProfile)
-console.log(emailProfile);
-console.log(hotenProfile);
-console.log(passwordProfile);
-console.log(sdtProfile);
-console.log(usernameProfile);
-console.log(filenameProfile);
-console.log(URLProfile)
+  const uidProfile = userInfoFromCookie.id_profile; // ID
+  const emailProfile = userInfoFromCookie.email_profile; //Email
+  const hotenProfile = userInfoFromCookie.hoten_profile; //Họ tên
+  const passwordProfile = userInfoFromCookie.password_profile; //Password
+  const sdtProfile = userInfoFromCookie.sdt_profile; //Số điện thoại
+  const usernameProfile = userInfoFromCookie.username_profile; //Username
+  const URLProfile = userInfoFromCookie.url_profile; //Link ảnh
+  const RoleProfile = userInfoFromCookie.role; //Vai trò người dùng
+  const Status = userInfoFromCookie.userstatus; //Trạng thái
+  const TimeLogin = userInfoFromCookie.last_login; //Time đăng nhập
+  const TimeLogout = userInfoFromCookie.last_logout; //Time đăng xuất
 
 function GetData() {
     const database = getDatabase();
@@ -95,29 +86,27 @@ function displayMessage(listdata) {
 
     showdata.appendChild(div);
     div.classList.add('message-item');
-
     // Lấy số sao từ dữ liệu
     const rating = listdata.star;
-
     // Kiểm tra nếu có số sao
     if (rating !== undefined) {
         // Lấy thẻ div có id là "starContainer"
         const starContainer = div.querySelector("#starContainer");
-
         // Tạo và chèn các thẻ sao vào trong thẻ div
         for (let i = 0; i < 5; i++) {
             const starElement = document.createElement("i");
             starElement.classList.add("fas", "fa-star", "text-warning");
-
             // Kiểm tra xem sao nào phải tối màu
             if (i >= rating) {
                 starElement.classList.remove("fas");
                 starElement.classList.add("far");
             }
-
             starContainer.appendChild(starElement);
         }
     }
 }
 
 GetData();
+} else {
+    console.log('Cookies không tồn tại hoặc đã bị xoá?!');
+}

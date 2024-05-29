@@ -136,9 +136,6 @@
     font-size: 15px;
     /* Điều chỉnh kích thước chữ tùy thích */
   }
-  .card {
-    margin-top: 20px;
-  }
 
   .chat-container {
     max-width: 600px;

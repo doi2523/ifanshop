@@ -19,29 +19,13 @@
   <!-- Js Cookies -->
   <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
   <!-- Css -->
-  <link rel="stylesheet" href="css/iphone.css">
+  <!-- <link rel="stylesheet" href="css/iphone.css"> -->
   <link rel="stylesheet" type="text/css" href="style.css" />
   <link rel="stylesheet" href="css/animate.css">
-  <link rel="stylesheet" href="css/thecart.css">
   <link rel="stylesheet" href="css/chatonline.css">
+  <link rel="stylesheet" href="css/chitiet.css">
   <!-- Font Awesome -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    .video-responsive {
-        position: relative;
-        padding-bottom: 56.25%; /* 16:9 tỷ lệ khung hình */
-        height: 0;
-        overflow: hidden;
-    }
-    .video-responsive iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border: 0;
-    }
-</style>
 </head>
 
 <body class="body-style">
@@ -90,7 +74,25 @@
               <div class="video-responsive">
                 <iframe src="https://www.youtube.com/embed/HsxjCOuIFAc?si=h49URaGfG8a5YLGe&amp;controls=0" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
-                <!-- <img src="images/0009181_iphone-14-128gb_240.png" alt=""> -->
+            <div class="row mt-3">
+              <div class="col-md-6">
+                <div class="slider">
+                  <div class="slider-wrapper">
+                      <img src="https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/Chitiet%2F0019936_iphone-15-plus-128gb_550.jpeg?alt=media&token=64d193a6-cf6f-43f3-a2c6-1e853269a09c" alt="">
+                      <img src="https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/Chitiet%2F0019938_iphone-15-plus-128gb_550.jpeg?alt=media&token=a29006ed-4bf2-4c43-bd2a-474306d0e446" alt="">
+                      <img src="https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/Chitiet%2F0019933_iphone-15-plus-128gb_550.jpeg?alt=media&token=44cbe715-b8b7-479d-9673-9248bf6e8c8a" alt="">
+                      <img src="https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/Chitiet%2F0019934_iphone-15-plus-128gb_550.jpeg?alt=media&token=80a2c9ac-fdb3-4ad6-927e-76cfbccc3316" alt="">
+                      <img src="https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/Chitiet%2F0019935_iphone-15-plus-128gb_550.jpeg?alt=media&token=3c08bba7-7059-4d5e-bbce-91e665819cdc" alt="">
+                      <img src="https://firebasestorage.googleapis.com/v0/b/user-inifanshop.appspot.com/o/Chitiet%2F0019937_iphone-15-plus-128gb_550.jpeg?alt=media&token=39f3ea19-e680-4a2c-9f78-a42b36cb93c0" alt="">
+                  </div>
+                  <button class="btn-slide prev">❮</button>
+                  <button class="btn-slide next">❯</button>
+              </div>
+              </div>
+              <div class="col-md-6">
+                <div id="thongtin"></div>
+              </div>
+            </div>
             </div>
             <div class="col-md-6">
                 <form action="" id="addsp">
@@ -114,7 +116,7 @@
                         const capacityInputs = document.querySelectorAll('input[name="capacity"]');
                         capacityInputs.forEach(input => {
                             input.addEventListener('change', function() {
-                                console.log("Giá trị đã chọn:", this.value);
+                                // console.log("Giá trị đã chọn:", this.value);
                             });
                         });
                     </script>
@@ -137,7 +139,7 @@
                         
                         colorInputs.forEach(input => {
                             input.addEventListener('change', function() {
-                                console.log("Giá trị đã chọn:", this.value);
+                                // console.log("Giá trị đã chọn:", this.value);
                             });
                         });
                         const selectedColorSpan = document.getElementById('selected-color');
@@ -316,19 +318,18 @@
         </div>
       </div>
     </div>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-      <!-- scrollIt js -->
-      <script src="js/scrollIt.min.js"></script>
-      <script src="js/wow.min.js"></script>
-      <script src="js/script.js"></script>
-
-      <script type="module" src="js/checklogin.js"></script>
-      <script type="module" src="js/message.online.js"></script>
-      <script type="module" src="js/User/Giohang/chi.tiet.js"></script>
-
 </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <!-- scrollIt js -->
+  <script src="js/scrollIt.min.js"></script>
+  <script src="js/wow.min.js"></script>
+  <script src="js/script.js"></script>
 
+  <script type="module" src="js/checklogin.js"></script>
+  <script type="module" src="js/message.online.js"></script>
+
+  <script type="module" src="js/User/Giohang/chi.tiet.js"></script>
 </html>

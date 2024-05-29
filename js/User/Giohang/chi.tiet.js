@@ -81,7 +81,23 @@ function ImportChiTiet(){
       giagoc.textContent = formatPrice(value_giagoc)+ "₫";
       giasale.textContent = formatPrice(value_giasale)+ "₫";
       // Xoá idsanpham_sua từ localStorage
-    //   ClearLocal();
+      // ClearLocal();
+
+      const thongTinDiv = document.getElementById('thongtin');
+
+      thongTinDiv.innerHTML = `
+          <div class="border-thongtin float-center border">
+              <div class="d-flex float-center justify-content-center">
+              <img src="${value_url}" alt="">
+              </div>
+          <hr>
+            <p>Tên: <span class="text-blue">${value_tensp}</span></p>
+            <p>Dung lượng: <span class="text-blue">${value_dungluong}</span></p>
+            <p>Giá gốc: <span class="text-blue giagoc">${formatPrice(value_giagoc)+ "₫"}</span></p>
+            <p>Giá sale: <span class="text-blue">${formatPrice(value_giasale)+ "₫"}</span></p>
+          </div>
+      `;
+      
     }
   });
 }
@@ -102,7 +118,7 @@ document.getElementById('addsp').addEventListener('submit', function(event) {
             selectedCapacity = input.value;
         }
     });
-    console.log('Dung lượng đã chọn:', selectedCapacity);
+    // console.log('Dung lượng đã chọn:', selectedCapacity);
     // Lấy giá trị của màu sắc
     const colorInputs = document.querySelectorAll('input[name="color"]');
     let selectedColor = '';
@@ -111,7 +127,7 @@ document.getElementById('addsp').addEventListener('submit', function(event) {
             selectedColor = input.value;
         }
     });
-    console.log('Màu sắc đã chọn:', selectedColor);
+    // console.log('Màu sắc đã chọn:', selectedColor);
 
     const idsanpham = localStorage.getItem("idsanpham");
     const databaseRef = ref(database);
@@ -210,22 +226,66 @@ function AlertGioHang(ten){
       title: "Thêm '"+ten+"' vào giỏ hàng thành công!",
       color: "#716add",
     });
-  }
-function AlertSuccess(){
-    const Toast = Swal.mixin({
-      toast: true,
-      position: "top-end",
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-      didOpen: (toast) => {
-        // toast.onmouseenter = Swal.stopTimer;
-        toast.onmouseleave = Swal.resumeTimer;
+}
+
+  const slider = document.querySelector('.slider');
+  const sliderWrapper = document.querySelector('.slider-wrapper');
+  const images = document.querySelectorAll('.slider img');
+  let totalImages = images.length;
+  let currentIndex = 1; // Bắt đầu từ hình ảnh đầu tiên đã nhân bản
+  let imageWidth = 300; // Chiều rộng của mỗi hình ảnh
+  
+  // Nhân bản hình ảnh đầu và cuối và thêm chúng vào slider
+  const firstClone = images[0].cloneNode(true);
+  const lastClone = images[totalImages - 1].cloneNode(true);
+  sliderWrapper.appendChild(firstClone);
+  sliderWrapper.insertBefore(lastClone, images[0]);
+  
+  // Cập nhật totalImages để bao gồm cả các hình ảnh đã nhân bản
+  totalImages += 2;
+  
+  window.addEventListener('resize', () => {
+      imageWidth = images[0].clientWidth;
+      updateSlide();
+  });
+  
+  document.querySelector('.next').addEventListener('click', () => {
+      currentIndex++;
+      if (currentIndex >= totalImages) {
+          sliderWrapper.style.transition = 'none'; // Vô hiệu hóa transition để nhảy ngay lập tức
+          currentIndex = 1; // Nhảy đến hình ảnh đầu tiên đã nhân bản
+          sliderWrapper.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
+      } else {
+          updateSlide();
       }
-    });
-    Toast.fire({
-      icon: "success",
-      title: "Thêm sản phẩm vào giỏ hàng thành công!",
-      color: "#716add",
-    });
+  });
+  
+  document.querySelector('.prev').addEventListener('click', () => {
+      currentIndex--;
+      if (currentIndex <= 0) {
+          sliderWrapper.style.transition = 'none'; // Vô hiệu hóa transition để nhảy ngay lập tức
+          currentIndex = totalImages - 2; // Nhảy đến hình ảnh cuối cùng đã nhân bản
+          sliderWrapper.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
+      } else {
+          updateSlide();
+      }
+  });
+  
+  function updateSlide() {
+      sliderWrapper.style.transition = 'transform 0.5s ease';
+      sliderWrapper.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
   }
+  
+  function autoSlide() {
+      currentIndex++;
+      if (currentIndex >= totalImages) {
+          sliderWrapper.style.transition = 'none'; // Vô hiệu hóa transition để nhảy ngay lập tức
+          currentIndex = 1; // Nhảy đến hình ảnh đầu tiên đã nhân bản
+          sliderWrapper.style.transform = `translateX(${-currentIndex * imageWidth}px)`;
+      } else {
+          updateSlide();
+      }
+  }
+  
+  setInterval(autoSlide, 3000); // Thay đổi hình ảnh mỗi 3 giây
+  
