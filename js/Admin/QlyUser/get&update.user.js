@@ -76,7 +76,7 @@ import {
                 ClearLocal();
                 AlertExit();
                 setTimeout(() => {
-                    window.location.href = "auth.qlyaccount.html";
+                    window.location.href = "auth.admin.qlyaccount.html";
                 }, 3000); // Redirect after 3 seconds
             });
             document.getElementById('reload').addEventListener('click', () => {
