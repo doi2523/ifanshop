@@ -95,6 +95,7 @@ function ShowOnWeb(listiphone) {
     div.classList.remove("hovered");
   });
   const formatgiagoc = listiphone.giagoc;
+  //Format gia tien vd 43.000.000 thanh 4300000
   const giagoc = parseFloat(
     formatgiagoc.replace(".", "").replace(".", "").replace(".", "")
   );
