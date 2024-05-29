@@ -238,6 +238,7 @@ function updateTotalAmount() {
   
   const formattedTotalAmount = totalAmount.toLocaleString();
   const tongtienSpan = document.getElementById("tongtien");
+  console.log(formattedTotalAmount)
   tongtienSpan.textContent = formattedTotalAmount;
 }
 
