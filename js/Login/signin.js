@@ -80,6 +80,7 @@ document.getElementById('signin').addEventListener('submit', function(event) {
   
   const email = document.getElementById("login-email").value;
   const password = document.getElementById("login-password").value;
+  
   deleteAllCookies();
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
