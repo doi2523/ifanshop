@@ -109,12 +109,8 @@ function ShowOnWeb(listiphone) {
   const giasalee = listiphone.giasale;
   const giagocc = listiphone.giagoc;
   // Định dạng giá trị theo chuỗi có dấu chấm ngăn cách mỗi 3 chữ số
-  const formattedGiaSale = giasalee
-    .toString()
-    .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  const formattedGiaGoc = giagocc
-    .toString()
-    .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  const formattedGiaSale = giasalee.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  const formattedGiaGoc = giagocc.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
   div.innerHTML = `
     <div class="grid-item">

@@ -111,15 +111,20 @@ document.getElementById('signin').addEventListener('submit', function(event) {
 
                 document.getElementById('loginMessage').innerText = 'Đăng nhập thành công! Vui lòng đợi!';
                 document.getElementById('loginMessage').style.color = 'green';
+
                 SavaToCookies();
 
                 if (userRole === 'admin') {
+
                   AlertSuccessAdmin();
+
                   setTimeout(() => {
                     window.location.href = 'auth.admin.html';
                   }, 3000);
                 } else {
+
                   AlertSuccess();
+
                   setTimeout(() => {
                     window.location.href = 'auth.index.html';
                   }, 3000);
@@ -145,6 +150,7 @@ document.getElementById('signin').addEventListener('submit', function(event) {
       });
       document.getElementById('loginMessage').innerText = 'Tài khoản hoặc mật khẩu không đúng!';
       document.getElementById('loginMessage').style.color = 'red';
+      
       console.error('Lỗi đăng nhập:', errorMessage);
     });
 });

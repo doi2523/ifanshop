@@ -34,7 +34,7 @@ document.getElementById('signup').addEventListener('submit', function(event) {
     var email = document.getElementById("signup-email").value;
     var password = document.getElementById("signup-password").value;
 
-    createUserWithEmailAndPassword(auth, email, password)
+  createUserWithEmailAndPassword(auth, email, password)
   .then((userCredential) => {
     // Signed up 
     const user = userCredential.user;
@@ -55,10 +55,11 @@ document.getElementById('signup').addEventListener('submit', function(event) {
 
     document.getElementById('signupMessage').innerText = 'Đăng ký thành công! Vui lòng đăng nhập!';
     signupMessage.style.color = 'green';
-    AlertSuccess()
+
+    AlertSuccess();
+
     setTimeout(function() {
       window.location.href = 'login.html';
-            // window.location.reload();
     }, 3000);
     // ...
   })
@@ -68,8 +69,10 @@ document.getElementById('signup').addEventListener('submit', function(event) {
     // ..
     // alert('Đăng ký thất bại Email đã được sử dụng!');
     AlertError();
+
     document.getElementById('signupMessage').innerText = 'Email chưa chính xác hoặc đã được sử dụng!';
     signupMessage.style.color = 'red';
+    
   });
 });
 function AlertSuccess(){
