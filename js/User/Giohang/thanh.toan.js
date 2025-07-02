@@ -396,7 +396,7 @@ function AlertLoi(message) {
   });
   Toast.fire({
     icon: "error",
-    title: "Mặt hàng này đã hết vui lòng quay lại sau!",
+    title: "Lỗi!",
     text: message,
     color: "#e74c3c",
   });
